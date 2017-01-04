@@ -11,9 +11,11 @@
  * ReportsController class
  *
  */
-use App\Http\Controllers\MooredatabaseBaseController;
+namespace App\Http\Controllers;
 
-class ReportsController extends MooredatabaseBaseController {
+use App\Http\Controllers\MyBaseController;
+
+class ReportsController extends MyBaseController {
 
 	/**
 	 * Clear memcached
@@ -31,7 +33,7 @@ class ReportsController extends MooredatabaseBaseController {
 	 * @return View
 	 */
 	public function speciesByMonth() {
-		return View::make('reports.speciesByMonth');
+		return view('reports.speciesByMonth');
 	}
 
 	/**
@@ -40,7 +42,7 @@ class ReportsController extends MooredatabaseBaseController {
 	 * @return View
 	 */
 	public function speciesByYear() {
-		return View::make('reports.speciesByYear');
+		return view('reports.speciesByYear');
 	}
 
 	/**
@@ -49,7 +51,7 @@ class ReportsController extends MooredatabaseBaseController {
 	 * @return View
 	 */
 	public function speciesByOrder() {
-		return View::make('reports.speciesByOrder');
+		return view('reports.speciesByOrder');
 	}
 
 	/**
@@ -59,7 +61,7 @@ class ReportsController extends MooredatabaseBaseController {
 	 * @return View
 	 */
 	public function speciesForMonth($monthNumber) {
-		return View::make('reports.speciesForMonth')->with('monthNumber', $monthNumber);
+		return view('reports.speciesForMonth')->with('monthNumber', $monthNumber);
 	}
 
 	/**
@@ -69,7 +71,7 @@ class ReportsController extends MooredatabaseBaseController {
 	 * @return View
 	 */
 	public function speciesForYear($year) {
-		return View::make('reports.speciesForYear')->with('year', $year);
+		return view('reports.speciesForYear')->with('year', $year);
 	}
 
 	/**
@@ -79,7 +81,7 @@ class ReportsController extends MooredatabaseBaseController {
 	 * @return View
 	 */
 	public function speciesDetail($speciesId) {
-		return View::make('reports.speciesDetail')->with('speciesId', $speciesId);
+		return view('reports.speciesDetail')->with('speciesId', $speciesId);
 	}
 
 	/**
@@ -89,7 +91,7 @@ class ReportsController extends MooredatabaseBaseController {
 	 * @return View
 	 */
 	public function speciesForOrder($orderId) {
-		return View::make('reports.speciesForOrder')->with('orderId', $orderId);
+		return view('reports.speciesForOrder')->with('orderId', $orderId);
 	}
 
 	/**
@@ -98,7 +100,7 @@ class ReportsController extends MooredatabaseBaseController {
 	 * @return View
 	 */
 	public function speciesAll() {
-		return View::make('reports.speciesAll');
+		return view('reports.speciesAll');
 	}
 
 	/**
@@ -107,7 +109,7 @@ class ReportsController extends MooredatabaseBaseController {
 	 * @return View
 	 */
 	public function searchAll() {
-		return View::make('reports.searchAll');
+		return view('reports.searchAll');
 	}
 
 	/**
@@ -116,7 +118,7 @@ class ReportsController extends MooredatabaseBaseController {
 	 * @return View
 	 */
 	public function speciesByLocation() {
-		return View::make('reports.speciesByLocation');
+		return view('reports.speciesByLocation');
 	}
 
 	/**
@@ -126,7 +128,7 @@ class ReportsController extends MooredatabaseBaseController {
 	 * @return View
 	 */
 	public function speciesForLocation($locationId) {
-		return View::make('reports.speciesForLocation')->with('locationId', $locationId);
+		return view('reports.speciesForLocation')->with('locationId', $locationId);
 	}
 
 	/**

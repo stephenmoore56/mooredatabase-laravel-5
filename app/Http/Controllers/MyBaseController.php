@@ -6,12 +6,14 @@
  */
 
 /**
- * BaseController class
+ * MyBaseController class
  *
  */
+namespace App\Http\Controllers;
+
 use App\Http\Controllers\Controller;
 
-class MooredatabaseBaseController extends Controller {
+class MyBaseController extends Controller {
 
 	/**
 	 * Setup the layout used by the controller.
