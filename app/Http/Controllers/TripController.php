@@ -11,7 +11,13 @@
  * TripController class
  *
  */
-class TripController extends \BaseController {
+namespace App\Http\Controllers;
+
+use App\Http\Controllers\MyBaseController;
+use Input, Redirect, DB, Validator;
+use App\Trip, App\Location;
+
+class TripController extends MyBaseController {
 
     /**
      * Display a listing of the resource.
@@ -20,7 +26,7 @@ class TripController extends \BaseController {
      */
     public function index() {
         $trips = DB::select('CALL proc_listTrips();');
-        return View::make('admin/trips/list')->with('trips', $trips);
+        return view('admin/trips/list')->with('trips', $trips);
     }
 
     /**
@@ -30,7 +36,7 @@ class TripController extends \BaseController {
      */
     public function create() {
         $data = $this->getDataForDropdowns();
-        return View::make('admin/trips/create')->with($data);
+        return view('admin/trips/create')->with($data);
     }
 
     /**
@@ -71,7 +77,7 @@ class TripController extends \BaseController {
     public function edit($id) {
         $data = $this->getDataForDropdowns();
         $trip = Trip::find($id);
-        return View::make('admin/trips/edit')->with($data)->with(['trip' => $trip]);
+        return view('admin/trips/edit')->with($data)->with(['trip' => $trip]);
     }
 
     /**
@@ -85,7 +91,7 @@ class TripController extends \BaseController {
         $sightings = DB::select('CALL proc_listSightingsForTrip(?);', [$id]);
         $trip      = Trip::find($id);
         $location  = Location::find($trip->location_id);
-        return View::make('admin/trips/sightings')
+        return view('admin/trips/sightings')
             ->with(['sightings' => $sightings])
             ->with(['location' => $location])
             ->with(['trip' => $trip]);
@@ -154,7 +160,7 @@ class TripController extends \BaseController {
      * get data for form dropdowns
      */
     private function getDataForDropdowns() {
-        $locations = DB::table('location')->orderBy('location_name', 'asc')->lists('location_name', 'id');
+        $locations = DB::table('location')->orderBy('location_name', 'asc')->pluck('location_name', 'id');
         $data      = [
             'locations' => $locations,
         ];

@@ -4,14 +4,14 @@
 <div class="col-sm-6">
 
 	{{ Form::model($trip,
-		           array('route' => array('admin.trips.update', $trip->id), 'method' => 'PUT', 'class' => 'form-horizontal', 'id' => 'tripForm')) }}
+		           array('route' => array('trips.update', $trip->id), 'method' => 'PUT', 'class' => 'form-horizontal', 'id' => 'tripForm')) }}
 		<fieldset>
 			<legend>Edit Trip</legend>
 			@include('admin.trips.form')
 		</fieldset>
 	{{ Form::close() }}
 
-	@if($errors->has())
+	@if($errors->has(''))
 		<div class="alert alert-danger">
 			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 			@foreach ($errors->all() as $error)

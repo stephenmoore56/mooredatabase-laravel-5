@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-md-6">
 
-	@if($errors->has())
+	@if($errors->has(''))
 		<div class="alert alert-danger">
 			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 			@foreach ($errors->all() as $error)
@@ -13,7 +13,7 @@
 	@endif
 
 	{{ Form::model($location,
-		           array('route' => array('admin.locations.update', $location->id), 'method' => 'PUT', 'class' => 'form-horizontal', 'id' => 'locationForm')) }}
+		           array('route' => array('locations.update', $location->id), 'method' => 'PUT', 'class' => 'form-horizontal', 'id' => 'locationForm')) }}
 		<fieldset>
 			<legend>Edit Location</legend>
 			@include('admin.locations.form')

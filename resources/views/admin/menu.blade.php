@@ -58,5 +58,12 @@
 			</div>
 		</div>
 
+		@if($flashMessage = Session::get('mailMessage'))
+			<div class="alert alert-info">
+				<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+				<pre>{{ $flashMessage }}</pre>
+			</div>
+		@endif
+
 	</div>
 @stop

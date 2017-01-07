@@ -11,104 +11,103 @@
  * AdminController class
  *
  */
-class AdminController extends \BaseController
-{
+namespace App\Http\Controllers;
 
-    /**
-     * Show login form
-     * @access public
-     * @return View
-     */
-    public function login()
-    {
-        return View::make('admin.login');
-    }
+use App\Http\Controllers\MyBaseController;
+use Input, Validator, Redirect, Auth, Hash, Cache; // facades; see app.php
 
-    /**
-     * Check login credentials
-     * @access public
-     * @return Redirect
-     */
-    public function authenticate()
-    {
-        // get data
-        $credentials = Input::only('username', 'password');
+class AdminController extends MyBaseController {
 
-        // validation rules
-        $rules = $this->getValidationRules();
+	/**
+	 * Show login form
+	 * @access public
+	 * @return View
+	 */
+	public function login() {
+		return view('admin.login');
+	}
 
-        // validate data using rules
-        $validator = Validator::make($credentials, $rules);
+	/**
+	 * Check login credentials
+	 * @access public
+	 * @return Redirect
+	 */
+	public function authenticate() {
+		// get data
+		$credentials = Input::only('username', 'password');
+//        $credentials['verified'] = 1;
+//		die(var_dump($credentials));
+		// validation rules
+		$rules = $this->getValidationRules();
 
-        if ($validator->fails()) {
-            return Redirect::to('login')->with('flashMessage', 'Invalid username or password.');
-        } else {
-            try {
-                if (Auth::attempt($credentials)) {
-                    return Redirect::intended('/admin/menu');
-                } else {
-                    return Redirect::to('login')->with('flashMessage', 'Invalid username or password.');
-                }
-            } catch (Exception $e) {
-                $flashMessage = 'An error occurred.';
-            }
-            return Redirect::to('login')->with('flashMessage', $flashMessage);
-        }
-    }
+		// validate data using rules
+		$validator = Validator::make($credentials, $rules);
 
-    /**
-     * Show logout page
-     * @access  public
-     * @return View
-     */
-    public function logout()
-    {
-        return View::make('admin.logout');
-    }
+		if ($validator->fails()) {
+			return Redirect::to('login')->with('flashMessage', 'Invalid username or password.');
+		} else {
+			try {
+				if (Auth::attempt($credentials)) {
+					return Redirect::intended('/admin/menu');
+				} else {
+					die(var_dump($credentials));
+					return Redirect::to('login')->with('flashMessage', 'Invalid username or password.');
+				}
+			} catch (Exception $e) {
+				$flashMessage = 'An error occurred.';
+			}
+			return Redirect::to('login')->with('flashMessage', $flashMessage);
+		}
+	}
 
-    /**
-     * Un-authenticate; ends session
-     * @access public
-     * @return Redirect
-     */
-    public function unauthenticate()
-    {
-        Auth::logout();
-        return Redirect::to('logout')->with('flashMessage', "You've been logged out!");
-    }
+	/**
+	 * Show logout page
+	 * @access  public
+	 * @return View
+	 */
+	public function logout() {
+		return view('admin.logout');
+	}
 
-    /**
-     * Show admin menu
-     * @access public
-     * @return View
-     */
-    public function menu()
-    {
-        return View::make('admin.menu');
-    }
+	/**
+	 * Un-authenticate; ends session
+	 * @access public
+	 * @return Redirect
+	 */
+	public function unauthenticate() {
+		Auth::logout();
+		return Redirect::to('logout')->with('flashMessage', "You've been logged out!");
+	}
 
-    /**
-     * Clear cache
-     * @access public
-     * @return Redirect
-     */
-    public function clearCache()
-    {
-        Cache::flush();
-        return Redirect::to('/admin/menu')->with('flashMessage', 'Cache cleared!');
-    }
+	/**
+	 * Show admin menu
+	 * @access public
+	 * @return View
+	 */
+	public function menu() {
+		return view('admin.menu');
+	}
 
-    /**
-     * return validation rules for authentication
-     * @access  private
-     * @return Array
-     */
-    private function getValidationRules()
-    {
-        return [
-            'username' => 'required|alphanum|max:50',
-            'password' => 'required|alphanum|max:50',
-        ];
-    }
+	/**
+	 * Clear cache
+	 * @access public
+	 * @return Redirect
+	 */
+	public function clearCache() {
+		Cache::flush();
+		return Redirect::to('/admin/menu')->with('flashMessage', 'Cache cleared!');
+	}
+
+	/**
+	 * return validation rules for authentication
+	 * @access  private
+	 * @return Array
+	 */
+	private function getValidationRules() {
+		return [
+			'username' => 'required|alphanum|max:50',
+			'password' => 'required|alphanum|max:50',
+		];
+	}
 
 }

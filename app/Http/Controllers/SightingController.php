@@ -11,7 +11,13 @@
  * SightingsController class
  *
  */
-class SightingController extends \BaseController {
+namespace App\Http\Controllers;
+
+use App\Http\Controllers\MyBaseController;
+use Input, Redirect, DB, Validator;
+use App\Sighting;
+
+class SightingController extends MyBaseController {
 
     /**
      * Store a newly created resource in storage.

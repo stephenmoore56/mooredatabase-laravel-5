@@ -58,7 +58,7 @@
 					<td class="text-center">
 						@if($location->trips == 0)
 							{{ Form::open(array(
-								'route' => array('admin.locations.destroy', $location->id),
+								'route' => array('locations.destroy', $location->id),
 								'method' => 'DELETE',
 								'id' => 'form_deleteLocation'.$location->id)) }}
 								<button type="submit" class="btn btn-danger btn-xs deleteLocation" id="deleteLocation{{ $location->id }}">

@@ -56,7 +56,7 @@
 			</div>
 		@endif
 
-		@if($errors->has())
+		@if($errors->has(''))
 			<div class="alert alert-danger">
 				<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 				@foreach ($errors->all() as $error)
@@ -99,7 +99,7 @@
 							<td class="hidden-xs scientific_name">{{ $sighting->scientific_name }}</td>
 							<td class="text-center">
 								{{ Form::open(array(
-									'route' => array('admin.sightings.destroy', $sighting->id),
+									'route' => array('sightings.destroy', $sighting->id),
 									'method' => 'DELETE',
 									'id' => 'form_deleteSighting'.$sighting->id)) }}
 									<button id="deleteSighting{{ $sighting->id }}" class="btn btn-danger btn-xs deleteSighting">
