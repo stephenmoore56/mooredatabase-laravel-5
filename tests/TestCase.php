@@ -22,4 +22,18 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
 
         return $app;
     }
+
+	public function assertClassExists($className) {
+		return $this->assertTrue(class_exists($className),
+			'Class ' . $className . ' does not exist.');
+	}
+	/**
+	 * @param  $className
+	 * @param  $methodName
+	 * @return boolean
+	 */
+	public function assertClassHasMethod($className, $methodName) {
+		return $this->assertTrue(method_exists($className, $methodName),
+			'Class ' . $className . ' has no method ' . $methodName . '.');
+	}
 }

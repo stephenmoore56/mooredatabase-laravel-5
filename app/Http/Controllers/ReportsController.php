@@ -14,7 +14,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\MyBaseController;
-use Input, DB, Response;
+use Input, DB, Response, Redirect, Cache;
 
 class ReportsController extends MyBaseController {
 
