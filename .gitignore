@@ -10,6 +10,7 @@ bootstrap/cache/
 .env.*.php
 .env.php
 .env
+.env.prod
 config/mail.php
 database/seeds/UsersTableSeeder.php
 
