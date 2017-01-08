@@ -35,8 +35,7 @@ class AdminController extends MyBaseController {
 	public function authenticate() {
 		// get data
 		$credentials = Input::only('username', 'password');
-//        $credentials['verified'] = 1;
-//		die(var_dump($credentials));
+
 		// validation rules
 		$rules = $this->getValidationRules();
 
@@ -50,7 +49,6 @@ class AdminController extends MyBaseController {
 				if (Auth::attempt($credentials)) {
 					return Redirect::intended('/admin/menu');
 				} else {
-					die(var_dump($credentials));
 					return Redirect::to('login')->with('flashMessage', 'Invalid username or password.');
 				}
 			} catch (Exception $e) {
