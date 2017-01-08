@@ -33,12 +33,12 @@
 						BIRDING <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li>{{ HTML::link('reports/speciesByMonth','Species & Trips By Month') }}</li>
-						<li>{{ HTML::link('reports/speciesByYear','Species & Trips By Year') }}</li>
-						<li>{{ HTML::link('reports/speciesByOrder','Species By Order') }}</li>
-						<li>{{ HTML::link('reports/speciesByLocation','Species By Location') }}</li>
-						<li>{{ HTML::link('reports/speciesAll','All Species Sighted') }}</li>
-						<li>{{ HTML::link('reports/searchAll','Search All Species') }}</li>
+						<li><a href="/reports/speciesByMonth">Species & Trips By Month</a></li>
+						<li><a href="/reports/speciesByYear">Species & Trips By Year</a></li>
+						<li><a href="/reports/speciesByOrder">Species By Order</a></li>
+						<li><a href="/reports/speciesByLocation">Species By Location</a></li>
+						<li><a href="/reports/speciesAll">All Species Sighted</a></li>
+						<li><a href="/reports/searchAll">Search All Species</a></li>
 					</ul>
 				</li>
 				<li class="dropdown">
@@ -48,10 +48,10 @@
 					</a>
 					<ul class="dropdown-menu">
 						@if(Auth::check())
-							<li>{{ HTML::link('admin/menu','Menu') }}</li>
-							<li>{{ HTML::link('admin/logout','Log Out') }}</li>
+							<li><a href="/admin/menu">Menu</a></li>
+							<li><a href="/admin/logout">Log Out</a></li>
 						@else
-							<li>{{ HTML::link('login','Log In') }}</li>
+							<li><a href="/login">Log In</a></li>
 						@endif
 					</ul>
 				</li>

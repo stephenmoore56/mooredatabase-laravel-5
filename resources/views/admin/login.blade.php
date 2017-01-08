@@ -49,6 +49,6 @@
 @stop
 
 @section("page_script")
-<script src={{ asset("js/admin/loginValidator.js") }}></script>
-<script src={{ asset("js/admin/login.js") }}></script>
+<script src="{{ asset("js/admin/loginValidator.js") }}"></script>
+<script src="{{ asset("js/admin/login.js") }}"></script>
 @stop
