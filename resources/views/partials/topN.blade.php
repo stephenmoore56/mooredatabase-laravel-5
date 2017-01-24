@@ -1,4 +1,4 @@
-<div class="form-group">
+<div class="form-group" style="margin-bottom: 10px;">
 	<label for="topNSelector" class="label-control">Show:</label>
 	<select class="form-control input-sm" data-ng-model="numLimit" data-ng-init="numLimit = 'Infinity'" name="topNSelector"
 			id="topNSelector">

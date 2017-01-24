@@ -3,9 +3,9 @@
 			<tr>
 				<th data-ng-click="sortResults('common_name')">Common Name</th>
 				<th class="text-center">Action</th>
-				<th class="hidden-xs" data-ng-click="sortResults('scientific_name')">Scientific Name</th>
+				<th class="hidden-xs hidden-sm" data-ng-click="sortResults('scientific_name')">Scientific Name</th>
 				<th class="hidden-xs" data-ng-click="sortResults(['order_name','common_name'])">Order</th>
-				<th class="hidden-xs" data-ng-click="sortResults(['family','subfamily','common_name'])">Family</th>
+				<th class="hidden-xs hidden-sm" data-ng-click="sortResults(['family','subfamily','common_name'])">Family</th>
 				<th class="hidden-xs" data-ng-click="sortResults('last_seen')">Last Seen</th>
 				<th class="text-right" data-ng-click="sortResults('sightings')">Sightings</th>
 			</tr>
@@ -19,9 +19,9 @@
 						<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
 					</a>
 				</td>
-				<td class="hidden-xs scientific_name"><% bird.scientific_name %></td>
+				<td class="hidden-xs hidden-sm scientific_name"><% bird.scientific_name %></td>
 				<td class="hidden-xs"><% bird.order_name %></td>
-				<td class="hidden-xs"><% bird.family %> <% bird.subfamily %></td>
+				<td class="hidden-xs hidden-sm"><% bird.family %> <% bird.subfamily %></td>
 				<td class="hidden-xs"><% bird.last_seen %></td>
 				<td class="text-right"><% bird.sightings %></td>
 			</tr>

@@ -1,4 +1,4 @@
-<div class="form-group">
+<div class="form-group" style="margin-bottom: 10px;">
 	<label for="orderFilter" class="label-control">Order:</label>
 	<select class="form-control input-sm" name="orderFilter" id="orderFilter" data-ng-model="selectedOrder"
 			data-ng-options="order.order_name for order in orders">
