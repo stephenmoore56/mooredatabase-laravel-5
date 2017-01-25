@@ -1,6 +1,6 @@
 <?php
 /**
- * RESTful methods for maintenance of location data
+ * Restful methods for maintenance of location data
  *
  * @package  Controllers
  *
@@ -13,25 +13,26 @@
  */
 namespace App\Http\Controllers;
 
-use Input, Redirect, DB, Validator;
-use App\Trip, App\Location;
+use App\Http\Mappers\LocationMapper as LocationMapper;
+use Illuminate\Http\Request;
+use App\Location;
 
 class LocationController extends MyBaseController {
 
 	/**
 	 * Display a listing of the resource.
 	 * @access  public
-	 * @return Response
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
 	public function index() {
-		$locations = DB::select('CALL proc_listLocations2();');
+		$locations = LocationMapper::listLocations();
 		return view('admin/locations/list')->with('locations', $locations);
 	}
 
 	/**
 	 * Show the form for creating a new resource.
 	 * @access  public
-	 * @return Response
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
 	public function create() {
 		$data = $this->getDataForDropdowns();
@@ -41,40 +42,40 @@ class LocationController extends MyBaseController {
 	/**
 	 * Store a newly created resource
 	 * @access  public
-	 * @return Response
+	 * @param Request $request
+	 * @return \Illuminate\Http\RedirectResponse
 	 */
-	public function store() {
+	public function store(Request $request) {
+
 		// input data
-		$data = Input::except('_token');
+		$data = $request->except('_token');
 
 		// validation rules
 		$rules = $this->getValidationRules();
 
 		// validate data using rules
-		$validator = Validator::make($data, $rules);
+		$this->validate($request, $rules);
 
-		if ($validator->fails()) {
-			return Redirect::to('/admin/locations/create')->withErrors($validator);
-		} else {
-			try {
-				$location = new Location();
-				$location->fill($data)->save();
-				$flashMessage = 'Added location ' . $location->location_name . '.';
-			} catch (Exception $e) {
-				$flashMessage = $e->getMessage();
-			}
-			return Redirect::to('/admin/locations')->with('flashMessage', $flashMessage);
+		try {
+			$location = new Location();
+			$location->fill($data)->save();
+			/** @noinspection PhpUndefinedFieldInspection */
+			$flashMessage = 'Added location ' . $location->location_name . '.';
+		} catch (\Exception $e) {
+			$flashMessage = $e->getMessage();
 		}
+		return redirect('/admin/locations')->with('flashMessage', $flashMessage);
 	}
 
 	/**
 	 * Show the form for editing the specified resource.
 	 * @access  public
 	 * @param  int $id
-	 * @return Response
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
 	public function edit($id) {
 		$data = $this->getDataForDropdowns();
+		/** @noinspection PhpUndefinedMethodInspection */
 		$location = Location::find($id);
 		return view('admin/locations/edit')
 			->with($data)
@@ -84,55 +85,55 @@ class LocationController extends MyBaseController {
 	/**
 	 * Update the specified resource in storage.
 	 * @access  public
-	 * @param  int $id
-	 * @return Redirect
+	 * @param Request $request
+	 * @param int $id
+	 * @return \Illuminate\Http\RedirectResponse
 	 */
-	public function update($id) {
+	public function update(Request $request, int $id) {
+
 		// input data
-		$data = Input::except('_token');
+		$data = $request->except('_token');
 
 		// validation rules
 		$rules = $this->getValidationRules();
 
 		// validate data using rules
-		$validator = Validator::make($data, $rules);
+		$this->validate($request, $rules);
 
-		if ($validator->fails()) {
-			return Redirect::to('/admin/locations/' . $id . '/edit')
-				->withErrors($validator)
-				->withInput();
-		} else {
-			try {
-				$location = Location::find($id);
-				$location->fill($data)->save();
-				$flashMessage = 'Updated location ' . $location->location_name . '.';
-			} catch (Exception $e) {
-				$flashMessage = $e->getMessage();
-			}
-			return Redirect::to('/admin/locations/')->with('flashMessage', $flashMessage);
+		try {
+			/** @noinspection PhpUndefinedMethodInspection */
+			$location = Location::find($id);
+			/** @noinspection PhpUndefinedMethodInspection */
+			$location->fill($data)->save();
+			$flashMessage = 'Updated location ' . $location->location_name . '.';
+		} catch (\Exception $e) {
+			$flashMessage = $e->getMessage();
 		}
+		return redirect('/admin/locations/')->with('flashMessage', $flashMessage);
+
 	}
 
 	/**
 	 * Remove the specified resource from storage.
 	 * @access  public
-	 * @param  int $id
-	 * @return Redirect
+	 * @param int $id
+	 * @return \Illuminate\Http\RedirectResponse
 	 */
-	public function destroy($id) {
+	public function destroy(int $id) {
 		try {
+			/** @noinspection PhpUndefinedMethodInspection */
 			Location::find($id)->delete();
 			$flashMessage = 'Deleted location.';
-		} catch (Exception $e) {
+		} catch (\Exception $e) {
 			$flashMessage = $e->getMessage();
 		}
-		return Redirect::to('/admin/locations/')->with('flashMessage', $flashMessage);
+		return redirect('/admin/locations/')->with('flashMessage', $flashMessage);
 	}
 
 	/**
 	 * return validation rules for location
 	 * @access  private
-	 * @return Array
+	 * @return array
 	 */
 	private function getValidationRules() {
 		return [
@@ -150,13 +151,13 @@ class LocationController extends MyBaseController {
 	/**
 	 * get data for form dropdowns
 	 * @access  private
-	 * @return Array
+	 * @return array
 	 */
 	private function getDataForDropdowns() {
 		$countries = ['US' => 'US'];
 		$states = ['MN' => 'MN'];
-		$counties = DB::table('county')->orderBy('county_name', 'asc')->pluck('county_name', 'county_name');
-		$ecs_subsections = DB::table('ecs_subsection')->orderBy('name', 'asc')->pluck('name', 'id');
+		$counties = LocationMapper::listCounties();
+		$ecs_subsections = LocationMapper::listECSSubsections();
 		$data = [
 			'countries' => $countries,
 			'states' => $states,

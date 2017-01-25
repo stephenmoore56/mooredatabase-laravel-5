@@ -3,15 +3,6 @@
 @section('content')
 <div class="col-md-6">
 
-	@if($errors->has(''))
-		<div class="alert alert-danger">
-			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-			@foreach ($errors->all() as $error)
-                {{ $error }}<br>
-            @endforeach
-		</div>
-	@endif
-
 	{{ Form::model($location,
 		           array('route' => array('locations.update', $location->id), 'method' => 'PUT', 'class' => 'form-horizontal', 'id' => 'locationForm')) }}
 		<fieldset>
@@ -20,6 +11,7 @@
 		</fieldset>
 	{{ Form::close() }}
 
+	@include('partials.validationErrors')
 
 </div>
 @stop

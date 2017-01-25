@@ -3,21 +3,14 @@
 @section('content')
 <div class="col-sm-6">
 
-	@if($errors->has(''))
-		<div class="alert alert-danger">
-			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-			@foreach ($errors->all() as $error)
-                {{ $error }}<br>
-            @endforeach
-		</div>
-	@endif
-
 	{{ Form::open(array('url' => '/admin/locations', 'class' => 'form-horizontal', 'id' => 'locationForm')) }}
 		<fieldset>
 			<legend>Add Location</legend>
 			@include('admin.locations.form')
 		</fieldset>
 	{{ Form::close() }}
+
+	@include('partials.validationErrors')
 
 </div>
 @stop

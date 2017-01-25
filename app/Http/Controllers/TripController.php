@@ -13,7 +13,8 @@
  */
 namespace App\Http\Controllers;
 
-use DB;
+use App\Http\Mappers\TripMapper as TripMapper;
+use App\Http\Mappers\LocationMapper as LocationMapper;
 use Illuminate\Http\Request;
 use App\Trip, App\Location;
 
@@ -24,7 +25,7 @@ class TripController extends MyBaseController {
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
     public function index() {
-        $trips = DB::select('CALL proc_listTrips();');
+        $trips = TripMapper::listTrips();
         return view('admin/trips/list')->with('trips', $trips);
     }
 
@@ -57,10 +58,12 @@ class TripController extends MyBaseController {
 		try {
 			$trip = new Trip();
 			$trip->fill($data)->save();
+			/** @noinspection PhpUndefinedFieldInspection */
 			$flashMessage = 'Added trip on ' . $trip->trip_date . '.';
 		} catch (\Exception $e) {
 			$flashMessage = $e->getMessage();
 		}
+		/** @noinspection PhpUndefinedFieldInspection */
 		return redirect('/admin/trips/' . $trip->id . '/sightings')->with('flashMessage', $flashMessage);
     }
 
@@ -71,7 +74,8 @@ class TripController extends MyBaseController {
 	 */
     public function edit(int $id) {
         $data = $this->getDataForDropdowns();
-        $trip = Trip::find($id);
+		/** @noinspection PhpUndefinedMethodInspection */
+		$trip = Trip::find($id);
         return view('admin/trips/edit')->with($data)->with(['trip' => $trip]);
     }
 
@@ -82,9 +86,11 @@ class TripController extends MyBaseController {
 	 */
     public function sightings(int $id) {
         // retrieve current sightings
-        $sightings = DB::select('CALL proc_listSightingsForTrip(?);', [$id]);
-        $trip      = Trip::find($id);
-        $location  = Location::find($trip->location_id);
+        $sightings = TripMapper::listSightingsForTrip($id);
+		/** @noinspection PhpUndefinedMethodInspection */
+		$trip      = Trip::find($id);
+		/** @noinspection PhpUndefinedMethodInspection */
+		$location  = Location::find($trip->location_id);
         return view('admin/trips/sightings')
             ->with(['sightings' => $sightings])
             ->with(['location' => $location])
@@ -110,6 +116,7 @@ class TripController extends MyBaseController {
         $this->validate($request, $rules);
 
 		try {
+			/** @noinspection PhpUndefinedMethodInspection */
 			Trip::find($id)->fill($data)->save();
 			$flashMessage = 'Updated trip.';
 		} catch (\Exception $e) {
@@ -126,7 +133,8 @@ class TripController extends MyBaseController {
 	 */
     public function destroy(int $id) {
         try {
-            Trip::find($id)->delete();
+			/** @noinspection PhpUndefinedMethodInspection */
+			Trip::find($id)->delete();
             $flashMessage = 'Deleted trip.';
         } catch (\Exception $e) {
             $flashMessage = $e->getMessage();
@@ -136,7 +144,8 @@ class TripController extends MyBaseController {
 
     /**
      * return validation rules for location
-     */
+	 * @return array
+	 */
     private function getValidationRules() {
         return [
             'location_id' => 'required|integer|min:1',
@@ -147,9 +156,10 @@ class TripController extends MyBaseController {
 
     /**
      * get data for form dropdowns
-     */
+	 * @return array
+	 */
     private function getDataForDropdowns() {
-        $locations = DB::table('location')->orderBy('location_name', 'asc')->pluck('location_name', 'id');
+        $locations = LocationMapper::listLocationsDropdown();
         $data      = [
             'locations' => $locations,
         ];
