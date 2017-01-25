@@ -1,6 +1,6 @@
 <?php
 /**
- * RESTful methods for maintenance of sightings data
+ * Restful methods for maintenance of sightings data
  *
  * @package  Controllers
  *
@@ -13,80 +13,69 @@
  */
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\MyBaseController;
-use Input, Redirect, DB, Validator;
-use App\Sighting;
+use Illuminate\Http\Request;
+use App\Sighting as Sighting;
 
 class SightingController extends MyBaseController {
 
-    /**
-     * Store a newly created resource in storage.
-     * @access  public
-     * @return Redirect
-     */
-    public function store() {
+	/**
+	 * Store a newly created resource in storage.
+	 * @access  public
+	 * @param Request $request
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
+	public function store(Request $request) {
 
-        // input data
-        $data = Input::except('_token', 'search');
+		// input data
+		$data = $request->except('_token', 'search');
 
-        // validation rules
-        $rules = $this->getValidationRules();
+		// validation rules
+		$rules = $this->getValidationRules();
 
-        // validate data using rules
-        $validator = Validator::make($data, $rules);
+		// validate data using rules
+		$this->validate($request, $rules);
 
-        if ($validator->fails()) {
-            if (!$data['aou_list_id']) {
-                $flashMessage = 'No sighting selected.';
-            }
-            return Redirect::to('/admin/trips/' . $data['trip_id'] . '/sightings')->withErrors($validator);
-        } else {
-            try {
-                $sighting = new Sighting();
-                $sighting->fill($data)->save();
-                $flashMessage = 'Added sighting.';
-            } catch (Exception $e) {
-                $errorMessage = $e->getMessage();
-                // most likely error is duplicate sighting; UNIQUE constraint violation
-                if (stripos($errorMessage, 'duplicate entry') > 0) {
-                    $errorMessage = 'Duplicate sighting.';
-                }
-                $flashMessage = $errorMessage;
-            }
-            return Redirect::to('/admin/trips/' . $data['trip_id'] . '/sightings')
-                ->with('flashMessage', $flashMessage);
-        }
-    }
+		try {
+			$sighting = new Sighting();
+			$sighting->fill($data)->save();
+			$flashMessage = 'Added sighting.';
+		} catch (\Exception $e) {
+			$errorMessage = $e->getMessage();
+			// most likely error is duplicate sighting; UNIQUE constraint violation
+			if (stripos($errorMessage, 'duplicate entry') > 0) {
+				$errorMessage = 'Duplicate sighting.';
+			}
+			$flashMessage = $errorMessage;
+		}
+		return back()->withInput()->with('flashMessage', $flashMessage);
+	}
 
-    /**
-     * Remove the specified resource from storage.
-     * @access  public
-     * @param  $id        int
-     * @return Redirect
-     */
-    public function destroy($id) {
-        try {
-            $sighting = Sighting::find($id);
-            $trip_id  = $sighting->trip_id;
-            $sighting->delete();
-            $flashMessage = 'Removed sighting.';
-        } catch (Exception $e) {
-            $flashMessage = $e->getMessage();
-        }
-        return Redirect::to('/admin/trips/' . $trip_id . '/sightings')
-            ->with('flashMessage', $flashMessage);
-    }
+	/**
+	 * Remove the specified resource from storage.
+	 * @access  public
+	 * @param int $id
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
+	public function destroy(int $id) {
+		try {
+			Sighting::find($id)->delete();
+			$flashMessage = 'Removed sighting.';
+		} catch (\Exception $e) {
+			$flashMessage = $e->getMessage();
+		}
+		return back()->withInput()->with('flashMessage', $flashMessage);
+	}
 
-    /**
-     * return validation rules for location
-     * @access  private
-     * @return Array
-     */
-    private function getValidationRules() {
-        return [
-            'trip_id'     => 'required|integer|min:1',
-            'aou_list_id' => 'required|integer|min:1',
-        ];
-    }
+	/**
+	 * return validation rules for sighting
+	 * @access  private
+	 * @return array
+	 */
+	private function getValidationRules() {
+		return [
+			'trip_id' => 'required|integer|min:1',
+			'aou_list_id' => 'required|integer|min:1',
+		];
+	}
 
 }

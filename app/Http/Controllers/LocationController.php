@@ -13,7 +13,6 @@
  */
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\MyBaseController;
 use Input, Redirect, DB, Validator;
 use App\Trip, App\Location;
 

@@ -13,7 +13,6 @@
  */
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\MyBaseController;
 use Redirect, Mail;
 use Config, Swift_Mailer, Swift_SmtpTransport;
 use Swift_Plugins_Loggers_ArrayLogger, Swift_Plugins_LoggerPlugin, Swift_Message;

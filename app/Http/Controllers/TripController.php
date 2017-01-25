@@ -1,6 +1,6 @@
 <?php
 /**
- * RESTful methods for maintenance of trip data
+ * Restful methods for maintenance of trip data
  *
  * @package  Controllers
  *
@@ -13,17 +13,16 @@
  */
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\MyBaseController;
-use Input, Redirect, DB, Validator;
+use DB;
+use Illuminate\Http\Request;
 use App\Trip, App\Location;
 
 class TripController extends MyBaseController {
 
     /**
      * Display a listing of the resource.
-     *
-     * @return View
-     */
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
     public function index() {
         $trips = DB::select('CALL proc_listTrips();');
         return view('admin/trips/list')->with('trips', $trips);
@@ -31,9 +30,8 @@ class TripController extends MyBaseController {
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return View
-     */
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
     public function create() {
         $data = $this->getDataForDropdowns();
         return view('admin/trips/create')->with($data);
@@ -41,40 +39,37 @@ class TripController extends MyBaseController {
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @return Redirect
-     */
-    public function store() {
+	 * @param Request $request
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
+    public function store(Request $request) {
+
         // input data
-        $data = Input::except('_token');
+        $data = $request->except('_token');
 
         // validation rules
         $rules = $this->getValidationRules();
 
         // validate data using rules
-        $validator = Validator::make($data, $rules);
+        $this->validate($request, $rules);
 
-        if ($validator->fails()) {
-            return Redirect::to('/admin/trips/create')->withErrors($validator);
-        } else {
-            try {
-                $trip = new Trip();
-                $trip->fill($data)->save();
-                $flashMessage = 'Added trip on ' . $trip->trip_date . '.';
-            } catch (Exception $e) {
-                $flashMessage = $e->getMessage();
-            }
-            return Redirect::to('/admin/trips/' . $trip->id . '/sightings')->with('flashMessage', $flashMessage);
-        }
+        // save
+		try {
+			$trip = new Trip();
+			$trip->fill($data)->save();
+			$flashMessage = 'Added trip on ' . $trip->trip_date . '.';
+		} catch (\Exception $e) {
+			$flashMessage = $e->getMessage();
+		}
+		return redirect('/admin/trips/' . $trip->id . '/sightings')->with('flashMessage', $flashMessage);
     }
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param  int    $id
-     * @return View
-     */
-    public function edit($id) {
+	 * @param int $id
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+    public function edit(int $id) {
         $data = $this->getDataForDropdowns();
         $trip = Trip::find($id);
         return view('admin/trips/edit')->with($data)->with(['trip' => $trip]);
@@ -82,11 +77,10 @@ class TripController extends MyBaseController {
 
     /**
      * Show the form for adding sightings.
-     *
-     * @param  int    $id
-     * @return View
-     */
-    public function sightings($id) {
+	 * @param int $id
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
+    public function sightings(int $id) {
         // retrieve current sightings
         $sightings = DB::select('CALL proc_listSightingsForTrip(?);', [$id]);
         $trip      = Trip::find($id);
@@ -100,49 +94,44 @@ class TripController extends MyBaseController {
     /**
      * Update the specified resource in storage.
      *
-     * @param  int        $id
-     * @return Redirect
-     */
-    public function update($id) {
+	 * @param Request $request
+	 * @param int $id
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
+    public function update(Request $request, int $id) {
+
         // input data
-        $data = Input::except('_token');
+        $data = $request->except('_token');
 
         // validation rules
         $rules = $this->getValidationRules();
 
         // validate data using rules
-        $validator = Validator::make($data, $rules);
+        $this->validate($request, $rules);
 
-        if ($validator->fails()) {
-            return Redirect::to('/admin/trips/' . $id . '/edit')
-                ->withErrors($validator)
-                ->withInput();
+		try {
+			Trip::find($id)->fill($data)->save();
+			$flashMessage = 'Updated trip.';
+		} catch (\Exception $e) {
+			$flashMessage = $e->getMessage();
+		}
+		return redirect('/admin/trips')->with('flashMessage', $flashMessage);
 
-        } else {
-            try {
-                Trip::find($id)->fill($data)->save();
-                $flashMessage = 'Updated trip.';
-            } catch (Exception $e) {
-                $flashMessage = $e->getMessage();
-            }
-            return Redirect::to('/admin/trips')->with('flashMessage', $flashMessage);
-        }
     }
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  int        $id
-     * @return Redirect
-     */
-    public function destroy($id) {
+	 * @param int $id
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
+    public function destroy(int $id) {
         try {
             Trip::find($id)->delete();
             $flashMessage = 'Deleted trip.';
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $flashMessage = $e->getMessage();
         }
-        return Redirect::to('/admin/trips/')->with('flashMessage', $flashMessage);
+        return redirect('/admin/trips/')->with('flashMessage', $flashMessage);
     }
 
     /**

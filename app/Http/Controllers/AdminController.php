@@ -13,15 +13,16 @@
  */
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\MyBaseController;
-use Input, Validator, Redirect, Auth, Hash, Cache; // facades; see app.php
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Mappers\ReportsMapper as ReportsMapper;
 
 class AdminController extends MyBaseController {
 
 	/**
 	 * Show login form
 	 * @access public
-	 * @return View
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
 	public function login() {
 		return view('admin.login');
@@ -30,38 +31,38 @@ class AdminController extends MyBaseController {
 	/**
 	 * Check login credentials
 	 * @access public
-	 * @return Redirect
+	 * @param Request $request
+	 * @return mixed
 	 */
-	public function authenticate() {
-		// get data
-		$credentials = Input::only('username', 'password');
+	public function authenticate(Request $request) {
 
 		// validation rules
 		$rules = $this->getValidationRules();
 
 		// validate data using rules
-		$validator = Validator::make($credentials, $rules);
+		$this->validate($request, $rules);
 
-		if ($validator->fails()) {
-			return Redirect::to('login')->with('flashMessage', 'Invalid username or password.');
-		} else {
-			try {
-				if (Auth::attempt($credentials)) {
-					return Redirect::intended('/admin/menu');
-				} else {
-					return Redirect::to('login')->with('flashMessage', 'Invalid username or password.');
-				}
-			} catch (Exception $e) {
-				$flashMessage = 'An error occurred.';
+		// get credentials
+		$credentials = $request->only('username', 'password');
+
+		// authenticate
+		try {
+			/** @noinspection PhpUndefinedMethodInspection */
+			if (Auth::attempt($credentials)) {
+				return redirect()->intended('/admin/menu');
+			} else {
+				return redirect('login')->with('flashMessage', 'Invalid username or password.');
 			}
-			return Redirect::to('login')->with('flashMessage', $flashMessage);
+		} catch (\Exception $e) {
+			$flashMessage = 'An error occurred.';
 		}
+		return redirect('login')->with('flashMessage', $flashMessage);
 	}
 
 	/**
 	 * Show logout page
 	 * @access  public
-	 * @return View
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
 	public function logout() {
 		return view('admin.logout');
@@ -70,17 +71,18 @@ class AdminController extends MyBaseController {
 	/**
 	 * Un-authenticate; ends session
 	 * @access public
-	 * @return Redirect
+	 * @return mixed
 	 */
 	public function unauthenticate() {
+		/** @noinspection PhpUndefinedMethodInspection */
 		Auth::logout();
-		return Redirect::to('logout')->with('flashMessage', "You've been logged out!");
+		return redirect('logout')->with('flashMessage', "You've been logged out!");
 	}
 
 	/**
 	 * Show admin menu
 	 * @access public
-	 * @return View
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
 	public function menu() {
 		return view('admin.menu');
@@ -89,22 +91,22 @@ class AdminController extends MyBaseController {
 	/**
 	 * Clear cache
 	 * @access public
-	 * @return Redirect
+	 * @return mixed
 	 */
 	public function clearCache() {
-		Cache::flush();
-		return Redirect::to('/admin/menu')->with('flashMessage', 'Cache cleared!');
+		ReportsMapper::clearCache();
+		return redirect('/admin/menu')->with('flashMessage', 'Cache cleared!');
 	}
 
 	/**
 	 * return validation rules for authentication
 	 * @access  private
-	 * @return Array
+	 * @return array
 	 */
 	private function getValidationRules() {
 		return [
-			'username' => 'required|alphanum|max:50',
-			'password' => 'required|alphanum|max:50',
+			'username' => 'required|max:50',
+			'password' => 'required|max:50',
 		];
 	}
 
