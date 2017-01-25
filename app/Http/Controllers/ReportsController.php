@@ -13,25 +13,26 @@
  */
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\MyBaseController;
-use Input, DB, Response, Redirect, Cache;
+use App\Http\Mappers\ReportsMapper as Mapper;
+use Illuminate\Http\Request;
+use Exception;
 
 class ReportsController extends MyBaseController {
 
 	/**
 	 * Clear memcached
 	 * @access  public
-	 * @return Redirect
+	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
 	 */
 	public function clearCache() {
-		Cache::flush();
-		return Redirect::to('/');
+		Mapper::clearCache();
+		return redirect('/');
 	}
 
 	/**
 	 * Species By Month report
 	 * @access  public
-	 * @return View
+	 * @return \Illuminate\View\View
 	 */
 	public function speciesByMonth() {
 		return view('reports.speciesByMonth');
@@ -40,7 +41,7 @@ class ReportsController extends MyBaseController {
 	/**
 	 * Species By Year report
 	 * @access  public
-	 * @return View
+	 * @return \Illuminate\View\View
 	 */
 	public function speciesByYear() {
 		return view('reports.speciesByYear');
@@ -49,7 +50,7 @@ class ReportsController extends MyBaseController {
 	/**
 	 * Species By Order report
 	 * @access  public
-	 * @return View
+	 * @return \Illuminate\View\View
 	 */
 	public function speciesByOrder() {
 		return view('reports.speciesByOrder');
@@ -59,9 +60,9 @@ class ReportsController extends MyBaseController {
 	 * Species for Month report
 	 * @access  public
 	 * @param  int $monthNumber
-	 * @return View
+	 * @return \Illuminate\View\View
 	 */
-	public function speciesForMonth($monthNumber) {
+	public function speciesForMonth(int $monthNumber) {
 		return view('reports.speciesForMonth')->with('monthNumber', $monthNumber);
 	}
 
@@ -69,9 +70,9 @@ class ReportsController extends MyBaseController {
 	 * Species for Year report
 	 * @access  public
 	 * @param  int $year
-	 * @return View
+	 * @return \Illuminate\View\View
 	 */
-	public function speciesForYear($year) {
+	public function speciesForYear(int $year) {
 		return view('reports.speciesForYear')->with('year', $year);
 	}
 
@@ -79,9 +80,9 @@ class ReportsController extends MyBaseController {
 	 * Species Detail report
 	 * @access  public
 	 * @param  int $speciesId
-	 * @return View
+	 * @return \Illuminate\View\View
 	 */
-	public function speciesDetail($speciesId) {
+	public function speciesDetail(int $speciesId) {
 		return view('reports.speciesDetail')->with('speciesId', $speciesId);
 	}
 
@@ -89,16 +90,16 @@ class ReportsController extends MyBaseController {
 	 * Species for Order report
 	 * @access  public
 	 * @param  int $orderId
-	 * @return View
+	 * @return \Illuminate\View\View
 	 */
-	public function speciesForOrder($orderId) {
+	public function speciesForOrder(int $orderId) {
 		return view('reports.speciesForOrder')->with('orderId', $orderId);
 	}
 
 	/**
 	 * All Species report
 	 * @access  public
-	 * @return View
+	 * @return \Illuminate\View\View
 	 */
 	public function speciesAll() {
 		return view('reports.speciesAll');
@@ -107,7 +108,7 @@ class ReportsController extends MyBaseController {
 	/**
 	 * search all report
 	 * @access  public
-	 * @return View
+	 * @return \Illuminate\View\View
 	 */
 	public function searchAll() {
 		return view('reports.searchAll');
@@ -116,7 +117,7 @@ class ReportsController extends MyBaseController {
 	/**
 	 * Species By Location report
 	 * @access  public
-	 * @return View
+	 * @return \Illuminate\View\View
 	 */
 	public function speciesByLocation() {
 		return view('reports.speciesByLocation');
@@ -126,24 +127,25 @@ class ReportsController extends MyBaseController {
 	 * Species for Location report
 	 * @access  public
 	 * @param  int $locationId
-	 * @return View
+	 * @return \Illuminate\View\View
 	 */
-	public function speciesForLocation($locationId) {
+	public function speciesForLocation(int $locationId) {
 		return view('reports.speciesForLocation')->with('locationId', $locationId);
 	}
 
 	/**
 	 * lookup birds; for sightings
 	 * @access  public
-	 * @return Response
+	 * @param Request $request
+	 * @return \Illuminate\Http\JsonResponse
 	 */
-	public function birdLookup() {
+	public function birdLookup(Request $request) {
 		try {
-			$query = Input::get('query');
-			$results = DB::select('CALL proc_birdLookup(?);', [$query]);
-			return Response::json($results, 200, [], JSON_NUMERIC_CHECK);
+			$query = $request->input('query');
+			$results = Mapper::birdLookup($query);
+			return response()->json($results, 200, [], JSON_NUMERIC_CHECK);
 		} catch (Exception $e) {
-			return Response::json([['errors' => $e->getMessage()]], 500, []);
+			return response()->json([['errors' => $e->getMessage()]], 500, []);
 		}
 	}
 }

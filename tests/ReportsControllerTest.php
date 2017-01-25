@@ -36,7 +36,7 @@ class ReportsControllerTest extends TestCase
             ['/reports/speciesDetail/1343'],
             ['/reports/speciesAll'],
             ['/reports/searchAll'],
-            ['/reports/birdLookup'],
+            ['/reports/birdLookup?query=striped'],
         ];
     }
 
