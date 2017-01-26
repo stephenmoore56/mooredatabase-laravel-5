@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Restful methods for maintenance of location data
  *
@@ -73,7 +75,7 @@ class LocationController extends MyBaseController {
 	 * @param  int $id
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
-	public function edit($id) {
+	public function edit(int $id) {
 		$data = $this->getDataForDropdowns();
 		/** @noinspection PhpUndefinedMethodInspection */
 		$location = Location::find($id);

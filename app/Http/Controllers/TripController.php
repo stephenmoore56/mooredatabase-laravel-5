@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * Restful methods for maintenance of trip data
  *

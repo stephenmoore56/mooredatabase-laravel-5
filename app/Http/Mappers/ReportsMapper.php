@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * Reports methods that query or clear cache
  *
@@ -23,6 +24,7 @@ class ReportsMapper {
 	 * @access  public
 	 */
 	public static function clearCache() {
+		/** @noinspection PhpUndefinedMethodInspection */
 		Cache::flush();
 	}
 
@@ -33,6 +35,7 @@ class ReportsMapper {
 	 * @return array
 	 */
 	public static function birdLookup(string $query) {
+		/** @noinspection PhpUndefinedMethodInspection */
 		return DB::select('CALL proc_birdLookup(?);', [$query]);
 	}
 }

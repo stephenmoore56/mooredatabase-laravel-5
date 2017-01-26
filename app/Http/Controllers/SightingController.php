@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * Restful methods for maintenance of sightings data
  *
@@ -58,6 +59,7 @@ class SightingController extends MyBaseController {
 	 */
 	public function destroy(int $id) {
 		try {
+			/** @noinspection PhpUndefinedMethodInspection */
 			Sighting::find($id)->delete();
 			$flashMessage = 'Removed sighting.';
 		} catch (\Exception $e) {
