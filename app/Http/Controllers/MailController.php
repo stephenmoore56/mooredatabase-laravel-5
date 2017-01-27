@@ -56,7 +56,7 @@ class MailController extends MyBaseController {
 				->setBody('This test e-mail was sent from laravel.moore-database.com using Swift Mailer.');
 
 			// create an attachment
-			$attachment = Swift_Attachment::fromPath(public_path() . '/docs/resume_SRM_2016.docx',
+			$attachment = Swift_Attachment::fromPath(public_path() . '/docs/resumeSRM.docx',
 				'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
 			$attachment->setFilename('resumeStephenMoore.docx');
 			$message->attach($attachment);
