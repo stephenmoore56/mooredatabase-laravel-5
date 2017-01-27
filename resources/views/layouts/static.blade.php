@@ -11,6 +11,12 @@
 	<div class="row-fluid">
 		<div class="col-sm-6 col-no-pad">
 			<div data-ng-view></div>
+			@if($flashMessage = Session::get('flashMessage'))
+				<div class="alert alert-danger">
+					<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					{{ $flashMessage }}
+				</div>
+			@endif
 		</div>
 		<div class="col-sm-1 col-no-pad col-spacer">
 		</div>

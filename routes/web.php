@@ -36,6 +36,9 @@ Route::get('reports/speciesByLocation', 'ReportsController@speciesByLocation');
 Route::get('reports/speciesForLocation/{locationId}', 'ReportsController@speciesForLocation');
 Route::get('reports/birdLookup', 'ReportsController@birdLookup');
 
+// resume download from S3
+Route::get('aws/downloadResume', 'AwsController@downloadResume');
+
 // posts, puts, and deletes require csrf check
 //Route::when('*', 'csrf', ['post', 'put', 'delete']);
 
