@@ -45,7 +45,7 @@ class AWSController extends MyBaseController {
 			$result = S3Mapper::getObject($bucket, $filename);
 
 			// download
-			self::downloadFile($result['body'], $filename);
+			self::downloadFile($result['Body'], $filename);
 
 		} catch (\Exception $e) {
 			$flashMessage = 'An error occurred. ' . $e->getMessage();
@@ -66,7 +66,7 @@ class AWSController extends MyBaseController {
 			$result = S3Mapper::getObject($bucket, $key);
 
 			// download
-			self::downloadFile($result['body'], $key);
+			self::downloadFile($result['Body'], $key);
 
 		} catch (\Exception $e) {
 			$flashMessage = 'An error occurred. ' . $e->getMessage();
