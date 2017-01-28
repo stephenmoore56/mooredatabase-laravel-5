@@ -11,10 +11,6 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
 // static content routes
 Route::get('/', function () {
 	return View::make('static-content.static-content');
@@ -39,16 +35,13 @@ Route::get('reports/birdLookup', 'ReportsController@birdLookup');
 // resume download from S3
 Route::get('aws/downloadResume', 'AwsController@downloadResume');
 
-// posts, puts, and deletes require csrf check
-//Route::when('*', 'csrf', ['post', 'put', 'delete']);
-
 // login and logout routes not requiring authentication
 Route::get('login', 'AdminController@login');
 Route::post('login', 'AdminController@authenticate');
 Route::get('logout', 'AdminController@logout');
 
 // admin routes all require authenticated user
-Route::group(['prefix' => 'admin', 'before' => 'auth'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 	Route::get('logout', 'AdminController@unauthenticate');
 	Route::get('menu', 'AdminController@menu');
 	Route::get('clearCache', 'AdminController@clearCache');
@@ -58,15 +51,7 @@ Route::group(['prefix' => 'admin', 'before' => 'auth'], function () {
 	Route::resource('locations', 'LocationController');
 	Route::get('sendTestMailSwift', 'MailController@sendTestMailSwift');
 	Route::get('sendTestMailLaravel', 'MailController@sendTestMailLaravel');
+	Route::get('listS3Buckets', 'AwsController@listS3Buckets');
+	Route::get('listS3Objects/{bucket}', 'AwsController@listS3Objects');
+	Route::get('downloadS3Object/{bucket}/{key}', 'AwsController@downloadS3Object');
 });
-
-// catch-all route; eliminates 404's
-//App::missing(function ($exception) {
-//	if (Auth::check()) {
-//		return Redirect::to('/admin/menu');
-//	} else {
-//		return Redirect::to('/');
-//	}
-//});
-
-
