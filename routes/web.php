@@ -54,4 +54,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 	Route::get('listS3Buckets', 'AwsController@listS3Buckets');
 	Route::get('listS3Objects/{bucket}', 'AwsController@listS3Objects');
 	Route::get('downloadS3Object/{bucket}/{key}', 'AwsController@downloadS3Object');
+	Route::post('uploadS3Object', 'AwsController@uploadS3Object');
+	Route::get('deleteS3Object/{bucket}/{key}', 'AwsController@deleteS3Object');
 });

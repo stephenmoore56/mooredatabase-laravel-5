@@ -7,6 +7,7 @@
 		<fieldset>
 			<legend>Log In</legend>
 			<div class="form-group">
+				{{ csrf_field() }}
 				<label for="username" class="label-control col-sm-2">Username:</label>
 				<div class="col-sm-10">
 					<input type="text" id="username" name="username" class="form-control input-sm"
@@ -20,7 +21,6 @@
 						   placeholder="Password" size="50" maxlength="50" autocomplete="off">
 				</div>
 			</div>
-			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-4">
 					<button type="submit" class="btn btn-primary btn-sm">Log In</button>

@@ -50,7 +50,35 @@ class S3Mapper {
 		// Get the object
 		$result = $s3->getObject(array(
 			'Bucket' => $bucket,
-			'Key' => $key
+			'Key'    => $key,
+		));
+		return $result;
+	}
+
+	public static function deleteObject(string $bucket, string $key) {
+		$s3 = self::getS3Client();
+		// delete the object
+		$result = $s3->deleteObject(array(
+			'Bucket' => $bucket,
+			'Key'    => $key,
+		));
+		return $result;
+	}
+
+	/**
+	 * Upload a file to S3
+	 * @param string $bucket
+	 * @param string $key
+	 * @param string $sourceFile
+	 * @return \Aws\Result
+	 */
+	public static function putObject(string $bucket, string $key, string $sourceFile) {
+		$s3 = self::getS3Client();
+		// upload the object
+		$result = $s3->putObject(array(
+			'Bucket'     => $bucket,
+			'Key'        => $key,
+			'SourceFile' => $sourceFile,
 		));
 		return $result;
 	}
@@ -63,8 +91,8 @@ class S3Mapper {
 		// Instantiate the client.
 		return new S3Client([
 			'profile' => 'default',
-			'region' => 'us-east-1',
-			'version' => '2006-03-01'
+			'region'  => 'us-east-1',
+			'version' => '2006-03-01',
 		]);
 	}
 }

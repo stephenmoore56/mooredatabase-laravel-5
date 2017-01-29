@@ -1,4 +1,5 @@
 <div class="form-group">
+	{{ csrf_field() }}
 	{{ Form::label('country_code','Country:', array('class' => 'control-label col-sm-2')) }}
 	<div class="col-sm-10">
 		{{ Form::select('country_code', $countries, null, array('class' => 'form-control input-sm')) }}
