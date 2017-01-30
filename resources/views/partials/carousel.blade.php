@@ -25,46 +25,44 @@
         </li>
         <li data-target="#carousel-example-generic" data-slide-to="11">
         </li>
-        <li data-target="#carousel-example-generic" data-slide-to="12">
-        </li>
     </ol>
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            {{ HTML::image('images/carousel/millcitymuseum.jpg', 'Mill City Museum') }}
+            {{ HTML::image('https://s3.amazonaws.com/mooredatabase-carousel/millcitymuseum.jpg', 'Mill City Museum') }}
         </div>
         <div class="item">
-            {{ HTML::image('images/carousel/abstract.jpg', 'Abstract') }}
+            {{ HTML::image('https://s3.amazonaws.com/mooredatabase-carousel/abstract.jpg', 'Abstract') }}
         </div>
         <div class="item">
-            {{ HTML::image('images/carousel/basilica.jpg', 'Basilica') }}
+            {{ HTML::image('https://s3.amazonaws.com/mooredatabase-carousel/basilica.jpg', 'Basilica') }}
         </div>
         <div class="item">
-            {{ HTML::image('images/carousel/minnehahacreek.jpg', 'Minnehaha Creek') }}
+            {{ HTML::image('https://s3.amazonaws.com/mooredatabase-carousel/minnehahacreek.jpg', 'Minnehaha Creek') }}
         </div>
         <div class="item">
-            {{ HTML::image('images/carousel/powerplant1.jpg', 'Power Plant') }}
+            {{ HTML::image('https://s3.amazonaws.com/mooredatabase-carousel/powerplant1.jpg', 'Power Plant') }}
         </div>
         <div class="item">
-            {{ HTML::image('images/carousel/powerplant2.jpg', 'Power Plant') }}
+            {{ HTML::image('https://s3.amazonaws.com/mooredatabase-carousel/powerplant2.jpg', 'Power Plant') }}
         </div>
         <div class="item">
-            {{ HTML::image('images/carousel/powerplant3.jpg', 'Power Plant') }}
+            {{ HTML::image('https://s3.amazonaws.com/mooredatabase-carousel/powerplant3.jpg', 'Power Plant') }}
         </div>
         <div class="item">
-            {{ HTML::image('images/carousel/stainedglass.jpg', 'Stained Glass') }}
+            {{ HTML::image('https://s3.amazonaws.com/mooredatabase-carousel/stainedglass.jpg', 'Stained Glass') }}
         </div>
         <div class="item">
-            {{ HTML::image('images/carousel/statefairride.jpg', 'State Fair') }}
+            {{ HTML::image('https://s3.amazonaws.com/mooredatabase-carousel/statefairride.jpg', 'State Fair') }}
         </div>
         <div class="item">
-            {{ HTML::image('images/carousel/temperance.jpg', 'Temperance River') }}
+            {{ HTML::image('https://s3.amazonaws.com/mooredatabase-carousel/temperance.jpg', 'Temperance River') }}
         </div>
         <div class="item">
-            {{ HTML::image('images/carousel/tiger.jpg', 'Tiger') }}
+            {{ HTML::image('https://s3.amazonaws.com/mooredatabase-carousel/tiger.jpg', 'Tiger') }}
         </div>
         <div class="item">
-            {{ HTML::image('images/carousel/troutlily.jpg', 'Trout Lily') }}
+            {{ HTML::image('https://s3.amazonaws.com/mooredatabase-carousel/troutlily.jpg', 'Trout Lily') }}
         </div>
     </div>
     <!-- Controls -->
