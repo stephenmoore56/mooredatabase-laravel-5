@@ -133,7 +133,7 @@ class AWSController extends MyBaseController {
 			$key = $request->file('fileToUpload')->getClientOriginalName();
 			$file_path = $request->file('fileToUpload')->getPathname();
 			S3Mapper::putObject($bucket, $key, $file_path);
-			return back()->withInput()->with('flashMessage', 'Successfully uploaded file.');
+			return back()->with('flashMessage', 'Successfully uploaded file.');
 		} catch (\Exception $e) {
 			return back()->withInput()->with('flashMessage', 'An error occurred while uploading file.');
 		}
