@@ -38,6 +38,7 @@
 							   	'class' => 'form-control input-sm',
 							   	'size' => 50,
 							   	'readonly' => 'readonly',
+							   	'style' => 'background: white;'
 								))
 				}}
 			</div>
