@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" data-ng-app="mooredatabaseStaticApp">
+<html lang="en">
 <head>
 @include('partials.head')
-@include('partials.angularjs')
+{{--@include('partials.angularjs')--}}
 @include('partials.staticjs')
 </head>
 <body>
@@ -10,7 +10,11 @@
 <div class="container-fluid">
 	<div class="row-fluid">
 		<div class="col-sm-6 col-no-pad">
-			<div data-ng-view></div>
+			<div>
+				<app-root>
+					Loading...
+				</app-root>
+			</div>
 			@if($flashMessage = Session::get('flashMessage'))
 				<div class="alert alert-danger">
 					<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>

@@ -15,6 +15,21 @@
 Route::get('/', function () {
 	return View::make('static-content.static-content');
 });
+Route::get('/education', function () {
+	return View::make('static-content.static-content');
+});
+Route::get('/training', function () {
+	return View::make('static-content.static-content');
+});
+Route::get('/education', function () {
+	return View::make('static-content.static-content');
+});
+Route::get('/certifications', function () {
+	return View::make('static-content.static-content');
+});
+Route::get('/contact', function () {
+	return View::make('static-content.static-content');
+});
 
 // birding report template routes
 Route::get('reports/clearCache', 'ReportsController@clearCache');
