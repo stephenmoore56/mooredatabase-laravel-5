@@ -4,6 +4,7 @@
     "module": "system",
     "sourceMap": true,
     "outDir": "../../src/static/",
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "alwaysStrict": true
   }
 }
