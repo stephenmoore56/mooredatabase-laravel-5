@@ -6,7 +6,7 @@
 @include('partials.jqueryui')
 </head>
 <body>
-@include('partials.navbar')
+@include('partials.navbarReports')
 <div class="container-fluid">
 	@yield("content")
 </div>

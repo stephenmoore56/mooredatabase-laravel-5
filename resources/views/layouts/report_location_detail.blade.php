@@ -6,7 +6,7 @@
 @include('partials.reportsjs')
 </head>
 <body data-ng-controller="{{ $controller }}">
-@include('partials.navbar')
+@include('partials.navbarReports')
 <div class="container-fluid" data-ng-cloak>
 	<div class="row-fluid">
 		<div class="panel panel-primary">

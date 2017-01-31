@@ -3,7 +3,6 @@
     module.exports = () => {
         let config = {
             alljs: [
-                "./public/js/src/**/*.js",
                 "./*.js",
                 "./public/js/admin/**/*.js"],
             sassdir: './public/sass',

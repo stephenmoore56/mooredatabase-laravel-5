@@ -11,7 +11,7 @@ System.config({
     //map tells the System loader where to look for things
     map: {
 
-        'app': 'js/typescript/static',
+        'app': 'js/src/static',
 
         '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
         '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
@@ -36,8 +36,8 @@ System.config({
     //packages defines our app package
     packages: {
         app: {
-            main: './main.ts',
-            defaultExtension: 'ts'
+            main: './main.js',
+            defaultExtension: 'js'
         },
         rxjs: {
             defaultExtension: 'js'

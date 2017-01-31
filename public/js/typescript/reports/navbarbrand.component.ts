@@ -2,11 +2,11 @@ import {Component} from '@angular/core';
 import {ROUTER_DIRECTIVES} from '@angular/router';
 
 @Component({
-    selector: 'app-root',
+    selector: 'nav-bar-brand',
     template: `
-    <router-outlet></router-outlet>
+    <a class="navbar-brand" routerLink="/">MOORE+DATABASE</a>
     `,
     directives: [ROUTER_DIRECTIVES]
 })
-export class AppComponent {
+export class NavBarBrandComponent {
 }

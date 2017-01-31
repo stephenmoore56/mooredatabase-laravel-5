@@ -23,7 +23,7 @@
 
     // concatenate and minify JavaScript files
     gulp.task('uglify', (cb) => {
-        runSequence('uglify-reports', 'uglify-static', 'js-inject-reports', 'js-inject-static', cb);
+        runSequence('uglify-reports', 'js-inject-reports', cb);
     });
     // concatenate and minify report AngularJS application files
     gulp.task('uglify-reports', () => {
@@ -34,29 +34,10 @@
             .pipe($.rev())
             .pipe(gulp.dest('.'));
     });
-    // concatenate and minify static Angular application files
-    gulp.task('uglify-static', () => {
-        log('Concatenating and minifying Angular static files...');
-        return gulp.src(config.staticfiles)
-            .pipe($.concat(config.staticminfile)) //the name of the resulting file
-            .pipe($.uglify())
-            .pipe($.rev())
-            .pipe(gulp.dest('.'));
-    });
     // inject minified JS into reports partial
     gulp.task('js-inject-reports', () => {
         let target = gulp.src(config.reportsScriptPartial);
         let sources = gulp.src(config.reportsJsInjectSources, {
-            read: false
-        });
-        return target.pipe($.inject(sources))
-            .pipe($.replace('/public', ''))
-            .pipe(gulp.dest('./app/views/partials'));
-    });
-    // inject minified JS into static partial
-    gulp.task('js-inject-static', () => {
-        let target = gulp.src(config.staticScriptPartial);
-        let sources = gulp.src(config.staticJsInjectSources, {
             read: false
         });
         return target.pipe($.inject(sources))

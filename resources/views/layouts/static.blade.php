@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 @include('partials.head')
-{{--@include('partials.angularjs')--}}
+@include('partials.bootstrapjs')
 @include('partials.staticjs')
 </head>
 <body>
@@ -12,7 +12,7 @@
 		<div class="col-sm-6 col-no-pad">
 			<div>
 				<app-root>
-					Loading...
+					Loading AngularJS 2 application...
 				</app-root>
 			</div>
 			@if($flashMessage = Session::get('flashMessage'))
@@ -30,7 +30,6 @@
 	</div>
 </div>
 @include('partials.footer')
-@include('partials.bootstrapjs')
 @include('partials.googleAnalytics')
 </body>
 </html>

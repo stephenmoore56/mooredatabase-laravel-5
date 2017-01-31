@@ -10,8 +10,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			{{--angular component--}}
-			<nav-bar-brand></nav-bar-brand>
+			<a class="navbar-brand" href="/">MOORE+DATABASE</a>
 		</div>
 
 		<div class="collapse navbar-collapse" id="navbar-main-collapse-1">
@@ -21,8 +20,11 @@
 					   role="button" aria-haspopup="true" aria-expanded="false">
 						EXPERIENCE <span class="caret"></span>
 					</a>
-					{{--angular component--}}
-					<ul ng-nav-bar class="dropdown-menu">
+					<ul class="dropdown-menu">
+						<li><a href="/education">Education</a></li>
+						<li><a href="/certifications">Certifications</a></li>
+						<li><a href="/training">Training</a></li>
+						<li><a href="/contact">Contact Me</a></li>
 					</ul>
 				</li>
 				<li class="dropdown">
