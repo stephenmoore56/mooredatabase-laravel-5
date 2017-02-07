@@ -7,25 +7,14 @@
 </head>
 <body>
 @include('partials.navbar')
-<div class="container-fluid">
+<div class="container-fluid" data-ng-cloak>
 	<div class="row-fluid">
 		<div class="col-sm-6 col-no-pad">
-			<div>
-				<app-root>
-					Loading AngularJS 2 application...
-				</app-root>
-			</div>
-			@if($flashMessage = Session::get('flashMessage'))
-				<div class="alert alert-danger">
-					<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-					{{ $flashMessage }}
-				</div>
-			@endif
+			<div app-root></div>
 		</div>
 		<div class="col-sm-1 col-no-pad col-spacer">
 		</div>
-		<div class="col-sm-4 col-no-pad">
-			@include('partials.carousel')
+		<div ng-carousel class="col-sm-4 col-no-pad">
 		</div>
 	</div>
 </div>

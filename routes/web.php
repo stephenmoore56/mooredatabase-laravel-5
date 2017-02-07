@@ -21,9 +21,6 @@ Route::get('/education', function () {
 Route::get('/training', function () {
 	return View::make('static-content.static-content');
 });
-Route::get('/education', function () {
-	return View::make('static-content.static-content');
-});
 Route::get('/certifications', function () {
 	return View::make('static-content.static-content');
 });
@@ -33,19 +30,57 @@ Route::get('/contact', function () {
 
 // birding report template routes
 Route::get('reports/clearCache', 'ReportsController@clearCache');
-Route::get('reports/', 'ReportsController@speciesByMonth');
-Route::get('reports/speciesByMonth', 'ReportsController@speciesByMonth');
-Route::get('reports/speciesByYear', 'ReportsController@speciesByYear');
-Route::get('reports/speciesForMonth/{monthNumber}', 'ReportsController@speciesForMonth');
-Route::get('reports/speciesForYear/{year}', 'ReportsController@speciesForYear');
-Route::get('reports/speciesDetail/{speciesId}', 'ReportsController@speciesDetail');
-Route::get('reports/speciesByOrder', 'ReportsController@speciesByOrder');
-Route::get('reports/speciesForOrder/{orderId}', 'ReportsController@speciesForOrder');
-Route::get('reports/speciesAll', 'ReportsController@speciesAll');
-Route::get('reports/searchAll', 'ReportsController@searchAll');
-Route::get('reports/speciesByLocation', 'ReportsController@speciesByLocation');
-Route::get('reports/speciesForLocation/{locationId}', 'ReportsController@speciesForLocation');
-Route::get('reports/birdLookup', 'ReportsController@birdLookup');
+Route::group(['prefix' => 'reports'], function () {
+	Route::get('months', function () {
+		return View::make('static-content.static-content');
+	});
+	Route::get('years', function () {
+		return View::make('static-content.static-content');
+	});
+	Route::get('months/{monthNumber}', function () {
+		return View::make('static-content.static-content');
+	});
+	Route::get('years/{year}', function () {
+		return View::make('static-content.static-content');
+	});
+	Route::get('birds/{speciesId}', function () {
+		return View::make('static-content.static-content');
+	});
+	Route::get('orders', function () {
+		return View::make('static-content.static-content');
+	});
+	Route::get('orders/{orderId}', function () {
+		return View::make('static-content.static-content');
+	});
+	Route::get('birds', function () {
+		return View::make('static-content.static-content');
+	});
+	Route::get('searchAll', function () {
+		return View::make('static-content.static-content');
+	});
+	Route::get('locations', function () {
+		return View::make('static-content.static-content');
+	});
+	Route::get('locations/{locationId}', function () {
+		return View::make('static-content.static-content');
+	});
+	Route::get('birdLookup', function () {
+		return View::make('static-content.static-content');
+	});
+});
+//
+//Route::get('reports/speciesByMonth', 'ReportsController@speciesByMonth');
+//Route::get('reports/speciesByYear', 'ReportsController@speciesByYear');
+//Route::get('reports/speciesForMonth/{monthNumber}', 'ReportsController@speciesForMonth');
+//Route::get('reports/speciesForYear/{year}', 'ReportsController@speciesForYear');
+//Route::get('reports/speciesDetail/{speciesId}', 'ReportsController@speciesDetail');
+//Route::get('reports/speciesByOrder', 'ReportsController@speciesByOrder');
+//Route::get('reports/speciesForOrder/{orderId}', 'ReportsController@speciesForOrder');
+//Route::get('reports/speciesAll', 'ReportsController@speciesAll');
+//Route::get('reports/searchAll', 'ReportsController@searchAll');
+//Route::get('reports/speciesByLocation', 'ReportsController@speciesByLocation');
+//Route::get('reports/speciesForLocation/{locationId}', 'ReportsController@speciesForLocation');
+//Route::get('reports/birdLookup', 'ReportsController@birdLookup');
 
 // resume download from S3
 Route::get('aws/downloadResume', 'AwsController@downloadResume');

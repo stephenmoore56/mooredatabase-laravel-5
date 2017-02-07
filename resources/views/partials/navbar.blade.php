@@ -10,8 +10,10 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			{{--angular component--}}
-			<nav-bar-brand></nav-bar-brand>
+			{{--angular component replaces this--}}
+			<nav-bar-brand>
+				<a class="navbar-brand" href="#">MOORE+DATABASE</a>
+			</nav-bar-brand>
 		</div>
 
 		<div class="collapse navbar-collapse" id="navbar-main-collapse-1">
@@ -21,8 +23,12 @@
 					   role="button" aria-haspopup="true" aria-expanded="false">
 						EXPERIENCE <span class="caret"></span>
 					</a>
-					{{--angular component--}}
+					{{--angular component replaces this--}}
 					<ul ng-nav-bar class="dropdown-menu">
+						<li><a href="#">Education</a></li>
+						<li><a href="#">Certifications</a></li>
+						<li><a href="#">Training</a></li>
+						<li><a href="#">Contact Me</a></li>
 					</ul>
 				</li>
 				<li class="dropdown">
@@ -30,13 +36,9 @@
 					   role="button" aria-haspopup="true" aria-expanded="false">
 						BIRDING <span class="caret"></span>
 					</a>
-					<ul class="dropdown-menu">
-						<li><a href="/reports/speciesByMonth">Species & Trips By Month</a></li>
-						<li><a href="/reports/speciesByYear">Species & Trips By Year</a></li>
-						<li><a href="/reports/speciesByOrder">Species By Order</a></li>
-						<li><a href="/reports/speciesByLocation">Species By Location</a></li>
-						<li><a href="/reports/speciesAll">All Species Sighted</a></li>
-						<li><a href="/reports/searchAll">Search All Species</a></li>
+					<ul ng-nav-bar-reports class="dropdown-menu">
+						<li><a href="#">Species & Trips By Month</a></li>
+						<li><a href="#">Species & Trips By Year</a></li>
 					</ul>
 				</li>
 				<li class="dropdown">
@@ -55,6 +57,5 @@
 				</li>
 			</ul>
 		</div>
-
 	</div>
 </nav>

@@ -1,29 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" data-ng-app="mooredatabaseReportsApp">
+<html lang="en">
 <head>
 @include('partials.head')
-@include('partials.angularjs')
-@include('partials.reportsjs')
+@include('partials.bootstrapjs')
+@include('partials.staticjs')
 </head>
-<body data-ng-controller="{{ $controller }}">
-@include('partials.navbarReports')
+<body">
+@include('partials.navbar')
 <div class="container-fluid" data-ng-cloak>
-	<div class="row-fluid">
-		<div class="panel panel-primary">
-			<div class="panel-heading">
-				<h3 class="panel-title">
-					@yield('page_header')
-				</h3>
-			</div>
-			{{--hide the charts on phones--}}
-			<div class="panel-body hidden-xs">
-				@yield('content1')
-			</div>
-			@yield('content2')
-		</div>
+	<div app-root class="row-fluid">
+		Loading...
 	</div>
 </div>
-@include('partials.bootstrapjs')
 @yield('report_scripts')
 @include('partials.googleAnalytics')
 </body>

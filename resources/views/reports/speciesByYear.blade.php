@@ -1,4 +1,4 @@
-@extends('layouts.report_chart_list', ['controller' => 'speciesByYearCtrl'])
+@extends('layouts.report_chart_list')
 
 @section('title')
 	Species &amp; Trips By Year
