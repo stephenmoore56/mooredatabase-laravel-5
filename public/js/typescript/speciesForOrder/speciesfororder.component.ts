@@ -14,7 +14,7 @@ import {TopNComponent}   from '../reportPartials/topn.component';
 
 @Component({
     selector: 'report',
-    templateUrl: 'templates/reports/speciesForMonth.html',
+    templateUrl: 'templates/reports/speciesForOrder.html',
     providers: [
         ReportDataService
     ],
@@ -28,11 +28,11 @@ import {TopNComponent}   from '../reportPartials/topn.component';
         TopNComponent
     ]
 })
-export class SpeciesForMonthComponent extends Sortable implements OnInit {
+export class SpeciesForOrderComponent extends Sortable implements OnInit {
 
     public birds: Result[] = [];
-    public monthNumber: number;
-    public monthName: string;
+    public orderId: number;
+    public orderName: string;
 
     constructor(private _reportDataService: ReportDataService,
                 private _route: ActivatedRoute) {
@@ -41,14 +41,14 @@ export class SpeciesForMonthComponent extends Sortable implements OnInit {
 
     ngOnInit() {
         this._route.params.subscribe(params => {
-            this.monthNumber = Number.parseInt(params['month']);
+            this.orderId = Number.parseInt(params['id']);
         });
         this._reportDataService
-            .getSpeciesForMonth(this.monthNumber)
+            .getSpeciesForOrder(this.orderId)
             .subscribe(
                 r => {
                     this.birds = r;
-                    this.monthName = this.birds[0].monthName;
+                    this.orderName = this.birds[0].orderName;
                 },
                 error => console.log("Error: ", error)
             );

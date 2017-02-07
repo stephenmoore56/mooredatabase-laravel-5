@@ -1,1 +1,2 @@
-export class Result {}
+export class Result {
+}

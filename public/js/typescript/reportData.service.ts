@@ -36,6 +36,10 @@ export class ReportDataService {
         return this.getResults(`speciesForMonth/${month}`);
     }
 
+    public getSpeciesForOrder(orderId: number): Observable<Result[]> {
+        return this.getResults(`speciesForOrder/${orderId}`);
+    }
+
     private getResults(endpoint: string): Observable<Result[]> {
         return this.http
             .get(`${this.baseUrl}/${endpoint}`, {headers: this.getHeaders()})

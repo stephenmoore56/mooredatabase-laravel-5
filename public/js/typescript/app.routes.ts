@@ -18,6 +18,7 @@ const routes: Routes = [
     {path: 'reports/months/:month', loadChildren: 'app/speciesForMonth/speciesformonth.module#SpeciesForMonthModule'}
     {path: 'reports/years', loadChildren: 'app/speciesByYear/speciesbyyear.module#SpeciesByYearModule'},
     {path: 'reports/orders', loadChildren: 'app/speciesByOrder/speciesbyorder.module#SpeciesByOrderModule'},
+    {path: 'reports/orders/:id', loadChildren: 'app/speciesForOrder/speciesfororder.module#SpeciesForOrderModule'}
     {path: '', component: HomeComponent, pathMatch: 'full'}
 ];
 

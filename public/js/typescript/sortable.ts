@@ -6,7 +6,7 @@ export class Sortable {
 
     public sortResults(results: Results[], columnName: string) {
         this.sortdirection *= -1;
-        results = results.sort((a,b) => {
+        results = results.sort((a, b) => {
             if (a[columnName] === b[columnName]) {
                 return 0;
             } else {

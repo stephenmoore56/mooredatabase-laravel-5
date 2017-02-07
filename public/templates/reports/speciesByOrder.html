@@ -21,7 +21,7 @@
 		<tr *ngFor="let order of orders">
 			<td>{{ order.order_name }}</td>
 			<td class="text-center">
-				<a class="btn btn-info btn-xs" [routerLink]="['/reports/order', order.id]">
+				<a class="btn btn-info btn-xs" [routerLink]="['/reports/orders', order.id]">
 					View Species
 					<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
 				</a>
