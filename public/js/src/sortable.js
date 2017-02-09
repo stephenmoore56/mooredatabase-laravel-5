@@ -21,6 +21,9 @@ System.register([], function (exports_1, context_1) {
                         }
                     });
                 };
+                Sortable.prototype.goBack = function () {
+                    window.history.back();
+                };
                 return Sortable;
             }());
             exports_1("Sortable", Sortable);

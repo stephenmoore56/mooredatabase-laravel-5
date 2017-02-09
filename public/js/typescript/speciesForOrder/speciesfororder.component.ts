@@ -48,7 +48,7 @@ export class SpeciesForOrderComponent extends Sortable implements OnInit {
             .subscribe(
                 r => {
                     this.birds = r;
-                    this.orderName = this.birds[0].orderName;
+                    this.orderName = this.birds[0].order_name;
                 },
                 error => console.log("Error: ", error)
             );

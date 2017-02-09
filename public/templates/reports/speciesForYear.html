@@ -1,0 +1,18 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			Species for Year {{ yearNumber }}
+		</h3>
+	</div>
+	<div class="panel-body">
+		<form class="form-inline filterForm">
+			<back-button></back-button>
+			<search-birds></search-birds>
+			<order-filter></order-filter>
+			<top-n></top-n>
+		</form>
+		<species-count></species-count>
+
+	</div>
+	<species-list-year [birds]='birds'></species-list-year>
+</div>

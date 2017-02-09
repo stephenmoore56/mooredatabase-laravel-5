@@ -1,6 +1,5 @@
 import {NgModule}       from '@angular/core';
 import {BrowserModule}  from '@angular/platform-browser';
-
 import {AppComponent} from './app.component';
 import {NavBarComponent} from './navbar.component';
 import {NavBarBrandComponent} from './navbarbrand.component';
@@ -12,11 +11,13 @@ import {CertificationsComponent} from './certifications.component';
 import {EducationComponent} from './education.component';
 import {TrainingComponent} from './training.component';
 import {ContactComponent} from './contact.component';
+import {ReportWidgetsModule} from './reportPartials/reportwidgets.module';
 
 @NgModule({
     imports: [
         BrowserModule,
-        routing
+        routing,
+        ReportWidgetsModule
     ],
     declarations: [
         AppComponent,

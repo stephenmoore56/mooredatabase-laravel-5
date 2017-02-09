@@ -41,6 +41,30 @@ System.register(["rxjs/add/operator/map", "@angular/core", "@angular/http"], fun
                 ReportDataService.prototype.getSpeciesByYear = function () {
                     return this.getResults('speciesByYear');
                 };
+                ReportDataService.prototype.getSpeciesByOrder = function () {
+                    return this.getResults('speciesByOrder');
+                };
+                ReportDataService.prototype.getSpeciesByLocation = function () {
+                    return this.getResults('speciesByLocation');
+                };
+                ReportDataService.prototype.getSpeciesByCounty = function () {
+                    return this.getResults('speciesByCounty');
+                };
+                ReportDataService.prototype.getSpeciesForMonth = function (month) {
+                    return this.getResults("speciesForMonth/" + month);
+                };
+                ReportDataService.prototype.getSpeciesForYear = function (year) {
+                    return this.getResults("speciesForYear/" + year);
+                };
+                ReportDataService.prototype.getSpeciesForOrder = function (orderId) {
+                    return this.getResults("speciesForOrder/" + orderId);
+                };
+                ReportDataService.prototype.getSpeciesForLocation = function (locationId) {
+                    return this.getResults("speciesForLocation/" + locationId);
+                };
+                ReportDataService.prototype.getLocation = function (locationId) {
+                    return this.getResults("locationDetail/" + locationId);
+                };
                 ReportDataService.prototype.getResults = function (endpoint) {
                     return this.http
                         .get(this.baseUrl + "/" + endpoint, { headers: this.getHeaders() })

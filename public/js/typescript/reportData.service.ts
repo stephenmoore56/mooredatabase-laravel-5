@@ -32,12 +32,32 @@ export class ReportDataService {
         return this.getResults('speciesByOrder');
     }
 
+    public getSpeciesByLocation(): Observable<Result[]> {
+        return this.getResults('speciesByLocation');
+    }
+
+    public getSpeciesByCounty(): Observable<Result[]> {
+        return this.getResults('speciesByCounty');
+    }
+
     public getSpeciesForMonth(month: number): Observable<Result[]> {
         return this.getResults(`speciesForMonth/${month}`);
     }
 
+    public getSpeciesForYear(year: number): Observable<Result[]> {
+        return this.getResults(`speciesForYear/${year}`);
+    }
+
     public getSpeciesForOrder(orderId: number): Observable<Result[]> {
         return this.getResults(`speciesForOrder/${orderId}`);
+    }
+
+    public getSpeciesForLocation(locationId: number): Observable<Result[]> {
+        return this.getResults(`speciesForLocation/${locationId}`);
+    }
+
+    public getLocation(locationId: number): Observable<Result[]> {
+        return this.getResults(`locationDetail/${locationId}`);
     }
 
     private getResults(endpoint: string): Observable<Result[]> {

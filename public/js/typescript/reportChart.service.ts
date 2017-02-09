@@ -293,89 +293,95 @@ export class ReportChartService {
 
     }
 
-    //
-    //         drawChartSpeciesByCounty: function (dataPoints, chart_div) {
-    //             var counties, species, trips, data, trace1, trace2, i, layout;
-    //             if (dataPoints.length === 0) {
-    //                 return;
-    //             }
-    //
-    //             var d3 = Plotly.d3;
-    //
-    //             var WIDTH_IN_PERCENT_OF_PARENT = 90,
-    //                 HEIGHT_IN_PERCENT_OF_PARENT = 90;
-    //
-    //             var gd3 = d3.select('#' + chart_div)
-    //                 .style({
-    //                     width: WIDTH_IN_PERCENT_OF_PARENT + '%',
-    //                     height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh'
-    //                 });
-    //
-    //             var gd = gd3.node();
-    //
-    //             /* extract data from JSON data */
-    //             counties = [];
-    //             species = [];
-    //             trips = [];
-    //             for (i = 0; i < dataPoints.length; i++) {
-    //                 // read species, trips and counties into separate arrays
-    //                 counties[i] = dataPoints[i].countyName;
-    //                 species[i] = dataPoints[i].speciesCount;
-    //                 trips[i] = dataPoints[i].tripCount;
-    //             }
-    //
-    //             trace1 = {
-    //                 y: counties,
-    //                 x: species,
-    //                 name: 'Species',
-    //                 type: 'bar',
-    //                 marker: {
-    //                     color: '#B733FF'
-    //                 },
-    //                 orientation: 'h'
-    //             };
-    //
-    //             trace2 = {
-    //                 y: counties,
-    //                 x: trips,
-    //                 name: 'Trips',
-    //                 type: 'bar',
-    //                 marker: {
-    //                     color: '#33E75F'
-    //                 },
-    //                 orientation: 'h'
-    //             };
-    //
-    //             data = [trace1, trace2];
-    //
-    //             layout = {
-    //                 title: "Species &amp; Trips By County",
-    //                 margin: {
-    //                     l: 100,
-    //                     r: 5,
-    //                     b: 5,
-    //                     t: 75,
-    //                     pad: 5
-    //                 },
-    //                 yaxis: {
-    //                     title: '',
-    //                     type: 'category'
-    //                 },
-    //                 xaxis: {
-    //                     title: ''
-    //                 }
-    //             };
-    //
-    //             Plotly.newPlot(chart_div, data, layout, {
-    //                 displaylogo: false,
-    //                 modeBarButtonsToRemove: ['sendDataToCloud']
-    //             });
-    //
-    //             window.onresize = function () {
-    //                 Plotly.Plots.resize(gd);
-    //             };
-    //
-    //         }
-    //     };
-    // });
+
+    public drawChartSpeciesByCounty(dataPoints: Result[], chart_div: string) {
+
+        if (dataPoints.length === 0) {
+            return;
+        }
+
+        // sort results by species count descending
+        let dataPoints = dataPoints.sort((a, b) => {
+            if (a.speciesCount === b.speciesCount) {
+                return 0;
+            } else {
+                return (a.speciesCount < b.speciesCount) ? -1 : 1;
+            }
+        });
+
+        let d3 = Plotly.d3;
+
+        let WIDTH_IN_PERCENT_OF_PARENT = 90,
+            HEIGHT_IN_PERCENT_OF_PARENT = 90;
+
+        let gd3 = d3.select('#' + chart_div)
+            .style({
+                width: WIDTH_IN_PERCENT_OF_PARENT + '%',
+                height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh'
+            });
+
+        let gd = gd3.node();
+
+        /* extract data from JSON data */
+        let counties = [];
+        let species = [];
+        let trips = [];
+        for (let i = 0; i < dataPoints.length; i++) {
+            // read species, trips and counties into separate arrays
+            counties[i] = dataPoints[i].countyName;
+            species[i] = dataPoints[i].speciesCount;
+            trips[i] = dataPoints[i].tripCount;
+        }
+
+        let trace1 = {
+            y: counties,
+            x: species,
+            name: 'Species',
+            type: 'bar',
+            marker: {
+                color: '#B733FF'
+            },
+            orientation: 'h'
+        };
+
+        let trace2 = {
+            y: counties,
+            x: trips,
+            name: 'Trips',
+            type: 'bar',
+            marker: {
+                color: '#33E75F'
+            },
+            orientation: 'h'
+        };
+
+        let data = [trace1, trace2];
+
+        let layout = {
+            title: "Species &amp; Trips By County",
+            margin: {
+                l: 100,
+                r: 5,
+                b: 5,
+                t: 75,
+                pad: 5
+            },
+            yaxis: {
+                title: '',
+                type: 'category'
+            },
+            xaxis: {
+                title: ''
+            }
+        };
+
+        Plotly.newPlot(chart_div, data, layout, {
+            displaylogo: false,
+            modeBarButtonsToRemove: ['sendDataToCloud']
+        });
+
+        window.onresize = function () {
+            Plotly.Plots.resize(gd);
+        };
+    }
 }

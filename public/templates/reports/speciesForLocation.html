@@ -1,0 +1,57 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			Location Detail
+		</h3>
+	</div>
+	<div class="panel-body">
+		<table class="table table-condensed">
+			<tbody>
+			<tr>
+				<th>Name</th>
+				<td>{{ location.location_name }}, {{ location.county_name }} County, {{ location.state_code }} {{ location.country_code }}</td>
+			</tr>
+			<tr>
+				<th>Notes</th>
+				<td>{{ location.notes }}</td>
+			</tr>
+			<tr>
+				<th>Trips</th>
+				<td>{{ location.trip_count }}</td>
+			</tr>
+			</tbody>
+		</table>
+		<form class="form-inline filterForm">
+			<div class="form-group">
+				<a class="btn btn-info btn-sm" target="_blank"
+				   href="http://www.google.com/maps/place/{{ location.latitude }},{{ location.longitude }}/{{ location.latitude }},{{ location.longitude }},15z">
+					<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+					Map</a>
+			</div>
+			<div class="form-group">
+				<a class="btn btn-info btn-sm" target="_blank"
+				   href="{{ location.ecs_subsection_url }}">
+					<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+					ECS Subsection</a>
+			</div>
+		</form>
+	</div>
+</div>
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			Species for {{ location.location_name }}
+		</h3>
+	</div>
+	<div class="panel-body">
+		<form class="form-inline filterForm">
+			<back-button></back-button>
+			<search-birds></search-birds>
+			<order-filter></order-filter>
+			<top-n></top-n>
+		</form>
+		<species-count></species-count>
+
+	</div>
+	<species-list [birds]='birds'></species-list>
+</div>

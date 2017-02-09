@@ -79,13 +79,13 @@
     });
     // inject CSS into stylesheets partial
     gulp.task('css-inject', () => {
-        let target = gulp.src('./app/views/partials/head.blade.php');
+        let target = gulp.src('./resources/views/partials/head.blade.php');
         let sources = gulp.src(['./public/css/*.css'], {
             read: false
         });
         return target.pipe($.inject(sources))
             .pipe($.replace('/public', ''))
-            .pipe(gulp.dest('./app/views/partials'));
+            .pipe(gulp.dest('./resources/views/partials'));
     });
 
     // logging utility

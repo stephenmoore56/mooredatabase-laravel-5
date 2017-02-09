@@ -20,7 +20,7 @@
 		<tr *ngFor="let year of years">
 			<td class="text-center">{{ year.yearNumber }}</td>
 			<td class="text-center">
-				<a class="btn btn-info btn-xs" href="/reports/speciesForYear/{{ year.yearNumber }}">
+				<a class="btn btn-info btn-xs" [routerLink]="['/reports/years', year.yearNumber]">
 					View Species
 					<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
 				</a>

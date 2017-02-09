@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/platform-browser", "./app.component", "./navbar.component", "./navbarbrand.component", "./carousel.component", "./app.routes", "./home.component", "./certifications.component", "./education.component", "./training.component", "./contact.component"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/platform-browser", "./app.component", "./navbar.component", "./navbarbrand.component", "./navbarreports.component", "./carousel.component", "./app.routes", "./home.component", "./certifications.component", "./education.component", "./training.component", "./contact.component", "./reportPartials/reportwidgets.module"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7,7 +7,7 @@ System.register(["@angular/core", "@angular/platform-browser", "./app.component"
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, platform_browser_1, app_component_1, navbar_component_1, navbarbrand_component_1, carousel_component_1, app_routes_1, home_component_1, certifications_component_1, education_component_1, training_component_1, contact_component_1, AppModule;
+    var core_1, platform_browser_1, app_component_1, navbar_component_1, navbarbrand_component_1, navbarreports_component_1, carousel_component_1, app_routes_1, home_component_1, certifications_component_1, education_component_1, training_component_1, contact_component_1, reportwidgets_module_1, AppModule;
     return {
         setters: [
             function (core_1_1) {
@@ -24,6 +24,9 @@ System.register(["@angular/core", "@angular/platform-browser", "./app.component"
             },
             function (navbarbrand_component_1_1) {
                 navbarbrand_component_1 = navbarbrand_component_1_1;
+            },
+            function (navbarreports_component_1_1) {
+                navbarreports_component_1 = navbarreports_component_1_1;
             },
             function (carousel_component_1_1) {
                 carousel_component_1 = carousel_component_1_1;
@@ -45,6 +48,9 @@ System.register(["@angular/core", "@angular/platform-browser", "./app.component"
             },
             function (contact_component_1_1) {
                 contact_component_1 = contact_component_1_1;
+            },
+            function (reportwidgets_module_1_1) {
+                reportwidgets_module_1 = reportwidgets_module_1_1;
             }
         ],
         execute: function () {
@@ -57,12 +63,14 @@ System.register(["@angular/core", "@angular/platform-browser", "./app.component"
                 core_1.NgModule({
                     imports: [
                         platform_browser_1.BrowserModule,
-                        app_routes_1.routing
+                        app_routes_1.routing,
+                        reportwidgets_module_1.ReportWidgetsModule
                     ],
                     declarations: [
                         app_component_1.AppComponent,
                         navbar_component_1.NavBarComponent,
                         navbarbrand_component_1.NavBarBrandComponent,
+                        navbarreports_component_1.NavBarReportsComponent,
                         carousel_component_1.CarouselComponent,
                         home_component_1.HomeComponent,
                         education_component_1.EducationComponent,
@@ -74,6 +82,7 @@ System.register(["@angular/core", "@angular/platform-browser", "./app.component"
                         app_component_1.AppComponent,
                         navbar_component_1.NavBarComponent,
                         navbarbrand_component_1.NavBarBrandComponent,
+                        navbarreports_component_1.NavBarReportsComponent,
                         carousel_component_1.CarouselComponent
                     ]
                 })

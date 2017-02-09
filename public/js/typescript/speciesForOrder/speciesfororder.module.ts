@@ -3,12 +3,7 @@ import {CommonModule} from '@angular/common';
 import {FormsModule}   from '@angular/forms';
 import {HttpModule}    from '@angular/http';
 import {SpeciesForOrderComponent}   from './speciesfororder.component';
-import {BackButtonComponent}   from '../reportPartials/backbutton.component';
-import {OrderFilterComponent}   from '../reportPartials/orderfilter.component';
-import {SearchBirdsComponent}   from '../reportPartials/searchbirds.component';
-import {SpeciesCountComponent}   from '../reportPartials/speciescount.component';
-import {SpeciesListComponent}   from '../reportPartials/specieslist.component';
-import {TopNComponent}   from '../reportPartials/topn.component';
+import {ReportWidgetsModule} from '../reportPartials/reportwidgets.module';
 import {routing} from './speciesfororder.routing';
 
 @NgModule({
@@ -16,16 +11,11 @@ import {routing} from './speciesfororder.routing';
         routing,
         CommonModule,
         HttpModule,
-        FormsModule
+        FormsModule,
+        ReportWidgetsModule
     ],
     declarations: [
-        SpeciesForOrderComponent,
-        BackButtonComponent,
-        OrderFilterComponent,
-        SearchBirdsComponent,
-        SpeciesCountComponent,
-        SpeciesListComponent,
-        TopNComponent
+        SpeciesForOrderComponent
     ]
 })
 export class SpeciesForOrderModule {
