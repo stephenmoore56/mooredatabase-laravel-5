@@ -5,7 +5,6 @@ import {HttpModule}     from '@angular/http';
 import {SpeciesByYearComponent}   from './speciesbyyear.component';
 import {routing}        from './speciesbyyear.routing';
 
-
 @NgModule({
     imports: [
         routing,

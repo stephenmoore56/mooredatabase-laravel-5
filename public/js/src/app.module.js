@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/platform-browser", "./app.component", "./navbar.component", "./navbarbrand.component", "./navbarreports.component", "./carousel.component", "./app.routes", "./home.component", "./certifications.component", "./education.component", "./training.component", "./contact.component", "./reportPartials/reportwidgets.module"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/platform-browser", "./app.component", "./navbar.component", "./navbarbrand.component", "./navbarreports.component", "./staticContent/carousel.component", "./app.routes", "./staticContent/home.component", "./staticContent/certifications.component", "./staticContent/education.component", "./staticContent/training.component", "./staticContent/contact.component", "./reportPartials/reportwidgets.module"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -62,8 +62,8 @@ System.register(["@angular/core", "@angular/platform-browser", "./app.component"
             AppModule = __decorate([
                 core_1.NgModule({
                     imports: [
+                        app_routes_1.AppRoutingModule,
                         platform_browser_1.BrowserModule,
-                        app_routes_1.routing,
                         reportwidgets_module_1.ReportWidgetsModule
                     ],
                     declarations: [
@@ -82,8 +82,7 @@ System.register(["@angular/core", "@angular/platform-browser", "./app.component"
                         app_component_1.AppComponent,
                         navbar_component_1.NavBarComponent,
                         navbarbrand_component_1.NavBarBrandComponent,
-                        navbarreports_component_1.NavBarReportsComponent,
-                        carousel_component_1.CarouselComponent
+                        navbarreports_component_1.NavBarReportsComponent
                     ]
                 })
             ], AppModule);

@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/common", "@angular/forms", "../reportPartials/backbutton.component", "../reportPartials/orderfilter.component", "../reportPartials/searchbirds.component", "../reportPartials/speciescount.component", "../reportPartials/specieslist.component", "../reportPartials/specieslistyear.component", "../reportPartials/topn.component"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/common", "@angular/forms", "@angular/router", "../reportPartials/backbutton.component", "../reportPartials/orderfilter.component", "../reportPartials/searchbirds.component", "../reportPartials/speciescount.component", "../reportPartials/specieslist.component", "../reportPartials/specieslistyear.component", "../reportPartials/topn.component"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7,7 +7,7 @@ System.register(["@angular/core", "@angular/common", "@angular/forms", "../repor
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, common_1, forms_1, backbutton_component_1, orderfilter_component_1, searchbirds_component_1, speciescount_component_1, specieslist_component_1, specieslistyear_component_1, topn_component_1, ReportWidgetsModule;
+    var core_1, common_1, forms_1, router_1, backbutton_component_1, orderfilter_component_1, searchbirds_component_1, speciescount_component_1, specieslist_component_1, specieslistyear_component_1, topn_component_1, ReportWidgetsModule;
     return {
         setters: [
             function (core_1_1) {
@@ -18,6 +18,9 @@ System.register(["@angular/core", "@angular/common", "@angular/forms", "../repor
             },
             function (forms_1_1) {
                 forms_1 = forms_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             },
             function (backbutton_component_1_1) {
                 backbutton_component_1 = backbutton_component_1_1;
@@ -50,7 +53,8 @@ System.register(["@angular/core", "@angular/common", "@angular/forms", "../repor
             ReportWidgetsModule = __decorate([
                 core_1.NgModule({
                     imports: [
-                        common_1.CommonModule
+                        common_1.CommonModule,
+                        router_1.RouterModule,
                     ],
                     declarations: [
                         backbutton_component_1.BackButtonComponent,

@@ -1,6 +1,6 @@
-(function() {
+(function () {
     'use strict';
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#country_code').focus();
         $('#locationForm').locationValidator();
     });

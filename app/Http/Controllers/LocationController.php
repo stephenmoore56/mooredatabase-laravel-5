@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 /**
  * Restful methods for maintenance of location data
  *
@@ -88,7 +88,7 @@ class LocationController extends MyBaseController {
 	 * Update the specified resource in storage.
 	 * @access  public
 	 * @param Request $request
-	 * @param int $id
+	 * @param int     $id
 	 * @return \Illuminate\Http\RedirectResponse
 	 */
 	public function update(Request $request, int $id) {
@@ -139,14 +139,14 @@ class LocationController extends MyBaseController {
 	 */
 	private function getValidationRules() {
 		return [
-			'country_code' => 'required|in:US',
-			'state_code' => 'required|in:MN',
-			'county_name' => 'required|max:50',
+			'country_code'      => 'required|in:US',
+			'state_code'        => 'required|in:MN',
+			'county_name'       => 'required|max:50',
 			'ecs_subsection_id' => 'required|integer|min:1',
-			'latitude' => 'required|numeric|between:-90,90',
-			'longitude' => 'required|numeric|between:-180,180',
-			'location_name' => 'required|min:10|max:50',
-			'notes' => 'required',
+			'latitude'          => 'required|numeric|between:-90,90',
+			'longitude'         => 'required|numeric|between:-180,180',
+			'location_name'     => 'required|min:10|max:50',
+			'notes'             => 'required',
 		];
 	}
 
@@ -161,9 +161,9 @@ class LocationController extends MyBaseController {
 		$counties = LocationMapper::listCounties();
 		$ecs_subsections = LocationMapper::listECSSubsections();
 		$data = [
-			'countries' => $countries,
-			'states' => $states,
-			'counties' => $counties,
+			'countries'       => $countries,
+			'states'          => $states,
+			'counties'        => $counties,
 			'ecs_subsections' => $ecs_subsections,
 		];
 		return $data;

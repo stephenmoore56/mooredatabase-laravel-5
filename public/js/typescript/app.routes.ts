@@ -1,12 +1,12 @@
+import {NgModule}              from '@angular/core';
 import {ModuleWithProviders}  from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {ROUTER_DIRECTIVES} from '@angular/router';
 
-import {HomeComponent} from './home.component';
-import {CertificationsComponent} from './certifications.component';
-import {EducationComponent} from './education.component';
-import {TrainingComponent} from './training.component';
-import {ContactComponent} from './contact.component';
+import {HomeComponent} from './staticContent/home.component';
+import {CertificationsComponent} from './staticContent/certifications.component';
+import {EducationComponent} from './staticContent/education.component';
+import {TrainingComponent} from './staticContent/training.component';
+import {ContactComponent} from './staticContent/contact.component';
 
 const routes: Routes = [
     {path: 'home', component: HomeComponent},
@@ -25,7 +25,19 @@ const routes: Routes = [
         path: 'reports/locations/:id',
         loadChildren: 'app/speciesForLocation/speciesforlocation.module#SpeciesForLocationModule'
     },
+    {path: 'reports/all', loadChildren: 'app/speciesAll/speciesall.module#SpeciesAllModule'},
+    {path: 'reports/search', loadChildren: 'app/searchAll/searchall.module#SearchAllModule'},
+    {path: 'reports/species/:id', loadChildren: 'app/speciesDetail/speciesdetail.module#SpeciesDetailModule'},
     {path: '', component: HomeComponent, pathMatch: 'full'}
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
+@NgModule({
+    imports: [
+        RouterModule.forRoot(routes)
+    ],
+    exports: [
+        RouterModule
+    ]
+})
+export class AppRoutingModule {
+}

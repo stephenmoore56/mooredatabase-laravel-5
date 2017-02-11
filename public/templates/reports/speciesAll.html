@@ -1,0 +1,17 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			All Species Sighted
+		</h3>
+	</div>
+	<div class="panel-body">
+		<form class="form-inline filterForm">
+			<search-birds></search-birds>
+			<order-filter></order-filter>
+			<top-n></top-n>
+		</form>
+		<species-count></species-count>
+
+	</div>
+	<species-list [birds]='birds'></species-list>
+</div>

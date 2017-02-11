@@ -1,0 +1,76 @@
+<div class="row-fluid">
+	<div class="col-no-pad col-sm-6">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					Species Detail for {{ bird.common_name }}
+				</h3>
+			</div>
+			<div class="panel-body">
+				<table class="table table-condensed">
+					<tbody>
+					<tr>
+						<th>Common Name</th>
+						<td>{{ bird.common_name }}</td>
+					</tr>
+					<tr>
+						<th>Scientific Name</th>
+						<td clasS="scientific_name">{{ bird.scientific_name }}</td>
+					</tr>
+					<tr>
+						<th>Order</th>
+						<td>{{ bird.order_name }}</td>
+					</tr>
+					<tr>
+						<th>Family</th>
+						<td>{{ bird.family }} {{ bird.subfamily }}</td>
+					</tr>
+					<tr>
+						<th>Last Seen</th>
+						<td>{{ bird.last_seen || 'NA' }}</td>
+					</tr>
+					<tr>
+						<th>Earliest / Latest</th>
+						<td>{{ bird.earliestSighting || 'NA' }} / {{ bird.latestSighting || 'NA' }}</td>
+					</tr>
+					</tbody>
+				</table>
+				<form class="form-inline filterForm">
+					<div class="form-group" style="margin-bottom: 10px">
+						<button type="button" class="btn btn-success btn-sm" (click)="goBack()">
+							<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Back
+						</button>
+					</div>
+					<div class="form-group" style="margin-bottom: 10px;">
+						<a href="http://en.wikipedia.org/wiki/{{ bird.common_name }}" target="_blank"
+						   class="btn btn-info btn-sm">
+							<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+							Wikipedia
+						</a>
+					</div>
+					<div class="form-group" style="margin-bottom: 10px;">
+						<a href="http://images.google.com/images?q={{ bird.common_name }}&sout=1" target="_blank"
+						   class="btn btn-info btn-sm">
+							<span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+							Google Images
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div [hidden]="bird.last_seen == null" class="col-no-pad col-spacer col-sm-1">
+	</div>
+	<div [hidden]="bird.last_seen == null" class="col-no-pad col-sm-5">
+		<div class="panel panel-primary" data-ng-show="showChart">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					Sightings By Month for {{ bird.common_name }}
+				</h3>
+			</div>
+			<div class="panel-body">
+				<div id="chart_div_1" class="chart_div"></div>
+			</div>
+		</div>
+	</div>
+</div>

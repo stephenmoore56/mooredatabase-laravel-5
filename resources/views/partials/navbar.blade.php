@@ -25,10 +25,7 @@
 					</a>
 					{{--angular component replaces this--}}
 					<ul ng-nav-bar class="dropdown-menu">
-						<li><a href="#">Education</a></li>
-						<li><a href="#">Certifications</a></li>
-						<li><a href="#">Training</a></li>
-						<li><a href="#">Contact Me</a></li>
+						<li><a href="#">Loading...</a></li>
 					</ul>
 				</li>
 				<li class="dropdown">
@@ -37,8 +34,7 @@
 						BIRDING <span class="caret"></span>
 					</a>
 					<ul ng-nav-bar-reports class="dropdown-menu">
-						<li><a href="#">Species & Trips By Month</a></li>
-						<li><a href="#">Species & Trips By Year</a></li>
+						<li><a href="#">Loading...</a></li>
 					</ul>
 				</li>
 				<li class="dropdown">

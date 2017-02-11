@@ -48,6 +48,14 @@ export class ReportDataService {
         return this.getResults(`speciesForYear/${year}`);
     }
 
+    public getSpeciesAll(): Observable<Result[]> {
+        return this.getResults(`speciesAll`);
+    }
+
+    public getSearchAll(searchTerm: string, orderId: number): Observable<Result[]> {
+        return this.getResults(`searchAll/${searchTerm}/${orderId}`);
+    }
+
     public getSpeciesForOrder(orderId: number): Observable<Result[]> {
         return this.getResults(`speciesForOrder/${orderId}`);
     }
@@ -58,6 +66,18 @@ export class ReportDataService {
 
     public getLocation(locationId: number): Observable<Result[]> {
         return this.getResults(`locationDetail/${locationId}`);
+    }
+
+    public getSpeciesDetail(speciesId: number): Observable<Result[]> {
+        return this.getResults(`speciesDetail/${speciesId}`);
+    }
+
+    public getMonthsForSpecies(speciesId: number): Observable<Result[]> {
+        return this.getResults(`monthsForSpecies/${speciesId}`);
+    }
+
+    public getOrdersAll(): Observable<Result[]> {
+        return this.getResults(`listOrdersAll`);
     }
 
     private getResults(endpoint: string): Observable<Result[]> {

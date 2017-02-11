@@ -1,17 +1,17 @@
-(function() {
+(function () {
     'use strict';
-    $(document).ready(function() {
+    $(document).ready(function () {
         $("#search").focus();
         $("#search").autocomplete({
-            source: function(request, response) {
+            source: function (request, response) {
                 $.get("/reports/birdLookup", {
                     query: request.term
-                }, function(data) {
+                }, function (data) {
                     response(data);
                 });
             },
             minLength: 3,
-            select: function(event, ui) {
+            select: function (event, ui) {
                 // default is to replace search string with ID
                 event.preventDefault();
                 $('#search').val(ui.item.label);
@@ -20,20 +20,20 @@
                 // save on select
                 $('#addSighting').submit();
             },
-            focus: function(event, ui) {
+            focus: function (event, ui) {
                 // default is to replace search string with ID
                 event.preventDefault();
                 // set value of hidden input to id; post that
                 $('#aou_list_id').val(ui.item.value);
             }
         });
-        $('#addSighting').on('submit', function(event) {
+        $('#addSighting').on('submit', function (event) {
             // don't submit if aou_list_id hasn't been set yet
             if (!$('#aou_list_id').val()) {
                 event.preventDefault();
             }
         });
-        $('button.deleteSighting').on('click', function(e) {
+        $('button.deleteSighting').on('click', function (e) {
             e.preventDefault();
             var confirmMessage = "Delete this sighting?";
             bootbox.confirm({
@@ -49,9 +49,9 @@
                         className: "btn btn-default btn-sm"
                     }
                 },
-                callback: function(result) {
+                callback: function (result) {
                     if (result) {
-                        $('#form_'+e.target.id).submit();
+                        $('#form_' + e.target.id).submit();
                     }
                 }
             });

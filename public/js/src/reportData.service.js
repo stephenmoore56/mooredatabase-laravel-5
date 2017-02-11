@@ -56,6 +56,12 @@ System.register(["rxjs/add/operator/map", "@angular/core", "@angular/http"], fun
                 ReportDataService.prototype.getSpeciesForYear = function (year) {
                     return this.getResults("speciesForYear/" + year);
                 };
+                ReportDataService.prototype.getSpeciesAll = function () {
+                    return this.getResults("speciesAll");
+                };
+                ReportDataService.prototype.getSearchAll = function (searchTerm, orderId) {
+                    return this.getResults("searchAll/" + searchTerm + "/" + orderId);
+                };
                 ReportDataService.prototype.getSpeciesForOrder = function (orderId) {
                     return this.getResults("speciesForOrder/" + orderId);
                 };
@@ -64,6 +70,15 @@ System.register(["rxjs/add/operator/map", "@angular/core", "@angular/http"], fun
                 };
                 ReportDataService.prototype.getLocation = function (locationId) {
                     return this.getResults("locationDetail/" + locationId);
+                };
+                ReportDataService.prototype.getSpeciesDetail = function (speciesId) {
+                    return this.getResults("speciesDetail/" + speciesId);
+                };
+                ReportDataService.prototype.getMonthsForSpecies = function (speciesId) {
+                    return this.getResults("monthsForSpecies/" + speciesId);
+                };
+                ReportDataService.prototype.getOrdersAll = function () {
+                    return this.getResults("listOrdersAll");
                 };
                 ReportDataService.prototype.getResults = function (endpoint) {
                     return this.http

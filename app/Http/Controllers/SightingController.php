@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 /**
  * Restful methods for maintenance of sightings data
  *
@@ -75,7 +75,7 @@ class SightingController extends MyBaseController {
 	 */
 	private function getValidationRules() {
 		return [
-			'trip_id' => 'required|integer|min:1',
+			'trip_id'     => 'required|integer|min:1',
 			'aou_list_id' => 'required|integer|min:1',
 		];
 	}

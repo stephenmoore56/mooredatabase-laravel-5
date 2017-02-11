@@ -1,6 +1,6 @@
-(function() {
+(function () {
     'use strict';
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#location_id').focus();
         $('#trip_date').datepicker({
             dateFormat: "yy-mm-dd"

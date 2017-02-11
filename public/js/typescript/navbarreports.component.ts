@@ -7,6 +7,8 @@ import {Component} from '@angular/core';
     <li><a [routerLink]="['/reports/years']" routerLinkActive="active">Species & Trips By Year</a></li>
     <li><a [routerLink]="['/reports/orders']" routerLinkActive="active">Species By Order</a></li>
     <li><a [routerLink]="['/reports/locations']" routerLinkActive="active">Species By Location</a></li>
+    <li><a [routerLink]="['/reports/all']" routerLinkActive="active">All Species Sighted</a></li>
+    <li><a [routerLink]="['/reports/search']" routerLinkActive="active">Search All Species</a></li>
 `
 })
 export class NavBarReportsComponent {

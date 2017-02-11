@@ -1,0 +1,36 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			Search All Species
+		</h3>
+	</div>
+	<div class="panel-body">
+		<form class="form-inline filterForm">
+			<div class="form-group" style="margin-bottom: 10px;">
+				<label for="searchString" class="control-label">Search:</label>
+				<input #searchInput (change)='searchTerm = searchInput.value' id="searchString" type="search"
+					   class="form-control input-sm"
+					   [value]="searchTerm" name="searchTerm" size="50" maxlength="50">
+			</div>
+			<div class="form-group" style="margin-bottom: 10px;">
+				<label for="orderFilter" class="label-control">Order:</label>
+				<select #selectedOrder (change)='orderId = selectedOrder.value' class="form-control input-sm"
+						name="orderFilter" id="orderFilter">
+					<option *ngFor="let order of orders" [value]="order.id">
+						{{ order.order_name }}
+					</option>
+				</select>
+			</div>
+			<div class="form-group" style="margin-bottom: 10px;">
+				<button (click)="search()" class="btn btn-primary btn-sm">
+					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+					Search
+				</button>
+			</div>
+		</form>
+		<span id="speciesCount" class="form-static-control">
+			{{ birds.length }} Species
+		</span>
+	</div>
+	<species-list [hidden]="birds.length == 0" [birds]='birds'></species-list>
+</div>

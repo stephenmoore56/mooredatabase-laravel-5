@@ -23,7 +23,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             NavBarReportsComponent = __decorate([
                 core_1.Component({
                     selector: '[ng-nav-bar-reports]',
-                    template: "\n    <li><a [routerLink]=\"['/reports/months']\" routerLinkActive=\"active\">Species & Trips By Month</a></li>\n    <li><a [routerLink]=\"['/reports/years']\" routerLinkActive=\"active\">Species & Trips By Year</a></li>\n    <li><a [routerLink]=\"['/reports/orders']\" routerLinkActive=\"active\">Species By Order</a></li>\n    <li><a [routerLink]=\"['/reports/locations']\" routerLinkActive=\"active\">Species By Location</a></li>\n"
+                    template: "\n    <li><a [routerLink]=\"['/reports/months']\" routerLinkActive=\"active\">Species & Trips By Month</a></li>\n    <li><a [routerLink]=\"['/reports/years']\" routerLinkActive=\"active\">Species & Trips By Year</a></li>\n    <li><a [routerLink]=\"['/reports/orders']\" routerLinkActive=\"active\">Species By Order</a></li>\n    <li><a [routerLink]=\"['/reports/locations']\" routerLinkActive=\"active\">Species By Location</a></li>\n    <li><a [routerLink]=\"['/reports/all']\" routerLinkActive=\"active\">All Species Sighted</a></li>\n    <li><a [routerLink]=\"['/reports/search']\" routerLinkActive=\"active\">Search All Species</a></li>\n"
                 })
             ], NavBarReportsComponent);
             exports_1("NavBarReportsComponent", NavBarReportsComponent);

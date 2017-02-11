@@ -1,19 +1,19 @@
-(function() {
+(function () {
     'use strict';
-    $.fn.tripValidator = function() {
+    $.fn.tripValidator = function () {
         var form = this;
         // override jquery validate plugin defaults
         // so it works with Bootstrap 3 
         $.validator.setDefaults({
-            highlight: function(element) {
+            highlight: function (element) {
                 $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
             },
-            unhighlight: function(element) {
+            unhighlight: function (element) {
                 $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
             },
             errorElement: 'span',
             errorClass: 'help-block',
-            errorPlacement: function(error, element) {
+            errorPlacement: function (error, element) {
                 if (element.parent('.input-group').length) {
                     error.insertAfter(element.parent());
                 } else {

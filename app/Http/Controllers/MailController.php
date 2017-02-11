@@ -90,8 +90,8 @@ class MailController extends MyBaseController {
 					->to($mail['from']['address'], $mail['from']['name'])
 					->subject('Test E-Mail (Laravel)')
 					->attach(public_path() . '/docs/resume_SRM_2016.docx',
-						array('as' => 'resumeStephenMoore.docx',
-							'mime' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'));
+						array('as'   => 'resumeStephenMoore.docx',
+							  'mime' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'));
 			});
 			$flashMessage = 'Test mail sent';
 

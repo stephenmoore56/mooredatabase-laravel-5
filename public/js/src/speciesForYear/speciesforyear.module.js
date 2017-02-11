@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/http", "./speciesforyear.component", "../reportPartials/reportwidgets.module", "./speciesforyear.routing"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/http", "./speciesforyear.component", "../reportPartials/reportwidgets.module", "./speciesforyear.routing", "@angular/router"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7,7 +7,7 @@ System.register(["@angular/core", "@angular/http", "./speciesforyear.component",
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, http_1, speciesforyear_component_1, reportwidgets_module_1, speciesforyear_routing_1, SpeciesForYearModule;
+    var core_1, http_1, speciesforyear_component_1, reportwidgets_module_1, speciesforyear_routing_1, router_1, SpeciesForYearModule;
     return {
         setters: [
             function (core_1_1) {
@@ -24,6 +24,9 @@ System.register(["@angular/core", "@angular/http", "./speciesforyear.component",
             },
             function (speciesforyear_routing_1_1) {
                 speciesforyear_routing_1 = speciesforyear_routing_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             }
         ],
         execute: function () {
@@ -37,7 +40,8 @@ System.register(["@angular/core", "@angular/http", "./speciesforyear.component",
                     imports: [
                         speciesforyear_routing_1.routing,
                         http_1.HttpModule,
-                        reportwidgets_module_1.ReportWidgetsModule
+                        reportwidgets_module_1.ReportWidgetsModule,
+                        router_1.RouterModule,
                     ],
                     declarations: [
                         speciesforyear_component_1.SpeciesForYearComponent

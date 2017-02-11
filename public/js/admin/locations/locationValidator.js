@@ -1,17 +1,17 @@
-(function() {
+(function () {
     'use strict';
-    $.fn.locationValidator = function() {
+    $.fn.locationValidator = function () {
         var form = this;
         $.validator.setDefaults({
-            highlight: function(element) {
+            highlight: function (element) {
                 $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
             },
-            unhighlight: function(element) {
+            unhighlight: function (element) {
                 $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
             },
             errorElement: 'span',
             errorClass: 'help-block',
-            errorPlacement: function(error, element) {
+            errorPlacement: function (error, element) {
                 if (element.parent('.input-group').length) {
                     error.insertAfter(element.parent());
                 } else {

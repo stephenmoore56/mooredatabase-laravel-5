@@ -14,7 +14,8 @@
 			<th class="text-center">Action</th>
 			<th class="hidden-xs">Notes</th>
 			<th class="text-right hidden-xs" (click)="sortResults(orders, 'order_species_count_all')">Total Species</th>
-			<th class="text-right" (click)="sortResults(orders, 'speciesCount')">Species <span class="hidden-xs">Sighted</span></th>
+			<th class="text-right" (click)="sortResults(orders, 'speciesCount')">Species <span
+					class="hidden-xs">Sighted</span></th>
 		</tr>
 		</thead>
 		<tbody>
@@ -26,9 +27,9 @@
 					<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
 				</a>
 			</td>
-			<td class="hidden-xs">{{  order.order_notes }}</td>
-			<td class="text-right hidden-xs">{{  order.order_species_count_all }}</td>
-			<td class="text-right">{{  order.speciesCount }}</td>
+			<td class="hidden-xs">{{ order.order_notes }}</td>
+			<td class="text-right hidden-xs">{{ order.order_species_count_all }}</td>
+			<td class="text-right">{{ order.speciesCount }}</td>
 		</tr>
 		</tbody>
 	</table>

@@ -1,1 +1,1 @@
-@extends('layouts.static')
+@extends('layouts.spa')

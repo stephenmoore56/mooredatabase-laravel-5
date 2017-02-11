@@ -148,79 +148,66 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         Plotly.Plots.resize(gd);
                     };
                 };
-                //         drawChartMonthsForSpecies: function (dataPoints, chart_div) {
-                //             var months, sightings, data, trace1, i, layout;
-                //             if (dataPoints.length === 0) {
-                //                 return;
-                //             }
-                //
-                //             var d3 = Plotly.d3;
-                //
-                //             var WIDTH_IN_PERCENT_OF_PARENT = 90,
-                //                 HEIGHT_IN_PERCENT_OF_PARENT = 90;
-                //
-                //             var gd3 = d3.select('#' + chart_div)
-                //                 .style({
-                //                     width: WIDTH_IN_PERCENT_OF_PARENT + '%',
-                //                     height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh'
-                //                 });
-                //
-                //             var gd = gd3.node();
-                //
-                //             /* extract data from JSON data */
-                //             months = [];
-                //             sightings = [];
-                //             for (i = 0; i < dataPoints.length; i++) {
-                //                 // read species, trips and months into separate arrays
-                //                 months[i] = dataPoints[i].monthName.substring(0, 3);
-                //                 sightings[i] = dataPoints[i].sightingCount;
-                //             }
-                //
-                //             trace1 = {
-                //                 x: months,
-                //                 y: sightings,
-                //                 name: 'Sightings',
-                //                 type: 'bar',
-                //                 marker: {
-                //                     color: '#ff7f0e'
-                //                 }
-                //             };
-                //
-                //             data = [trace1];
-                //
-                //             layout = {
-                //                 legend: {
-                //                     xanchor: "center",
-                //                     yanchor: "top",
-                //                     y: -0.3,
-                //                     x: 0.5
-                //                 },
-                //                 margin: {
-                //                     l: 50,
-                //                     r: 5,
-                //                     b: 50,
-                //                     t: 30,
-                //                     pad: 5
-                //                 },
-                //                 xaxis: {
-                //                     title: 'Month',
-                //                     type: 'category'
-                //                 },
-                //                 yaxis: {
-                //                     title: 'Sightings'
-                //                 }
-                //             };
-                //
-                //             Plotly.newPlot(chart_div, data, layout, {
-                //                 displaylogo: false,
-                //                 modeBarButtonsToRemove: ['sendDataToCloud']
-                //             });
-                //
-                //             window.onresize = function () {
-                //                 Plotly.Plots.resize(gd);
-                //             };
-                //
-                //         },
+                ReportChartService.prototype.drawChartMonthsForSpecies = function (dataPoints, chart_div) {
+                    if (dataPoints.length === 0) {
+                        return;
+                    }
+                    var d3 = Plotly.d3;
+                    var WIDTH_IN_PERCENT_OF_PARENT = 90, HEIGHT_IN_PERCENT_OF_PARENT = 90;
+                    var gd3 = d3.select('#' + chart_div)
+                        .style({
+                        width: WIDTH_IN_PERCENT_OF_PARENT + '%',
+                        height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh'
+                    });
+                    var gd = gd3.node();
+                    /* extract data from JSON data */
+                    var months = [];
+                    var sightings = [];
+                    for (var i = 0; i < dataPoints.length; i++) {
+                        // read species, trips and months into separate arrays
+                        months[i] = dataPoints[i].monthName.substring(0, 3);
+                        sightings[i] = dataPoints[i].sightingCount;
+                    }
+                    var trace1 = {
+                        x: months,
+                        y: sightings,
+                        name: 'Sightings',
+                        type: 'bar',
+                        marker: {
+                            color: '#ff7f0e'
+                        }
+                    };
+                    var data = [trace1];
+                    var layout = {
+                        legend: {
+                            xanchor: "center",
+                            yanchor: "top",
+                            y: -0.3,
+                            x: 0.5
+                        },
+                        margin: {
+                            l: 50,
+                            r: 5,
+                            b: 50,
+                            t: 30,
+                            pad: 5
+                        },
+                        xaxis: {
+                            title: 'Month',
+                            type: 'category'
+                        },
+                        yaxis: {
+                            title: 'Sightings'
+                        }
+                    };
+                    Plotly.newPlot(chart_div, data, layout, {
+                        displaylogo: false,
+                        modeBarButtonsToRemove: ['sendDataToCloud']
+                    });
+                    window.onresize = function () {
+                        Plotly.Plots.resize(gd);
+                    };
+                };
                 ReportChartService.prototype.drawChartSpeciesByOrder = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
                         return;
