@@ -56,7 +56,6 @@ System.register(["@angular/core", "@angular/router", "../sortable", "../reportDa
                     var _this = _super.call(this) || this;
                     _this._reportDataService = _reportDataService;
                     _this._route = _route;
-                    _this.birds = [];
                     return _this;
                 }
                 SpeciesForMonthComponent.prototype.ngOnInit = function () {
@@ -68,8 +67,12 @@ System.register(["@angular/core", "@angular/router", "../sortable", "../reportDa
                         .getSpeciesForMonth(this.monthNumber)
                         .subscribe(function (r) {
                         _this.birds = r;
+                        _this.originalBirds = r;
                         _this.monthName = _this.birds[0].monthName;
                     }, function (error) { return console.log("Error: ", error); });
+                    this._reportDataService
+                        .getOrdersAll()
+                        .subscribe(function (r) { return _this.orders = r; }, function (error) { return console.log("Error: ", error); });
                 };
                 return SpeciesForMonthComponent;
             }(sortable_1.Sortable));

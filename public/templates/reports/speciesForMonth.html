@@ -7,12 +7,26 @@
 	<div class="panel-body">
 		<form class="form-inline filterForm">
 			<back-button></back-button>
-			<search-birds></search-birds>
-			<order-filter></order-filter>
+			<div class="form-group" style="margin-bottom: 10px;">
+				<label for="searchBirds" class="control-label">Filter:</label>
+				<input type="search" id="searchBirds" name="searchBirds" class="form-control input-sm"
+					   placeholder="Search for..."
+					   (keyup)="filterResults(query)" [(ngModel)]=query size="50" maxlength="50">
+			</div>
+			<div class="form-group" style="margin-bottom: 10px;">
+				<label for="orderFilter" class="label-control">Order:</label>
+				<select #selectedOrder (change)='filterOrder(selectedOrder.value)' class="form-control input-sm"
+						name="orderFilter" id="orderFilter">
+					<option *ngFor="let order of orders" [value]="order.order_name">
+						{{ order.order_name }}
+					</option>
+				</select>
+			</div>
 			<top-n></top-n>
 		</form>
-		<species-count></species-count>
-
+		<span id="speciesCount" class="form-static-control">
+			{{ birds.length || 0 }} Species
+		</span>
 	</div>
 	<species-list [birds]='birds'></species-list>
 </div>

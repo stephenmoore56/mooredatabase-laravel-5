@@ -1,10 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {Result} from '../result';
 import {Sortable} from '../sortable';
 import {ReportDataService} from '../reportData.service';
-
-// child components
 import {BackButtonComponent}   from '../reportPartials/backbutton.component';
 import {OrderFilterComponent}   from '../reportPartials/orderfilter.component';
 import {SearchBirdsComponent}   from '../reportPartials/searchbirds.component';
@@ -30,7 +27,6 @@ import {TopNComponent}   from '../reportPartials/topn.component';
 })
 export class SpeciesForMonthComponent extends Sortable implements OnInit {
 
-    public birds: Result[] = [];
     public monthNumber: number;
     public monthName: string;
 
@@ -48,8 +44,15 @@ export class SpeciesForMonthComponent extends Sortable implements OnInit {
             .subscribe(
                 r => {
                     this.birds = r;
+                    this.originalBirds = r;
                     this.monthName = this.birds[0].monthName;
                 },
+                error => console.log("Error: ", error)
+            );
+        this._reportDataService
+            .getOrdersAll()
+            .subscribe(
+                r => this.orders = r,
                 error => console.log("Error: ", error)
             );
     }
