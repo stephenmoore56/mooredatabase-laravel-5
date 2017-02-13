@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/router", "../sortable", "../reportData.service", "../reportPartials/backbutton.component", "../reportPartials/orderfilter.component", "../reportPartials/searchbirds.component", "../reportPartials/speciescount.component", "../reportPartials/specieslist.component", "../reportPartials/topn.component"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "../speciesList", "../reportData.service", "../reportPartials/backbutton.component", "../reportPartials/orderfilter.component", "../reportPartials/searchbirds.component", "../reportPartials/speciescount.component", "../reportPartials/specieslist.component", "../reportPartials/topn.component"], function (exports_1, context_1) {
     "use strict";
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -15,7 +15,7 @@ System.register(["@angular/core", "@angular/router", "../sortable", "../reportDa
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, router_1, sortable_1, reportData_service_1, backbutton_component_1, orderfilter_component_1, searchbirds_component_1, speciescount_component_1, specieslist_component_1, topn_component_1, SpeciesForYearComponent, _a;
+    var core_1, router_1, speciesList_1, reportData_service_1, backbutton_component_1, orderfilter_component_1, searchbirds_component_1, speciescount_component_1, specieslist_component_1, topn_component_1, SpeciesForYearComponent, _a;
     return {
         setters: [
             function (core_1_1) {
@@ -24,8 +24,8 @@ System.register(["@angular/core", "@angular/router", "../sortable", "../reportDa
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (sortable_1_1) {
-                sortable_1 = sortable_1_1;
+            function (speciesList_1_1) {
+                speciesList_1 = speciesList_1_1;
             },
             function (reportData_service_1_1) {
                 reportData_service_1 = reportData_service_1_1;
@@ -56,7 +56,6 @@ System.register(["@angular/core", "@angular/router", "../sortable", "../reportDa
                     var _this = _super.call(this) || this;
                     _this._reportDataService = _reportDataService;
                     _this._route = _route;
-                    _this.birds = [];
                     return _this;
                 }
                 SpeciesForYearComponent.prototype.ngOnInit = function () {
@@ -66,10 +65,16 @@ System.register(["@angular/core", "@angular/router", "../sortable", "../reportDa
                     });
                     this._reportDataService
                         .getSpeciesForYear(this.yearNumber)
-                        .subscribe(function (r) { return _this.birds = r; }, function (error) { return console.log("Error: ", error); });
+                        .subscribe(function (r) {
+                        _this.birds = r;
+                        _this.originalBirds = r;
+                    }, function (error) { return console.log("Error: ", error); });
+                    this._reportDataService
+                        .getOrdersAll()
+                        .subscribe(function (r) { return _this.orders = r; }, function (error) { return console.log("Error: ", error); });
                 };
                 return SpeciesForYearComponent;
-            }(sortable_1.Sortable));
+            }(speciesList_1.SpeciesList));
             SpeciesForYearComponent = __decorate([
                 core_1.Component({
                     selector: 'report',

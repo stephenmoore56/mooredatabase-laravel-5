@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {Result} from '../result';
-import {Sortable} from '../sortable';
-import {ReportDataService} from '../reportData.service';
-import {ReportChartService} from '../reportChart.service';
+import {Component, OnInit} from "@angular/core";
+import {Result} from "../result";
+import {Sortable} from "../sortable";
+import {ReportDataService} from "../reportData.service";
+import {ReportChartService} from "../reportChart.service";
 
 @Component({
     selector: 'report',

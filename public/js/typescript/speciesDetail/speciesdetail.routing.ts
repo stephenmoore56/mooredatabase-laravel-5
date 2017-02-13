@@ -1,7 +1,6 @@
-import {ModuleWithProviders} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-
-import {SpeciesDetailComponent} from './speciesdetail.component';
+import {ModuleWithProviders} from "@angular/core";
+import {Routes, RouterModule} from "@angular/router";
+import {SpeciesDetailComponent} from "./speciesdetail.component";
 
 const routes: Routes = [
     {path: '', component: SpeciesDetailComponent}

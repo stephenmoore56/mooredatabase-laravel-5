@@ -1,8 +1,8 @@
-import {NgModule} from '@angular/core';
-import {HttpModule}    from '@angular/http';
-import {SpeciesAllComponent}   from './speciesall.component';
-import {ReportWidgetsModule} from '../reportPartials/reportwidgets.module';
-import {routing} from './speciesall.routing';
+import {NgModule} from "@angular/core";
+import {HttpModule} from "@angular/http";
+import {SpeciesAllComponent} from "./speciesall.component";
+import {ReportWidgetsModule} from "../reportPartials/reportwidgets.module";
+import {routing} from "./speciesall.routing";
 
 @NgModule({
     imports: [

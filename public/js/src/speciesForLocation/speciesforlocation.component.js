@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/router", "../sortable", "../reportData.service", "../reportPartials/backbutton.component", "../reportPartials/orderfilter.component", "../reportPartials/searchbirds.component", "../reportPartials/speciescount.component", "../reportPartials/specieslist.component", "../reportPartials/topn.component"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "../speciesList", "../reportData.service", "../reportPartials/backbutton.component", "../reportPartials/speciescount.component"], function (exports_1, context_1) {
     "use strict";
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -15,7 +15,7 @@ System.register(["@angular/core", "@angular/router", "../sortable", "../reportDa
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, router_1, sortable_1, reportData_service_1, backbutton_component_1, orderfilter_component_1, searchbirds_component_1, speciescount_component_1, specieslist_component_1, topn_component_1, SpeciesForLocationComponent, _a;
+    var core_1, router_1, speciesList_1, reportData_service_1, backbutton_component_1, speciescount_component_1, SpeciesForLocationComponent, _a;
     return {
         setters: [
             function (core_1_1) {
@@ -24,8 +24,8 @@ System.register(["@angular/core", "@angular/router", "../sortable", "../reportDa
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (sortable_1_1) {
-                sortable_1 = sortable_1_1;
+            function (speciesList_1_1) {
+                speciesList_1 = speciesList_1_1;
             },
             function (reportData_service_1_1) {
                 reportData_service_1 = reportData_service_1_1;
@@ -33,20 +33,8 @@ System.register(["@angular/core", "@angular/router", "../sortable", "../reportDa
             function (backbutton_component_1_1) {
                 backbutton_component_1 = backbutton_component_1_1;
             },
-            function (orderfilter_component_1_1) {
-                orderfilter_component_1 = orderfilter_component_1_1;
-            },
-            function (searchbirds_component_1_1) {
-                searchbirds_component_1 = searchbirds_component_1_1;
-            },
             function (speciescount_component_1_1) {
                 speciescount_component_1 = speciescount_component_1_1;
-            },
-            function (specieslist_component_1_1) {
-                specieslist_component_1 = specieslist_component_1_1;
-            },
-            function (topn_component_1_1) {
-                topn_component_1 = topn_component_1_1;
             }
         ],
         execute: function () {
@@ -67,13 +55,19 @@ System.register(["@angular/core", "@angular/router", "../sortable", "../reportDa
                     });
                     this._reportDataService
                         .getSpeciesForLocation(this.locationId)
-                        .subscribe(function (r) { return _this.birds = r; }, function (error) { return console.log("Error: ", error); });
+                        .subscribe(function (r) {
+                        _this.birds = r;
+                        _this.originalBirds = r;
+                    }, function (error) { return console.log("Error: ", error); });
                     this._reportDataService
                         .getLocation(this.locationId)
                         .subscribe(function (r) { return _this.location = r[0]; }, function (error) { return console.log("Error: ", error); });
+                    this._reportDataService
+                        .getOrdersAll()
+                        .subscribe(function (r) { return _this.orders = r; }, function (error) { return console.log("Error: ", error); });
                 };
                 return SpeciesForLocationComponent;
-            }(sortable_1.Sortable));
+            }(speciesList_1.SpeciesList));
             SpeciesForLocationComponent = __decorate([
                 core_1.Component({
                     selector: 'report',
@@ -82,13 +76,8 @@ System.register(["@angular/core", "@angular/router", "../sortable", "../reportDa
                         reportData_service_1.ReportDataService
                     ],
                     directives: [
-                        // child components are directives
                         backbutton_component_1.BackButtonComponent,
-                        orderfilter_component_1.OrderFilterComponent,
-                        searchbirds_component_1.SearchBirdsComponent,
-                        speciescount_component_1.SpeciesCountComponent,
-                        specieslist_component_1.SpeciesListComponent,
-                        topn_component_1.TopNComponent
+                        speciescount_component_1.SpeciesCountComponent
                     ]
                 }),
                 __metadata("design:paramtypes", [reportData_service_1.ReportDataService, typeof (_a = typeof router_1.ActivatedRoute !== "undefined" && router_1.ActivatedRoute) === "function" && _a || Object])

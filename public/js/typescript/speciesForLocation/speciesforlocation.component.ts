@@ -1,16 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {Result} from '../result';
-import {Sortable} from '../sortable';
-import {ReportDataService} from '../reportData.service';
-
-// child components
-import {BackButtonComponent}   from '../reportPartials/backbutton.component';
-import {OrderFilterComponent}   from '../reportPartials/orderfilter.component';
-import {SearchBirdsComponent}   from '../reportPartials/searchbirds.component';
-import {SpeciesCountComponent}   from '../reportPartials/speciescount.component';
-import {SpeciesListComponent}   from '../reportPartials/specieslist.component';
-import {TopNComponent}   from '../reportPartials/topn.component';
+import {Component, OnInit} from "@angular/core";
+import {ActivatedRoute} from "@angular/router";
+import {Result} from "../result";
+import {SpeciesList} from "../speciesList";
+import {ReportDataService} from "../reportData.service";
+import {BackButtonComponent} from "../reportPartials/backbutton.component";
+import {SpeciesCountComponent} from "../reportPartials/speciescount.component";
 
 @Component({
     selector: 'report',
@@ -19,16 +13,11 @@ import {TopNComponent}   from '../reportPartials/topn.component';
         ReportDataService
     ],
     directives: [
-        // child components are directives
         BackButtonComponent,
-        OrderFilterComponent,
-        SearchBirdsComponent,
-        SpeciesCountComponent,
-        SpeciesListComponent,
-        TopNComponent
+        SpeciesCountComponent
     ]
 })
-export class SpeciesForLocationComponent extends Sortable implements OnInit {
+export class SpeciesForLocationComponent extends SpeciesList implements OnInit {
 
     public birds: Result[] = [];
     public locationId: number;
@@ -46,13 +35,22 @@ export class SpeciesForLocationComponent extends Sortable implements OnInit {
         this._reportDataService
             .getSpeciesForLocation(this.locationId)
             .subscribe(
-                r => this.birds = r,
+                r => {
+                    this.birds = r;
+                    this.originalBirds = r;
+                },
                 error => console.log("Error: ", error)
             );
         this._reportDataService
             .getLocation(this.locationId)
             .subscribe(
                 r => this.location = r[0],
+                error => console.log("Error: ", error)
+            );
+        this._reportDataService
+            .getOrdersAll()
+            .subscribe(
+                r => this.orders = r,
                 error => console.log("Error: ", error)
             );
     }

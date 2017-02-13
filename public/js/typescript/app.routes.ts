@@ -1,12 +1,10 @@
-import {NgModule}              from '@angular/core';
-import {ModuleWithProviders}  from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-
-import {HomeComponent} from './staticContent/home.component';
-import {CertificationsComponent} from './staticContent/certifications.component';
-import {EducationComponent} from './staticContent/education.component';
-import {TrainingComponent} from './staticContent/training.component';
-import {ContactComponent} from './staticContent/contact.component';
+import {NgModule, ModuleWithProviders} from "@angular/core";
+import {Routes, RouterModule} from "@angular/router";
+import {HomeComponent} from "./staticContent/home.component";
+import {CertificationsComponent} from "./staticContent/certifications.component";
+import {EducationComponent} from "./staticContent/education.component";
+import {TrainingComponent} from "./staticContent/training.component";
+import {ContactComponent} from "./staticContent/contact.component";
 
 const routes: Routes = [
     {path: 'home', component: HomeComponent},

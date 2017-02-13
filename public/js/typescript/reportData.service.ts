@@ -1,8 +1,8 @@
-import {Observable} from 'rxjs/Rx';
-import 'rxjs/add/operator/map';
-import {Injectable} from '@angular/core';
-import {Http, Response, Headers} from '@angular/http';
-import {Result} from './result';
+import {Observable} from "rxjs/Rx";
+import "rxjs/add/operator/map";
+import {Injectable} from "@angular/core";
+import {Http, Response, Headers} from "@angular/http";
+import {Result} from "./result";
 
 function mapResults(response: Response): Result[] {
     // The response of the API has a data

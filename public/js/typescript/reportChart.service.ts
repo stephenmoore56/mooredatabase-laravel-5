@@ -1,5 +1,5 @@
-import {Injectable} from '@angular/core';
-import {Result} from './result';
+import {Injectable} from "@angular/core";
+import {Result} from "./result";
 
 @Injectable()
 export class ReportChartService {

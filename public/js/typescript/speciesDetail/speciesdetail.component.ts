@@ -1,16 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {Result} from '../result';
-import {Sortable} from '../sortable';
-import {ReportDataService} from '../reportData.service';
-import {ReportChartService} from '../reportChart.service';
-
-import {BackButtonComponent}   from '../reportPartials/backbutton.component';
-import {OrderFilterComponent}   from '../reportPartials/orderfilter.component';
-import {SearchBirdsComponent}   from '../reportPartials/searchbirds.component';
-import {SpeciesCountComponent}   from '../reportPartials/speciescount.component';
-import {SpeciesListComponent}   from '../reportPartials/specieslist.component';
-import {TopNComponent}   from '../reportPartials/topn.component';
+import {Component, OnInit} from "@angular/core";
+import {ActivatedRoute} from "@angular/router";
+import {Result} from "../result";
+import {SpeciesList} from "../speciesList";
+import {ReportDataService} from "../reportData.service";
+import {ReportChartService} from "../reportChart.service";
+import {BackButtonComponent} from "../reportPartials/backbutton.component";
 
 @Component({
     selector: 'report',
@@ -20,16 +14,10 @@ import {TopNComponent}   from '../reportPartials/topn.component';
         ReportChartService
     ],
     directives: [
-        // child components are directives
-        BackButtonComponent,
-        OrderFilterComponent,
-        SearchBirdsComponent,
-        SpeciesCountComponent,
-        SpeciesListComponent,
-        TopNComponent
+        BackButtonComponent
     ]
 })
-export class SpeciesDetailComponent extends Sortable implements OnInit {
+export class SpeciesDetailComponent extends SpeciesList implements OnInit {
 
     public bird: Result = [];
     public months: Result[] = [];

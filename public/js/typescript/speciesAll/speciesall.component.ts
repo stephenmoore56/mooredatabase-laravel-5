@@ -1,15 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {Result} from '../result';
-import {Sortable} from '../sortable';
-import {ReportDataService} from '../reportData.service';
-
-// child components
-import {BackButtonComponent}   from '../reportPartials/backbutton.component';
-import {OrderFilterComponent}   from '../reportPartials/orderfilter.component';
-import {SearchBirdsComponent}   from '../reportPartials/searchbirds.component';
-import {SpeciesCountComponent}   from '../reportPartials/speciescount.component';
-import {SpeciesListComponent}   from '../reportPartials/specieslist.component';
-import {TopNComponent}   from '../reportPartials/topn.component';
+import {Component, OnInit} from "@angular/core";
+import {Result} from "../result";
+import {SpeciesList} from "../speciesList";
+import {ReportDataService} from "../reportData.service";
+import {BackButtonComponent} from "../reportPartials/backbutton.component";
+import {SpeciesCountComponent} from "../reportPartials/speciescount.component";
 
 @Component({
     selector: 'report',
@@ -18,16 +12,11 @@ import {TopNComponent}   from '../reportPartials/topn.component';
         ReportDataService
     ],
     directives: [
-        // child components are directives
         BackButtonComponent,
-        OrderFilterComponent,
-        SearchBirdsComponent,
-        SpeciesCountComponent,
-        SpeciesListComponent,
-        TopNComponent
+        SpeciesCountComponent
     ]
 })
-export class SpeciesAllComponent extends Sortable implements OnInit {
+export class SpeciesAllComponent extends SpeciesList implements OnInit {
 
     public birds: Result[] = [];
 
@@ -39,7 +28,18 @@ export class SpeciesAllComponent extends Sortable implements OnInit {
         this._reportDataService
             .getSpeciesAll()
             .subscribe(
-                r => this.birds = r,
+                r => {
+                    this.birds = r;
+                    this.originalBirds = r;
+                    this.sortDirection = 1;
+                    this.sortResults('common_name');
+                },
+                error => console.log("Error: ", error)
+            );
+        this._reportDataService
+            .getOrdersAll()
+            .subscribe(
+                r => this.orders = r,
                 error => console.log("Error: ", error)
             );
     }

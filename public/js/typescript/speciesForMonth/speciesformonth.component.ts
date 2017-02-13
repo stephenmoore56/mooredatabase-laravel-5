@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {Sortable} from '../sortable';
-import {ReportDataService} from '../reportData.service';
-import {BackButtonComponent}   from '../reportPartials/backbutton.component';
-import {OrderFilterComponent}   from '../reportPartials/orderfilter.component';
-import {SearchBirdsComponent}   from '../reportPartials/searchbirds.component';
-import {SpeciesCountComponent}   from '../reportPartials/speciescount.component';
-import {SpeciesListComponent}   from '../reportPartials/specieslist.component';
-import {TopNComponent}   from '../reportPartials/topn.component';
+import {Component, OnInit} from "@angular/core";
+import {ActivatedRoute} from "@angular/router";
+import {SpeciesList} from "../speciesList";
+import {ReportDataService} from "../reportData.service";
+import {BackButtonComponent} from "../reportPartials/backbutton.component";
+import {OrderFilterComponent} from "../reportPartials/orderfilter.component";
+import {SearchBirdsComponent} from "../reportPartials/searchbirds.component";
+import {SpeciesCountComponent} from "../reportPartials/speciescount.component";
+import {SpeciesListComponent} from "../reportPartials/specieslist.component";
+import {TopNComponent} from "../reportPartials/topn.component";
 
 @Component({
     selector: 'report',
@@ -25,7 +25,7 @@ import {TopNComponent}   from '../reportPartials/topn.component';
         TopNComponent
     ]
 })
-export class SpeciesForMonthComponent extends Sortable implements OnInit {
+export class SpeciesForMonthComponent extends SpeciesList implements OnInit {
 
     public monthNumber: number;
     public monthName: string;

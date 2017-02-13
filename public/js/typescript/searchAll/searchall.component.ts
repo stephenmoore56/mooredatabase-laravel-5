@@ -1,23 +1,16 @@
-import {Component, OnInit} from '@angular/core';
-import {Result} from '../result';
-import {Sortable} from '../sortable';
-import {ReportDataService} from '../reportData.service';
-import {SpeciesListComponent}   from '../reportPartials/specieslist.component';
+import {Component, OnInit} from "@angular/core";
+import {SpeciesList} from "../speciesList";
+import {ReportDataService} from "../reportData.service";
 
 @Component({
     selector: 'report',
     templateUrl: 'templates/reports/searchAll.html',
     providers: [
         ReportDataService
-    ],
-    directives: [
-        SpeciesListComponent
     ]
 })
-export class SearchAllComponent extends Sortable implements OnInit {
+export class SearchAllComponent extends SpeciesList implements OnInit {
 
-    public birds: Result[] = [];
-    public orders: Result[] = [];
     public searchTerm: string = ' ';
     public orderId: number = -1;
 
@@ -33,7 +26,10 @@ export class SearchAllComponent extends Sortable implements OnInit {
         this._reportDataService
             .getSearchAll(this.searchTerm, this.orderId)
             .subscribe(
-                r => this.birds = r,
+                r => {
+                    this.birds = r;
+                    this.originalBirds = r;
+                },
                 error => console.log("Error: ", error)
             );
     }

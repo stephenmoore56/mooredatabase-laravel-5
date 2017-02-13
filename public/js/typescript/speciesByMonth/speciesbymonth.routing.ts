@@ -1,7 +1,6 @@
-import {ModuleWithProviders} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-
-import {SpeciesByMonthComponent} from './speciesbymonth.component';
+import {ModuleWithProviders} from "@angular/core";
+import {Routes, RouterModule} from "@angular/router";
+import {SpeciesByMonthComponent} from "./speciesbymonth.component";
 
 const routes: Routes = [
     {path: '', component: SpeciesByMonthComponent}
