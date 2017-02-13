@@ -33,7 +33,8 @@ System.register(["rxjs/add/operator/map", "@angular/core", "@angular/http"], fun
             ReportDataService = (function () {
                 function ReportDataService(http) {
                     this.http = http;
-                    this.baseUrl = "http://lumen.local/api/reports";
+                    // private baseUrl: string = "http://lumen.local/api/reports";
+                    this.baseUrl = "http://lumen.moore-database.com//api/reports";
                 }
                 ReportDataService.prototype.getSpeciesByMonth = function () {
                     return this.getResults('speciesByMonth');
