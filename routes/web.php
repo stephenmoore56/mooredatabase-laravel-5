@@ -31,37 +31,16 @@ Route::get('/contact', function () {
 // birding report template routes
 Route::get('reports/clearCache', 'ReportsController@clearCache');
 Route::group(['prefix' => 'reports'], function () {
-	Route::get('months', function () {
+	Route::get('months/{monthNumber?}', function () {
 		return View::make('static-content.static-content');
 	});
-	Route::get('years', function () {
+	Route::get('years/{year?}', function () {
 		return View::make('static-content.static-content');
 	});
-	Route::get('months/{monthNumber}', function () {
+	Route::get('orders/{orderId?}', function () {
 		return View::make('static-content.static-content');
 	});
-	Route::get('years/{year}', function () {
-		return View::make('static-content.static-content');
-	});
-	Route::get('birds/{speciesId}', function () {
-		return View::make('static-content.static-content');
-	});
-	Route::get('orders', function () {
-		return View::make('static-content.static-content');
-	});
-	Route::get('orders/{orderId}', function () {
-		return View::make('static-content.static-content');
-	});
-	Route::get('birds', function () {
-		return View::make('static-content.static-content');
-	});
-	Route::get('searchAll', function () {
-		return View::make('static-content.static-content');
-	});
-	Route::get('locations', function () {
-		return View::make('static-content.static-content');
-	});
-	Route::get('locations/{locationId}', function () {
+	Route::get('locations/{locationId?}', function () {
 		return View::make('static-content.static-content');
 	});
 	Route::get('birdLookup', function () {
