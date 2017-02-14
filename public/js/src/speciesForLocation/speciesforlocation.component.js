@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/router", "../speciesList", "../reportData.service", "../reportPartials/backbutton.component", "../reportPartials/speciescount.component"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "../speciesList", "../reportData.service", "../reportMap.service", "../reportPartials/backbutton.component", "../reportPartials/speciescount.component"], function (exports_1, context_1) {
     "use strict";
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -15,7 +15,7 @@ System.register(["@angular/core", "@angular/router", "../speciesList", "../repor
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, router_1, speciesList_1, reportData_service_1, backbutton_component_1, speciescount_component_1, SpeciesForLocationComponent, _a;
+    var core_1, router_1, speciesList_1, reportData_service_1, reportMap_service_1, backbutton_component_1, speciescount_component_1, SpeciesForLocationComponent, _a;
     return {
         setters: [
             function (core_1_1) {
@@ -30,6 +30,9 @@ System.register(["@angular/core", "@angular/router", "../speciesList", "../repor
             function (reportData_service_1_1) {
                 reportData_service_1 = reportData_service_1_1;
             },
+            function (reportMap_service_1_1) {
+                reportMap_service_1 = reportMap_service_1_1;
+            },
             function (backbutton_component_1_1) {
                 backbutton_component_1 = backbutton_component_1_1;
             },
@@ -40,10 +43,11 @@ System.register(["@angular/core", "@angular/router", "../speciesList", "../repor
         execute: function () {
             SpeciesForLocationComponent = (function (_super) {
                 __extends(SpeciesForLocationComponent, _super);
-                function SpeciesForLocationComponent(_reportDataService, _route) {
+                function SpeciesForLocationComponent(_reportDataService, _route, _reportMapService) {
                     var _this = _super.call(this) || this;
                     _this._reportDataService = _reportDataService;
                     _this._route = _route;
+                    _this._reportMapService = _reportMapService;
                     _this.birds = [];
                     _this.location = [];
                     return _this;
@@ -61,7 +65,7 @@ System.register(["@angular/core", "@angular/router", "../speciesList", "../repor
                     }, function (error) { return console.log("Error: ", error); });
                     this._reportDataService
                         .getLocation(this.locationId)
-                        .subscribe(function (r) { return _this.location = r[0]; }, function (error) { return console.log("Error: ", error); });
+                        .subscribe(function (r) { return _this.location = r[0]; }, function (error) { return console.log("Error: ", error); }, function () { return _this._reportMapService.drawLocationMap(_this.location.latitude, _this.location.longitude, 'map_div_1'); });
                     this._reportDataService
                         .getOrdersAll()
                         .subscribe(function (r) { return _this.orders = r; }, function (error) { return console.log("Error: ", error); });
@@ -73,14 +77,15 @@ System.register(["@angular/core", "@angular/router", "../speciesList", "../repor
                     selector: 'report',
                     templateUrl: 'templates/reports/speciesForLocation.html',
                     providers: [
-                        reportData_service_1.ReportDataService
+                        reportData_service_1.ReportDataService,
+                        reportMap_service_1.ReportMapService
                     ],
                     directives: [
                         backbutton_component_1.BackButtonComponent,
                         speciescount_component_1.SpeciesCountComponent
                     ]
                 }),
-                __metadata("design:paramtypes", [reportData_service_1.ReportDataService, typeof (_a = typeof router_1.ActivatedRoute !== "undefined" && router_1.ActivatedRoute) === "function" && _a || Object])
+                __metadata("design:paramtypes", [reportData_service_1.ReportDataService, typeof (_a = typeof router_1.ActivatedRoute !== "undefined" && router_1.ActivatedRoute) === "function" && _a || Object, reportMap_service_1.ReportMapService])
             ], SpeciesForLocationComponent);
             exports_1("SpeciesForLocationComponent", SpeciesForLocationComponent);
         }

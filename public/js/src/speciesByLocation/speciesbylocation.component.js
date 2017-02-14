@@ -1,4 +1,4 @@
-System.register(["@angular/core", "../sortable", "../reportData.service", "../reportChart.service"], function (exports_1, context_1) {
+System.register(["@angular/core", "../sortable", "../reportData.service", "../reportChart.service", "../reportMap.service"], function (exports_1, context_1) {
     "use strict";
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -15,7 +15,7 @@ System.register(["@angular/core", "../sortable", "../reportData.service", "../re
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, sortable_1, reportData_service_1, reportChart_service_1, SpeciesByLocationComponent;
+    var core_1, sortable_1, reportData_service_1, reportChart_service_1, reportMap_service_1, SpeciesByLocationComponent;
     return {
         setters: [
             function (core_1_1) {
@@ -29,15 +29,19 @@ System.register(["@angular/core", "../sortable", "../reportData.service", "../re
             },
             function (reportChart_service_1_1) {
                 reportChart_service_1 = reportChart_service_1_1;
+            },
+            function (reportMap_service_1_1) {
+                reportMap_service_1 = reportMap_service_1_1;
             }
         ],
         execute: function () {
             SpeciesByLocationComponent = (function (_super) {
                 __extends(SpeciesByLocationComponent, _super);
-                function SpeciesByLocationComponent(_reportChartService, _reportDataService) {
+                function SpeciesByLocationComponent(_reportChartService, _reportDataService, _reportMapService) {
                     var _this = _super.call(this) || this;
                     _this._reportChartService = _reportChartService;
                     _this._reportDataService = _reportDataService;
+                    _this._reportMapService = _reportMapService;
                     _this.locations = [];
                     _this.counties = [];
                     return _this;
@@ -46,7 +50,7 @@ System.register(["@angular/core", "../sortable", "../reportData.service", "../re
                     var _this = this;
                     this._reportDataService
                         .getSpeciesByLocation()
-                        .subscribe(function (r) { return _this.locations = r; }, function (error) { return console.log("Error: ", error); });
+                        .subscribe(function (r) { return _this.locations = r; }, function (error) { return console.log("Error: ", error); }, function () { return _this._reportMapService.drawLocationsMap(_this.locations, 'map_div_1'); });
                     this._reportDataService
                         .getSpeciesByCounty()
                         .subscribe(function (r) { return _this.counties = r; }, function (error) { return console.log("Error: ", error); }, function () { return _this._reportChartService.drawChartSpeciesByCounty(_this.counties, 'chart_div_1'); });
@@ -59,10 +63,13 @@ System.register(["@angular/core", "../sortable", "../reportData.service", "../re
                     templateUrl: 'templates/reports/speciesByLocation.html',
                     providers: [
                         reportData_service_1.ReportDataService,
-                        reportChart_service_1.ReportChartService
+                        reportChart_service_1.ReportChartService,
+                        reportMap_service_1.ReportMapService
                     ]
                 }),
-                __metadata("design:paramtypes", [reportChart_service_1.ReportChartService, reportData_service_1.ReportDataService])
+                __metadata("design:paramtypes", [reportChart_service_1.ReportChartService,
+                    reportData_service_1.ReportDataService,
+                    reportMap_service_1.ReportMapService])
             ], SpeciesByLocationComponent);
             exports_1("SpeciesByLocationComponent", SpeciesByLocationComponent);
         }

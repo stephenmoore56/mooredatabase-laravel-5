@@ -3,6 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import {Result} from "../result";
 import {SpeciesList} from "../speciesList";
 import {ReportDataService} from "../reportData.service";
+import {ReportMapService} from "../reportMap.service";
 import {BackButtonComponent} from "../reportPartials/backbutton.component";
 import {SpeciesCountComponent} from "../reportPartials/speciescount.component";
 
@@ -10,7 +11,8 @@ import {SpeciesCountComponent} from "../reportPartials/speciescount.component";
     selector: 'report',
     templateUrl: 'templates/reports/speciesForLocation.html',
     providers: [
-        ReportDataService
+        ReportDataService,
+        ReportMapService
     ],
     directives: [
         BackButtonComponent,
@@ -24,7 +26,8 @@ export class SpeciesForLocationComponent extends SpeciesList implements OnInit {
     public location: Result = [];
 
     constructor(private _reportDataService: ReportDataService,
-                private _route: ActivatedRoute) {
+                private _route: ActivatedRoute,
+                private _reportMapService: ReportMapService) {
         super();
     }
 
@@ -45,7 +48,8 @@ export class SpeciesForLocationComponent extends SpeciesList implements OnInit {
             .getLocation(this.locationId)
             .subscribe(
                 r => this.location = r[0],
-                error => console.log("Error: ", error)
+                error => console.log("Error: ", error),
+                () => this._reportMapService.drawLocationMap(this.location.latitude, this.location.longitude, 'map_div_1')
             );
         this._reportDataService
             .getOrdersAll()
