@@ -34,6 +34,7 @@ import {ReportWidgetsModule} from "./reportPartials/reportwidgets.module";
     ],
     bootstrap: [
         AppComponent,
+        CarouselComponent,
         NavBarComponent,
         NavBarBrandComponent,
         NavBarReportsComponent

@@ -27,7 +27,9 @@ System.register(["@angular/core", "@angular/router"], function (exports_1, conte
                 core_1.Component({
                     selector: '[app-root]',
                     template: "<router-outlet></router-outlet>",
-                    directives: [router_1.ROUTER_DIRECTIVES]
+                    directives: [
+                        router_1.ROUTER_DIRECTIVES
+                    ]
                 })
             ], AppComponent);
             exports_1("AppComponent", AppComponent);

@@ -12,6 +12,7 @@ export class SpeciesList {
     public topN: number = Infinity;
 
     public sortResults(columnName: string): void {
+
         // toggle sort direction if column name hasn't changed
         if (this.columnName === columnName) {
             this.sortDirection *= -1;
@@ -50,7 +51,7 @@ export class SpeciesList {
         this.birds = filteredBirds;
     }
 
-    private applySort(birds: Result[]): void {
+    public applySort(birds: Result[]): void {
         // apply current sort (column and direction)
         birds.sort((a, b) => {
             if (a[this.columnName] === b[this.columnName]) {

@@ -80,6 +80,7 @@ System.register(["@angular/core", "@angular/platform-browser", "./app.component"
                     ],
                     bootstrap: [
                         app_component_1.AppComponent,
+                        carousel_component_1.CarouselComponent,
                         navbar_component_1.NavBarComponent,
                         navbarbrand_component_1.NavBarBrandComponent,
                         navbarreports_component_1.NavBarReportsComponent

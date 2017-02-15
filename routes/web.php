@@ -32,28 +32,28 @@ Route::get('/contact', function () {
 Route::get('reports/clearCache', 'ReportsController@clearCache');
 Route::group(['prefix' => 'reports'], function () {
 	Route::get('months/{monthNumber?}', function () {
-		return View::make('static-content.static-content');
+		return View::make('reports.report');
 	});
 	Route::get('years/{year?}', function () {
-		return View::make('static-content.static-content');
+		return View::make('reports.report');
 	});
 	Route::get('orders/{orderId?}', function () {
-		return View::make('static-content.static-content');
+		return View::make('reports.report');
 	});
 	Route::get('locations/{locationId?}', function () {
-		return View::make('static-content.static-content');
+		return View::make('reports.report');
 	});
 	Route::get('birdLookup', function () {
-		return View::make('static-content.static-content');
+		return View::make('reports.report');
 	});
 	Route::get('all', function () {
-		return View::make('static-content.static-content');
+		return View::make('reports.report');
 	});
 	Route::get('search', function () {
-		return View::make('static-content.static-content');
+		return View::make('reports.report');
 	});
 	Route::get('species/{speciesId}', function () {
-		return View::make('static-content.static-content');
+		return View::make('reports.report');
 	});
 });
 

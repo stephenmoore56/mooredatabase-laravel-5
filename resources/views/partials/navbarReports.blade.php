@@ -11,6 +11,9 @@
 				<span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand" href="/">MOORE+DATABASE</a>
+			{{--angular component replaces this--}}
+			<nav-bar-brand style="display: none;">
+			</nav-bar-brand>
 		</div>
 
 		<div class="collapse navbar-collapse" id="navbar-main-collapse-1">
@@ -26,19 +29,16 @@
 						<li><a href="/training">Training</a></li>
 						<li><a href="/contact">Contact Me</a></li>
 					</ul>
+					{{--angular c+omponent replaces this--}}
+					<ul ng-nav-bar style="display: none;"></ul>
 				</li>
 				<li class="dropdown">
 					<a href="" class="dropdown-toggle" data-toggle="dropdown"
 					   role="button" aria-haspopup="true" aria-expanded="false">
 						BIRDING <span class="caret"></span>
 					</a>
-					<ul class="dropdown-menu">
-						<li><a href="/reports/months">Species & Trips By Month</a></li>
-						<li><a href="/reports/years">Species & Trips By Year</a></li>
-						<li><a href="/reports/orders">Species By Order</a></li>
-						<li><a href="/reports/locations">Species By Location</a></li>
-						<li><a href="/reports/all">All Species Sighted</a></li>
-						<li><a href="/reports/search">Search All Species</a></li>
+					<ul ng-nav-bar-reports class="dropdown-menu">
+						<li><a href="#">Loading...</a></li>
 					</ul>
 				</li>
 				<li class="dropdown">
@@ -57,6 +57,5 @@
 				</li>
 			</ul>
 		</div>
-
 	</div>
 </nav>

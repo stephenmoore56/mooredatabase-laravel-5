@@ -6,21 +6,16 @@
 	@include('partials.spajs')
 </head>
 <body>
-@include('partials.navbar')
+@include('partials.navbarReports')
 <div class="container-fluid" data-ng-cloak>
 	<div class="row-fluid">
-		<div class="col-sm-6 col-no-pad">
-			<div app-root>
-				Loading...
-			</div>
-		</div>
-		<div class="col-sm-1 col-no-pad col-spacer">
-		</div>
-		<div ng-carousel class="col-sm-4 col-no-pad">
+		<div app-root>
+			Loading...
 		</div>
 	</div>
+	<div ng-carousel style="display: none">
+	</div>
 </div>
-@include('partials.footer')
 @include('partials.googleAnalytics')
 </body>
 </html>
