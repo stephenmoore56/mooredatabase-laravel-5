@@ -30,6 +30,7 @@ Route::get('/contact', function () {
 
 // birding report template routes
 Route::get('reports/clearCache', 'ReportsController@clearCache');
+Route::get('reports/birdLookup', 'ReportsController@birdLookup');
 Route::group(['prefix' => 'reports'], function () {
 	Route::get('months/{monthNumber?}', function () {
 		return View::make('reports.report');
@@ -41,9 +42,6 @@ Route::group(['prefix' => 'reports'], function () {
 		return View::make('reports.report');
 	});
 	Route::get('locations/{locationId?}', function () {
-		return View::make('reports.report');
-	});
-	Route::get('birdLookup', function () {
 		return View::make('reports.report');
 	});
 	Route::get('all', function () {

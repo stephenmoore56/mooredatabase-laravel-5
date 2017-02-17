@@ -1,4 +1,4 @@
-System.register(["@angular/platform-browser-dynamic", "./app.module", "@angular/core"], function (exports_1, context_1) {
+System.register(["@angular/platform-browser-dynamic", "./app/app.module", "@angular/core"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var platform_browser_dynamic_1, app_module_1, core_1;
@@ -20,4 +20,4 @@ System.register(["@angular/platform-browser-dynamic", "./app.module", "@angular/
         }
     };
 });
-//# sourceMappingURL=main.js.map
+//# sourceMappingURL=/var/www/html/mooredatabase-laravel-5/angular/src/main.js.map
