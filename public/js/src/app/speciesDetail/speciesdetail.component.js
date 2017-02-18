@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/router", "../classes/speciesList", "../services/reportData.service", "../services/reportChart.service"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "../classes/result", "../classes/speciesList", "../services/reportData.service", "../services/reportChart.service"], function (exports_1, context_1) {
     "use strict";
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -15,7 +15,7 @@ System.register(["@angular/core", "@angular/router", "../classes/speciesList", "
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, router_1, speciesList_1, reportData_service_1, reportChart_service_1, SpeciesDetailComponent;
+    var core_1, router_1, result_1, speciesList_1, reportData_service_1, reportChart_service_1, SpeciesDetailComponent;
     return {
         setters: [
             function (core_1_1) {
@@ -23,6 +23,9 @@ System.register(["@angular/core", "@angular/router", "../classes/speciesList", "
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (result_1_1) {
+                result_1 = result_1_1;
             },
             function (speciesList_1_1) {
                 speciesList_1 = speciesList_1_1;
@@ -42,8 +45,7 @@ System.register(["@angular/core", "@angular/router", "../classes/speciesList", "
                     _this._reportDataService = _reportDataService;
                     _this._reportChartService = _reportChartService;
                     _this._route = _route;
-                    _this.bird = [];
-                    _this.months = [];
+                    _this.bird = new result_1.Result();
                     return _this;
                 }
                 SpeciesDetailComponent.prototype.ngOnInit = function () {

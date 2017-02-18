@@ -48,8 +48,7 @@ System.register(["@angular/core", "@angular/router", "../classes/speciesList", "
                     this._reportDataService
                         .getSpeciesForOrder(this.orderId)
                         .subscribe(function (r) {
-                        _this.birds = r;
-                        _this.originalBirds = r;
+                        _this.setBirds(r);
                         _this.orderName = _this.birds[0].order_name;
                     }, function (error) { return console.log("Error: ", error); });
                 };

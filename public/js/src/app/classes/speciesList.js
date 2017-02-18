@@ -16,6 +16,10 @@ System.register([], function (exports_1, context_1) {
                     this.columnName = 'common_name';
                     this.topN = Infinity;
                 }
+                SpeciesList.prototype.setBirds = function (birds) {
+                    this.birds = birds;
+                    this.originalBirds = birds;
+                };
                 SpeciesList.prototype.sortResults = function (columnName) {
                     // toggle sort direction if column name hasn't changed
                     if (this.columnName === columnName) {

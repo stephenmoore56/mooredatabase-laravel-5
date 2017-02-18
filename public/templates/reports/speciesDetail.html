@@ -36,24 +36,22 @@
 					</tbody>
 				</table>
 				<form class="form-inline filterForm">
-					<div class="form-group" style="margin-bottom: 10px">
-						<button type="button" class="btn btn-success btn-sm" (click)="goBack()">
-							<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Back
-						</button>
-					</div>
 					<div class="form-group" style="margin-bottom: 10px;">
-						<a href="http://en.wikipedia.org/wiki/{{ bird.common_name }}" target="_blank"
-						   class="btn btn-info btn-sm">
-							<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-							Wikipedia
-						</a>
-					</div>
-					<div class="form-group" style="margin-bottom: 10px;">
-						<a href="http://images.google.com/images?q={{ bird.common_name }}&sout=1" target="_blank"
-						   class="btn btn-info btn-sm">
-							<span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
-							Google Images
-						</a>
+						<div class="btn-group">
+							<button type="button" class="btn btn-success btn-sm" (click)="goBack()">
+								<span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Back
+							</button>
+							<a href="http://en.wikipedia.org/wiki/{{ bird.common_name }}" target="_blank"
+							   class="btn btn-info btn-sm">
+								<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+								Wikipedia
+							</a>
+							<a href="http://images.google.com/images?q={{ bird.common_name }}&sout=1" target="_blank"
+							   class="btn btn-warning btn-sm">
+								<span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+								Google Images
+							</a>
+						</div>
 					</div>
 				</form>
 			</div>

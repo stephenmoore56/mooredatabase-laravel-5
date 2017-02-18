@@ -47,10 +47,7 @@ System.register(["@angular/core", "@angular/router", "../classes/speciesList", "
                     });
                     this._reportDataService
                         .getSpeciesForYear(this.yearNumber)
-                        .subscribe(function (r) {
-                        _this.birds = r;
-                        _this.originalBirds = r;
-                    }, function (error) { return console.log("Error: ", error); });
+                        .subscribe(function (r) { return _this.setBirds(r); }, function (error) { return console.log("Error: ", error); });
                     this._reportDataService
                         .getOrdersAll()
                         .subscribe(function (r) { return _this.orders = r; }, function (error) { return console.log("Error: ", error); });

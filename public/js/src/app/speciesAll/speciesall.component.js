@@ -42,8 +42,7 @@ System.register(["@angular/core", "../classes/speciesList", "../services/reportD
                     this._reportDataService
                         .getSpeciesAll()
                         .subscribe(function (r) {
-                        _this.birds = r;
-                        _this.originalBirds = r;
+                        _this.setBirds(r);
                         _this.sortDirection = 1;
                         _this.sortResults('common_name');
                     }, function (error) { return console.log("Error: ", error); });

@@ -46,10 +46,7 @@ System.register(["@angular/core", "../classes/speciesList", "../services/reportD
                     }
                     this._reportDataService
                         .getSearchAll(this.searchTerm, this.orderId)
-                        .subscribe(function (r) {
-                        _this.birds = r;
-                        _this.originalBirds = r;
-                    }, function (error) { return console.log("Error: ", error); });
+                        .subscribe(function (r) { return _this.setBirds(r); }, function (error) { return console.log("Error: ", error); });
                 };
                 SearchAllComponent.prototype.ngOnInit = function () {
                     var _this = this;

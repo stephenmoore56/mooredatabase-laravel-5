@@ -48,8 +48,7 @@ System.register(["@angular/core", "@angular/router", "../classes/speciesList", "
                     this._reportDataService
                         .getSpeciesForMonth(this.monthNumber)
                         .subscribe(function (r) {
-                        _this.birds = r;
-                        _this.originalBirds = r;
+                        _this.setBirds(r);
                         _this.monthName = _this.birds[0].monthName;
                     }, function (error) { return console.log("Error: ", error); });
                     this._reportDataService

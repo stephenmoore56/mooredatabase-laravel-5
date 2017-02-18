@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/router", "../classes/speciesList", "../services/reportData.service", "../services/reportMap.service"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "../classes/result", "../classes/speciesList", "../services/reportData.service", "../services/reportMap.service"], function (exports_1, context_1) {
     "use strict";
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -15,7 +15,7 @@ System.register(["@angular/core", "@angular/router", "../classes/speciesList", "
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, router_1, speciesList_1, reportData_service_1, reportMap_service_1, SpeciesForLocationComponent;
+    var core_1, router_1, result_1, speciesList_1, reportData_service_1, reportMap_service_1, SpeciesForLocationComponent;
     return {
         setters: [
             function (core_1_1) {
@@ -23,6 +23,9 @@ System.register(["@angular/core", "@angular/router", "../classes/speciesList", "
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (result_1_1) {
+                result_1 = result_1_1;
             },
             function (speciesList_1_1) {
                 speciesList_1 = speciesList_1_1;
@@ -42,8 +45,7 @@ System.register(["@angular/core", "@angular/router", "../classes/speciesList", "
                     _this._reportDataService = _reportDataService;
                     _this._route = _route;
                     _this._reportMapService = _reportMapService;
-                    _this.birds = [];
-                    _this.location = [];
+                    _this.location = new result_1.Result();
                     return _this;
                 }
                 SpeciesForLocationComponent.prototype.ngOnInit = function () {
@@ -53,16 +55,16 @@ System.register(["@angular/core", "@angular/router", "../classes/speciesList", "
                     });
                     this._reportDataService
                         .getSpeciesForLocation(this.locationId)
-                        .subscribe(function (r) {
-                        _this.birds = r;
-                        _this.originalBirds = r;
-                    }, function (error) { return console.log("Error: ", error); });
+                        .subscribe(function (r) { return _this.setBirds(r); }, function (error) { return console.log("Error: ", error); });
                     this._reportDataService
                         .getLocation(this.locationId)
                         .subscribe(function (r) { return _this.location = r[0]; }, function (error) { return console.log("Error: ", error); }, function () { return _this._reportMapService.drawLocationMap(_this.location.latitude, _this.location.longitude, 'map_div_1'); });
                     this._reportDataService
                         .getOrdersAll()
                         .subscribe(function (r) { return _this.orders = r; }, function (error) { return console.log("Error: ", error); });
+                };
+                SpeciesForLocationComponent.prototype.goBack = function () {
+                    window.history.back();
                 };
                 return SpeciesForLocationComponent;
             }(speciesList_1.SpeciesList));
