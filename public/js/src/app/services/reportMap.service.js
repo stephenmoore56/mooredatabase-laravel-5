@@ -26,6 +26,7 @@ System.register(["@angular/core", "@angular/router"], function (exports_1, conte
                     this._router = _router;
                 }
                 ReportMapService.prototype.drawLocationsMap = function (locations, map_div) {
+                    var _this = this;
                     // create a new map
                     var map = new google.maps.Map(document.getElementById(map_div), {
                         zoom: 6,
@@ -35,8 +36,7 @@ System.register(["@angular/core", "@angular/router"], function (exports_1, conte
                     // click on marker takes you to location detail page
                     var buildClickHandler = function (i) {
                         return function () {
-                            window.location.assign('/reports/locations/' + locations[i].id);
-                            return true;
+                            return _this._router.navigateByUrl("/reports/locations/" + locations[i].id);
                         };
                     };
                     // popups that show when hovering over marker
@@ -51,13 +51,14 @@ System.register(["@angular/core", "@angular/router"], function (exports_1, conte
                     };
                     // copy data for info windows into a separate array
                     var chartData = [];
-                    for (var i = 0; i < locations.length; i++) {
+                    for (var i in locations) {
                         chartData.push([locations[i].location_name,
                             locations[i].county_name + ', ' + locations[i].state_code,
-                            locations[i].latitude, locations[i].longitude]);
+                            locations[i].latitude,
+                            locations[i].longitude]);
                     }
                     // put markers on map
-                    for (var j = 0; j < chartData.length; j++) {
+                    for (var j in chartData) {
                         var marker = new google.maps.Marker({
                             position: new google.maps.LatLng(chartData[j][2], chartData[j][3]),
                             map: map

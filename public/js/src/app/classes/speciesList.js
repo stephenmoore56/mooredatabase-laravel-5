@@ -30,8 +30,29 @@ System.register([], function (exports_1, context_1) {
                         this.sortDirection = 1;
                     }
                     this.columnName = columnName;
+                    this.columnNames = [];
                     this.applyFilters();
                 };
+                // public sortResultsMulti(columnNames: string[]): void {
+                //     // toggle sort direction if column names haven't changed
+                //     if (this.columnNames === columnNames) {
+                //         this.sortDirection *= -1;
+                //     } else {
+                //         // otherwise set sort order ascending
+                //         this.sortDirection = 1;
+                //     }
+                //     this.columnName = '';
+                //     this.columnNames = [];
+                //     let reverse = (this.sortDirection === -1);
+                //     for (let i = 0; i < columnNames.length; i++) {
+                //         this.columnNames.push({
+                //             name: columnNames[i],
+                //             reverse: reverse
+                //         })
+                //     }
+                //     console.log(this.columnNames);
+                //     this.applyFilters();
+                // }
                 SpeciesList.prototype.setSearchTermFilter = function (searchTerm) {
                     if (searchTerm === void 0) { searchTerm = ''; }
                     this.searchTerm = searchTerm;
@@ -54,11 +75,14 @@ System.register([], function (exports_1, context_1) {
                     filteredBirds = this.filterOrderName(filteredBirds, this.orderName);
                     // apply current sort before top N filter
                     this.applySort(filteredBirds);
+                    //        this.applySortMulti(filteredBirds);
                     filteredBirds = this.filterTopN(filteredBirds, this.topN);
                     this.birds = filteredBirds;
                 };
                 SpeciesList.prototype.applySort = function (birds) {
                     var _this = this;
+                    if (this.columnName == '')
+                        return;
                     // apply current sort (column and direction)
                     birds.sort(function (a, b) {
                         if (a[_this.columnName] === b[_this.columnName]) {
@@ -69,6 +93,12 @@ System.register([], function (exports_1, context_1) {
                         }
                     });
                 };
+                // public applySortMulti(birds: Result[]): void {
+                //     if (this.columnNames.length == 0) return;
+                //     // apply current sort (column and direction)
+                //     let sort_fn = sort_by(this.columnNames);
+                //     birds.sort(sort_fn);
+                // }
                 SpeciesList.prototype.filterSearchTerm = function (birds, searchTerm) {
                     // apply the search term filter
                     if (searchTerm !== '') {

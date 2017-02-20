@@ -34,8 +34,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                     var months = [];
                     var species = [];
                     var trips = [];
-                    for (var i = 0; i < dataPoints.length; i++) {
-                        // read species, trips and months into separate arrays
+                    for (var i in dataPoints) {
                         months[i] = dataPoints[i].monthName.substring(0, 3);
                         species[i] = dataPoints[i].speciesCount;
                         trips[i] = dataPoints[i].tripCount;
@@ -99,8 +98,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                     var years = [];
                     var species = [];
                     var trips = [];
-                    for (var i = 0; i < dataPoints.length; i++) {
-                        // read species, trips and months into separate arrays
+                    for (var i in dataPoints) {
                         years[i] = dataPoints[i].yearNumber;
                         species[i] = dataPoints[i].speciesCount;
                         trips[i] = dataPoints[i].tripCount;
@@ -163,8 +161,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                     /* extract data from JSON data */
                     var months = [];
                     var sightings = [];
-                    for (var i = 0; i < dataPoints.length; i++) {
-                        // read species, trips and months into separate arrays
+                    for (var i in dataPoints) {
                         months[i] = dataPoints[i].monthName.substring(0, 3);
                         sightings[i] = dataPoints[i].sightingCount;
                     }
@@ -223,8 +220,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                     /* extract data from JSON data */
                     var orderNames = [];
                     var speciesCounts = [];
-                    for (var i = 0; i < dataPoints.length; i++) {
-                        // read species, trips and months into separate arrays
+                    for (var i in dataPoints) {
                         orderNames[i] = dataPoints[i].order_name;
                         speciesCounts[i] = dataPoints[i].speciesCount;
                     }
@@ -276,8 +272,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                     var counties = [];
                     var species = [];
                     var trips = [];
-                    for (var i = 0; i < dataPoints.length; i++) {
-                        // read species, trips and counties into separate arrays
+                    for (var i in dataPoints) {
                         counties[i] = dataPoints[i].countyName;
                         species[i] = dataPoints[i].speciesCount;
                         trips[i] = dataPoints[i].tripCount;
