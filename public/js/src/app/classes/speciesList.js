@@ -1,19 +1,24 @@
-System.register([], function (exports_1, context_1) {
+System.register(["./multisort"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var SpeciesList;
+    var multisort_1, SpeciesList;
     return {
-        setters: [],
+        setters: [
+            function (multisort_1_1) {
+                multisort_1 = multisort_1_1;
+            }
+        ],
         execute: function () {
             SpeciesList = (function () {
                 function SpeciesList() {
                     this.birds = [];
+                    this.orders = [];
                     this.originalBirds = [];
                     this.searchTerm = '';
-                    this.orders = [];
                     this.orderName = 'All';
                     this.sortDirection = -1;
                     this.columnName = 'common_name';
+                    this.columnNames = [];
                     this.topN = Infinity;
                 }
                 SpeciesList.prototype.setBirds = function (birds) {
@@ -21,38 +26,24 @@ System.register([], function (exports_1, context_1) {
                     this.originalBirds = birds;
                 };
                 SpeciesList.prototype.sortResults = function (columnName) {
-                    // toggle sort direction if column name hasn't changed
-                    if (this.columnName === columnName) {
-                        this.sortDirection *= -1;
-                    }
-                    else {
-                        // otherwise set sort order ascending
-                        this.sortDirection = 1;
-                    }
+                    this.sortDirection *= -1;
                     this.columnName = columnName;
                     this.columnNames = [];
                     this.applyFilters();
                 };
-                // public sortResultsMulti(columnNames: string[]): void {
-                //     // toggle sort direction if column names haven't changed
-                //     if (this.columnNames === columnNames) {
-                //         this.sortDirection *= -1;
-                //     } else {
-                //         // otherwise set sort order ascending
-                //         this.sortDirection = 1;
-                //     }
-                //     this.columnName = '';
-                //     this.columnNames = [];
-                //     let reverse = (this.sortDirection === -1);
-                //     for (let i = 0; i < columnNames.length; i++) {
-                //         this.columnNames.push({
-                //             name: columnNames[i],
-                //             reverse: reverse
-                //         })
-                //     }
-                //     console.log(this.columnNames);
-                //     this.applyFilters();
-                // }
+                SpeciesList.prototype.sortResultsMulti = function (columnNames) {
+                    this.sortDirection *= -1;
+                    this.columnName = '';
+                    this.columnNames = [];
+                    var reverse = (this.sortDirection == -1);
+                    for (var i in columnNames) {
+                        this.columnNames.push({
+                            name: columnNames[i],
+                            reverse: reverse
+                        });
+                    }
+                    this.applyFilters();
+                };
                 SpeciesList.prototype.setSearchTermFilter = function (searchTerm) {
                     if (searchTerm === void 0) { searchTerm = ''; }
                     this.searchTerm = searchTerm;
@@ -73,16 +64,18 @@ System.register([], function (exports_1, context_1) {
                     var filteredBirds = this.originalBirds; // start with query results
                     filteredBirds = this.filterSearchTerm(filteredBirds, this.searchTerm);
                     filteredBirds = this.filterOrderName(filteredBirds, this.orderName);
-                    // apply current sort before top N filter
-                    this.applySort(filteredBirds);
-                    //        this.applySortMulti(filteredBirds);
+                    // apply current sorts before top N filter
+                    if (this.columnName != '') {
+                        this.applySort(filteredBirds);
+                    }
+                    if (this.columnNames.length > 0) {
+                        this.applySortMulti(filteredBirds);
+                    }
                     filteredBirds = this.filterTopN(filteredBirds, this.topN);
                     this.birds = filteredBirds;
                 };
                 SpeciesList.prototype.applySort = function (birds) {
                     var _this = this;
-                    if (this.columnName == '')
-                        return;
                     // apply current sort (column and direction)
                     birds.sort(function (a, b) {
                         if (a[_this.columnName] === b[_this.columnName]) {
@@ -93,15 +86,12 @@ System.register([], function (exports_1, context_1) {
                         }
                     });
                 };
-                // public applySortMulti(birds: Result[]): void {
-                //     if (this.columnNames.length == 0) return;
-                //     // apply current sort (column and direction)
-                //     let sort_fn = sort_by(this.columnNames);
-                //     birds.sort(sort_fn);
-                // }
+                SpeciesList.prototype.applySortMulti = function (birds) {
+                    birds.sort(multisort_1.sortBy.apply(void 0, this.columnNames));
+                };
                 SpeciesList.prototype.filterSearchTerm = function (birds, searchTerm) {
                     // apply the search term filter
-                    if (searchTerm !== '') {
+                    if (searchTerm.trim() !== '') {
                         var regex_1 = new RegExp(searchTerm, 'i');
                         return birds.filter(function (bird) {
                             if (bird.common_name.match(regex_1) ||
@@ -131,8 +121,7 @@ System.register([], function (exports_1, context_1) {
                     }
                 };
                 SpeciesList.prototype.filterTopN = function (birds, topN) {
-                    // apply the top N filter
-                    return birds.filter(function (item, index) { return index < topN; });
+                    return birds.slice(0, topN);
                 };
                 return SpeciesList;
             }());

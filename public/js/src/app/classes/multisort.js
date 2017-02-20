@@ -1,11 +1,15 @@
 System.register([], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    function sort_by(args) {
-        var fields = [].slice.call(arguments), n_fields = fields.length;
+    function sortBy() {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        var fields = [].slice.call(args);
         return function (A, B) {
             var a, b, field, key, reverse, result, i;
-            for (i in n_fields) {
+            for (i in fields) {
                 result = 0;
                 field = fields[i];
                 key = typeof field === 'string' ? field : field.name;
@@ -26,7 +30,7 @@ System.register([], function (exports_1, context_1) {
             return result;
         };
     }
-    exports_1("sort_by", sort_by);
+    exports_1("sortBy", sortBy);
     return {
         setters: [],
         execute: function () {

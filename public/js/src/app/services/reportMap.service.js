@@ -79,6 +79,18 @@ System.register(["@angular/core", "@angular/router"], function (exports_1, conte
                         map: map,
                         title: latitude + " " + longitude
                     });
+                    // popup that shows when hovering over marker
+                    var infowindow = new google.maps.InfoWindow();
+                    var showInfoWindow = function (chartData, marker) {
+                        return function () {
+                            infowindow.setContent("" + "Lat/Lng: " + chartData[0] + " " + chartData[1]);
+                            infowindow.maxWidth = 200;
+                            infowindow.open(map, marker);
+                            return true;
+                        };
+                    };
+                    var chartData = [latitude, longitude];
+                    google.maps.event.addListener(marker, 'mouseover', showInfoWindow(chartData, marker));
                 };
                 return ReportMapService;
             }());

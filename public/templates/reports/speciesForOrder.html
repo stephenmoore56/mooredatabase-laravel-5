@@ -35,8 +35,8 @@
 			<th (click)="sortResults('common_name')">Common Name</th>
 			<th class="text-center">Action</th>
 			<th class="hidden-xs hidden-sm" (click)="sortResults('scientific_name')">Scientific Name</th>
-			<th class="hidden-xs" (click)="sortResults('order_name')">Order</th>
-			<th class="hidden-xs hidden-sm" (click)="sortResults('family')">Family</th>
+			<th class="hidden-xs" (click)="sortResultsMulti(['order_name','family','subfamily'])">Order</th>
+			<th class="hidden-xs hidden-sm" (click)="sortResultsMulti(['family','subfamily'])">Family</th>
 			<th class="hidden-xs" (click)="sortResults('last_seen')">Last Seen</th>
 			<th class="text-right" (click)="sortResults('sightings')">Sightings</th>
 		</tr>
