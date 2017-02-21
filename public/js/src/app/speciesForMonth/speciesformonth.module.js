@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/http", "./speciesformonth.component", "../reportPartials/reportwidgets.module", "./speciesformonth.routing"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/http", "./speciesformonth.component", "../reportPartials/reportwidgets.module", "./speciesformonth.routing", "../pipes/pipes.module"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7,7 +7,7 @@ System.register(["@angular/core", "@angular/http", "./speciesformonth.component"
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, http_1, speciesformonth_component_1, reportwidgets_module_1, speciesformonth_routing_1, SpeciesForMonthModule;
+    var core_1, http_1, speciesformonth_component_1, reportwidgets_module_1, speciesformonth_routing_1, pipes_module_1, SpeciesForMonthModule;
     return {
         setters: [
             function (core_1_1) {
@@ -24,6 +24,9 @@ System.register(["@angular/core", "@angular/http", "./speciesformonth.component"
             },
             function (speciesformonth_routing_1_1) {
                 speciesformonth_routing_1 = speciesformonth_routing_1_1;
+            },
+            function (pipes_module_1_1) {
+                pipes_module_1 = pipes_module_1_1;
             }
         ],
         execute: function () {
@@ -37,7 +40,8 @@ System.register(["@angular/core", "@angular/http", "./speciesformonth.component"
                     imports: [
                         speciesformonth_routing_1.routing,
                         http_1.HttpModule,
-                        reportwidgets_module_1.ReportWidgetsModule
+                        reportwidgets_module_1.ReportWidgetsModule,
+                        pipes_module_1.PipesModule
                     ],
                     declarations: [
                         speciesformonth_component_1.SpeciesForMonthComponent

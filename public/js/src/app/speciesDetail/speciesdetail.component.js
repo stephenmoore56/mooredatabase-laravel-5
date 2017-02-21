@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/router", "../classes/result", "../classes/speciesList", "../services/reportData.service", "../services/reportChart.service"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/speciesList", "../services/reportData.service", "../services/reportChart.service"], function (exports_1, context_1) {
     "use strict";
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];

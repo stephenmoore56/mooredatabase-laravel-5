@@ -37,4 +37,4 @@ System.register([], function (exports_1, context_1) {
         }
     };
 });
-//# sourceMappingURL=/var/www/html/mooredatabase-laravel-5/angular/src/app/classes/multisort.js.map
+//# sourceMappingURL=/var/www/html/mooredatabase-laravel-5/angular/src/app/lib/multisort.js.map

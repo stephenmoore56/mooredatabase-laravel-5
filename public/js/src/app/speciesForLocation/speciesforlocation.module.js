@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/common", "@angular/forms", "@angular/http", "./speciesforlocation.component", "../reportPartials/reportwidgets.module", "./speciesforlocation.routing"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/common", "@angular/forms", "@angular/http", "./speciesforlocation.component", "../reportPartials/reportwidgets.module", "./speciesforlocation.routing", "../pipes/pipes.module"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7,7 +7,7 @@ System.register(["@angular/core", "@angular/common", "@angular/forms", "@angular
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, common_1, forms_1, http_1, speciesforlocation_component_1, reportwidgets_module_1, speciesforlocation_routing_1, SpeciesForLocationModule;
+    var core_1, common_1, forms_1, http_1, speciesforlocation_component_1, reportwidgets_module_1, speciesforlocation_routing_1, pipes_module_1, SpeciesForLocationModule;
     return {
         setters: [
             function (core_1_1) {
@@ -30,6 +30,9 @@ System.register(["@angular/core", "@angular/common", "@angular/forms", "@angular
             },
             function (speciesforlocation_routing_1_1) {
                 speciesforlocation_routing_1 = speciesforlocation_routing_1_1;
+            },
+            function (pipes_module_1_1) {
+                pipes_module_1 = pipes_module_1_1;
             }
         ],
         execute: function () {
@@ -45,7 +48,8 @@ System.register(["@angular/core", "@angular/common", "@angular/forms", "@angular
                         common_1.CommonModule,
                         http_1.HttpModule,
                         forms_1.FormsModule,
-                        reportwidgets_module_1.ReportWidgetsModule
+                        reportwidgets_module_1.ReportWidgetsModule,
+                        pipes_module_1.PipesModule
                     ],
                     declarations: [
                         speciesforlocation_component_1.SpeciesForLocationComponent

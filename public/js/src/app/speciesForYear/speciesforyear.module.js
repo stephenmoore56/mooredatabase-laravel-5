@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/http", "./speciesforyear.component", "../reportPartials/reportwidgets.module", "./speciesforyear.routing", "@angular/router"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/http", "./speciesforyear.component", "../reportPartials/reportwidgets.module", "./speciesforyear.routing", "@angular/router", "../pipes/pipes.module"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7,7 +7,7 @@ System.register(["@angular/core", "@angular/http", "./speciesforyear.component",
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, http_1, speciesforyear_component_1, reportwidgets_module_1, speciesforyear_routing_1, router_1, SpeciesForYearModule;
+    var core_1, http_1, speciesforyear_component_1, reportwidgets_module_1, speciesforyear_routing_1, router_1, pipes_module_1, SpeciesForYearModule;
     return {
         setters: [
             function (core_1_1) {
@@ -27,6 +27,9 @@ System.register(["@angular/core", "@angular/http", "./speciesforyear.component",
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (pipes_module_1_1) {
+                pipes_module_1 = pipes_module_1_1;
             }
         ],
         execute: function () {
@@ -42,6 +45,7 @@ System.register(["@angular/core", "@angular/http", "./speciesforyear.component",
                         http_1.HttpModule,
                         reportwidgets_module_1.ReportWidgetsModule,
                         router_1.RouterModule,
+                        pipes_module_1.PipesModule
                     ],
                     declarations: [
                         speciesforyear_component_1.SpeciesForYearComponent

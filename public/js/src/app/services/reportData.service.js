@@ -79,7 +79,11 @@ System.register(["rxjs/add/operator/map", "@angular/core", "@angular/http"], fun
                     return this.getResults("monthsForSpecies/" + speciesId);
                 };
                 ReportDataService.prototype.getOrdersAll = function () {
-                    return this.getResults("listOrdersAll");
+                    // cache this data; used for order filter on species listings
+                    if (!this.orders) {
+                        this.orders = this.getResults("listOrdersAll");
+                    }
+                    return this.orders;
                 };
                 ReportDataService.prototype.getResults = function (endpoint) {
                     return this.http

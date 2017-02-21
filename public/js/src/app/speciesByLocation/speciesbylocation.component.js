@@ -1,4 +1,4 @@
-System.register(["@angular/core", "../classes/sortable", "../services/reportData.service", "../services/reportChart.service", "../services/reportMap.service"], function (exports_1, context_1) {
+System.register(["@angular/core", "../lib/sortable", "../services/reportData.service", "../services/reportChart.service", "../services/reportMap.service"], function (exports_1, context_1) {
     "use strict";
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];

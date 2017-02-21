@@ -14,4 +14,4 @@ System.register([], function (exports_1, context_1) {
         }
     };
 });
-//# sourceMappingURL=/var/www/html/mooredatabase-laravel-5/angular/src/app/classes/result.js.map
+//# sourceMappingURL=/var/www/html/mooredatabase-laravel-5/angular/src/app/lib/result.js.map
