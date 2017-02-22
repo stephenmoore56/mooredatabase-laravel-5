@@ -34,4 +34,4 @@ System.register(["@angular/core"], function (exports_1, context_1) {
         }
     };
 });
-//# sourceMappingURL=/var/www/html/mooredatabase-laravel-5/angular/src/app/reportPartials/backbutton.component.js.map
+//# sourceMappingURL=/var/www/html/mooredatabase-laravel-5/angular/src/app/partials/backbutton.component.js.map

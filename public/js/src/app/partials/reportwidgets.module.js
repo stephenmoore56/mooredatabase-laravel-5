@@ -57,4 +57,4 @@ System.register(["@angular/core", "@angular/common", "@angular/forms", "@angular
         }
     };
 });
-//# sourceMappingURL=/var/www/html/mooredatabase-laravel-5/angular/src/app/reportPartials/reportwidgets.module.js.map
+//# sourceMappingURL=/var/www/html/mooredatabase-laravel-5/angular/src/app/partials/reportwidgets.module.js.map

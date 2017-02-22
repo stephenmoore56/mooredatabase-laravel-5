@@ -38,4 +38,4 @@ System.register(["@angular/core"], function (exports_1, context_1) {
         }
     };
 });
-//# sourceMappingURL=/var/www/html/mooredatabase-laravel-5/angular/src/app/reportPartials/speciescount.component.js.map
+//# sourceMappingURL=/var/www/html/mooredatabase-laravel-5/angular/src/app/partials/speciescount.component.js.map
