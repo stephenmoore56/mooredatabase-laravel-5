@@ -1,0 +1,17 @@
+CREATE PROCEDURE proc_birdLookup(
+p_term VARCHAR(50)) AS 	BEGIN
+
+DECLARE EXIT HANDLER FOR SQLEXCEPTION RESIGNAL;
+SET SESSION TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+
+SELECT
+a.common_name AS label,
+a.id AS value
+FROM 
+aou_list a
+WHERE
+a.common_name LIKE CONCAT('%',p_term,'%')
+ORDER BY
+a.common_name ASC;
+
+END
