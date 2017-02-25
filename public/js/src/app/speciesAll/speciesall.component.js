@@ -49,6 +49,7 @@ System.register(["@angular/core", "../lib/speciesList", "../services/reportData.
                     this._reportDataService
                         .getOrdersAll()
                         .subscribe(function (r) { return _this.orders = r; }, function (error) { return console.log("Error: ", error); });
+                    window.document.title = "MOORE+DATABASE - All Species";
                 };
                 return SpeciesAllComponent;
             }(speciesList_1.SpeciesList));

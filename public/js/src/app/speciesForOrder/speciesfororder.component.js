@@ -50,6 +50,7 @@ System.register(["@angular/core", "@angular/router", "../lib/speciesList", "../s
                         .subscribe(function (r) {
                         _this.setBirds(r);
                         _this.orderName = _this.birds[0].order_name;
+                        window.document.title = "MOORE+DATABASE - Species For Order " + _this.orderName;
                     }, function (error) { return console.log("Error: ", error); });
                 };
                 return SpeciesForOrderComponent;

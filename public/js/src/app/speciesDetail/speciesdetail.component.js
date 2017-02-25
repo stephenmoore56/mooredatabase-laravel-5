@@ -56,6 +56,7 @@ System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/sp
                     this._reportDataService
                         .getSpeciesDetail(this.speciesId)
                         .subscribe(function (r) { return _this.bird = r[0]; }, function (error) { return console.log("Error: ", error); }, function () {
+                        window.document.title = "MOORE+DATABASE - " + _this.bird.common_name;
                         // don't query for sightings or draw chart for birds not seen
                         if (_this.bird.last_seen != null) {
                             _this._reportDataService

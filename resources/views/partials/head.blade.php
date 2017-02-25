@@ -10,7 +10,7 @@
 <meta name="format-detection" content="telephone=no"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-<title>MOORE+DATABASE - @yield('title')</title>
+<title>MOORE+DATABASE</title>
 
 <!-- Bootstrap -->
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"

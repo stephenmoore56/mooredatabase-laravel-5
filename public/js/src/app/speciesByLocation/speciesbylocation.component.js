@@ -54,6 +54,7 @@ System.register(["@angular/core", "../lib/sortable", "../services/reportData.ser
                     this._reportDataService
                         .getSpeciesByCounty()
                         .subscribe(function (r) { return _this.counties = r; }, function (error) { return console.log("Error: ", error); }, function () { return _this._reportChartService.drawChartSpeciesByCounty(_this.counties, 'chart_div_1'); });
+                    window.document.title = "MOORE+DATABASE - Species By Location";
                 };
                 return SpeciesByLocationComponent;
             }(sortable_1.Sortable));

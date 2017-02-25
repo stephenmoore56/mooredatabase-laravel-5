@@ -50,6 +50,7 @@ System.register(["@angular/core", "@angular/router", "../lib/speciesList", "../s
                         .subscribe(function (r) {
                         _this.setBirds(r);
                         _this.monthName = _this.birds[0].monthName;
+                        window.document.title = "MOORE+DATABASE - Species For Month of " + _this.monthName;
                     }, function (error) { return console.log("Error: ", error); });
                     this._reportDataService
                         .getOrdersAll()

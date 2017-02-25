@@ -58,7 +58,10 @@ System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/sp
                         .subscribe(function (r) { return _this.setBirds(r); }, function (error) { return console.log("Error: ", error); });
                     this._reportDataService
                         .getLocation(this.locationId)
-                        .subscribe(function (r) { return _this.location = r[0]; }, function (error) { return console.log("Error: ", error); }, function () { return _this._reportMapService.drawLocationMap(_this.location.latitude, _this.location.longitude, 'map_div_1'); });
+                        .subscribe(function (r) {
+                        _this.location = r[0];
+                        window.document.title = "MOORE+DATABASE - Species For " + _this.location.location_name;
+                    }, function (error) { return console.log("Error: ", error); }, function () { return _this._reportMapService.drawLocationMap(_this.location.latitude, _this.location.longitude, 'map_div_1'); });
                     this._reportDataService
                         .getOrdersAll()
                         .subscribe(function (r) { return _this.orders = r; }, function (error) { return console.log("Error: ", error); });

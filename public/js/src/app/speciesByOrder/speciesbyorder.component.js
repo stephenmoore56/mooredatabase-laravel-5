@@ -46,6 +46,7 @@ System.register(["@angular/core", "../lib/sortable", "../services/reportData.ser
                     this._reportDataService
                         .getSpeciesByOrder()
                         .subscribe(function (r) { return _this.orders = r; }, function (error) { return console.log("Error: ", error); }, function () { return _this._reportChartService.drawChartSpeciesByOrder(_this.orders, 'chart_div_1'); });
+                    window.document.title = "MOORE+DATABASE - Species By Order";
                 };
                 return SpeciesByOrderComponent;
             }(sortable_1.Sortable));

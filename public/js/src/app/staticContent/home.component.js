@@ -6,6 +6,9 @@ System.register(["@angular/core"], function (exports_1, context_1) {
         else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
+    var __metadata = (this && this.__metadata) || function (k, v) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
     var __moduleName = context_1 && context_1.id;
     var core_1, HomeComponent;
     return {
@@ -18,6 +21,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             HomeComponent = (function () {
                 function HomeComponent() {
                     this.staticPage = true;
+                    window.document.title = 'MOORE+DATABASE - Home';
                 }
                 return HomeComponent;
             }());
@@ -25,7 +29,8 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                 core_1.Component({
                     selector: 'relative-path',
                     templateUrl: 'templates/static/home.html'
-                })
+                }),
+                __metadata("design:paramtypes", [])
             ], HomeComponent);
             exports_1("HomeComponent", HomeComponent);
         }

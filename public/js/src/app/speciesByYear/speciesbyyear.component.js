@@ -46,6 +46,7 @@ System.register(["@angular/core", "../lib/sortable", "../services/reportData.ser
                     this._reportDataService
                         .getSpeciesByYear()
                         .subscribe(function (r) { return _this.years = r; }, function (error) { return console.log("Error: ", error); }, function () { return _this._reportChartService.drawChartSpeciesByYear(_this.years, 'chart_div_1'); });
+                    window.document.title = "MOORE+DATABASE - Species By Year";
                 };
                 return SpeciesByYearComponent;
             }(sortable_1.Sortable));

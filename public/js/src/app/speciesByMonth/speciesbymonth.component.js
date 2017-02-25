@@ -46,6 +46,7 @@ System.register(["@angular/core", "../lib/sortable", "../services/reportData.ser
                     this._reportDataService
                         .getSpeciesByMonth()
                         .subscribe(function (r) { return _this.months = r; }, function (error) { return console.log("Error: ", error); }, function () { return _this._reportChartService.drawChartSpeciesByMonth(_this.months, 'chart_div_1'); });
+                    window.document.title = "MOORE+DATABASE - Species By Month";
                 };
                 return SpeciesByMonthComponent;
             }(sortable_1.Sortable));

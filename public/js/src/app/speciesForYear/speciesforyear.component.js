@@ -51,6 +51,7 @@ System.register(["@angular/core", "@angular/router", "../lib/speciesList", "../s
                     this._reportDataService
                         .getOrdersAll()
                         .subscribe(function (r) { return _this.orders = r; }, function (error) { return console.log("Error: ", error); });
+                    window.document.title = "MOORE+DATABASE - Species For Year " + this.yearNumber;
                 };
                 return SpeciesForYearComponent;
             }(speciesList_1.SpeciesList));
