@@ -4,7 +4,6 @@ import {AppComponent} from "./app.component";
 import {NavBarComponent} from "./navbar/navbar.component";
 import {NavBarBrandComponent} from "./navbar/navbarbrand.component";
 import {NavBarReportsComponent} from "./navbar/navbarreports.component";
-import {CarouselComponent} from "./staticContent/carousel.component";
 import {AppRoutingModule} from "./app.routes";
 import {HomeComponent} from "./staticContent/home.component";
 import {CertificationsComponent} from "./staticContent/certifications.component";
@@ -24,7 +23,6 @@ import {ReportWidgetsModule} from "./partials/reportwidgets.module";
         NavBarComponent,
         NavBarBrandComponent,
         NavBarReportsComponent,
-        CarouselComponent,
         HomeComponent,
         EducationComponent,
         TrainingComponent,
@@ -33,7 +31,6 @@ import {ReportWidgetsModule} from "./partials/reportwidgets.module";
     ],
     bootstrap: [
         AppComponent,
-        CarouselComponent,
         NavBarComponent,
         NavBarBrandComponent,
         NavBarReportsComponent

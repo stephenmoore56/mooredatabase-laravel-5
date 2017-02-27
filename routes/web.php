@@ -13,19 +13,19 @@
 
 // static content routes
 Route::get('/', function () {
-	return View::make('static-content.static-content');
+	return View::make('reports.report');
 });
 Route::get('/education', function () {
-	return View::make('static-content.static-content');
+	return View::make('reports.report');
 });
 Route::get('/training', function () {
-	return View::make('static-content.static-content');
+	return View::make('reports.report');
 });
 Route::get('/certifications', function () {
-	return View::make('static-content.static-content');
+	return View::make('reports.report');
 });
 Route::get('/contact', function () {
-	return View::make('static-content.static-content');
+	return View::make('reports.report');
 });
 
 // birding report template routes

@@ -1,71 +1,78 @@
-<div class="page_header">
-	<h1>
-		Contact Me
-	</h1>
-</div>
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-	<div class="panel panel-primary">
-		<div class="panel-heading" role="tab" id="headingOne">
-			<h4 class="panel-title">
-				<a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne"
-				   aria-expanded="true" aria-controls="collapseOne">
-					Address
-				</a>
-			</h4>
+<div class="col-md-6 col-no-pad">
+	<div class="page_header">
+		<h1>
+			Contact Me
+		</h1>
+	</div>
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+		<div class="panel panel-primary">
+			<div class="panel-heading" role="tab" id="headingOne">
+				<h4 class="panel-title">
+					<a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne"
+					   aria-expanded="true" aria-controls="collapseOne">
+						Address
+					</a>
+				</h4>
+			</div>
+			<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+				<div class="panel-body">
+					<address>
+						<p>
+							Stephen Moore
+							<br/>
+							2015 Central Ave NE, #414
+							<br/>
+							Minneapolis, MN 55418
+							<br/>
+							<a href="tel:+16127894275">
+								(612) 789-4275
+							</a>
+							<br/>
+							<a href="mailto:stephenmoore56@msn.com" rel="author">
+								stephenmoore56@msn.com
+							</a>
+							<br/>
+							<a href="https://www.linkedin.com/in/mooredatabase" rel="author" target="_blank">
+								LinkedIn profile
+							</a>
+						</p>
+					</address>
+				</div>
+			</div>
 		</div>
-		<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-			<div class="panel-body">
-				<address>
+		<div class="panel panel-primary">
+			<div class="panel-heading" role="tab" id="headingTwo">
+				<h4 class="panel-title">
+					<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+					   data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+						Resumes
+					</a>
+				</h4>
+			</div>
+			<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+				<div class="panel-body">
 					<p>
-						Stephen Moore
-						<br/>
-						2015 Central Ave NE, #414
-						<br/>
-						Minneapolis, MN 55418
-						<br/>
-						<a href="tel:+16127894275">
-							(612) 789-4275
-						</a>
-						<br/>
-						<a href="mailto:stephenmoore56@msn.com" rel="author">
-							stephenmoore56@msn.com
-						</a>
-						<br/>
-						<a href="https://www.linkedin.com/in/mooredatabase" rel="author" target="_blank">
-							LinkedIn profile
-						</a>
+						Download resumes from Amazon S3:
 					</p>
-				</address>
+					<ul>
+						<li>
+							<a href="aws/downloadResume?filename=resumeSRM.docx">
+								Resume in Word format
+							</a>
+						</li>
+						<li>
+							<a href="aws/downloadResume?filename=resumeSRM.pdf">
+								Resume in PDF format
+							</a>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="panel panel-primary">
-		<div class="panel-heading" role="tab" id="headingTwo">
-			<h4 class="panel-title">
-				<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-				   data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-					Resumes
-				</a>
-			</h4>
-		</div>
-		<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-			<div class="panel-body">
-				<p>
-					Download resumes from Amazon S3:
-				</p>
-				<ul>
-					<li>
-						<a href="aws/downloadResume?filename=resumeSRM.docx">
-							Resume in Word format
-						</a>
-					</li>
-					<li>
-						<a href="aws/downloadResume?filename=resumeSRM.pdf">
-							Resume in PDF format
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+</div>
+<div class="col-md-1 col-no-pad col-spacer">
+</div>
+<div class="col-md-4 col-no-pad">
+	<img class="staticImage" src="{{ image.src }}" alt="{{ image.alt }}">
 </div>

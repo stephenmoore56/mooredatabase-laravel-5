@@ -1,13 +1,24 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
+import {ImageService} from '../services/image.service';
+import {Image} from '../lib/image';
 
 @Component({
     selector: 'relative-path',
-    templateUrl: 'templates/static/education.html'
+    templateUrl: 'templates/static/education.html',
+    providers: [
+        ImageService
+    ]
 })
-export class EducationComponent {
-    public staticPage: boolean = true;
 
-    constructor() {
+export class EducationComponent implements OnInit {
+
+    image: Image;
+
+    constructor(private _imageService: ImageService) {
         window.document.title = 'MOORE+DATABASE - Education';
+    }
+
+    ngOnInit() {
+        this.image = this._imageService.getRandomImage();
     }
 }

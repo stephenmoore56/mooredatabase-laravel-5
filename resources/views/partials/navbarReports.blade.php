@@ -10,9 +10,9 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="/">MOORE+DATABASE</a>
 			{{--angular component replaces this--}}
-			<nav-bar-brand style="display: none;">
+			<nav-bar-brand>
+				<a class="navbar-brand" href="#">MOORE+DATABASE</a>
 			</nav-bar-brand>
 		</div>
 
@@ -23,14 +23,10 @@
 					   role="button" aria-haspopup="true" aria-expanded="false">
 						EXPERIENCE <span class="caret"></span>
 					</a>
-					<ul class="dropdown-menu">
-						<li><a href="/education">Education</a></li>
-						<li><a href="/certifications">Certifications</a></li>
-						<li><a href="/training">Training</a></li>
-						<li><a href="/contact">Contact Me</a></li>
+					{{--angular component replaces this--}}
+					<ul ng-nav-bar class="dropdown-menu">
+						<li><a href="#">Loading...</a></li>
 					</ul>
-					{{--angular c+omponent replaces this--}}
-					<ul ng-nav-bar style="display: none;"></ul>
 				</li>
 				<li class="dropdown">
 					<a href="" class="dropdown-toggle" data-toggle="dropdown"
