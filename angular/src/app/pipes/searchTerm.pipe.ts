@@ -8,7 +8,7 @@ import {Result} from '../lib/result';
 export class SearchTermPipe implements PipeTransform {
     transform(birds: Result[], searchTerm: string): Result[] {
         // apply the search term filter
-        if (searchTerm == undefined || searchTerm.trim() !== '') {
+        if (searchTerm != undefined && searchTerm.trim() != '') {
             let regex = new RegExp(searchTerm, 'i');
             return birds.filter(function (bird) {
                 if (bird.common_name.match(regex) ||

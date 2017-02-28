@@ -40,7 +40,7 @@
         	{{ (birds | orderName: selectedOrder.value | searchTerm: query | topN: selectedTopN.value).length || 0 }} Species
     	</span>
 	</div>
-	<table [hidden]="birds.length <= 0" class="table table-striped table-condensed table-bordered species-list">
+	<table [hidden]="birds.length == 0" class="table table-striped table-condensed table-bordered species-list">
 		<thead>
 		<tr>
 			<th (click)="sortResults('common_name')">Common Name</th>
