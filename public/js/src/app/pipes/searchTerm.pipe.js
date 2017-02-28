@@ -20,7 +20,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                 }
                 SearchTermPipe.prototype.transform = function (birds, searchTerm) {
                     // apply the search term filter
-                    if (searchTerm != undefined && searchTerm.trim() != '') {
+                    if (searchTerm !== undefined && searchTerm.trim() != '') {
                         var regex_1 = new RegExp(searchTerm, 'i');
                         return birds.filter(function (bird) {
                             if (bird.common_name.match(regex_1) ||

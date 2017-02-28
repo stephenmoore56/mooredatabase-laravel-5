@@ -20,7 +20,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                 }
                 OrderNamePipe.prototype.transform = function (birds, orderName) {
                     // apply the order name filter
-                    if (orderName !== 'All' && orderName != null) {
+                    if (orderName !== 'All' && orderName != undefined && orderName.trim() != '') {
                         return birds.filter(function (bird) {
                             if (bird.order_name === orderName) {
                                 return true;

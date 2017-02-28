@@ -19,7 +19,12 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                 function TopNPipe() {
                 }
                 TopNPipe.prototype.transform = function (birds, topN) {
-                    return birds.slice(0, topN);
+                    if (topN !== Infinity) {
+                        return birds.slice(0, topN);
+                    }
+                    else {
+                        return birds;
+                    }
                 };
                 return TopNPipe;
             }());

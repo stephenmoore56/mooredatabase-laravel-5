@@ -8,7 +8,7 @@ import {Result} from '../lib/result';
 export class OrderNamePipe implements PipeTransform {
     transform(birds: Result[], orderName: string): Result[] {
         // apply the order name filter
-        if (orderName !== 'All' && orderName != null) {
+        if (orderName !== 'All' && orderName != undefined && orderName.trim() != '') {
             return birds.filter((bird) => {
                 if (bird.order_name === orderName) {
                     return true;

@@ -15,7 +15,6 @@ import {ReportMapService} from "../services/reportMap.service";
 })
 export class SpeciesForLocationComponent extends SpeciesList implements OnInit {
 
-    public birds: Result[];
     public locationId: number;
     public location: Result;
 
