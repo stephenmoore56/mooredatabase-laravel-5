@@ -1,17 +1,17 @@
 import {Component, OnInit} from "@angular/core";
 import {Result} from "../lib/result";
 import {Sortable} from "../lib/sortable";
-import {ReportDataService} from "../services/reportData.service";
-import {ReportChartService} from "../services/reportChart.service";
-import {ReportMapService} from "../services/reportMap.service";
+import {DataService} from "../services/data.service";
+import {ChartService} from "../services/chart.service";
+import {MapService} from "../services/map.service";
 
 @Component({
     selector: 'report',
     templateUrl: 'templates/reports/speciesByLocation.html',
     providers: [
-        ReportDataService,
-        ReportChartService,
-        ReportMapService
+        DataService,
+        ChartService,
+        MapService
     ]
 })
 export class SpeciesByLocationComponent extends Sortable implements OnInit {
@@ -19,9 +19,9 @@ export class SpeciesByLocationComponent extends Sortable implements OnInit {
     public locations: Result[] = [];
     public counties: Result[] = [];
 
-    constructor(private _reportChartService: ReportChartService,
-                private _reportDataService: ReportDataService,
-                private _reportMapService: ReportMapService) {
+    constructor(private _reportChartService: ChartService,
+                private _reportDataService: DataService,
+                private _reportMapService: MapService) {
         super();
     }
 

@@ -1,13 +1,13 @@
 import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
 import {SpeciesList} from "../lib/speciesList";
-import {ReportDataService} from "../services/reportData.service";
+import {DataService} from "../services/data.service";
 
 @Component({
     selector: 'report',
     templateUrl: 'templates/reports/speciesForMonth.html',
     providers: [
-        ReportDataService
+        DataService
     ]
 })
 export class SpeciesForMonthComponent extends SpeciesList implements OnInit {
@@ -15,7 +15,7 @@ export class SpeciesForMonthComponent extends SpeciesList implements OnInit {
     public monthNumber: number;
     public monthName: string;
 
-    constructor(private _reportDataService: ReportDataService,
+    constructor(private _reportDataService: DataService,
                 private _route: ActivatedRoute) {
         super();
     }

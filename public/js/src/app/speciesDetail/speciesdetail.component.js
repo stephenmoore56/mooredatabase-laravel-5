@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/speciesList", "../services/reportData.service", "../services/reportChart.service"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/speciesList", "../services/data.service", "../services/chart.service"], function (exports_1, context_1) {
     "use strict";
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -15,7 +15,7 @@ System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/sp
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, router_1, result_1, speciesList_1, reportData_service_1, reportChart_service_1, SpeciesDetailComponent;
+    var core_1, router_1, result_1, speciesList_1, data_service_1, chart_service_1, SpeciesDetailComponent;
     return {
         setters: [
             function (core_1_1) {
@@ -30,11 +30,11 @@ System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/sp
             function (speciesList_1_1) {
                 speciesList_1 = speciesList_1_1;
             },
-            function (reportData_service_1_1) {
-                reportData_service_1 = reportData_service_1_1;
+            function (data_service_1_1) {
+                data_service_1 = data_service_1_1;
             },
-            function (reportChart_service_1_1) {
-                reportChart_service_1 = reportChart_service_1_1;
+            function (chart_service_1_1) {
+                chart_service_1 = chart_service_1_1;
             }
         ],
         execute: function () {
@@ -75,12 +75,12 @@ System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/sp
                     selector: 'report',
                     templateUrl: 'templates/reports/speciesDetail.html',
                     providers: [
-                        reportData_service_1.ReportDataService,
-                        reportChart_service_1.ReportChartService
+                        data_service_1.DataService,
+                        chart_service_1.ChartService
                     ]
                 }),
-                __metadata("design:paramtypes", [reportData_service_1.ReportDataService,
-                    reportChart_service_1.ReportChartService,
+                __metadata("design:paramtypes", [data_service_1.DataService,
+                    chart_service_1.ChartService,
                     router_1.ActivatedRoute])
             ], SpeciesDetailComponent);
             exports_1("SpeciesDetailComponent", SpeciesDetailComponent);

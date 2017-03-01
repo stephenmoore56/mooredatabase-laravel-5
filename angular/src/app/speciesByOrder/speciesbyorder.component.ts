@@ -1,22 +1,22 @@
 import {Component, OnInit} from "@angular/core";
 import {Result} from "../lib/result";
 import {Sortable} from "../lib/sortable";
-import {ReportDataService} from "../services/reportData.service";
-import {ReportChartService} from "../services/reportChart.service";
+import {DataService} from "../services/data.service";
+import {ChartService} from "../services/chart.service";
 
 @Component({
     selector: 'report',
     templateUrl: 'templates/reports/speciesByOrder.html',
     providers: [
-        ReportDataService,
-        ReportChartService
+        DataService,
+        ChartService
     ]
 })
 export class SpeciesByOrderComponent extends Sortable implements OnInit {
 
     public orders: Result[] = [];
 
-    constructor(private _reportChartService: ReportChartService, private _reportDataService: ReportDataService) {
+    constructor(private _reportChartService: ChartService, private _reportDataService: DataService) {
         super();
     }
 

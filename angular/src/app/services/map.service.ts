@@ -6,7 +6,7 @@ import {Router} from "@angular/router";
 declare let google: any;
 
 @Injectable()
-export class ReportMapService {
+export class MapService {
 
     constructor(private _router: Router) {
     }

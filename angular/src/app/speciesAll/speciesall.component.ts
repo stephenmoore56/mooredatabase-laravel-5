@@ -1,20 +1,20 @@
 import {Component, OnInit} from "@angular/core";
 import {Result} from "../lib/result";
 import {SpeciesList} from "../lib/speciesList";
-import {ReportDataService} from "../services/reportData.service";
+import {DataService} from "../services/data.service";
 
 @Component({
     selector: 'report',
     templateUrl: 'templates/reports/speciesAll.html',
     providers: [
-        ReportDataService
+        DataService
     ]
 })
 export class SpeciesAllComponent extends SpeciesList implements OnInit {
 
     public birds: Result[] = [];
 
-    constructor(private _reportDataService: ReportDataService) {
+    constructor(private _reportDataService: DataService) {
         super();
     }
 

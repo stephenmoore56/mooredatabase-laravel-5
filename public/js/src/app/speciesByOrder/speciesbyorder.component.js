@@ -1,4 +1,4 @@
-System.register(["@angular/core", "../lib/sortable", "../services/reportData.service", "../services/reportChart.service"], function (exports_1, context_1) {
+System.register(["@angular/core", "../lib/sortable", "../services/data.service", "../services/chart.service"], function (exports_1, context_1) {
     "use strict";
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -15,7 +15,7 @@ System.register(["@angular/core", "../lib/sortable", "../services/reportData.ser
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, sortable_1, reportData_service_1, reportChart_service_1, SpeciesByOrderComponent;
+    var core_1, sortable_1, data_service_1, chart_service_1, SpeciesByOrderComponent;
     return {
         setters: [
             function (core_1_1) {
@@ -24,11 +24,11 @@ System.register(["@angular/core", "../lib/sortable", "../services/reportData.ser
             function (sortable_1_1) {
                 sortable_1 = sortable_1_1;
             },
-            function (reportData_service_1_1) {
-                reportData_service_1 = reportData_service_1_1;
+            function (data_service_1_1) {
+                data_service_1 = data_service_1_1;
             },
-            function (reportChart_service_1_1) {
-                reportChart_service_1 = reportChart_service_1_1;
+            function (chart_service_1_1) {
+                chart_service_1 = chart_service_1_1;
             }
         ],
         execute: function () {
@@ -55,11 +55,11 @@ System.register(["@angular/core", "../lib/sortable", "../services/reportData.ser
                     selector: 'report',
                     templateUrl: 'templates/reports/speciesByOrder.html',
                     providers: [
-                        reportData_service_1.ReportDataService,
-                        reportChart_service_1.ReportChartService
+                        data_service_1.DataService,
+                        chart_service_1.ChartService
                     ]
                 }),
-                __metadata("design:paramtypes", [reportChart_service_1.ReportChartService, reportData_service_1.ReportDataService])
+                __metadata("design:paramtypes", [chart_service_1.ChartService, data_service_1.DataService])
             ], SpeciesByOrderComponent);
             exports_1("SpeciesByOrderComponent", SpeciesByOrderComponent);
         }

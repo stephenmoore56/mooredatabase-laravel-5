@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/speciesList", "../services/reportData.service", "../services/reportMap.service"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/speciesList", "../services/data.service", "../services/map.service"], function (exports_1, context_1) {
     "use strict";
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -15,7 +15,7 @@ System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/sp
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, router_1, result_1, speciesList_1, reportData_service_1, reportMap_service_1, SpeciesForLocationComponent;
+    var core_1, router_1, result_1, speciesList_1, data_service_1, map_service_1, SpeciesForLocationComponent;
     return {
         setters: [
             function (core_1_1) {
@@ -30,11 +30,11 @@ System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/sp
             function (speciesList_1_1) {
                 speciesList_1 = speciesList_1_1;
             },
-            function (reportData_service_1_1) {
-                reportData_service_1 = reportData_service_1_1;
+            function (data_service_1_1) {
+                data_service_1 = data_service_1_1;
             },
-            function (reportMap_service_1_1) {
-                reportMap_service_1 = reportMap_service_1_1;
+            function (map_service_1_1) {
+                map_service_1 = map_service_1_1;
             }
         ],
         execute: function () {
@@ -76,13 +76,13 @@ System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/sp
                     selector: 'report',
                     templateUrl: 'templates/reports/speciesForLocation.html',
                     providers: [
-                        reportData_service_1.ReportDataService,
-                        reportMap_service_1.ReportMapService
+                        data_service_1.DataService,
+                        map_service_1.MapService
                     ]
                 }),
-                __metadata("design:paramtypes", [reportData_service_1.ReportDataService,
+                __metadata("design:paramtypes", [data_service_1.DataService,
                     router_1.ActivatedRoute,
-                    reportMap_service_1.ReportMapService])
+                    map_service_1.MapService])
             ], SpeciesForLocationComponent);
             exports_1("SpeciesForLocationComponent", SpeciesForLocationComponent);
         }

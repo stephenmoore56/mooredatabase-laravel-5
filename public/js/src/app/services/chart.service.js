@@ -7,7 +7,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, ReportChartService;
+    var core_1, ChartService;
     return {
         setters: [
             function (core_1_1) {
@@ -15,10 +15,10 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             }
         ],
         execute: function () {
-            ReportChartService = (function () {
-                function ReportChartService() {
+            ChartService = (function () {
+                function ChartService() {
                 }
-                ReportChartService.prototype.drawChartSpeciesByMonth = function (dataPoints, chart_div) {
+                ChartService.prototype.drawChartSpeciesByMonth = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
                         return;
                     }
@@ -78,7 +78,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         Plotly.Plots.resize(gd);
                     };
                 };
-                ReportChartService.prototype.drawChartSpeciesByYear = function (dataPoints, chart_div) {
+                ChartService.prototype.drawChartSpeciesByYear = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
                         return;
                     }
@@ -138,7 +138,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         Plotly.Plots.resize(gd);
                     };
                 };
-                ReportChartService.prototype.drawChartMonthsForSpecies = function (dataPoints, chart_div) {
+                ChartService.prototype.drawChartMonthsForSpecies = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
                         return;
                     }
@@ -193,7 +193,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         Plotly.Plots.resize(gd);
                     };
                 };
-                ReportChartService.prototype.drawChartSpeciesByOrder = function (dataPoints, chart_div) {
+                ChartService.prototype.drawChartSpeciesByOrder = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
                         return;
                     }
@@ -235,7 +235,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         Plotly.Plots.resize(gd);
                     };
                 };
-                ReportChartService.prototype.drawChartSpeciesByCounty = function (dataPoints, chart_div) {
+                ChartService.prototype.drawChartSpeciesByCounty = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
                         return;
                     }
@@ -311,13 +311,13 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         Plotly.Plots.resize(gd);
                     };
                 };
-                return ReportChartService;
+                return ChartService;
             }());
-            ReportChartService = __decorate([
+            ChartService = __decorate([
                 core_1.Injectable()
-            ], ReportChartService);
-            exports_1("ReportChartService", ReportChartService);
+            ], ChartService);
+            exports_1("ChartService", ChartService);
         }
     };
 });
-//# sourceMappingURL=/var/www/html/mooredatabase-laravel-5/angular/src/app/services/reportChart.service.js.map
+//# sourceMappingURL=/var/www/html/mooredatabase-laravel-5/angular/src/app/services/chart.service.js.map

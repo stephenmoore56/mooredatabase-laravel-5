@@ -2,15 +2,15 @@ import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
 import {Result} from "../lib/result";
 import {SpeciesList} from "../lib/speciesList";
-import {ReportDataService} from "../services/reportData.service";
-import {ReportMapService} from "../services/reportMap.service";
+import {DataService} from "../services/data.service";
+import {MapService} from "../services/map.service";
 
 @Component({
     selector: 'report',
     templateUrl: 'templates/reports/speciesForLocation.html',
     providers: [
-        ReportDataService,
-        ReportMapService
+        DataService,
+        MapService
     ]
 })
 export class SpeciesForLocationComponent extends SpeciesList implements OnInit {
@@ -18,9 +18,9 @@ export class SpeciesForLocationComponent extends SpeciesList implements OnInit {
     public locationId: number;
     public location: Result;
 
-    constructor(private _reportDataService: ReportDataService,
+    constructor(private _reportDataService: DataService,
                 private _route: ActivatedRoute,
-                private _reportMapService: ReportMapService) {
+                private _reportMapService: MapService) {
         super();
         this.location = new Result();
     }

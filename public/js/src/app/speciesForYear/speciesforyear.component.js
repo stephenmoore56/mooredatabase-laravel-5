@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/router", "../lib/speciesList", "../services/reportData.service"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "../lib/speciesList", "../services/data.service"], function (exports_1, context_1) {
     "use strict";
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -15,7 +15,7 @@ System.register(["@angular/core", "@angular/router", "../lib/speciesList", "../s
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, router_1, speciesList_1, reportData_service_1, SpeciesForYearComponent;
+    var core_1, router_1, speciesList_1, data_service_1, SpeciesForYearComponent;
     return {
         setters: [
             function (core_1_1) {
@@ -27,8 +27,8 @@ System.register(["@angular/core", "@angular/router", "../lib/speciesList", "../s
             function (speciesList_1_1) {
                 speciesList_1 = speciesList_1_1;
             },
-            function (reportData_service_1_1) {
-                reportData_service_1 = reportData_service_1_1;
+            function (data_service_1_1) {
+                data_service_1 = data_service_1_1;
             }
         ],
         execute: function () {
@@ -60,10 +60,10 @@ System.register(["@angular/core", "@angular/router", "../lib/speciesList", "../s
                     selector: 'report',
                     templateUrl: 'templates/reports/speciesForYear.html',
                     providers: [
-                        reportData_service_1.ReportDataService
+                        data_service_1.DataService
                     ]
                 }),
-                __metadata("design:paramtypes", [reportData_service_1.ReportDataService,
+                __metadata("design:paramtypes", [data_service_1.DataService,
                     router_1.ActivatedRoute])
             ], SpeciesForYearComponent);
             exports_1("SpeciesForYearComponent", SpeciesForYearComponent);

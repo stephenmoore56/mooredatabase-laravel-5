@@ -1,12 +1,12 @@
 import {Component, OnInit} from "@angular/core";
 import {SpeciesList} from "../lib/speciesList";
-import {ReportDataService} from "../services/reportData.service";
+import {DataService} from "../services/data.service";
 
 @Component({
     selector: 'report',
     templateUrl: 'templates/reports/searchAll.html',
     providers: [
-        ReportDataService
+        DataService
     ]
 })
 export class SearchAllComponent extends SpeciesList implements OnInit {
@@ -14,7 +14,7 @@ export class SearchAllComponent extends SpeciesList implements OnInit {
     public searchTerm: string = ' ';
     public orderId: number = -1;
 
-    constructor(private _reportDataService: ReportDataService) {
+    constructor(private _reportDataService: DataService) {
         super();
     }
 

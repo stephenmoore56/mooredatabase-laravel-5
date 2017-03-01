@@ -5,7 +5,7 @@ import {Result} from "../lib/result";
 declare let Plotly: any;
 
 @Injectable()
-export class ReportChartService {
+export class ChartService {
 
     public drawChartSpeciesByMonth(dataPoints: Result[], chart_div: string): void {
 
@@ -68,11 +68,7 @@ export class ReportChartService {
                 pad: 5
             },
             xaxis: {
-                title: 'Month',
                 type: 'category'
-            },
-            yaxis: {
-                title: 'Species / Trips'
             }
         };
 
@@ -146,11 +142,7 @@ export class ReportChartService {
                 pad: 5
             },
             xaxis: {
-                title: 'Year',
                 type: 'category'
-            },
-            yaxis: {
-                title: 'Species / Trips'
             }
         };
 
@@ -218,11 +210,7 @@ export class ReportChartService {
                 pad: 5
             },
             xaxis: {
-                title: 'Month',
                 type: 'category'
-            },
-            yaxis: {
-                title: 'Sightings'
             }
         };
 
