@@ -16,6 +16,14 @@ System.register(["./multisort"], function (exports_1, context_1) {
                     this.originalBirds = [];
                     this.sortDirection = -1;
                     this.columnNames = [];
+                    this.topNList = [
+                        { value: Infinity, name: 'All' },
+                        { value: 10, name: 'Top 10' },
+                        { value: 20, name: 'Top 20' },
+                        { value: 30, name: 'Top 30' },
+                        { value: 40, name: 'Top 40' },
+                        { value: 50, name: 'Top 50' }
+                    ];
                 }
                 SpeciesList.prototype.setBirds = function (birds) {
                     this.birds = birds;

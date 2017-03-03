@@ -8,6 +8,18 @@ export class SpeciesList {
     private originalBirds: Result[] = [];
     public sortDirection: number = -1;
     private columnNames: any[] = [];
+    public topNList: any[];
+
+    constructor() {
+        this.topNList = [
+            {value: Infinity, name: 'All'},
+            {value: 10, name: 'Top 10'},
+            {value: 20, name: 'Top 20'},
+            {value: 30, name: 'Top 30'},
+            {value: 40, name: 'Top 40'},
+            {value: 50, name: 'Top 50'}
+        ];
+    }
 
     public setBirds(birds: Result[]): void {
         this.birds = birds;

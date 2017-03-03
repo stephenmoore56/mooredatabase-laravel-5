@@ -7,7 +7,7 @@ import {Result} from '../lib/result';
 })
 export class TopNPipe implements PipeTransform {
     transform(birds: Result[], topN: number): Result[] {
-        if (topN !== Infinity) {
+        if (topN >= 10 && topN <= 50) {
             return birds.slice(0, topN);
         } else {
             return birds;

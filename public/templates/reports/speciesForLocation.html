@@ -67,7 +67,7 @@
 			<div class="form-group" style="margin-bottom: 10px;">
 				<label for="orderFilter" class="label-control">Order:</label>
 				<select #selectedOrder class="form-control input-sm"
-						name="orderFilter" id="orderFilter">
+						name="orderFilter" id="orderFilter" (change)="birds = birds">
 					<option *ngFor="let order of orders" [value]="order.order_name">
 						{{ order.order_name }}
 					</option>
@@ -77,13 +77,10 @@
 				<label for="topNSelector" class="label-control">Show:</label>
 				<select #selectedTopN
 						class="form-control input-sm" name="topNSelector"
-						id="topNSelector">
-					<option value="Infinity" selected="selected">All</option>
-					<option value="10">Top 10</option>
-					<option value="20">Top 20</option>
-					<option value="30">Top 30</option>
-					<option value="40">Top 40</option>
-					<option value="50">Top 50</option>
+						id="topNSelector" (change)="birds = birds">
+					<option *ngFor="let topN of topNList" [value]="topN.value">
+						{{ topN.name }}
+					</option>
 				</select>
 			</div>
 		</form>
