@@ -34,7 +34,6 @@ System.register(["@angular/core", "../lib/speciesList", "../services/data.servic
                 function SpeciesAllComponent(_reportDataService) {
                     var _this = _super.call(this) || this;
                     _this._reportDataService = _reportDataService;
-                    _this.birds = [];
                     return _this;
                 }
                 SpeciesAllComponent.prototype.ngOnInit = function () {
@@ -43,20 +42,21 @@ System.register(["@angular/core", "../lib/speciesList", "../services/data.servic
                         .getSpeciesAll()
                         .subscribe(function (r) {
                         _this.setBirds(r);
-                        _this.sortDirection = 1;
+                        _this.sortDirection = -1;
                         _this.sortResults('common_name');
                     }, function (error) { return console.log("Error: ", error); });
                     this._reportDataService
                         .getOrdersAll()
                         .subscribe(function (r) { return _this.orders = r; }, function (error) { return console.log("Error: ", error); });
                     window.document.title = "MOORE+DATABASE - All Species";
+                    this.pageTitle = "All Species Sighted";
                 };
                 return SpeciesAllComponent;
             }(speciesList_1.SpeciesList));
             SpeciesAllComponent = __decorate([
                 core_1.Component({
                     selector: 'report',
-                    templateUrl: 'templates/reports/speciesAll.html',
+                    templateUrl: 'templates/reports/speciesList.html',
                     providers: [
                         data_service_1.DataService
                     ]

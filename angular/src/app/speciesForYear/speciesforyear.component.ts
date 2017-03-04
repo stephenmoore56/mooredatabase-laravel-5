@@ -5,7 +5,7 @@ import {DataService} from "../services/data.service";
 
 @Component({
     selector: 'report',
-    templateUrl: 'templates/reports/speciesForYear.html',
+    templateUrl: 'templates/reports/speciesList.html',
     providers: [
         DataService
     ]
@@ -36,6 +36,7 @@ export class SpeciesForYearComponent extends SpeciesList implements OnInit {
                 error => console.log("Error: ", error)
             );
         window.document.title = `MOORE+DATABASE - Species For Year ${this.yearNumber}`;
+        this.pageTitle = `Species for Year ${this.yearNumber}`;
     }
 
 }

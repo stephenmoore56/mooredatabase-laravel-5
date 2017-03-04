@@ -51,6 +51,7 @@ System.register(["@angular/core", "@angular/router", "../lib/speciesList", "../s
                         _this.setBirds(r);
                         _this.monthName = _this.birds[0].monthName;
                         window.document.title = "MOORE+DATABASE - Species For Month of " + _this.monthName;
+                        _this.pageTitle = "Species For Month of " + _this.monthName;
                     }, function (error) { return console.log("Error: ", error); });
                     this._reportDataService
                         .getOrdersAll()
@@ -61,7 +62,7 @@ System.register(["@angular/core", "@angular/router", "../lib/speciesList", "../s
             SpeciesForMonthComponent = __decorate([
                 core_1.Component({
                     selector: 'report',
-                    templateUrl: 'templates/reports/speciesForMonth.html',
+                    templateUrl: 'templates/reports/speciesList.html',
                     providers: [
                         data_service_1.DataService
                     ]

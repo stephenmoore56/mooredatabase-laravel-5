@@ -61,6 +61,7 @@ System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/sp
                         .subscribe(function (r) {
                         _this.location = r[0];
                         window.document.title = "MOORE+DATABASE - Species For " + _this.location.location_name;
+                        _this.pageTitle = "Species For " + _this.location.location_name;
                     }, function (error) { return console.log("Error: ", error); }, function () { return _this._reportMapService.drawLocationMap(_this.location.latitude, _this.location.longitude, 'map_div_1'); });
                     this._reportDataService
                         .getOrdersAll()
@@ -74,7 +75,7 @@ System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/sp
             SpeciesForLocationComponent = __decorate([
                 core_1.Component({
                     selector: 'report',
-                    templateUrl: 'templates/reports/speciesForLocation.html',
+                    templateUrl: 'templates/reports/speciesList.html',
                     providers: [
                         data_service_1.DataService,
                         map_service_1.MapService

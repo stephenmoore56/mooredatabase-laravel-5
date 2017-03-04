@@ -30,6 +30,7 @@ System.register(["./multisort"], function (exports_1, context_1) {
                     this.originalBirds = birds;
                 };
                 SpeciesList.prototype.sortResults = function (columnName) {
+                    console.log(columnName);
                     this.sortResultsMulti([columnName]);
                 };
                 SpeciesList.prototype.sortResultsMulti = function (columnNames) {

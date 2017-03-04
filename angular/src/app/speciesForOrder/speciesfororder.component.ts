@@ -5,7 +5,7 @@ import {DataService} from "../services/data.service";
 
 @Component({
     selector: 'report',
-    templateUrl: 'templates/reports/speciesForOrder.html',
+    templateUrl: 'templates/reports/speciesListNoOrders.html',
     providers: [
         DataService
     ]
@@ -31,6 +31,7 @@ export class SpeciesForOrderComponent extends SpeciesList implements OnInit {
                     this.setBirds(r);
                     this.orderName = this.birds[0].order_name;
                     window.document.title = `MOORE+DATABASE - Species For Order ${this.orderName}`;
+                    this.pageTitle = `Species for Order ${this.orderName}`;
                 },
                 error => console.log("Error: ", error)
             );

@@ -1,18 +1,15 @@
 import {Component, OnInit} from "@angular/core";
-import {Result} from "../lib/result";
 import {SpeciesList} from "../lib/speciesList";
 import {DataService} from "../services/data.service";
 
 @Component({
     selector: 'report',
-    templateUrl: 'templates/reports/speciesAll.html',
+    templateUrl: 'templates/reports/speciesList.html',
     providers: [
         DataService
     ]
 })
 export class SpeciesAllComponent extends SpeciesList implements OnInit {
-
-    public birds: Result[] = [];
 
     constructor(private _reportDataService: DataService) {
         super();
@@ -24,7 +21,7 @@ export class SpeciesAllComponent extends SpeciesList implements OnInit {
             .subscribe(
                 r => {
                     this.setBirds(r);
-                    this.sortDirection = 1;
+                    this.sortDirection = -1;
                     this.sortResults('common_name');
                 },
                 error => console.log("Error: ", error)
@@ -36,6 +33,7 @@ export class SpeciesAllComponent extends SpeciesList implements OnInit {
                 error => console.log("Error: ", error)
             );
         window.document.title = `MOORE+DATABASE - All Species`;
+        this.pageTitle = "All Species Sighted";
     }
 
 }

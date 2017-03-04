@@ -9,6 +9,7 @@ export class SpeciesList {
     public sortDirection: number = -1;
     private columnNames: any[] = [];
     public topNList: any[];
+    public pageTitle: string;
 
     constructor() {
         this.topNList = [
@@ -27,6 +28,7 @@ export class SpeciesList {
     }
 
     public sortResults(columnName: string): void {
+        console.log(columnName);
         this.sortResultsMulti([columnName]);
     }
 

@@ -10,6 +10,11 @@
 <meta name="format-detection" content="telephone=no"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+
+{{--cache busting--}}
+<meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="pragma" content="no-cache">
 <title>MOORE+DATABASE</title>
 
 <!-- Bootstrap -->

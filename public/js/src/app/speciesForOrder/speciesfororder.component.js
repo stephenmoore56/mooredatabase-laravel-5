@@ -51,6 +51,7 @@ System.register(["@angular/core", "@angular/router", "../lib/speciesList", "../s
                         _this.setBirds(r);
                         _this.orderName = _this.birds[0].order_name;
                         window.document.title = "MOORE+DATABASE - Species For Order " + _this.orderName;
+                        _this.pageTitle = "Species for Order " + _this.orderName;
                     }, function (error) { return console.log("Error: ", error); });
                 };
                 return SpeciesForOrderComponent;
@@ -58,7 +59,7 @@ System.register(["@angular/core", "@angular/router", "../lib/speciesList", "../s
             SpeciesForOrderComponent = __decorate([
                 core_1.Component({
                     selector: 'report',
-                    templateUrl: 'templates/reports/speciesForOrder.html',
+                    templateUrl: 'templates/reports/speciesListNoOrders.html',
                     providers: [
                         data_service_1.DataService
                     ]

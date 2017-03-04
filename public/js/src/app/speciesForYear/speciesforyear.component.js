@@ -52,13 +52,14 @@ System.register(["@angular/core", "@angular/router", "../lib/speciesList", "../s
                         .getOrdersAll()
                         .subscribe(function (r) { return _this.orders = r; }, function (error) { return console.log("Error: ", error); });
                     window.document.title = "MOORE+DATABASE - Species For Year " + this.yearNumber;
+                    this.pageTitle = "Species for Year " + this.yearNumber;
                 };
                 return SpeciesForYearComponent;
             }(speciesList_1.SpeciesList));
             SpeciesForYearComponent = __decorate([
                 core_1.Component({
                     selector: 'report',
-                    templateUrl: 'templates/reports/speciesForYear.html',
+                    templateUrl: 'templates/reports/speciesList.html',
                     providers: [
                         data_service_1.DataService
                     ]
