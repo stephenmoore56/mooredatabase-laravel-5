@@ -36,6 +36,6 @@ class ReportsMapper {
 	 */
 	public static function birdLookup(string $query) {
 		/** @noinspection PhpUndefinedMethodInspection */
-		return DB::select('CALL proc_birdLookup(?);', [$query]);
+		return DB::connection('mysql_readonly')->select('CALL proc_birdLookup(?);', [$query]);
 	}
 }

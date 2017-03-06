@@ -51,14 +51,28 @@ return [
 			'host'      => env('DB_HOST', '127.0.0.1'),
 			'port'      => env('DB_PORT', '3306'),
 			'database'  => env('DB_DATABASE', 'birding'),
-			'username'  => env('DB_USERNAME', 'root'),
-			'password'  => env('DB_PASSWORD', 'gsnyder56'),
+			'username'  => env('DB_USERNAME', ''),
+			'password'  => env('DB_PASSWORD', ''),
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 			'strict'    => true,
 			'engine'    => null,
 		],
+
+		'mysql_readonly' => [
+			'driver'    => 'mysql',
+			'host'      => env('DB_HOST_READONLY', '127.0.0.1'),
+			'port'      => env('DB_PORT_READONLY', '3306'),
+			'database'  => env('DB_DATABASE_READONLY', 'birding'),
+			'username'  => env('DB_USERNAME_READONLY', ''),
+			'password'  => env('DB_PASSWORD_READONLY', ''),
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+			'strict'    => true,
+			'engine'    => null,
+		]
 
 	],
 
