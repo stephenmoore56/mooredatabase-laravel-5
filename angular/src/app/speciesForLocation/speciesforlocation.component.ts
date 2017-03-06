@@ -7,7 +7,7 @@ import {MapService} from "../services/map.service";
 
 @Component({
     selector: 'report',
-    templateUrl: 'templates/reports/speciesList.html',
+    templateUrl: 'templates/reports/speciesForLocation.html',
     providers: [
         DataService,
         MapService
@@ -41,7 +41,6 @@ export class SpeciesForLocationComponent extends SpeciesList implements OnInit {
                 r => {
                     this.location = r[0];
                     window.document.title = `MOORE+DATABASE - Species For ${this.location.location_name}`;
-                    this.pageTitle = `Species For ${this.location.location_name}`;
                 },
                 error => console.log("Error: ", error),
                 () => this._reportMapService.drawLocationMap(this.location.latitude, this.location.longitude, 'map_div_1')
