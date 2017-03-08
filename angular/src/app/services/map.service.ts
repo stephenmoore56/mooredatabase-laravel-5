@@ -21,7 +21,7 @@ export class MapService {
         });
 
         // click on marker takes you to location detail page
-        let buildClickHandler = (i) => {
+        let buildClickHandler = (i: number) => {
             return () => {
                 return this._router.navigateByUrl(`/reports/locations/${locations[i].id}`);
             };
@@ -29,9 +29,9 @@ export class MapService {
 
         // popups that show when hovering over marker
         let infowindow = new google.maps.InfoWindow();
-        let showInfoWindow = (chartData, marker) => {
+        let showInfoWindow = (chartData: any[], marker: any) => {
             return () => {
-                infowindow.setContent("" + "<p>Location: " + chartData[0] + "<br />" + "County/State: " + chartData[1] + "<br />" + "Lat/Lng: " + chartData[2] + " " + chartData[3] + "</p>");
+                infowindow.setContent("" + "<p><strong>" + chartData[0] + "</strong><br />" + chartData[1] + "<br />" + chartData[2] + " " + chartData[3] + "</p>");
                 infowindow.maxWidth = 200;
                 infowindow.open(map, marker);
                 return true;
@@ -40,16 +40,18 @@ export class MapService {
 
         // copy data for info windows into a separate array
         let chartData = [];
-        for (let i in locations) {
+        let i: any;
+        for (i in locations) {
             chartData.push(
                 [locations[i].location_name,
-                    locations[i].county_name + ', ' + locations[i].state_code,
+                    locations[i].county_name + ' County, ' + locations[i].state_code,
                     locations[i].latitude,
                     locations[i].longitude]);
         }
 
         // put markers on map
-        for (let j in chartData) {
+        let j: any;
+        for (j in chartData) {
             let marker = new google.maps.Marker({
                 position: new google.maps.LatLng(chartData[j][2], chartData[j][3]),
                 map: map
@@ -77,9 +79,9 @@ export class MapService {
 
         // popup that shows when hovering over marker
         let infowindow = new google.maps.InfoWindow();
-        let showInfoWindow = (chartData, marker) => {
+        let showInfoWindow = (chartData: number[], marker: any) => {
             return () => {
-                infowindow.setContent("" + "Lat/Lng: " + chartData[0] + " " + chartData[1]);
+                infowindow.setContent("Lat/Lng: " + chartData[0] + " " + chartData[1]);
                 infowindow.maxWidth = 200;
                 infowindow.open(map, marker);
                 return true;

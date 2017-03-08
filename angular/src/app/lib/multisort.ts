@@ -2,7 +2,7 @@ export function sortBy(...args: any[]) {
 
     let fields = [].slice.call(args);
 
-    return (A, B) => {
+    return (A: any, B: any) => {
         let a, b, field, key, reverse, result, i;
 
         for (i in fields) {

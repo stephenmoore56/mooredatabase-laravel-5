@@ -43,7 +43,7 @@ System.register(["@angular/core", "@angular/router"], function (exports_1, conte
                     var infowindow = new google.maps.InfoWindow();
                     var showInfoWindow = function (chartData, marker) {
                         return function () {
-                            infowindow.setContent("" + "<p>Location: " + chartData[0] + "<br />" + "County/State: " + chartData[1] + "<br />" + "Lat/Lng: " + chartData[2] + " " + chartData[3] + "</p>");
+                            infowindow.setContent("" + "<p><strong>" + chartData[0] + "</strong><br />" + chartData[1] + "<br />" + chartData[2] + " " + chartData[3] + "</p>");
                             infowindow.maxWidth = 200;
                             infowindow.open(map, marker);
                             return true;
@@ -51,14 +51,16 @@ System.register(["@angular/core", "@angular/router"], function (exports_1, conte
                     };
                     // copy data for info windows into a separate array
                     var chartData = [];
-                    for (var i in locations) {
+                    var i;
+                    for (i in locations) {
                         chartData.push([locations[i].location_name,
-                            locations[i].county_name + ', ' + locations[i].state_code,
+                            locations[i].county_name + ' County, ' + locations[i].state_code,
                             locations[i].latitude,
                             locations[i].longitude]);
                     }
                     // put markers on map
-                    for (var j in chartData) {
+                    var j;
+                    for (j in chartData) {
                         var marker = new google.maps.Marker({
                             position: new google.maps.LatLng(chartData[j][2], chartData[j][3]),
                             map: map
@@ -83,7 +85,7 @@ System.register(["@angular/core", "@angular/router"], function (exports_1, conte
                     var infowindow = new google.maps.InfoWindow();
                     var showInfoWindow = function (chartData, marker) {
                         return function () {
-                            infowindow.setContent("" + "Lat/Lng: " + chartData[0] + " " + chartData[1]);
+                            infowindow.setContent("Lat/Lng: " + chartData[0] + " " + chartData[1]);
                             infowindow.maxWidth = 200;
                             infowindow.open(map, marker);
                             return true;

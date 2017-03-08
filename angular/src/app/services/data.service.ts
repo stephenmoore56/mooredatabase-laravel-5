@@ -7,7 +7,7 @@ import {Result} from "../lib/result";
 function mapResults(response: Response): Result[] {
     // The response of the API has a data
     // property with the actual results
-    return response.json().data.map(r => {
+    return response.json().data.map((r: any[]) => {
         return r;
     });
 }

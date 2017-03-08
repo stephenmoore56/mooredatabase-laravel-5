@@ -27,9 +27,9 @@ export class ChartService {
         let gd = gd3.node();
 
         /* extract data from JSON data */
-        let months = [];
-        let species = [];
-        let trips = [];
+        let months: string[] = [];
+        let species: number[] = [];
+        let trips: number[] = [];
 
         for (let i in dataPoints) {
             months[i] = dataPoints[i].monthName.substring(0, 3);
@@ -102,9 +102,9 @@ export class ChartService {
         let gd = gd3.node();
 
         /* extract data from JSON data */
-        let years = [];
-        let species = [];
-        let trips = [];
+        let years: number[] = [];
+        let species: number[] = [];
+        let trips: number[] = [];
         for (let i in dataPoints) {
             years[i] = dataPoints[i].yearNumber;
             species[i] = dataPoints[i].speciesCount;
@@ -176,8 +176,8 @@ export class ChartService {
         let gd = gd3.node();
 
         /* extract data from JSON data */
-        let months = [];
-        let sightings = [];
+        let months: string[] = [];
+        let sightings: number[] = [];
         for (let i in dataPoints) {
             months[i] = dataPoints[i].monthName.substring(0, 3);
             sightings[i] = dataPoints[i].sightingCount;
@@ -245,8 +245,8 @@ export class ChartService {
         let gd = gd3.node();
 
         /* extract data from JSON data */
-        let orderNames = [];
-        let speciesCounts = [];
+        let orderNames: string[] = [];
+        let speciesCounts: number[] = [];
         for (let i in dataPoints) {
             orderNames[i] = dataPoints[i].order_name;
             speciesCounts[i] = dataPoints[i].speciesCount;
@@ -311,9 +311,9 @@ export class ChartService {
         let gd = gd3.node();
 
         /* extract data from JSON data */
-        let counties = [];
-        let species = [];
-        let trips = [];
+        let counties: string[] = [];
+        let species: number[] = [];
+        let trips: number[] = [];
         for (let i in dataPoints) {
             counties[i] = dataPoints[i].countyName;
             species[i] = dataPoints[i].speciesCount;

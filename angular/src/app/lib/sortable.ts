@@ -8,7 +8,7 @@ export class Sortable {
     public sortResults(results: Result[], columnName: string): void {
         this.sortDirection *= -1;
         this.columnName = columnName;
-        results.sort((a, b) => {
+        results.sort((a: any, b: any) => {
             if (a[this.columnName] === b[this.columnName]) {
                 return 0;
             } else {
