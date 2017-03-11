@@ -34,7 +34,7 @@ System.register(["rxjs/add/operator/map", "@angular/core", "@angular/http"], fun
                 function DataService(http) {
                     this.http = http;
                     // private baseUrl: string = "http://lumen.local/api/reports";
-                    this.baseUrl = "http://lumen.moore-database.com//api/reports";
+                    this.baseUrl = "http://mongodb.local/api/reports";
                 }
                 DataService.prototype.getSpeciesByMonth = function () {
                     return this.getResults('speciesByMonth');

@@ -120,8 +120,12 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionKms(array $args = [])
  * @method \Aws\Lambda\LambdaClient createLambda(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionLambda(array $args = [])
+ * @method \Aws\LexRuntimeService\LexRuntimeServiceClient createLexRuntimeService(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionLexRuntimeService(array $args = [])
  * @method \Aws\Lightsail\LightsailClient createLightsail(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionLightsail(array $args = [])
+ * @method \Aws\MTurk\MTurkClient createMTurk(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionMTurk(array $args = [])
  * @method \Aws\MachineLearning\MachineLearningClient createMachineLearning(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionMachineLearning(array $args = [])
  * @method \Aws\MarketplaceCommerceAnalytics\MarketplaceCommerceAnalyticsClient createMarketplaceCommerceAnalytics(array $args = [])
@@ -132,6 +136,8 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionOpsWorks(array $args = [])
  * @method \Aws\OpsWorksCM\OpsWorksCMClient createOpsWorksCM(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionOpsWorksCM(array $args = [])
+ * @method \Aws\Organizations\OrganizationsClient createOrganizations(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionOrganizations(array $args = [])
  * @method \Aws\Pinpoint\PinpointClient createPinpoint(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionPinpoint(array $args = [])
  * @method \Aws\Polly\PollyClient createPolly(array $args = [])
@@ -185,7 +191,7 @@ namespace Aws;
  */
 class Sdk
 {
-    const VERSION = '3.21.6';
+    const VERSION = '3.23.3';
 
     /** @var array Arguments for creating clients */
     private $args;
