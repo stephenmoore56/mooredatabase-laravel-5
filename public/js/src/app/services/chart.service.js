@@ -150,12 +150,31 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh'
                     });
                     var gd = gd3.node();
-                    /* extract data from JSON data */
+                    // complete list of months so chart has a
+                    // bar or space for every month
+                    var monthList = [
+                        [1, 'Jan', 0],
+                        [2, 'Feb', 0],
+                        [3, 'Mar', 0],
+                        [4, 'Apr', 0],
+                        [5, 'May', 0],
+                        [6, 'Jun', 0],
+                        [7, 'Jul', 0],
+                        [8, 'Aug', 0],
+                        [9, 'Sep', 0],
+                        [10, 'Oct', 0],
+                        [11, 'Nov', 0],
+                        [12, 'Dec', 0],
+                    ];
                     var months = [];
                     var sightings = [];
+                    for (var i in monthList) {
+                        months[i] = monthList[i][1];
+                        sightings[i] = monthList[i][2];
+                    }
+                    // update with sightings for months that have them
                     for (var i in dataPoints) {
-                        months[i] = dataPoints[i].monthName.substring(0, 3);
-                        sightings[i] = dataPoints[i].sightingCount;
+                        sightings[dataPoints[i].monthNumber - 1] = dataPoints[i].sightingCount;
                     }
                     var trace1 = {
                         x: months,
