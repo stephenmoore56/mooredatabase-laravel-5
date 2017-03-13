@@ -46,7 +46,7 @@
 		<tr *ngFor="let bird of birds">
 			<td>{{ bird.common_name }}</td>
 			<td class="text-center">
-				<a class="btn btn-info btn-xs" [routerLink]="['/reports/species', bird.id]">
+				<a *ngIf='bird.sightings > 0' class="btn btn-info btn-xs" [routerLink]="['/reports/species', bird.id]">
 					Detail
 					<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
 				</a>
