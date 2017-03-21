@@ -384,18 +384,18 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                     // complete list of months so chart has a
                     // bar or space for every month
                     var monthList = [
-                        [1, 'J', 0, 0, 0, 0],
-                        [2, 'F', 0, 0, 0, 0],
-                        [3, 'M', 0, 0, 0, 0],
-                        [4, 'A', 0, 0, 0, 0],
-                        [5, 'M', 0, 0, 0, 0],
-                        [6, 'J', 0, 0, 0, 0],
-                        [7, 'J', 0, 0, 0, 0],
-                        [8, 'A', 0, 0, 0, 0],
-                        [9, 'S', 0, 0, 0, 0],
-                        [10, 'O', 0, 0, 0, 0],
-                        [11, 'N', 0, 0, 0, 0],
-                        [12, 'D', 0, 0, 0, 0],
+                        [1, 'Jan', 0, 0, 0, 0],
+                        [2, 'Feb', 0, 0, 0, 0],
+                        [3, 'Mar', 0, 0, 0, 0],
+                        [4, 'Apr', 0, 0, 0, 0],
+                        [5, 'May', 0, 0, 0, 0],
+                        [6, 'Jun', 0, 0, 0, 0],
+                        [7, 'Jul', 0, 0, 0, 0],
+                        [8, 'Aug', 0, 0, 0, 0],
+                        [9, 'Sep', 0, 0, 0, 0],
+                        [10, 'Oct', 0, 0, 0, 0],
+                        [11, 'Nov', 0, 0, 0, 0],
+                        [12, 'Dec', 0, 0, 0, 0],
                     ];
                     var months = [];
                     var record_low = [];
@@ -403,7 +403,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                     var avg_high = [];
                     var record_high = [];
                     for (var i in monthList) {
-                        months[i] = monthList[i][0];
+                        months[i] = monthList[i][1];
                         record_low[i] = monthList[i][2];
                         avg_low[i] = monthList[i][3];
                         avg_high[i] = monthList[i][4];

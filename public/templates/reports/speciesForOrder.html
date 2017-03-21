@@ -21,7 +21,8 @@
 						{{ topN.name }}
 					</option>
 				</select>
-			</div>		</form>
+			</div>
+		</form>
 		<span id="speciesCount" class="form-static-control">
         	{{ (birds | searchTerm: query | topN: selectedTopN.value).length || 0 }} Species
     	</span>
