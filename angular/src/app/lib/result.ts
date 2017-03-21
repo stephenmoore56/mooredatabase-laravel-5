@@ -22,4 +22,8 @@ export class Result {
     public subfamily: string;
     public tripCount: number;
     public yearNumber: number;
+    public record_low_temp: number;
+    public avg_low_temp: number;
+    public avg_high_temp: number;
+    public record_high_temp: number;
 }

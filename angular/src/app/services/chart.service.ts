@@ -69,6 +69,19 @@ export class ChartService {
             },
             xaxis: {
                 type: 'category'
+            },
+            legend: {
+                x: 0,
+                y: 1,
+                traceorder: 'normal',
+                font: {
+                    family: 'sans-serif',
+                    size: 12,
+                    color: '#000'
+                },
+                bgcolor: '#ECECEC',
+                bordercolor: '#FFFFFF',
+                borderwidth: 2
             }
         };
 
@@ -117,7 +130,7 @@ export class ChartService {
             name: 'Species',
             type: 'bar',
             marker: {
-                color: 'green'
+                color: '#FF6600'
             }
         };
 
@@ -127,7 +140,7 @@ export class ChartService {
             name: 'Trips',
             mode: 'lines+markers',
             marker: {
-                color: 'red'
+                color: '#FCD202'
             }
         };
 
@@ -143,6 +156,19 @@ export class ChartService {
             },
             xaxis: {
                 type: 'category'
+            },
+            legend: {
+                x: 0,
+                y: 1,
+                traceorder: 'normal',
+                font: {
+                    family: 'sans-serif',
+                    size: 12,
+                    color: '#000'
+                },
+                bgcolor: '#ECECEC',
+                bordercolor: '#FFFFFF',
+                borderwidth: 2
             }
         };
 
@@ -378,6 +404,19 @@ export class ChartService {
             },
             xaxis: {
                 title: ''
+            },
+            legend: {
+                x: 0.66,
+                y: 0.75,
+                traceorder: 'normal',
+                font: {
+                    family: 'sans-serif',
+                    size: 12,
+                    color: '#000'
+                },
+                bgcolor: '#ECECEC',
+                bordercolor: '#FFFFFF',
+                borderwidth: 2
             }
         };
 
@@ -388,6 +427,278 @@ export class ChartService {
 
         window.onresize = function () {
             Plotly.Plots.resize(gd);
+        };
+    }
+
+    public drawChartMonthlyTemperatures(dataPoints: Result[], chart_div: string): void {
+
+        if (dataPoints.length === 0) {
+            return;
+        }
+
+        let d3 = Plotly.d3;
+
+        let WIDTH_IN_PERCENT_OF_PARENT = 90,
+            HEIGHT_IN_PERCENT_OF_PARENT = 90;
+
+        let gd3 = d3.select('#' + chart_div)
+            .style({
+                width: WIDTH_IN_PERCENT_OF_PARENT + '%',
+                height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh'
+            });
+
+        let gd = gd3.node();
+
+        // complete list of months so chart has a
+        // bar or space for every month
+        let monthList: any[] = [
+            [1, 'J', 0, 0, 0, 0],
+            [2, 'F', 0, 0, 0, 0],
+            [3, 'M', 0, 0, 0, 0],
+            [4, 'A', 0, 0, 0, 0],
+            [5, 'M', 0, 0, 0, 0],
+            [6, 'J', 0, 0, 0, 0],
+            [7, 'J', 0, 0, 0, 0],
+            [8, 'A', 0, 0, 0, 0],
+            [9, 'S', 0, 0, 0, 0],
+            [10, 'O', 0, 0, 0, 0],
+            [11, 'N', 0, 0, 0, 0],
+            [12, 'D', 0, 0, 0, 0],
+        ];
+        let months: string[] = [];
+        let record_low: number[] = [];
+        let avg_low: number[] = [];
+        let avg_high: number[] = [];
+        let record_high: number[] = [];
+        for (let i in monthList) {
+            months[i] = monthList[i][0];
+            record_low[i] = monthList[i][2];
+            avg_low[i] = monthList[i][3];
+            avg_high[i] = monthList[i][4];
+            record_high[i] = monthList[i][5];
+        }
+        // update with temperatures from database
+        for (let i in dataPoints) {
+            record_low[dataPoints[i].monthNumber - 1] = dataPoints[i].record_low_temp;
+            avg_low[dataPoints[i].monthNumber - 1] = dataPoints[i].avg_low_temp;
+            avg_high[dataPoints[i].monthNumber - 1] = dataPoints[i].avg_high_temp;
+            record_high[dataPoints[i].monthNumber - 1] = dataPoints[i].record_high_temp;
+        }
+        let trace1 = {
+            x: months,
+            y: record_low,
+            name: 'Rec Lo',
+            type: 'lines+markers',
+            marker: {
+                color: 'blue'
+            },
+            line: {
+                dash: 'dot',
+                width: 1,
+                shape: 'spline'
+            }
+        };
+
+        let trace2 = {
+            x: months,
+            y: avg_low,
+            name: 'Avg Lo',
+            mode: 'lines+markers',
+            marker: {
+                color: 'blue'
+            },
+            line: {
+                dash: 'solid',
+                width: 1,
+                shape: 'spline'
+            }
+        };
+
+        let trace3 = {
+            x: months,
+            y: avg_high,
+            name: 'Avg Hi',
+            mode: 'lines+markers',
+            marker: {
+                color: 'red'
+            },
+            line: {
+                dash: 'solid',
+                width: 1,
+                shape: 'spline'
+            }
+        };
+
+        let trace4 = {
+            x: months,
+            y: record_high,
+            name: 'Rec Hi',
+            mode: 'lines+markers',
+            marker: {
+                color: 'red'
+            },
+            line: {
+                dash: 'dot',
+                width: 1,
+                shape: 'spline'
+            }
+        };
+
+        let data = [trace1, trace2, trace3, trace4];
+
+        let layout = {
+            title: 'Temps By Month<br />Minneapolis, MN',
+            margin: {
+                l: 50,
+                r: 5,
+                b: 50,
+                t: 30,
+                pad: 5
+            },
+            xaxis: {
+                type: 'category'
+            },
+            legend: {
+                x: 0.33,
+                y: 0,
+                traceorder: 'normal',
+                font: {
+                    family: 'sans-serif',
+                    size: 12,
+                    color: '#000'
+                },
+                bgcolor: '#ECECEC',
+                bordercolor: '#FFFFFF',
+                borderwidth: 2
+            }
+        };
+
+        Plotly.newPlot(chart_div, data, layout, {
+            displaylogo: false,
+            modeBarButtonsToRemove: ['sendDataToCloud']
+        });
+
+        window.onresize = function () {
+            Plotly.Plots.resize(gd);
+        };
+    }
+
+    public drawChartDucksAndWarblers(dataPoints: Result[], chart_div: string): void {
+
+        if (dataPoints.length === 0) {
+            return;
+        }
+
+        let d3 = Plotly.d3;
+
+        let WIDTH_IN_PERCENT_OF_PARENT = 90,
+            HEIGHT_IN_PERCENT_OF_PARENT = 90;
+
+        let gd3 = d3.select('#' + chart_div)
+            .style({
+                width: WIDTH_IN_PERCENT_OF_PARENT + '%',
+                height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh'
+            });
+
+        let gd2 = gd3.node();
+
+        // complete list of months so chart has a
+        // bar or space for every month
+        let monthList: any[] = [
+            [1, 'Jan'],
+            [2, 'Feb'],
+            [3, 'Mar'],
+            [4, 'Apr'],
+            [5, 'May'],
+            [6, 'Jun'],
+            [7, 'Jul'],
+            [8, 'Aug'],
+            [9, 'Sep'],
+            [10, 'Oct'],
+            [11, 'Nov'],
+            [12, 'Dec'],
+        ];
+        let months: string[] = [];
+        let ducks: number[] = [];
+        let warblers: number[] = [];
+        for (let i in monthList) {
+            months[i] = monthList[i][1];
+            ducks[i] = 0;
+            warblers[i] = 0;
+        }
+        // update with temperatures from database
+        for (let i in dataPoints) {
+            if (dataPoints[i].family == 'Anatidae') {
+                // duck data
+                ducks[dataPoints[i].monthNumber - 1] = dataPoints[i].speciesCount;
+            } else {
+                // warbler data, family Parulidae
+                warblers[dataPoints[i].monthNumber - 1] = dataPoints[i].speciesCount;
+            }
+        }
+        let trace1 = {
+            x: months,
+            y: ducks,
+            name: 'Ducks',
+            type: 'lines+markers',
+            marker: {
+                color: 'purple'
+            },
+            line: {
+                dash: 'solid',
+                width: 1
+            }
+        };
+        let trace2 = {
+            x: months,
+            y: warblers,
+            name: 'Warblers',
+            type: 'lines+markers',
+            marker: {
+                color: 'green'
+            },
+            line: {
+                dash: 'solid',
+                width: 1
+            }
+        };
+
+        let data = [trace1, trace2];
+
+        let layout = {
+            title: 'Sightings By Month',
+            margin: {
+                l: 50,
+                r: 5,
+                b: 50,
+                t: 30,
+                pad: 5
+            },
+            xaxis: {
+                type: 'category'
+            },
+            legend: {
+                x: 0.33,
+                y: 0,
+                traceorder: 'normal',
+                font: {
+                    family: 'sans-serif',
+                    size: 12,
+                    color: '#000'
+                },
+                bgcolor: '#ECECEC',
+                bordercolor: '#FFFFFF',
+                borderwidth: 2
+            }
+        };
+
+        Plotly.newPlot(chart_div, data, layout, {
+            displaylogo: false,
+            modeBarButtonsToRemove: ['sendDataToCloud']
+        });
+
+        window.onresize = function () {
+            Plotly.Plots.resize(gd2);
         };
     }
 }

@@ -31,6 +31,10 @@ const routes: Routes = [
     },
     {path: 'reports/all', loadChildren: 'app/app/speciesAll/speciesall.module#SpeciesAllModule'},
     {path: 'reports/search', loadChildren: 'app/app/searchAll/searchall.module#SearchAllModule'},
+    {
+        path: 'reports/ducksAndWarblers',
+        loadChildren: 'app/app/ducksAndWarblers/ducksAndWarblers.module#DucksAndWarblersModule'
+    },
     {path: 'reports/species/:id', loadChildren: 'app/app/speciesDetail/speciesdetail.module#SpeciesDetailModule'},
     {path: '', component: HomeComponent, pathMatch: 'full'}
 ];

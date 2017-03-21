@@ -58,6 +58,10 @@ System.register(["@angular/core", "@angular/router", "./staticContent/home.compo
                 },
                 { path: 'reports/all', loadChildren: 'app/app/speciesAll/speciesall.module#SpeciesAllModule' },
                 { path: 'reports/search', loadChildren: 'app/app/searchAll/searchall.module#SearchAllModule' },
+                {
+                    path: 'reports/ducksAndWarblers',
+                    loadChildren: 'app/app/ducksAndWarblers/ducksAndWarblers.module#DucksAndWarblersModule'
+                },
                 { path: 'reports/species/:id', loadChildren: 'app/app/speciesDetail/speciesdetail.module#SpeciesDetailModule' },
                 { path: '', component: home_component_1.HomeComponent, pathMatch: 'full' }
             ];

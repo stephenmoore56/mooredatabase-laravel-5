@@ -1,5 +1,6 @@
 import {NgModule} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";
+import {HttpModule} from "@angular/http";
 import {AppComponent} from "./app.component";
 import {NavBarComponent} from "./navbar/navbar.component";
 import {NavBarBrandComponent} from "./navbar/navbarbrand.component";
@@ -16,7 +17,8 @@ import {ReportWidgetsModule} from "./partials/reportwidgets.module";
     imports: [
         AppRoutingModule,
         BrowserModule,
-        ReportWidgetsModule
+        ReportWidgetsModule,
+        HttpModule
     ],
     declarations: [
         AppComponent,

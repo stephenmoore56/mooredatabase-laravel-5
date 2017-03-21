@@ -34,8 +34,8 @@
 						BIRDING <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="/reports/months">Species & Trips By Month</a></li>
 						<li><a href="/reports/years">Species & Trips By Year</a></li>
+						<li><a href="/reports/months">Species & Trips By Month</a></li>
 						<li><a href="/reports/orders">Species By Order</a></li>
 						<li><a href="/reports/locations">Species By Location</a></li>
 						<li><a href="/reports/search">All Species Sighted</a></li>

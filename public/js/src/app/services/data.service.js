@@ -34,8 +34,7 @@ System.register(["rxjs/add/operator/map", "@angular/core", "@angular/http"], fun
                 function DataService(http) {
                     this.http = http;
                     // private baseUrl: string = "http://lumen.local/api/reports";
-                    // private baseUrl: string = "http://mongodb.local/api/reports";
-                    this.baseUrl = "http://lumen.moore-database.com//api/reports";
+                    this.baseUrl = "http://mongodb.local/api/reports";
                 }
                 DataService.prototype.getSpeciesByMonth = function () {
                     return this.getResults('speciesByMonth');
@@ -85,6 +84,12 @@ System.register(["rxjs/add/operator/map", "@angular/core", "@angular/http"], fun
                         this.orders = this.getResults("listOrdersAll");
                     }
                     return this.orders;
+                };
+                DataService.prototype.getMonthlyTemperatures = function () {
+                    return this.getResults('monthlyTemperatures');
+                };
+                DataService.prototype.getDucksAndWarblers = function () {
+                    return this.getResults('ducksAndWarblers');
                 };
                 DataService.prototype.getResults = function (endpoint) {
                     return this.http

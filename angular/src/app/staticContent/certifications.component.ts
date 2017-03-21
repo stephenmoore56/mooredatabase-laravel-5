@@ -12,7 +12,7 @@ import {Image} from '../lib/image';
 
 export class CertificationsComponent implements OnInit {
 
-    image: Image;
+    public image: Image;
 
     constructor(private _imageService: ImageService) {
         window.document.title = 'MOORE+DATABASE - Certifications';

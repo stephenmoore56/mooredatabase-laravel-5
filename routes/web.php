@@ -53,6 +53,9 @@ Route::group(['prefix' => 'reports'], function () {
 	Route::get('species/{speciesId}', function () {
 		return View::make('reports.report');
 	});
+	Route::get('ducksAndWarblers', function () {
+		return View::make('reports.report');
+	});
 });
 
 // resume download from S3

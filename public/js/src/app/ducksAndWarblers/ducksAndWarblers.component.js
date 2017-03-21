@@ -10,7 +10,7 @@ System.register(["@angular/core", "../services/data.service", "../services/chart
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, data_service_1, chart_service_1, HomeComponent;
+    var core_1, data_service_1, chart_service_1, DucksAndWarblersComponent;
     return {
         setters: [
             function (core_1_1) {
@@ -24,25 +24,29 @@ System.register(["@angular/core", "../services/data.service", "../services/chart
             }
         ],
         execute: function () {
-            HomeComponent = (function () {
-                function HomeComponent(_reportChartService, _reportDataService) {
+            DucksAndWarblersComponent = (function () {
+                function DucksAndWarblersComponent(_reportChartService, _reportDataService) {
                     this._reportChartService = _reportChartService;
                     this._reportDataService = _reportDataService;
-                    this.years = [];
-                    window.document.title = 'MOORE+DATABASE - Home';
+                    this.temperatures = [];
+                    this.ducksAndWarblers = [];
                 }
-                HomeComponent.prototype.ngOnInit = function () {
+                DucksAndWarblersComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     this._reportDataService
-                        .getSpeciesByYear()
-                        .subscribe(function (r) { return _this.years = r; }, function (error) { return console.log("Error: ", error); }, function () { return _this._reportChartService.drawChartSpeciesByYear(_this.years, 'chart_div_1'); });
+                        .getMonthlyTemperatures()
+                        .subscribe(function (r) { return _this.temperatures = r; }, function (error) { return console.log("Error: ", error); }, function () { return _this._reportChartService.drawChartMonthlyTemperatures(_this.temperatures, 'chart_div_2'); });
+                    this._reportDataService
+                        .getDucksAndWarblers()
+                        .subscribe(function (r) { return _this.ducksAndWarblers = r; }, function (error) { return console.log("Error: ", error); }, function () { return _this._reportChartService.drawChartDucksAndWarblers(_this.ducksAndWarblers, 'chart_div_1'); });
+                    window.document.title = "MOORE+DATABASE - Species By Year";
                 };
-                return HomeComponent;
+                return DucksAndWarblersComponent;
             }());
-            HomeComponent = __decorate([
+            DucksAndWarblersComponent = __decorate([
                 core_1.Component({
-                    selector: 'relative-path',
-                    templateUrl: 'templates/static/home.html',
+                    selector: 'report',
+                    templateUrl: 'templates/reports/ducksAndWarblers.html',
                     providers: [
                         data_service_1.DataService,
                         chart_service_1.ChartService
@@ -50,9 +54,9 @@ System.register(["@angular/core", "../services/data.service", "../services/chart
                 }),
                 __metadata("design:paramtypes", [chart_service_1.ChartService,
                     data_service_1.DataService])
-            ], HomeComponent);
-            exports_1("HomeComponent", HomeComponent);
+            ], DucksAndWarblersComponent);
+            exports_1("DucksAndWarblersComponent", DucksAndWarblersComponent);
         }
     };
 });
-//# sourceMappingURL=/var/www/html/mooredatabase-laravel-5/angular/src/app/staticContent/home.component.js.map
+//# sourceMappingURL=/var/www/html/mooredatabase-laravel-5/angular/src/app/ducksAndWarblers/ducksAndWarblers.component.js.map
