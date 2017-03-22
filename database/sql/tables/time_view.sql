@@ -16,28 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Temporary view structure for view `ecs`
+-- Temporary view structure for view `time_view`
 --
 
-DROP TABLE IF EXISTS `ecs`;
-/*!50001 DROP VIEW IF EXISTS `ecs`*/;
+DROP TABLE IF EXISTS `time_view`;
+/*!50001 DROP VIEW IF EXISTS `time_view`*/;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
-/*!50001 CREATE VIEW `ecs` AS SELECT 
- 1 AS `subsection_id`,
- 1 AS `subsection_name`,
- 1 AS `subsection_url`,
- 1 AS `section_name`,
- 1 AS `section_url`,
- 1 AS `province_name`,
- 1 AS `province_url`*/;
+/*!50001 CREATE VIEW `time_view` AS SELECT 
+ 1 AS `sighting_date`,
+ 1 AS `monthDay`,
+ 1 AS `monthNumber`,
+ 1 AS `monthName`,
+ 1 AS `monthAbbrev`,
+ 1 AS `monthLetter`,
+ 1 AS `yearNumber`*/;
 SET character_set_client = @saved_cs_client;
 
 --
--- Final view structure for view `ecs`
+-- Final view structure for view `time_view`
 --
 
-/*!50001 DROP VIEW IF EXISTS `ecs`*/;
+/*!50001 DROP VIEW IF EXISTS `time_view`*/;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
@@ -46,7 +46,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`smoore`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `ecs` AS select `ecsss`.`id` AS `subsection_id`,`ecsss`.`name` AS `subsection_name`,`ecsss`.`url` AS `subsection_url`,`ecss`.`name` AS `section_name`,`ecss`.`url` AS `section_url`,`ecsp`.`name` AS `province_name`,`ecsp`.`url` AS `province_url` from ((`ecs_subsection` `ecsss` join `ecs_section` `ecss` on((`ecsss`.`ecs_section_id` = `ecss`.`id`))) join `ecs_province` `ecsp` on((`ecss`.`ecs_province_id` = `ecsp`.`id`))) */;
+/*!50001 VIEW `time_view` AS select distinct `trip`.`trip_date` AS `sighting_date`,right(`trip`.`trip_date`,5) AS `monthDay`,month(`trip`.`trip_date`) AS `monthNumber`,monthname(`trip`.`trip_date`) AS `monthName`,left(monthname(`trip`.`trip_date`),3) AS `monthAbbrev`,left(monthname(`trip`.`trip_date`),1) AS `monthLetter`,year(`trip`.`trip_date`) AS `yearNumber` from `trip` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -60,4 +60,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-22 13:29:50
+-- Dump completed on 2017-03-22 13:30:10

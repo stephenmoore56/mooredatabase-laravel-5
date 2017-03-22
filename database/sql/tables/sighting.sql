@@ -30,7 +30,7 @@ CREATE TABLE `sighting` (
   UNIQUE KEY `aou_list_id` (`aou_list_id`,`trip_id`),
   KEY `trip_id` (`trip_id`),
   KEY `aou_list_id_2` (`aou_list_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4949 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4969 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -42,4 +42,4 @@ CREATE TABLE `sighting` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-23 21:42:44
+-- Dump completed on 2017-03-22 13:30:04

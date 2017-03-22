@@ -28,6 +28,7 @@ SET character_set_client = utf8;
  1 AS `country_code`,
  1 AS `state_code`,
  1 AS `location_name`,
+ 1 AS `county_id`,
  1 AS `county_name`,
  1 AS `notes`,
  1 AS `latitude`,
@@ -50,7 +51,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`smoore`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `birding_locations` AS select `location`.`id` AS `id`,`location`.`country_code` AS `country_code`,`location`.`state_code` AS `state_code`,`location`.`location_name` AS `location_name`,`location`.`county_name` AS `county_name`,`location`.`notes` AS `notes`,`location`.`latitude` AS `latitude`,`location`.`longitude` AS `longitude`,`location`.`ecs_subsection_id` AS `ecs_subsection_id`,(select count(0) from `trip` where (`trip`.`location_id` = `location`.`id`)) AS `trip_count`,(select count(distinct `sighting`.`aou_list_id`) from ((`trip` join `sighting` on((`trip`.`id` = `sighting`.`trip_id`))) join `aou_list` on((`sighting`.`aou_list_id` = `aou_list`.`id`))) where (`trip`.`location_id` = `location`.`id`)) AS `species_count` from `location` */;
+/*!50001 VIEW `birding_locations` AS select `location`.`id` AS `id`,`location`.`country_code` AS `country_code`,`location`.`state_code` AS `state_code`,`location`.`location_name` AS `location_name`,`county`.`id` AS `county_id`,`location`.`county_name` AS `county_name`,`location`.`notes` AS `notes`,`location`.`latitude` AS `latitude`,`location`.`longitude` AS `longitude`,`location`.`ecs_subsection_id` AS `ecs_subsection_id`,(select count(0) from `trip` where (`trip`.`location_id` = `location`.`id`)) AS `trip_count`,(select count(distinct `sighting`.`aou_list_id`) from ((`trip` join `sighting` on((`trip`.`id` = `sighting`.`trip_id`))) join `aou_list` on((`sighting`.`aou_list_id` = `aou_list`.`id`))) where (`trip`.`location_id` = `location`.`id`)) AS `species_count` from (`location` join `county` on((`location`.`county_name` = `county`.`county_name`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -64,4 +65,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-23 21:42:28
+-- Dump completed on 2017-03-22 13:29:45

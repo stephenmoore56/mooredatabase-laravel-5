@@ -87,9 +87,9 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         displaylogo: false,
                         modeBarButtonsToRemove: ['sendDataToCloud']
                     });
-                    window.onresize = function () {
+                    window.addEventListener('resize', function () {
                         Plotly.Plots.resize(gd);
-                    };
+                    });
                 };
                 ChartService.prototype.drawChartSpeciesByYear = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
@@ -160,9 +160,9 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         displaylogo: false,
                         modeBarButtonsToRemove: ['sendDataToCloud']
                     });
-                    window.onresize = function () {
+                    window.addEventListener('resize', function () {
                         Plotly.Plots.resize(gd);
-                    };
+                    });
                 };
                 ChartService.prototype.drawChartMonthsForSpecies = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
@@ -234,9 +234,9 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         displaylogo: false,
                         modeBarButtonsToRemove: ['sendDataToCloud']
                     });
-                    window.onresize = function () {
+                    window.addEventListener('resize', function () {
                         Plotly.Plots.resize(gd);
-                    };
+                    });
                 };
                 ChartService.prototype.drawChartSpeciesByOrder = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
@@ -276,9 +276,9 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         displaylogo: false,
                         modeBarButtonsToRemove: ['sendDataToCloud']
                     });
-                    window.onresize = function () {
+                    window.addEventListener('resize', function () {
                         Plotly.Plots.resize(gd);
-                    };
+                    });
                 };
                 ChartService.prototype.drawChartSpeciesByCounty = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
@@ -294,7 +294,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         }
                     });
                     var d3 = Plotly.d3;
-                    var WIDTH_IN_PERCENT_OF_PARENT = 90, HEIGHT_IN_PERCENT_OF_PARENT = 90;
+                    var WIDTH_IN_PERCENT_OF_PARENT = 95, HEIGHT_IN_PERCENT_OF_PARENT = 95;
                     var gd3 = d3.select('#' + chart_div)
                         .style({
                         width: WIDTH_IN_PERCENT_OF_PARENT + '%',
@@ -365,9 +365,9 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         displaylogo: false,
                         modeBarButtonsToRemove: ['sendDataToCloud']
                     });
-                    window.onresize = function () {
+                    window.addEventListener('resize', function () {
                         Plotly.Plots.resize(gd);
-                    };
+                    });
                 };
                 ChartService.prototype.drawChartMonthlyTemperatures = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
@@ -383,31 +383,29 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                     var gd = gd3.node();
                     // complete list of months so chart has a
                     // bar or space for every month
-                    var monthList = [
-                        [1, 'Jan', 0, 0, 0, 0],
-                        [2, 'Feb', 0, 0, 0, 0],
-                        [3, 'Mar', 0, 0, 0, 0],
-                        [4, 'Apr', 0, 0, 0, 0],
-                        [5, 'May', 0, 0, 0, 0],
-                        [6, 'Jun', 0, 0, 0, 0],
-                        [7, 'Jul', 0, 0, 0, 0],
-                        [8, 'Aug', 0, 0, 0, 0],
-                        [9, 'Sep', 0, 0, 0, 0],
-                        [10, 'Oct', 0, 0, 0, 0],
-                        [11, 'Nov', 0, 0, 0, 0],
-                        [12, 'Dec', 0, 0, 0, 0],
+                    var months = [
+                        'Jan',
+                        'Feb',
+                        'Mar',
+                        'Apr',
+                        'May',
+                        'Jun',
+                        'Jul',
+                        'Aug',
+                        'Sep',
+                        'Oct',
+                        'Nov',
+                        'Dec',
                     ];
-                    var months = [];
                     var record_low = [];
                     var avg_low = [];
                     var avg_high = [];
                     var record_high = [];
-                    for (var i in monthList) {
-                        months[i] = monthList[i][1];
-                        record_low[i] = monthList[i][2];
-                        avg_low[i] = monthList[i][3];
-                        avg_high[i] = monthList[i][4];
-                        record_high[i] = monthList[i][5];
+                    for (var i in months) {
+                        record_low[i] = 0;
+                        avg_low[i] = 0;
+                        avg_high[i] = 0;
+                        record_high[i] = 0;
                     }
                     // update with temperatures from database
                     for (var i in dataPoints) {
@@ -503,9 +501,9 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         displaylogo: false,
                         modeBarButtonsToRemove: ['sendDataToCloud']
                     });
-                    window.onresize = function () {
+                    window.addEventListener('resize', function () {
                         Plotly.Plots.resize(gd);
-                    };
+                    });
                 };
                 ChartService.prototype.drawChartDucksAndWarblers = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
@@ -518,28 +516,26 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         width: WIDTH_IN_PERCENT_OF_PARENT + '%',
                         height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh'
                     });
-                    var gd2 = gd3.node();
+                    var gd = gd3.node();
                     // complete list of months so chart has a
                     // bar or space for every month
-                    var monthList = [
-                        [1, 'Jan'],
-                        [2, 'Feb'],
-                        [3, 'Mar'],
-                        [4, 'Apr'],
-                        [5, 'May'],
-                        [6, 'Jun'],
-                        [7, 'Jul'],
-                        [8, 'Aug'],
-                        [9, 'Sep'],
-                        [10, 'Oct'],
-                        [11, 'Nov'],
-                        [12, 'Dec'],
+                    var months = [
+                        'Jan',
+                        'Feb',
+                        'Mar',
+                        'Apr',
+                        'May',
+                        'Jun',
+                        'Jul',
+                        'Aug',
+                        'Sep',
+                        'Oct',
+                        'Nov',
+                        'Dec',
                     ];
-                    var months = [];
                     var ducks = [];
                     var warblers = [];
-                    for (var i in monthList) {
-                        months[i] = monthList[i][1];
+                    for (var i in months) {
                         ducks[i] = 0;
                         warblers[i] = 0;
                     }
@@ -611,9 +607,9 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         displaylogo: false,
                         modeBarButtonsToRemove: ['sendDataToCloud']
                     });
-                    window.onresize = function () {
-                        Plotly.Plots.resize(gd2);
-                    };
+                    window.addEventListener('resize', function () {
+                        Plotly.Plots.resize(gd);
+                    });
                 };
                 return ChartService;
             }());

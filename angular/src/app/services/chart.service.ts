@@ -90,9 +90,9 @@ export class ChartService {
             modeBarButtonsToRemove: ['sendDataToCloud']
         });
 
-        window.onresize = function () {
+        window.addEventListener('resize', function () {
             Plotly.Plots.resize(gd);
-        };
+        });
     }
 
     public drawChartSpeciesByYear(dataPoints: Result[], chart_div: string): void {
@@ -177,9 +177,9 @@ export class ChartService {
             modeBarButtonsToRemove: ['sendDataToCloud']
         });
 
-        window.onresize = function () {
+        window.addEventListener('resize', function () {
             Plotly.Plots.resize(gd);
-        };
+        });
     }
 
     public drawChartMonthsForSpecies(dataPoints: Result[], chart_div: string): void {
@@ -264,9 +264,9 @@ export class ChartService {
             modeBarButtonsToRemove: ['sendDataToCloud']
         });
 
-        window.onresize = function () {
+        window.addEventListener('resize', function () {
             Plotly.Plots.resize(gd);
-        };
+        });
 
     }
 
@@ -320,9 +320,9 @@ export class ChartService {
             modeBarButtonsToRemove: ['sendDataToCloud']
         });
 
-        window.onresize = function () {
+        window.addEventListener('resize', function () {
             Plotly.Plots.resize(gd);
-        };
+        });
 
     }
 
@@ -344,8 +344,8 @@ export class ChartService {
 
         let d3 = Plotly.d3;
 
-        let WIDTH_IN_PERCENT_OF_PARENT = 90,
-            HEIGHT_IN_PERCENT_OF_PARENT = 90;
+        let WIDTH_IN_PERCENT_OF_PARENT = 95,
+            HEIGHT_IN_PERCENT_OF_PARENT = 95;
 
         let gd3 = d3.select('#' + chart_div)
             .style({
@@ -425,9 +425,9 @@ export class ChartService {
             modeBarButtonsToRemove: ['sendDataToCloud']
         });
 
-        window.onresize = function () {
+        window.addEventListener('resize', function () {
             Plotly.Plots.resize(gd);
-        };
+        });
     }
 
     public drawChartMonthlyTemperatures(dataPoints: Result[], chart_div: string): void {
@@ -451,31 +451,29 @@ export class ChartService {
 
         // complete list of months so chart has a
         // bar or space for every month
-        let monthList: any[] = [
-            [1, 'Jan', 0, 0, 0, 0],
-            [2, 'Feb', 0, 0, 0, 0],
-            [3, 'Mar', 0, 0, 0, 0],
-            [4, 'Apr', 0, 0, 0, 0],
-            [5, 'May', 0, 0, 0, 0],
-            [6, 'Jun', 0, 0, 0, 0],
-            [7, 'Jul', 0, 0, 0, 0],
-            [8, 'Aug', 0, 0, 0, 0],
-            [9, 'Sep', 0, 0, 0, 0],
-            [10, 'Oct', 0, 0, 0, 0],
-            [11, 'Nov', 0, 0, 0, 0],
-            [12, 'Dec', 0, 0, 0, 0],
+        let months: string[] = [
+            'Jan',
+            'Feb',
+            'Mar',
+            'Apr',
+            'May',
+            'Jun',
+            'Jul',
+            'Aug',
+            'Sep',
+            'Oct',
+            'Nov',
+            'Dec',
         ];
-        let months: string[] = [];
         let record_low: number[] = [];
         let avg_low: number[] = [];
         let avg_high: number[] = [];
         let record_high: number[] = [];
-        for (let i in monthList) {
-            months[i] = monthList[i][1];
-            record_low[i] = monthList[i][2];
-            avg_low[i] = monthList[i][3];
-            avg_high[i] = monthList[i][4];
-            record_high[i] = monthList[i][5];
+        for (let i in months) {
+            record_low[i] = 0;
+            avg_low[i] = 0;
+            avg_high[i] = 0;
+            record_high[i] = 0;
         }
         // update with temperatures from database
         for (let i in dataPoints) {
@@ -484,6 +482,7 @@ export class ChartService {
             avg_high[dataPoints[i].monthNumber - 1] = dataPoints[i].avg_high_temp;
             record_high[dataPoints[i].monthNumber - 1] = dataPoints[i].record_high_temp;
         }
+
         let trace1 = {
             x: months,
             y: record_low,
@@ -578,9 +577,9 @@ export class ChartService {
             modeBarButtonsToRemove: ['sendDataToCloud']
         });
 
-        window.onresize = function () {
+        window.addEventListener('resize', function () {
             Plotly.Plots.resize(gd);
-        };
+        });
     }
 
     public drawChartDucksAndWarblers(dataPoints: Result[], chart_div: string): void {
@@ -600,29 +599,27 @@ export class ChartService {
                 height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh'
             });
 
-        let gd2 = gd3.node();
+        let gd = gd3.node();
 
         // complete list of months so chart has a
         // bar or space for every month
-        let monthList: any[] = [
-            [1, 'Jan'],
-            [2, 'Feb'],
-            [3, 'Mar'],
-            [4, 'Apr'],
-            [5, 'May'],
-            [6, 'Jun'],
-            [7, 'Jul'],
-            [8, 'Aug'],
-            [9, 'Sep'],
-            [10, 'Oct'],
-            [11, 'Nov'],
-            [12, 'Dec'],
+        let months: string[] = [
+            'Jan',
+            'Feb',
+            'Mar',
+            'Apr',
+            'May',
+            'Jun',
+            'Jul',
+            'Aug',
+            'Sep',
+            'Oct',
+            'Nov',
+            'Dec',
         ];
-        let months: string[] = [];
         let ducks: number[] = [];
         let warblers: number[] = [];
-        for (let i in monthList) {
-            months[i] = monthList[i][1];
+        for (let i in months) {
             ducks[i] = 0;
             warblers[i] = 0;
         }
@@ -697,8 +694,8 @@ export class ChartService {
             modeBarButtonsToRemove: ['sendDataToCloud']
         });
 
-        window.onresize = function () {
-            Plotly.Plots.resize(gd2);
-        };
+        window.addEventListener('resize', function () {
+            Plotly.Plots.resize(gd);
+        });
     }
 }

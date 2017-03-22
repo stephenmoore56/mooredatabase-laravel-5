@@ -16,28 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Temporary view structure for view `ecs`
+-- Temporary view structure for view `temperature_view`
 --
 
-DROP TABLE IF EXISTS `ecs`;
-/*!50001 DROP VIEW IF EXISTS `ecs`*/;
+DROP TABLE IF EXISTS `temperature_view`;
+/*!50001 DROP VIEW IF EXISTS `temperature_view`*/;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
-/*!50001 CREATE VIEW `ecs` AS SELECT 
- 1 AS `subsection_id`,
- 1 AS `subsection_name`,
- 1 AS `subsection_url`,
- 1 AS `section_name`,
- 1 AS `section_url`,
- 1 AS `province_name`,
- 1 AS `province_url`*/;
+/*!50001 CREATE VIEW `temperature_view` AS SELECT 
+ 1 AS `monthNumber`,
+ 1 AS `avg_low_temp`,
+ 1 AS `avg_high_temp`,
+ 1 AS `record_low_temp`,
+ 1 AS `record_high_temp`,
+ 1 AS `avg_precipitation`,
+ 1 AS `avg_snowfall`*/;
 SET character_set_client = @saved_cs_client;
 
 --
--- Final view structure for view `ecs`
+-- Final view structure for view `temperature_view`
 --
 
-/*!50001 DROP VIEW IF EXISTS `ecs`*/;
+/*!50001 DROP VIEW IF EXISTS `temperature_view`*/;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
@@ -46,7 +46,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`smoore`@`%` SQL SECURITY DEFINER */
-/*!50001 VIEW `ecs` AS select `ecsss`.`id` AS `subsection_id`,`ecsss`.`name` AS `subsection_name`,`ecsss`.`url` AS `subsection_url`,`ecss`.`name` AS `section_name`,`ecss`.`url` AS `section_url`,`ecsp`.`name` AS `province_name`,`ecsp`.`url` AS `province_url` from ((`ecs_subsection` `ecsss` join `ecs_section` `ecss` on((`ecsss`.`ecs_section_id` = `ecss`.`id`))) join `ecs_province` `ecsp` on((`ecss`.`ecs_province_id` = `ecsp`.`id`))) */;
+/*!50001 VIEW `temperature_view` AS select `monthly_averages`.`month_number` AS `monthNumber`,`monthly_averages`.`avg_low_temp` AS `avg_low_temp`,`monthly_averages`.`avg_high_temp` AS `avg_high_temp`,`monthly_averages`.`record_low_temp` AS `record_low_temp`,`monthly_averages`.`record_high_temp` AS `record_high_temp`,`monthly_averages`.`avg_precipitation` AS `avg_precipitation`,`monthly_averages`.`avg_snowfall` AS `avg_snowfall` from `monthly_averages` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -60,4 +60,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-22 13:29:50
+-- Dump completed on 2017-03-22 13:30:08

@@ -16,28 +16,21 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `location`
+-- Table structure for table `month`
 --
 
-DROP TABLE IF EXISTS `location`;
+DROP TABLE IF EXISTS `month`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `location` (
-  `id` int(3) unsigned NOT NULL AUTO_INCREMENT,
-  `country_code` char(3) NOT NULL,
-  `state_code` char(2) NOT NULL,
-  `location_name` varchar(50) NOT NULL,
-  `county_name` varchar(50) NOT NULL,
-  `notes` text NOT NULL,
-  `latitude` decimal(6,3) DEFAULT NULL,
-  `longitude` decimal(6,3) DEFAULT NULL,
-  `ecs_subsection_id` int(3) unsigned NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `ix_locationName` (`location_name`),
-  KEY `state_county` (`state_code`,`county_name`),
-  KEY `ix_countyName` (`county_name`),
-  KEY `ecs_subsection_id` (`ecs_subsection_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+CREATE TABLE `month` (
+  `monthNumber` int(11) NOT NULL,
+  `monthName` varchar(15) DEFAULT NULL,
+  `monthLetter` char(1) DEFAULT NULL,
+  `monthAbbrev` char(3) DEFAULT NULL,
+  PRIMARY KEY (`monthNumber`),
+  UNIQUE KEY `monthName_UNIQUE` (`monthName`),
+  UNIQUE KEY `monthAbbrev_UNIQUE` (`monthAbbrev`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +42,4 @@ CREATE TABLE `location` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-22 13:29:56
+-- Dump completed on 2017-03-22 13:29:58
