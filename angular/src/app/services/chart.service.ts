@@ -4,6 +4,28 @@ import {Result} from "../lib/result";
 // declare Plotly to suppress name errors
 declare let Plotly: any;
 
+// chart style constants
+const WIDTH_IN_PERCENT_OF_PARENT: number = 96;
+const HEIGHT_IN_PERCENT_OF_PARENT: number = 96;
+const CHART_STYLE: any = {
+    width: WIDTH_IN_PERCENT_OF_PARENT + '%',
+    height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh'
+};
+const MONTHS: string[] = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+];
+
 @Injectable()
 export class ChartService {
 
@@ -14,31 +36,21 @@ export class ChartService {
         }
 
         let d3 = Plotly.d3;
-
-        let WIDTH_IN_PERCENT_OF_PARENT = 90,
-            HEIGHT_IN_PERCENT_OF_PARENT = 90;
-
         let gd3 = d3.select('#' + chart_div)
-            .style({
-                width: WIDTH_IN_PERCENT_OF_PARENT + '%',
-                height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh'
-            });
-
+            .style(CHART_STYLE);
         let gd = gd3.node();
 
         /* extract data from JSON data */
-        let months: string[] = [];
         let species: number[] = [];
         let trips: number[] = [];
 
         for (let i in dataPoints) {
-            months[i] = dataPoints[i].monthName.substring(0, 3);
             species[i] = dataPoints[i].speciesCount;
             trips[i] = dataPoints[i].tripCount;
         }
 
         let trace1 = {
-            x: months,
+            x: MONTHS,
             y: species,
             name: 'Species',
             type: 'bar',
@@ -48,7 +60,7 @@ export class ChartService {
         };
 
         let trace2 = {
-            x: months,
+            x: MONTHS,
             y: trips,
             name: 'Trips',
             mode: 'lines+markers',
@@ -102,16 +114,8 @@ export class ChartService {
         }
 
         let d3 = Plotly.d3;
-
-        let WIDTH_IN_PERCENT_OF_PARENT = 90,
-            HEIGHT_IN_PERCENT_OF_PARENT = 90;
-
         let gd3 = d3.select('#' + chart_div)
-            .style({
-                width: WIDTH_IN_PERCENT_OF_PARENT + '%',
-                height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh'
-            });
-
+            .style(CHART_STYLE);
         let gd = gd3.node();
 
         /* extract data from JSON data */
@@ -189,39 +193,13 @@ export class ChartService {
         }
 
         let d3 = Plotly.d3;
-
-        let WIDTH_IN_PERCENT_OF_PARENT = 90,
-            HEIGHT_IN_PERCENT_OF_PARENT = 90;
-
         let gd3 = d3.select('#' + chart_div)
-            .style({
-                width: WIDTH_IN_PERCENT_OF_PARENT + '%',
-                height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh'
-            });
-
+            .style(CHART_STYLE);
         let gd = gd3.node();
 
-        // complete list of months so chart has a
-        // bar or space for every month
-        let monthList: any[] = [
-            [1, 'Jan', 0],
-            [2, 'Feb', 0],
-            [3, 'Mar', 0],
-            [4, 'Apr', 0],
-            [5, 'May', 0],
-            [6, 'Jun', 0],
-            [7, 'Jul', 0],
-            [8, 'Aug', 0],
-            [9, 'Sep', 0],
-            [10, 'Oct', 0],
-            [11, 'Nov', 0],
-            [12, 'Dec', 0],
-        ];
-        let months: string[] = [];
         let sightings: number[] = [];
-        for (let i in monthList) {
-            months[i] = monthList[i][1];
-            sightings[i] = monthList[i][2];
+        for (let i in MONTHS) {
+            sightings[i] = 0;
         }
         // update with sightings for months that have them
         for (let i in dataPoints) {
@@ -229,7 +207,7 @@ export class ChartService {
         }
 
         let trace1 = {
-            x: months,
+            x: MONTHS,
             y: sightings,
             name: 'Sightings',
             type: 'bar',
@@ -277,16 +255,8 @@ export class ChartService {
         }
 
         let d3 = Plotly.d3;
-
-        let WIDTH_IN_PERCENT_OF_PARENT = 90,
-            HEIGHT_IN_PERCENT_OF_PARENT = 90;
-
         let gd3 = d3.select('#' + chart_div)
-            .style({
-                width: WIDTH_IN_PERCENT_OF_PARENT + '%',
-                height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh'
-            });
-
+            .style(CHART_STYLE);
         let gd = gd3.node();
 
         /* extract data from JSON data */
@@ -343,16 +313,8 @@ export class ChartService {
         });
 
         let d3 = Plotly.d3;
-
-        let WIDTH_IN_PERCENT_OF_PARENT = 95,
-            HEIGHT_IN_PERCENT_OF_PARENT = 95;
-
         let gd3 = d3.select('#' + chart_div)
-            .style({
-                width: WIDTH_IN_PERCENT_OF_PARENT + '%',
-                height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh'
-            });
-
+            .style(CHART_STYLE);
         let gd = gd3.node();
 
         /* extract data from JSON data */
@@ -437,39 +399,15 @@ export class ChartService {
         }
 
         let d3 = Plotly.d3;
-
-        let WIDTH_IN_PERCENT_OF_PARENT = 90,
-            HEIGHT_IN_PERCENT_OF_PARENT = 90;
-
         let gd3 = d3.select('#' + chart_div)
-            .style({
-                width: WIDTH_IN_PERCENT_OF_PARENT + '%',
-                height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh'
-            });
-
+            .style(CHART_STYLE);
         let gd = gd3.node();
 
-        // complete list of months so chart has a
-        // bar or space for every month
-        let months: string[] = [
-            'Jan',
-            'Feb',
-            'Mar',
-            'Apr',
-            'May',
-            'Jun',
-            'Jul',
-            'Aug',
-            'Sep',
-            'Oct',
-            'Nov',
-            'Dec',
-        ];
         let record_low: number[] = [];
         let avg_low: number[] = [];
         let avg_high: number[] = [];
         let record_high: number[] = [];
-        for (let i in months) {
+        for (let i in MONTHS) {
             record_low[i] = 0;
             avg_low[i] = 0;
             avg_high[i] = 0;
@@ -484,7 +422,7 @@ export class ChartService {
         }
 
         let trace1 = {
-            x: months,
+            x: MONTHS,
             y: record_low,
             name: 'Rec Lo',
             type: 'lines+markers',
@@ -499,7 +437,7 @@ export class ChartService {
         };
 
         let trace2 = {
-            x: months,
+            x: MONTHS,
             y: avg_low,
             name: 'Avg Lo',
             mode: 'lines+markers',
@@ -514,7 +452,7 @@ export class ChartService {
         };
 
         let trace3 = {
-            x: months,
+            x: MONTHS,
             y: avg_high,
             name: 'Avg Hi',
             mode: 'lines+markers',
@@ -529,7 +467,7 @@ export class ChartService {
         };
 
         let trace4 = {
-            x: months,
+            x: MONTHS,
             y: record_high,
             name: 'Rec Hi',
             mode: 'lines+markers',
@@ -589,37 +527,13 @@ export class ChartService {
         }
 
         let d3 = Plotly.d3;
-
-        let WIDTH_IN_PERCENT_OF_PARENT = 90,
-            HEIGHT_IN_PERCENT_OF_PARENT = 90;
-
         let gd3 = d3.select('#' + chart_div)
-            .style({
-                width: WIDTH_IN_PERCENT_OF_PARENT + '%',
-                height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh'
-            });
-
+            .style(CHART_STYLE);
         let gd = gd3.node();
 
-        // complete list of months so chart has a
-        // bar or space for every month
-        let months: string[] = [
-            'Jan',
-            'Feb',
-            'Mar',
-            'Apr',
-            'May',
-            'Jun',
-            'Jul',
-            'Aug',
-            'Sep',
-            'Oct',
-            'Nov',
-            'Dec',
-        ];
         let ducks: number[] = [];
         let warblers: number[] = [];
-        for (let i in months) {
+        for (let i in MONTHS) {
             ducks[i] = 0;
             warblers[i] = 0;
         }
@@ -634,7 +548,7 @@ export class ChartService {
             }
         }
         let trace1 = {
-            x: months,
+            x: MONTHS,
             y: ducks,
             name: 'Ducks',
             type: 'lines+markers',
@@ -643,11 +557,12 @@ export class ChartService {
             },
             line: {
                 dash: 'solid',
-                width: 1
+                width: 1,
+                shape: 'spline'
             }
         };
         let trace2 = {
-            x: months,
+            x: MONTHS,
             y: warblers,
             name: 'Warblers',
             type: 'lines+markers',
@@ -656,7 +571,8 @@ export class ChartService {
             },
             line: {
                 dash: 'solid',
-                width: 1
+                width: 1,
+                shape: 'spline'
             }
         };
 

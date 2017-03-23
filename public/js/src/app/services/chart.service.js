@@ -7,7 +7,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, ChartService;
+    var core_1, WIDTH_IN_PERCENT_OF_PARENT, HEIGHT_IN_PERCENT_OF_PARENT, CHART_STYLE, MONTHS, ChartService;
     return {
         setters: [
             function (core_1_1) {
@@ -15,6 +15,27 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             }
         ],
         execute: function () {
+            // chart style constants
+            WIDTH_IN_PERCENT_OF_PARENT = 96;
+            HEIGHT_IN_PERCENT_OF_PARENT = 96;
+            CHART_STYLE = {
+                width: WIDTH_IN_PERCENT_OF_PARENT + '%',
+                height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh'
+            };
+            MONTHS = [
+                'Jan',
+                'Feb',
+                'Mar',
+                'Apr',
+                'May',
+                'Jun',
+                'Jul',
+                'Aug',
+                'Sep',
+                'Oct',
+                'Nov',
+                'Dec',
+            ];
             ChartService = (function () {
                 function ChartService() {
                 }
@@ -23,24 +44,18 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         return;
                     }
                     var d3 = Plotly.d3;
-                    var WIDTH_IN_PERCENT_OF_PARENT = 90, HEIGHT_IN_PERCENT_OF_PARENT = 90;
                     var gd3 = d3.select('#' + chart_div)
-                        .style({
-                        width: WIDTH_IN_PERCENT_OF_PARENT + '%',
-                        height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh'
-                    });
+                        .style(CHART_STYLE);
                     var gd = gd3.node();
                     /* extract data from JSON data */
-                    var months = [];
                     var species = [];
                     var trips = [];
                     for (var i in dataPoints) {
-                        months[i] = dataPoints[i].monthName.substring(0, 3);
                         species[i] = dataPoints[i].speciesCount;
                         trips[i] = dataPoints[i].tripCount;
                     }
                     var trace1 = {
-                        x: months,
+                        x: MONTHS,
                         y: species,
                         name: 'Species',
                         type: 'bar',
@@ -49,7 +64,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         }
                     };
                     var trace2 = {
-                        x: months,
+                        x: MONTHS,
                         y: trips,
                         name: 'Trips',
                         mode: 'lines+markers',
@@ -96,12 +111,8 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         return;
                     }
                     var d3 = Plotly.d3;
-                    var WIDTH_IN_PERCENT_OF_PARENT = 90, HEIGHT_IN_PERCENT_OF_PARENT = 90;
                     var gd3 = d3.select('#' + chart_div)
-                        .style({
-                        width: WIDTH_IN_PERCENT_OF_PARENT + '%',
-                        height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh'
-                    });
+                        .style(CHART_STYLE);
                     var gd = gd3.node();
                     /* extract data from JSON data */
                     var years = [];
@@ -169,41 +180,19 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         return;
                     }
                     var d3 = Plotly.d3;
-                    var WIDTH_IN_PERCENT_OF_PARENT = 90, HEIGHT_IN_PERCENT_OF_PARENT = 90;
                     var gd3 = d3.select('#' + chart_div)
-                        .style({
-                        width: WIDTH_IN_PERCENT_OF_PARENT + '%',
-                        height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh'
-                    });
+                        .style(CHART_STYLE);
                     var gd = gd3.node();
-                    // complete list of months so chart has a
-                    // bar or space for every month
-                    var monthList = [
-                        [1, 'Jan', 0],
-                        [2, 'Feb', 0],
-                        [3, 'Mar', 0],
-                        [4, 'Apr', 0],
-                        [5, 'May', 0],
-                        [6, 'Jun', 0],
-                        [7, 'Jul', 0],
-                        [8, 'Aug', 0],
-                        [9, 'Sep', 0],
-                        [10, 'Oct', 0],
-                        [11, 'Nov', 0],
-                        [12, 'Dec', 0],
-                    ];
-                    var months = [];
                     var sightings = [];
-                    for (var i in monthList) {
-                        months[i] = monthList[i][1];
-                        sightings[i] = monthList[i][2];
+                    for (var i in MONTHS) {
+                        sightings[i] = 0;
                     }
                     // update with sightings for months that have them
                     for (var i in dataPoints) {
                         sightings[dataPoints[i].monthNumber - 1] = dataPoints[i].sightingCount;
                     }
                     var trace1 = {
-                        x: months,
+                        x: MONTHS,
                         y: sightings,
                         name: 'Sightings',
                         type: 'bar',
@@ -243,12 +232,8 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         return;
                     }
                     var d3 = Plotly.d3;
-                    var WIDTH_IN_PERCENT_OF_PARENT = 90, HEIGHT_IN_PERCENT_OF_PARENT = 90;
                     var gd3 = d3.select('#' + chart_div)
-                        .style({
-                        width: WIDTH_IN_PERCENT_OF_PARENT + '%',
-                        height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh'
-                    });
+                        .style(CHART_STYLE);
                     var gd = gd3.node();
                     /* extract data from JSON data */
                     var orderNames = [];
@@ -294,12 +279,8 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         }
                     });
                     var d3 = Plotly.d3;
-                    var WIDTH_IN_PERCENT_OF_PARENT = 95, HEIGHT_IN_PERCENT_OF_PARENT = 95;
                     var gd3 = d3.select('#' + chart_div)
-                        .style({
-                        width: WIDTH_IN_PERCENT_OF_PARENT + '%',
-                        height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh'
-                    });
+                        .style(CHART_STYLE);
                     var gd = gd3.node();
                     /* extract data from JSON data */
                     var counties = [];
@@ -374,34 +355,14 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         return;
                     }
                     var d3 = Plotly.d3;
-                    var WIDTH_IN_PERCENT_OF_PARENT = 90, HEIGHT_IN_PERCENT_OF_PARENT = 90;
                     var gd3 = d3.select('#' + chart_div)
-                        .style({
-                        width: WIDTH_IN_PERCENT_OF_PARENT + '%',
-                        height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh'
-                    });
+                        .style(CHART_STYLE);
                     var gd = gd3.node();
-                    // complete list of months so chart has a
-                    // bar or space for every month
-                    var months = [
-                        'Jan',
-                        'Feb',
-                        'Mar',
-                        'Apr',
-                        'May',
-                        'Jun',
-                        'Jul',
-                        'Aug',
-                        'Sep',
-                        'Oct',
-                        'Nov',
-                        'Dec',
-                    ];
                     var record_low = [];
                     var avg_low = [];
                     var avg_high = [];
                     var record_high = [];
-                    for (var i in months) {
+                    for (var i in MONTHS) {
                         record_low[i] = 0;
                         avg_low[i] = 0;
                         avg_high[i] = 0;
@@ -415,7 +376,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         record_high[dataPoints[i].monthNumber - 1] = dataPoints[i].record_high_temp;
                     }
                     var trace1 = {
-                        x: months,
+                        x: MONTHS,
                         y: record_low,
                         name: 'Rec Lo',
                         type: 'lines+markers',
@@ -429,7 +390,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         }
                     };
                     var trace2 = {
-                        x: months,
+                        x: MONTHS,
                         y: avg_low,
                         name: 'Avg Lo',
                         mode: 'lines+markers',
@@ -443,7 +404,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         }
                     };
                     var trace3 = {
-                        x: months,
+                        x: MONTHS,
                         y: avg_high,
                         name: 'Avg Hi',
                         mode: 'lines+markers',
@@ -457,7 +418,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         }
                     };
                     var trace4 = {
-                        x: months,
+                        x: MONTHS,
                         y: record_high,
                         name: 'Rec Hi',
                         mode: 'lines+markers',
@@ -510,32 +471,12 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         return;
                     }
                     var d3 = Plotly.d3;
-                    var WIDTH_IN_PERCENT_OF_PARENT = 90, HEIGHT_IN_PERCENT_OF_PARENT = 90;
                     var gd3 = d3.select('#' + chart_div)
-                        .style({
-                        width: WIDTH_IN_PERCENT_OF_PARENT + '%',
-                        height: HEIGHT_IN_PERCENT_OF_PARENT + 'vh'
-                    });
+                        .style(CHART_STYLE);
                     var gd = gd3.node();
-                    // complete list of months so chart has a
-                    // bar or space for every month
-                    var months = [
-                        'Jan',
-                        'Feb',
-                        'Mar',
-                        'Apr',
-                        'May',
-                        'Jun',
-                        'Jul',
-                        'Aug',
-                        'Sep',
-                        'Oct',
-                        'Nov',
-                        'Dec',
-                    ];
                     var ducks = [];
                     var warblers = [];
-                    for (var i in months) {
+                    for (var i in MONTHS) {
                         ducks[i] = 0;
                         warblers[i] = 0;
                     }
@@ -551,7 +492,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         }
                     }
                     var trace1 = {
-                        x: months,
+                        x: MONTHS,
                         y: ducks,
                         name: 'Ducks',
                         type: 'lines+markers',
@@ -560,11 +501,12 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         },
                         line: {
                             dash: 'solid',
-                            width: 1
+                            width: 1,
+                            shape: 'spline'
                         }
                     };
                     var trace2 = {
-                        x: months,
+                        x: MONTHS,
                         y: warblers,
                         name: 'Warblers',
                         type: 'lines+markers',
@@ -573,7 +515,8 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         },
                         line: {
                             dash: 'solid',
-                            width: 1
+                            width: 1,
+                            shape: 'spline'
                         }
                     };
                     var data = [trace1, trace2];
