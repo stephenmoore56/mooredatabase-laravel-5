@@ -23,7 +23,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             NavBarBrandComponent = __decorate([
                 core_1.Component({
                     selector: 'nav-bar-brand',
-                    template: "\n    <a class=\"navbar-brand\" routerLink=\"/\">MOORE+DATABASE</a>\n    "
+                    template: "\n\t\t<a class=\"navbar-brand\" routerLink=\"/\">MOORE+DATABASE</a>\n    "
                 })
             ], NavBarBrandComponent);
             exports_1("NavBarBrandComponent", NavBarBrandComponent);

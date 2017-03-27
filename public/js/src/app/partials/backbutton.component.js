@@ -27,7 +27,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             BackButtonComponent = __decorate([
                 core_1.Component({
                     selector: 'back-button',
-                    template: "\n    <div class=\"form-group\" style=\"margin-bottom: 10px;\">\n        <button id=\"backButton\" type=\"button\" class=\"btn btn-success btn-sm\" (click)=\"goBack()\">\n            <span class=\"glyphicon glyphicon-menu-left\" aria-hidden=\"true\"></span>Back\n        </button>\n    </div>\n"
+                    template: "\n\t\t<div class=\"form-group\" style=\"margin-bottom: 10px;\">\n\t\t\t<button id=\"backButton\" type=\"button\" class=\"btn btn-success btn-sm\" (click)=\"goBack()\">\n\t\t\t\t<span class=\"glyphicon glyphicon-menu-left\" aria-hidden=\"true\"></span>Back\n\t\t\t</button>\n\t\t</div>\n    "
                 })
             ], BackButtonComponent);
             exports_1("BackButtonComponent", BackButtonComponent);

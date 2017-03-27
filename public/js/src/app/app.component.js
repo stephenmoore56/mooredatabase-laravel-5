@@ -23,7 +23,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             AppComponent = __decorate([
                 core_1.Component({
                     selector: '[app-root]',
-                    template: "<router-outlet></router-outlet>"
+                    template: "\n\t\t<router-outlet></router-outlet>"
                 })
             ], AppComponent);
             exports_1("AppComponent", AppComponent);

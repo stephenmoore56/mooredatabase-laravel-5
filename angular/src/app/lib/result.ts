@@ -18,6 +18,7 @@ export class Result {
     public scientific_name: string;
     public sightingCount: number;
     public speciesCount: number;
+    public sightingsCount: number;
     public state_code: string;
     public subfamily: string;
     public tripCount: number;

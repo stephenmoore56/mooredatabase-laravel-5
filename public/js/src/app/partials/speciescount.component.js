@@ -31,7 +31,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             SpeciesCountComponent = __decorate([
                 core_1.Component({
                     selector: 'species-count',
-                    template: "\n    <span id=\"speciesCount\" class=\"form-static-control\">\n        {{ birds.length || 0 }} Species\n    </span>"
+                    template: "\n\t\t<span id=\"speciesCount\" class=\"form-static-control\">\n        {{ birds.length || 0 }} Species\n    </span>"
                 })
             ], SpeciesCountComponent);
             exports_1("SpeciesCountComponent", SpeciesCountComponent);

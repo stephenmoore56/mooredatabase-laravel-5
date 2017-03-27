@@ -45,8 +45,27 @@ System.register(["@angular/core", "../lib/sortable", "../services/data.service",
                     var _this = this;
                     this._reportDataService
                         .getSpeciesByOrder()
-                        .subscribe(function (r) { return _this.orders = r; }, function (error) { return console.log("Error: ", error); }, function () { return _this._reportChartService.drawChartSpeciesByOrder(_this.orders, 'chart_div_1'); });
+                        .subscribe(function (r) { return _this.orders = r; }, function (error) { return console.log("Error: ", error); }, function () {
+                        _this._reportChartService.drawChartSpeciesByOrder(_this.orders, 'chart_div_1');
+                        _this.calculateTotalCounts();
+                    });
                     window.document.title = "MOORE+DATABASE - Species By Order";
+                };
+                SpeciesByOrderComponent.prototype.calculateTotalCounts = function () {
+                    this.totalSpecies = this.orders
+                        .map(function (myOrder) {
+                        return myOrder.speciesCount;
+                    })
+                        .reduce(function (total, num) {
+                        return total + num;
+                    }, 0);
+                    this.totalSightings = this.orders
+                        .map(function (myOrder) {
+                        return myOrder.sightingCount;
+                    })
+                        .reduce(function (total, num) {
+                        return total + num;
+                    }, 0);
                 };
                 return SpeciesByOrderComponent;
             }(sortable_1.Sortable));

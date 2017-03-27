@@ -14,8 +14,18 @@
 			<th class="text-center">Action</th>
 			<th class="hidden-xs">Notes</th>
 			<th class="text-right hidden-xs" (click)="sortResults(orders, 'order_species_count_all')">Total Species</th>
-			<th class="text-right" (click)="sortResults(orders, 'speciesCount')">Species <span
-					class="hidden-xs">Sighted</span></th>
+			<th class="text-right" (click)="sortResults(orders, 'speciesCount')">
+				Species
+			</th>
+			<th class="text-right hidden-xs" (click)="sortResults(orders, 'speciesCount')">
+				% Species
+			</th>
+			<th class="text-right" (click)="sortResults(orders, 'sightingCount')">
+				Sightings
+			</th>
+			<th class="text-right hidden-xs" (click)="sortResults(orders, 'sightingCount')">
+				% Sightings
+			</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -30,6 +40,9 @@
 			<td class="hidden-xs">{{ order.order_notes }}</td>
 			<td class="text-right hidden-xs">{{ order.order_species_count_all }}</td>
 			<td class="text-right">{{ order.speciesCount }}</td>
+			<td class="text-right hidden-xs">{{ order.speciesCount / totalSpecies | percent:'1.1-1' }}</td>
+			<td class="text-right">{{ order.sightingCount }}</td>
+			<td class="text-right hidden-xs">{{ order.sightingCount / totalSightings | percent:'1.1-1' }}</td>
 		</tr>
 		</tbody>
 	</table>
