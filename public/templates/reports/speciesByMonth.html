@@ -13,6 +13,7 @@
 			<th (click)="sortResults(months, 'monthNumber')">Month</th>
 			<th class="text-center">Action</th>
 			<th class="text-right" (click)="sortResults(months, 'speciesCount')">Species</th>
+			<th class="text-right hidden-xs" (click)="sortResults(months, 'sightingCount')">Sightings</th>
 			<th class="text-right" (click)="sortResults(months, 'tripCount')">Trips</th>
 		</tr>
 		</thead>
@@ -26,6 +27,7 @@
 				</a>
 			</td>
 			<td class="text-right">{{ month.speciesCount }}</td>
+			<td class="text-right hidden-xs">{{ month.sightingCount }}</td>
 			<td class="text-right">{{ month.tripCount }}</td>
 		</tr>
 		</tbody>

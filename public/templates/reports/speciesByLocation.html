@@ -22,6 +22,7 @@
 			<th (click)="sortResults(locations, 'location_name')">Location</th>
 			<th class="text-center">Action</th>
 			<th class="text-right" (click)="sortResults(locations, 'species_count')">Species</th>
+			<th class="text-right hidden-xs" (click)="sortResults(locations, 'sightingCount')">Sightings</th>
 			<th class="text-right" (click)="sortResults(locations, 'trip_count')">Trips</th>
 		</tr>
 		</thead>
@@ -38,6 +39,7 @@
 				</a>
 			</td>
 			<td class="text-right">{{ location.species_count }}</td>
+			<td class="text-right hidden-xs">{{ location.sightingCount }}</td>
 			<td class="text-right">{{ location.trip_count }}</td>
 		</tr>
 		</tbody>

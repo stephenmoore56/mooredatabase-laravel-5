@@ -44,6 +44,7 @@
 						<li><a href="/reports/orders">Species By Order</a></li>
 						<li><a href="/reports/locations">Species By Location</a></li>
 						<li><a href="/reports/search">All Species Sighted</a></li>
+						<li><a href="/reports/ducksAndWarblers">Ducks &amp; Warblers</a></li>
 						<li><a href="/reports/all">Search All Species</a></li>
 					</ul>
 					<ul ng-nav-bar-reports style="display: none;">
