@@ -16,8 +16,8 @@ function mapResults(response: Response): Result[] {
 export class DataService {
 
     // private baseUrl: string = "http://lumen.local/api/reports";
-    private baseUrl: string = "http://mongodb.local/api/reports";
-    // private baseUrl: string = "http://lumen.moore-database.com/api/reports";
+    // private baseUrl: string = "http://mongodb.local/api/reports";
+    private baseUrl: string = "http://lumen.moore-database.com/api/reports";
 
     // cached query results
     private orders: Observable<Result[]>;
