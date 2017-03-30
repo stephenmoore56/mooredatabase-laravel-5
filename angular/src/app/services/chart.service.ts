@@ -73,7 +73,7 @@ export class ChartService {
 
         let layout = {
             margin: {
-                l: 50,
+                l: 30,
                 r: 5,
                 b: 50,
                 t: 30,
@@ -152,7 +152,7 @@ export class ChartService {
 
         let layout = {
             margin: {
-                l: 50,
+                l: 30,
                 r: 5,
                 b: 50,
                 t: 30,
@@ -226,7 +226,7 @@ export class ChartService {
                 x: 0.5
             },
             margin: {
-                l: 50,
+                l: 30,
                 r: 5,
                 b: 50,
                 t: 30,
@@ -277,7 +277,7 @@ export class ChartService {
 
         let layout = {
             margin: {
-                l: 50,
+                l: 30,
                 r: 5,
                 b: 100,
                 t: 30,
@@ -486,7 +486,7 @@ export class ChartService {
         let layout = {
             title: 'Temps By Month<br />Minneapolis, MN',
             margin: {
-                l: 50,
+                l: 30,
                 r: 5,
                 b: 50,
                 t: 30,
@@ -581,7 +581,7 @@ export class ChartService {
         let layout = {
             title: 'Sightings By Month',
             margin: {
-                l: 50,
+                l: 30,
                 r: 5,
                 b: 50,
                 t: 30,

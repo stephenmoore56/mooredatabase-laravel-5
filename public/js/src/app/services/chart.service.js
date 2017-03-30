@@ -75,7 +75,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                     var data = [trace1, trace2];
                     var layout = {
                         margin: {
-                            l: 50,
+                            l: 30,
                             r: 5,
                             b: 50,
                             t: 30,
@@ -144,7 +144,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                     var data = [trace1, trace2];
                     var layout = {
                         margin: {
-                            l: 50,
+                            l: 30,
                             r: 5,
                             b: 50,
                             t: 30,
@@ -209,7 +209,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                             x: 0.5
                         },
                         margin: {
-                            l: 50,
+                            l: 30,
                             r: 5,
                             b: 50,
                             t: 30,
@@ -250,7 +250,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                     var data = [trace1];
                     var layout = {
                         margin: {
-                            l: 50,
+                            l: 30,
                             r: 5,
                             b: 100,
                             t: 30,
@@ -435,7 +435,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                     var layout = {
                         title: 'Temps By Month<br />Minneapolis, MN',
                         margin: {
-                            l: 50,
+                            l: 30,
                             r: 5,
                             b: 50,
                             t: 30,
@@ -523,7 +523,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                     var layout = {
                         title: 'Sightings By Month',
                         margin: {
-                            l: 50,
+                            l: 30,
                             r: 5,
                             b: 50,
                             t: 30,
