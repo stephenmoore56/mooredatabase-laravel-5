@@ -1,24 +1,26 @@
 import {Component, OnInit} from "@angular/core";
-import {ImageService} from '../services/image.service';
 import {Image} from '../lib/image';
+import {DataService} from "../services/data.service";
 
 @Component({
     selector: 'relative-path',
-    templateUrl: 'templates/static/education.html',
-    providers: [
-        ImageService
-    ]
+    templateUrl: 'templates/static/education.html'
 })
 
 export class EducationComponent implements OnInit {
 
     public image: Image;
 
-    constructor(private _imageService: ImageService) {
+    constructor(private _reportDataService: DataService) {
         window.document.title = 'MOORE+DATABASE - Education';
     }
 
     ngOnInit() {
-        this.image = this._imageService.getRandomImage();
+        this._reportDataService
+            .getCarouselImage()
+            .subscribe(
+                r => this.image = r[0],
+                error => console.log("Error: ", error)
+            );
     }
 }

@@ -16,8 +16,8 @@ function mapResults(response: Response): Result[] {
 export class DataService {
 
     // private baseUrl: string = "http://lumen.local/api/reports";
-    // private baseUrl: string = "http://mongodb.local/api/reports";
-    private baseUrl: string = "http://lumen.moore-database.com/api/reports";
+    private baseUrl: string = "http://mongodb.local/api/reports";
+    // private baseUrl: string = "http://lumen.moore-database.com/api/reports";
 
     // cached query results
     private orders: Observable<Result[]>;
@@ -97,7 +97,11 @@ export class DataService {
         return this.getResults('ducksAndWarblers');
     }
 
-    private getResults(endpoint: string): Observable<Result[]> {
+    public getCarouselImage(): Observable<any> {
+        return this.getResults('carouselImages');
+    }
+
+    private getResults(endpoint: string): Observable<any[]> {
         return this.http
             .get(`${this.baseUrl}/${endpoint}`, {headers: this.getHeaders()})
             .map(mapResults);

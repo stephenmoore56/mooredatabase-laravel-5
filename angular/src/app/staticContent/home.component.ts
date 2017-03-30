@@ -7,8 +7,8 @@ import {ChartService} from "../services/chart.service";
     selector: 'relative-path',
     templateUrl: 'templates/static/home.html',
     providers: [
-        DataService,
-        ChartService
+        ChartService,
+        DataService
     ]
 })
 

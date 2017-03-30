@@ -12,6 +12,7 @@ import {EducationComponent} from "./staticContent/education.component";
 import {TrainingComponent} from "./staticContent/training.component";
 import {ContactComponent} from "./staticContent/contact.component";
 import {ReportWidgetsModule} from "./partials/reportwidgets.module";
+import {DataService} from "./services/data.service";
 
 @NgModule({
     imports: [
@@ -36,6 +37,9 @@ import {ReportWidgetsModule} from "./partials/reportwidgets.module";
         NavBarComponent,
         NavBarBrandComponent,
         NavBarReportsComponent
+    ],
+    providers: [
+        DataService
     ]
 })
 export class AppModule {

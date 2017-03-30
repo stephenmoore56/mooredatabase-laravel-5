@@ -1,4 +1,4 @@
-System.register(["@angular/core"], function (exports_1, context_1) {
+System.register(["@angular/core", "../services/data.service"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,76 +10,37 @@ System.register(["@angular/core"], function (exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, ImageService;
+    var core_1, data_service_1, ImageService;
     return {
         setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (data_service_1_1) {
+                data_service_1 = data_service_1_1;
             }
         ],
         execute: function () {
             ImageService = (function () {
-                function ImageService() {
-                    this.images = [
-                        {
-                            src: 'https://s3.amazonaws.com/mooredatabase-carousel/millcitymuseum.jpg',
-                            alt: 'Mill City Museum'
-                        },
-                        {
-                            src: 'https://s3.amazonaws.com/mooredatabase-carousel/abstract.jpg',
-                            alt: 'Abstract'
-                        },
-                        {
-                            src: 'https://s3.amazonaws.com/mooredatabase-carousel/basilica.jpg',
-                            alt: 'Basilica'
-                        },
-                        {
-                            src: 'https://s3.amazonaws.com/mooredatabase-carousel/minnehahacreek.jpg',
-                            alt: 'Minnehaha Creek'
-                        },
-                        {
-                            src: 'https://s3.amazonaws.com/mooredatabase-carousel/powerplant1.jpg',
-                            alt: 'Power Plant'
-                        },
-                        {
-                            src: 'https://s3.amazonaws.com/mooredatabase-carousel/powerplant2.jpg',
-                            alt: 'Power Plant'
-                        },
-                        {
-                            src: 'https://s3.amazonaws.com/mooredatabase-carousel/powerplant3.jpg',
-                            alt: 'Power Plant'
-                        },
-                        {
-                            src: 'https://s3.amazonaws.com/mooredatabase-carousel/stainedglass.jpg',
-                            alt: 'Stained Glass'
-                        },
-                        {
-                            src: 'https://s3.amazonaws.com/mooredatabase-carousel/statefairride.jpg',
-                            alt: 'State Fair'
-                        },
-                        {
-                            src: 'https://s3.amazonaws.com/mooredatabase-carousel/temperance.jpg',
-                            alt: 'Temperance River'
-                        },
-                        {
-                            src: 'https://s3.amazonaws.com/mooredatabase-carousel/tiger.jpg',
-                            alt: 'Tiger'
-                        },
-                        {
-                            src: 'https://s3.amazonaws.com/mooredatabase-carousel/troutlily.jpg',
-                            alt: 'Trout Lily'
-                        }
-                    ];
+                function ImageService(_reportDataService) {
+                    this._reportDataService = _reportDataService;
                 }
                 ImageService.prototype.getRandomImage = function () {
-                    var index = Math.floor(Math.random() * (this.images.length - 1));
-                    return this.images[index];
+                    // this._reportDataService
+                    //     .getCarouselImage()
+                    //     .subscribe(
+                    //         r => this.image = r,
+                    //         error => console.log("Error: ", error),
+                    //         () => {
+                    //             return this.image;
+                    //         }
+                    //     );
                 };
                 return ImageService;
             }());
             ImageService = __decorate([
                 core_1.Injectable(),
-                __metadata("design:paramtypes", [])
+                __metadata("design:paramtypes", [data_service_1.DataService])
             ], ImageService);
             exports_1("ImageService", ImageService);
         }

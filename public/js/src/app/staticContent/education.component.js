@@ -1,4 +1,4 @@
-System.register(["@angular/core", "../services/image.service"], function (exports_1, context_1) {
+System.register(["@angular/core", "../services/data.service"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,36 +10,36 @@ System.register(["@angular/core", "../services/image.service"], function (export
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, image_service_1, EducationComponent;
+    var core_1, data_service_1, EducationComponent;
     return {
         setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (image_service_1_1) {
-                image_service_1 = image_service_1_1;
+            function (data_service_1_1) {
+                data_service_1 = data_service_1_1;
             }
         ],
         execute: function () {
             EducationComponent = (function () {
-                function EducationComponent(_imageService) {
-                    this._imageService = _imageService;
+                function EducationComponent(_reportDataService) {
+                    this._reportDataService = _reportDataService;
                     window.document.title = 'MOORE+DATABASE - Education';
                 }
                 EducationComponent.prototype.ngOnInit = function () {
-                    this.image = this._imageService.getRandomImage();
+                    var _this = this;
+                    this._reportDataService
+                        .getCarouselImage()
+                        .subscribe(function (r) { return _this.image = r[0]; }, function (error) { return console.log("Error: ", error); });
                 };
                 return EducationComponent;
             }());
             EducationComponent = __decorate([
                 core_1.Component({
                     selector: 'relative-path',
-                    templateUrl: 'templates/static/education.html',
-                    providers: [
-                        image_service_1.ImageService
-                    ]
+                    templateUrl: 'templates/static/education.html'
                 }),
-                __metadata("design:paramtypes", [image_service_1.ImageService])
+                __metadata("design:paramtypes", [data_service_1.DataService])
             ], EducationComponent);
             exports_1("EducationComponent", EducationComponent);
         }

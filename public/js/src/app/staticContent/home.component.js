@@ -44,8 +44,8 @@ System.register(["@angular/core", "../services/data.service", "../services/chart
                     selector: 'relative-path',
                     templateUrl: 'templates/static/home.html',
                     providers: [
-                        data_service_1.DataService,
-                        chart_service_1.ChartService
+                        chart_service_1.ChartService,
+                        data_service_1.DataService
                     ]
                 }),
                 __metadata("design:paramtypes", [chart_service_1.ChartService,
