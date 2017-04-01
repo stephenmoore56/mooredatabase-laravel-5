@@ -407,11 +407,13 @@ export class ChartService {
         let avg_low: number[] = [];
         let avg_high: number[] = [];
         let record_high: number[] = [];
+        let days_with_frost: number[] = [];
         for (let i in MONTHS) {
             record_low[i] = 0;
             avg_low[i] = 0;
             avg_high[i] = 0;
             record_high[i] = 0;
+            days_with_frost[i] = 0;
         }
         // update with temperatures from database
         for (let i in dataPoints) {
@@ -419,6 +421,7 @@ export class ChartService {
             avg_low[dataPoints[i].monthNumber - 1] = dataPoints[i].avg_low_temp;
             avg_high[dataPoints[i].monthNumber - 1] = dataPoints[i].avg_high_temp;
             record_high[dataPoints[i].monthNumber - 1] = dataPoints[i].record_high_temp;
+            days_with_frost[dataPoints[i].monthNumber - 1] = dataPoints[i].days_with_frost;
         }
 
         let trace1 = {
@@ -481,7 +484,22 @@ export class ChartService {
             }
         };
 
-        let data = [trace1, trace2, trace3, trace4];
+        let trace5 = {
+            x: MONTHS,
+            y: days_with_frost,
+            name: 'Days w/ Frost',
+            mode: 'lines+markers',
+            marker: {
+                color: 'grey'
+            },
+            line: {
+                dash: 'solid',
+                width: 1,
+                shape: 'spline'
+            }
+        };
+
+        let data = [trace1, trace2, trace3, trace4, trace5];
 
         let layout = {
             title: 'Temps By Month<br />Minneapolis, MN',
@@ -496,7 +514,7 @@ export class ChartService {
                 type: 'category'
             },
             legend: {
-                x: 0.33,
+                x: 0.45,
                 y: 0,
                 traceorder: 'normal',
                 font: {

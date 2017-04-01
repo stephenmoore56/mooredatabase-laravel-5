@@ -27,4 +27,5 @@ export class Result {
     public avg_low_temp: number;
     public avg_high_temp: number;
     public record_high_temp: number;
+    public days_with_frost: number;
 }

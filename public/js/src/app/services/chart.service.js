@@ -362,11 +362,13 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                     var avg_low = [];
                     var avg_high = [];
                     var record_high = [];
+                    var days_with_frost = [];
                     for (var i in MONTHS) {
                         record_low[i] = 0;
                         avg_low[i] = 0;
                         avg_high[i] = 0;
                         record_high[i] = 0;
+                        days_with_frost[i] = 0;
                     }
                     // update with temperatures from database
                     for (var i in dataPoints) {
@@ -374,6 +376,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         avg_low[dataPoints[i].monthNumber - 1] = dataPoints[i].avg_low_temp;
                         avg_high[dataPoints[i].monthNumber - 1] = dataPoints[i].avg_high_temp;
                         record_high[dataPoints[i].monthNumber - 1] = dataPoints[i].record_high_temp;
+                        days_with_frost[dataPoints[i].monthNumber - 1] = dataPoints[i].days_with_frost;
                     }
                     var trace1 = {
                         x: MONTHS,
@@ -431,7 +434,21 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                             shape: 'spline'
                         }
                     };
-                    var data = [trace1, trace2, trace3, trace4];
+                    var trace5 = {
+                        x: MONTHS,
+                        y: days_with_frost,
+                        name: 'Days w/ Frost',
+                        mode: 'lines+markers',
+                        marker: {
+                            color: 'grey'
+                        },
+                        line: {
+                            dash: 'solid',
+                            width: 1,
+                            shape: 'spline'
+                        }
+                    };
+                    var data = [trace1, trace2, trace3, trace4, trace5];
                     var layout = {
                         title: 'Temps By Month<br />Minneapolis, MN',
                         margin: {
@@ -445,7 +462,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                             type: 'category'
                         },
                         legend: {
-                            x: 0.33,
+                            x: 0.45,
                             y: 0,
                             traceorder: 'normal',
                             font: {
