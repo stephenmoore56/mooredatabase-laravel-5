@@ -487,10 +487,11 @@ export class ChartService {
         let trace5 = {
             x: MONTHS,
             y: days_with_frost,
-            name: 'Days w/ Frost',
+            name: 'Days w/Frost',
+            yaxis: 'y2',
             mode: 'lines+markers',
             marker: {
-                color: 'grey'
+                color: '#AE00F9'
             },
             line: {
                 dash: 'solid',
@@ -502,30 +503,28 @@ export class ChartService {
         let data = [trace1, trace2, trace3, trace4, trace5];
 
         let layout = {
-            title: 'Temps By Month<br />Minneapolis, MN',
+            title: 'Temps By Month<br />Days w/Frost',
             margin: {
-                l: 30,
-                r: 5,
-                b: 50,
+                l: 35,
+                r: 35,
+                b: 30,
                 t: 30,
-                pad: 5
+                pad: 0
             },
             xaxis: {
                 type: 'category'
             },
-            legend: {
-                x: 0.45,
-                y: 0,
-                traceorder: 'normal',
-                font: {
-                    family: 'sans-serif',
-                    size: 12,
-                    color: '#000'
-                },
-                bgcolor: '#ECECEC',
-                bordercolor: '#FFFFFF',
-                borderwidth: 2
-            }
+            yaxis: {
+                title: 'Degrees'
+            },
+            yaxis2: {
+                title: 'Days',
+                titlefont: {color: '#AE00F9'},
+                tickfont: {color: '#AE00F9'},
+                overlaying: 'y',
+                side: 'right'
+            },
+            showlegend: false
         };
 
         Plotly.newPlot(chart_div, data, layout, {
@@ -601,7 +600,7 @@ export class ChartService {
             margin: {
                 l: 30,
                 r: 5,
-                b: 50,
+                b: 35,
                 t: 30,
                 pad: 5
             },
@@ -609,14 +608,9 @@ export class ChartService {
                 type: 'category'
             },
             legend: {
-                x: 0.33,
-                y: 0,
-                traceorder: 'normal',
-                font: {
-                    family: 'sans-serif',
-                    size: 12,
-                    color: '#000'
-                },
+                showLegend: true,
+                x: 0.35,
+                y: 0.00,
                 bgcolor: '#ECECEC',
                 bordercolor: '#FFFFFF',
                 borderwidth: 2
