@@ -34,11 +34,13 @@
 						BIRDING <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="/reports/years">Species & Trips By Year</a></li>
-						<li><a href="/reports/months">Species & Trips By Month</a></li>
+						<li><a href="/reports/years">Species &amp; Trips By Year</a></li>
+						<li><a href="/reports/ytd">Species &amp; Trips YTD</a></li>
+						<li><a href="/reports/months">Species &amp; Trips By Month</a></li>
 						<li><a href="/reports/orders">Species By Order</a></li>
 						<li><a href="/reports/locations">Species By Location</a></li>
 						<li><a href="/reports/search">All Species Sighted</a></li>
+						<li><a href="/reports/ducksAndWarblers">Ducks &amp; Warblers</a></li>
 						<li><a href="/reports/all">Search All Species</a></li>
 					</ul>
 					<ul ng-nav-bar-reports style="display: none;">
