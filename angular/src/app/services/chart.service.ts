@@ -29,6 +29,20 @@ const MONTHS: string[] = [
 @Injectable()
 export class ChartService {
 
+    private drawChart(chart_div: string, data: any[], layout: any) {
+        let displayModeBar = (screen.width >= 400);
+        Plotly.newPlot(chart_div, data, layout, {
+            displaylogo: false,
+            displayModeBar: displayModeBar
+        });
+    }
+
+    private resizeWindow(gd: any) {
+        window.addEventListener('resize', function () {
+            Plotly.Plots.resize(gd);
+        });
+    }
+
     public drawChartSpeciesByMonth(dataPoints: Result[], chart_div: string): void {
 
         if (dataPoints.length === 0) {
@@ -97,14 +111,8 @@ export class ChartService {
             }
         };
 
-        Plotly.newPlot(chart_div, data, layout, {
-            displaylogo: false,
-            modeBarButtonsToRemove: ['sendDataToCloud']
-        });
-
-        window.addEventListener('resize', function () {
-            Plotly.Plots.resize(gd);
-        });
+        this.drawChart(chart_div, data, layout);
+        this.resizeWindow(gd);
     }
 
     public drawChartSpeciesByYear(dataPoints: Result[], chart_div: string): void {
@@ -176,14 +184,8 @@ export class ChartService {
             }
         };
 
-        Plotly.newPlot(chart_div, data, layout, {
-            displaylogo: false,
-            modeBarButtonsToRemove: ['sendDataToCloud']
-        });
-
-        window.addEventListener('resize', function () {
-            Plotly.Plots.resize(gd);
-        });
+        this.drawChart(chart_div, data, layout);
+        this.resizeWindow(gd);
     }
 
     public drawChartMonthsForSpecies(dataPoints: Result[], chart_div: string): void {
@@ -237,14 +239,8 @@ export class ChartService {
             }
         };
 
-        Plotly.newPlot(chart_div, data, layout, {
-            displaylogo: false,
-            modeBarButtonsToRemove: ['sendDataToCloud']
-        });
-
-        window.addEventListener('resize', function () {
-            Plotly.Plots.resize(gd);
-        });
+        this.drawChart(chart_div, data, layout);
+        this.resizeWindow(gd);
 
     }
 
@@ -285,14 +281,8 @@ export class ChartService {
             }
         };
 
-        Plotly.newPlot(chart_div, data, layout, {
-            displaylogo: false,
-            modeBarButtonsToRemove: ['sendDataToCloud']
-        });
-
-        window.addEventListener('resize', function () {
-            Plotly.Plots.resize(gd);
-        });
+        this.drawChart(chart_div, data, layout);
+        this.resizeWindow(gd);
 
     }
 
@@ -382,14 +372,9 @@ export class ChartService {
             }
         };
 
-        Plotly.newPlot(chart_div, data, layout, {
-            displaylogo: false,
-            modeBarButtonsToRemove: ['sendDataToCloud']
-        });
+        this.drawChart(chart_div, data, layout);
+        this.resizeWindow(gd);
 
-        window.addEventListener('resize', function () {
-            Plotly.Plots.resize(gd);
-        });
     }
 
     public drawChartMonthlyTemperatures(dataPoints: Result[], chart_div: string): void {
@@ -527,14 +512,8 @@ export class ChartService {
             showlegend: false
         };
 
-        Plotly.newPlot(chart_div, data, layout, {
-            displaylogo: false,
-            modeBarButtonsToRemove: ['sendDataToCloud']
-        });
-
-        window.addEventListener('resize', function () {
-            Plotly.Plots.resize(gd);
-        });
+        this.drawChart(chart_div, data, layout);
+        this.resizeWindow(gd);
     }
 
     public drawChartDucksAndWarblers(dataPoints: Result[], chart_div: string): void {
@@ -617,13 +596,7 @@ export class ChartService {
             }
         };
 
-        Plotly.newPlot(chart_div, data, layout, {
-            displaylogo: false,
-            modeBarButtonsToRemove: ['sendDataToCloud']
-        });
-
-        window.addEventListener('resize', function () {
-            Plotly.Plots.resize(gd);
-        });
+        this.drawChart(chart_div, data, layout);
+        this.resizeWindow(gd);
     }
 }

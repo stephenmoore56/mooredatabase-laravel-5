@@ -39,6 +39,18 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             ChartService = (function () {
                 function ChartService() {
                 }
+                ChartService.prototype.drawChart = function (chart_div, data, layout) {
+                    var displayModeBar = (screen.width >= 400);
+                    Plotly.newPlot(chart_div, data, layout, {
+                        displaylogo: false,
+                        displayModeBar: displayModeBar
+                    });
+                };
+                ChartService.prototype.resizeWindow = function (gd) {
+                    window.addEventListener('resize', function () {
+                        Plotly.Plots.resize(gd);
+                    });
+                };
                 ChartService.prototype.drawChartSpeciesByMonth = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
                         return;
@@ -98,13 +110,8 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                             borderwidth: 2
                         }
                     };
-                    Plotly.newPlot(chart_div, data, layout, {
-                        displaylogo: false,
-                        modeBarButtonsToRemove: ['sendDataToCloud']
-                    });
-                    window.addEventListener('resize', function () {
-                        Plotly.Plots.resize(gd);
-                    });
+                    this.drawChart(chart_div, data, layout);
+                    this.resizeWindow(gd);
                 };
                 ChartService.prototype.drawChartSpeciesByYear = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
@@ -167,13 +174,8 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                             borderwidth: 2
                         }
                     };
-                    Plotly.newPlot(chart_div, data, layout, {
-                        displaylogo: false,
-                        modeBarButtonsToRemove: ['sendDataToCloud']
-                    });
-                    window.addEventListener('resize', function () {
-                        Plotly.Plots.resize(gd);
-                    });
+                    this.drawChart(chart_div, data, layout);
+                    this.resizeWindow(gd);
                 };
                 ChartService.prototype.drawChartMonthsForSpecies = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
@@ -219,13 +221,8 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                             type: 'category'
                         }
                     };
-                    Plotly.newPlot(chart_div, data, layout, {
-                        displaylogo: false,
-                        modeBarButtonsToRemove: ['sendDataToCloud']
-                    });
-                    window.addEventListener('resize', function () {
-                        Plotly.Plots.resize(gd);
-                    });
+                    this.drawChart(chart_div, data, layout);
+                    this.resizeWindow(gd);
                 };
                 ChartService.prototype.drawChartSpeciesByOrder = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
@@ -257,13 +254,8 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                             pad: 5
                         }
                     };
-                    Plotly.newPlot(chart_div, data, layout, {
-                        displaylogo: false,
-                        modeBarButtonsToRemove: ['sendDataToCloud']
-                    });
-                    window.addEventListener('resize', function () {
-                        Plotly.Plots.resize(gd);
-                    });
+                    this.drawChart(chart_div, data, layout);
+                    this.resizeWindow(gd);
                 };
                 ChartService.prototype.drawChartSpeciesByCounty = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
@@ -342,13 +334,8 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                             borderwidth: 2
                         }
                     };
-                    Plotly.newPlot(chart_div, data, layout, {
-                        displaylogo: false,
-                        modeBarButtonsToRemove: ['sendDataToCloud']
-                    });
-                    window.addEventListener('resize', function () {
-                        Plotly.Plots.resize(gd);
-                    });
+                    this.drawChart(chart_div, data, layout);
+                    this.resizeWindow(gd);
                 };
                 ChartService.prototype.drawChartMonthlyTemperatures = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
@@ -474,13 +461,8 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         },
                         showlegend: false
                     };
-                    Plotly.newPlot(chart_div, data, layout, {
-                        displaylogo: false,
-                        modeBarButtonsToRemove: ['sendDataToCloud']
-                    });
-                    window.addEventListener('resize', function () {
-                        Plotly.Plots.resize(gd);
-                    });
+                    this.drawChart(chart_div, data, layout);
+                    this.resizeWindow(gd);
                 };
                 ChartService.prototype.drawChartDucksAndWarblers = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
@@ -557,13 +539,8 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                             borderwidth: 2
                         }
                     };
-                    Plotly.newPlot(chart_div, data, layout, {
-                        displaylogo: false,
-                        modeBarButtonsToRemove: ['sendDataToCloud']
-                    });
-                    window.addEventListener('resize', function () {
-                        Plotly.Plots.resize(gd);
-                    });
+                    this.drawChart(chart_div, data, layout);
+                    this.resizeWindow(gd);
                 };
                 return ChartService;
             }());
