@@ -519,7 +519,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                     };
                     var data = [trace1, trace2];
                     var layout = {
-                        title: 'Sightings By Month',
+                        title: 'Species By Month',
                         margin: {
                             l: 30,
                             r: 5,

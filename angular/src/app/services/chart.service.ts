@@ -575,7 +575,7 @@ export class ChartService {
         let data = [trace1, trace2];
 
         let layout = {
-            title: 'Sightings By Month',
+            title: 'Species By Month',
             margin: {
                 l: 30,
                 r: 5,
