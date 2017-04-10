@@ -38,6 +38,9 @@ Route::group(['prefix' => 'reports'], function () {
 	Route::get('years/{year?}', function () {
 		return View::make('reports.report');
 	});
+	Route::get('ytd', function () {
+		return View::make('reports.report');
+	});
 	Route::get('orders/{orderId?}', function () {
 		return View::make('reports.report');
 	});

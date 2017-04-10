@@ -43,6 +43,9 @@ System.register(["rxjs/add/operator/map", "@angular/core", "@angular/http"], fun
                 DataService.prototype.getSpeciesByYear = function () {
                     return this.getResults('speciesByYear');
                 };
+                DataService.prototype.getSpeciesYTD = function () {
+                    return this.getResults('speciesYTD');
+                };
                 DataService.prototype.getSpeciesByOrder = function () {
                     return this.getResults('speciesByOrder');
                 };

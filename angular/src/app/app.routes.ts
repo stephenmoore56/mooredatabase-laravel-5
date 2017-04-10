@@ -18,6 +18,7 @@ const routes: Routes = [
         loadChildren: 'app/app/speciesForMonth/speciesformonth.module#SpeciesForMonthModule'
     },
     {path: 'reports/years', loadChildren: 'app/app/speciesByYear/speciesbyyear.module#SpeciesByYearModule'},
+    {path: 'reports/ytd', loadChildren: 'app/app/speciesYTD/speciesytd.module#SpeciesYTDModule'},
     {path: 'reports/years/:year', loadChildren: 'app/app/speciesForYear/speciesforyear.module#SpeciesForYearModule'},
     {path: 'reports/orders', loadChildren: 'app/app/speciesByOrder/speciesbyorder.module#SpeciesByOrderModule'},
     {path: 'reports/orders/:id', loadChildren: 'app/app/speciesForOrder/speciesfororder.module#SpeciesForOrderModule'},

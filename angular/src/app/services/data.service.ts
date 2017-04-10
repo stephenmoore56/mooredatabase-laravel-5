@@ -33,6 +33,10 @@ export class DataService {
         return this.getResults('speciesByYear');
     }
 
+    public getSpeciesYTD(): Observable<Result[]> {
+        return this.getResults('speciesYTD');
+    }
+
     public getSpeciesByOrder(): Observable<Result[]> {
         return this.getResults('speciesByOrder');
     }

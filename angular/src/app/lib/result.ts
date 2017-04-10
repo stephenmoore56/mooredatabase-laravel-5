@@ -28,4 +28,5 @@ export class Result {
     public avg_high_temp: number;
     public record_high_temp: number;
     public days_with_frost: number;
+    public monthDay: string;
 }

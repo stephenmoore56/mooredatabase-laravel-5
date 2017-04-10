@@ -4,6 +4,7 @@ import {Component} from "@angular/core";
     selector: '[ng-nav-bar-reports]',
     template: `
 		<li><a [routerLink]="['/reports/years']" routerLinkActive="active">Species &amp; Trips By Year</a></li>
+		<li><a [routerLink]="['/reports/ytd']" routerLinkActive="active">Species &amp; Trips YTD</a></li>
 		<li><a [routerLink]="['/reports/months']" routerLinkActive="active">Species &amp; Trips By Month</a></li>
 		<li><a [routerLink]="['/reports/orders']" routerLinkActive="active">Species By Order</a></li>
 		<li><a [routerLink]="['/reports/locations']" routerLinkActive="active">Species By Location</a></li>
