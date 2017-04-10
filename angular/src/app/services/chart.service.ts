@@ -493,7 +493,7 @@ export class ChartService {
                 l: 35,
                 r: 35,
                 b: 30,
-                t: 30,
+                t: 80,
                 pad: 0
             },
             xaxis: {
@@ -580,7 +580,7 @@ export class ChartService {
                 l: 30,
                 r: 5,
                 b: 35,
-                t: 30,
+                t: 80,
                 pad: 5
             },
             xaxis: {

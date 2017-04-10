@@ -443,7 +443,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                             l: 35,
                             r: 35,
                             b: 30,
-                            t: 30,
+                            t: 80,
                             pad: 0
                         },
                         xaxis: {
@@ -524,7 +524,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                             l: 30,
                             r: 5,
                             b: 35,
-                            t: 30,
+                            t: 80,
                             pad: 5
                         },
                         xaxis: {
