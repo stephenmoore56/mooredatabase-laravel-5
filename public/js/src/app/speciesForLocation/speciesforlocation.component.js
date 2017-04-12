@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/speciesList", "../services/data.service", "../services/map.service"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/speciesList", "../services/data.service", "../services/map.service", "../services/geo.service"], function (exports_1, context_1) {
     "use strict";
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -15,7 +15,7 @@ System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/sp
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, router_1, result_1, speciesList_1, data_service_1, map_service_1, SpeciesForLocationComponent;
+    var core_1, router_1, result_1, speciesList_1, data_service_1, map_service_1, geo_service_1, SpeciesForLocationComponent;
     return {
         setters: [
             function (core_1_1) {
@@ -35,16 +35,20 @@ System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/sp
             },
             function (map_service_1_1) {
                 map_service_1 = map_service_1_1;
+            },
+            function (geo_service_1_1) {
+                geo_service_1 = geo_service_1_1;
             }
         ],
         execute: function () {
             SpeciesForLocationComponent = (function (_super) {
                 __extends(SpeciesForLocationComponent, _super);
-                function SpeciesForLocationComponent(_reportDataService, _route, _reportMapService) {
+                function SpeciesForLocationComponent(_reportDataService, _route, _reportMapService, _geoService) {
                     var _this = _super.call(this) || this;
                     _this._reportDataService = _reportDataService;
                     _this._route = _route;
                     _this._reportMapService = _reportMapService;
+                    _this._geoService = _geoService;
                     _this.location = new result_1.Result();
                     return _this;
                 }
@@ -60,6 +64,7 @@ System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/sp
                         .getLocation(this.locationId)
                         .subscribe(function (r) {
                         _this.location = r[0];
+                        _this.location.distance = _this._geoService.getDistanceFromHomeInMiles(_this.location.latitude, _this.location.longitude);
                         window.document.title = "MOORE+DATABASE - Species For " + _this.location.location_name;
                     }, function (error) { return console.log("Error: ", error); }, function () { return _this._reportMapService.drawLocationMap(_this.location.latitude, _this.location.longitude, 'map_div_1'); });
                     this._reportDataService
@@ -77,12 +82,14 @@ System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/sp
                     templateUrl: 'templates/reports/speciesForLocation.html',
                     providers: [
                         data_service_1.DataService,
-                        map_service_1.MapService
+                        map_service_1.MapService,
+                        geo_service_1.GeoService
                     ]
                 }),
                 __metadata("design:paramtypes", [data_service_1.DataService,
                     router_1.ActivatedRoute,
-                    map_service_1.MapService])
+                    map_service_1.MapService,
+                    geo_service_1.GeoService])
             ], SpeciesForLocationComponent);
             exports_1("SpeciesForLocationComponent", SpeciesForLocationComponent);
         }

@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/platform-browser", "@angular/http", "./app.component", "./navbar/navbar.component", "./navbar/navbarbrand.component", "./navbar/navbarreports.component", "./app.routes", "./staticContent/home.component", "./staticContent/certifications.component", "./staticContent/education.component", "./staticContent/training.component", "./staticContent/contact.component", "./partials/reportwidgets.module", "./services/data.service"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/platform-browser", "@angular/http", "./app.component", "./navbar/navbar.component", "./navbar/navbarbrand.component", "./navbar/navbarreports.component", "./app.routes", "./staticContent/home.component", "./staticContent/certifications.component", "./staticContent/education.component", "./staticContent/training.component", "./staticContent/contact.component", "./partials/reportwidgets.module", "./services/data.service", "./services/geo.service"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7,7 +7,7 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/http", 
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, platform_browser_1, http_1, app_component_1, navbar_component_1, navbarbrand_component_1, navbarreports_component_1, app_routes_1, home_component_1, certifications_component_1, education_component_1, training_component_1, contact_component_1, reportwidgets_module_1, data_service_1, AppModule;
+    var core_1, platform_browser_1, http_1, app_component_1, navbar_component_1, navbarbrand_component_1, navbarreports_component_1, app_routes_1, home_component_1, certifications_component_1, education_component_1, training_component_1, contact_component_1, reportwidgets_module_1, data_service_1, geo_service_1, AppModule;
     return {
         setters: [
             function (core_1_1) {
@@ -54,6 +54,9 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/http", 
             },
             function (data_service_1_1) {
                 data_service_1 = data_service_1_1;
+            },
+            function (geo_service_1_1) {
+                geo_service_1 = geo_service_1_1;
             }
         ],
         execute: function () {
@@ -88,7 +91,8 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/http", 
                         navbarreports_component_1.NavBarReportsComponent
                     ],
                     providers: [
-                        data_service_1.DataService
+                        data_service_1.DataService,
+                        geo_service_1.GeoService
                     ]
                 })
             ], AppModule);

@@ -1,4 +1,4 @@
-System.register(["@angular/core", "../lib/sortable", "../services/data.service", "../services/chart.service", "../services/map.service"], function (exports_1, context_1) {
+System.register(["@angular/core", "../lib/sortable", "../services/data.service", "../services/chart.service", "../services/map.service", "../services/geo.service"], function (exports_1, context_1) {
     "use strict";
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -15,7 +15,7 @@ System.register(["@angular/core", "../lib/sortable", "../services/data.service",
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, sortable_1, data_service_1, chart_service_1, map_service_1, SpeciesByLocationComponent;
+    var core_1, sortable_1, data_service_1, chart_service_1, map_service_1, geo_service_1, SpeciesByLocationComponent;
     return {
         setters: [
             function (core_1_1) {
@@ -32,16 +32,20 @@ System.register(["@angular/core", "../lib/sortable", "../services/data.service",
             },
             function (map_service_1_1) {
                 map_service_1 = map_service_1_1;
+            },
+            function (geo_service_1_1) {
+                geo_service_1 = geo_service_1_1;
             }
         ],
         execute: function () {
             SpeciesByLocationComponent = (function (_super) {
                 __extends(SpeciesByLocationComponent, _super);
-                function SpeciesByLocationComponent(_reportChartService, _reportDataService, _reportMapService) {
+                function SpeciesByLocationComponent(_reportChartService, _reportDataService, _reportMapService, _geoService) {
                     var _this = _super.call(this) || this;
                     _this._reportChartService = _reportChartService;
                     _this._reportDataService = _reportDataService;
                     _this._reportMapService = _reportMapService;
+                    _this._geoService = _geoService;
                     _this.locations = [];
                     _this.counties = [];
                     return _this;
@@ -50,7 +54,12 @@ System.register(["@angular/core", "../lib/sortable", "../services/data.service",
                     var _this = this;
                     this._reportDataService
                         .getSpeciesByLocation()
-                        .subscribe(function (r) { return _this.locations = r; }, function (error) { return console.log("Error: ", error); }, function () { return _this._reportMapService.drawLocationsMap(_this.locations, 'map_div_1'); });
+                        .subscribe(function (r) { return _this.locations = r; }, function (error) { return console.log("Error: ", error); }, function () {
+                        _this.locations.forEach(function (location) {
+                            location.distance = _this._geoService.getDistanceFromHomeInMiles(location.latitude, location.longitude);
+                        });
+                        _this._reportMapService.drawLocationsMap(_this.locations, 'map_div_1');
+                    });
                     this._reportDataService
                         .getSpeciesByCounty()
                         .subscribe(function (r) { return _this.counties = r; }, function (error) { return console.log("Error: ", error); }, function () { return _this._reportChartService.drawChartSpeciesByCounty(_this.counties, 'chart_div_1'); });
@@ -70,7 +79,8 @@ System.register(["@angular/core", "../lib/sortable", "../services/data.service",
                 }),
                 __metadata("design:paramtypes", [chart_service_1.ChartService,
                     data_service_1.DataService,
-                    map_service_1.MapService])
+                    map_service_1.MapService,
+                    geo_service_1.GeoService])
             ], SpeciesByLocationComponent);
             exports_1("SpeciesByLocationComponent", SpeciesByLocationComponent);
         }

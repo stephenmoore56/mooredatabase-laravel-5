@@ -13,6 +13,7 @@ import {TrainingComponent} from "./staticContent/training.component";
 import {ContactComponent} from "./staticContent/contact.component";
 import {ReportWidgetsModule} from "./partials/reportwidgets.module";
 import {DataService} from "./services/data.service";
+import {GeoService} from "./services/geo.service";
 
 @NgModule({
     imports: [
@@ -39,7 +40,8 @@ import {DataService} from "./services/data.service";
         NavBarReportsComponent
     ],
     providers: [
-        DataService
+        DataService,
+        GeoService
     ]
 })
 export class AppModule {

@@ -43,7 +43,10 @@ System.register(["@angular/core", "@angular/router"], function (exports_1, conte
                     var infowindow = new google.maps.InfoWindow();
                     var showInfoWindow = function (chartData, marker) {
                         return function () {
-                            infowindow.setContent("" + "<p><strong>" + chartData[0] + "</strong><br />" + chartData[1] + "<br />" + chartData[2] + " " + chartData[3] + "</p>");
+                            infowindow.setContent("" + "<p><strong>" + chartData[0] + "</strong><br />" +
+                                chartData[1] + "<br />" +
+                                chartData[2] + " " + chartData[3] + "<br />" +
+                                chartData[4] + " miles</p>");
                             infowindow.maxWidth = 200;
                             infowindow.open(map, marker);
                             return true;
@@ -56,7 +59,8 @@ System.register(["@angular/core", "@angular/router"], function (exports_1, conte
                         chartData.push([locations[i].location_name,
                             locations[i].county_name + ' County, ' + locations[i].state_code,
                             locations[i].latitude,
-                            locations[i].longitude]);
+                            locations[i].longitude,
+                            locations[i].distance]);
                     }
                     // put markers on map
                     var j;

@@ -31,7 +31,10 @@ export class MapService {
         let infowindow = new google.maps.InfoWindow();
         let showInfoWindow = (chartData: any[], marker: any) => {
             return () => {
-                infowindow.setContent("" + "<p><strong>" + chartData[0] + "</strong><br />" + chartData[1] + "<br />" + chartData[2] + " " + chartData[3] + "</p>");
+                infowindow.setContent("" + "<p><strong>" + chartData[0] + "</strong><br />" +
+                    chartData[1] + "<br />" +
+                    chartData[2] + " " + chartData[3] + "<br />" +
+                    chartData[4] + " miles</p>");
                 infowindow.maxWidth = 200;
                 infowindow.open(map, marker);
                 return true;
@@ -46,7 +49,8 @@ export class MapService {
                 [locations[i].location_name,
                     locations[i].county_name + ' County, ' + locations[i].state_code,
                     locations[i].latitude,
-                    locations[i].longitude]);
+                    locations[i].longitude,
+                    locations[i].distance]);
         }
 
         // put markers on map

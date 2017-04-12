@@ -4,6 +4,7 @@ import {Sortable} from "../lib/sortable";
 import {DataService} from "../services/data.service";
 import {ChartService} from "../services/chart.service";
 import {MapService} from "../services/map.service";
+import {GeoService} from "../services/geo.service";
 
 @Component({
     selector: 'report',
@@ -21,7 +22,8 @@ export class SpeciesByLocationComponent extends Sortable implements OnInit {
 
     constructor(private _reportChartService: ChartService,
                 private _reportDataService: DataService,
-                private _reportMapService: MapService) {
+                private _reportMapService: MapService,
+                private _geoService: GeoService) {
         super();
     }
 
@@ -31,7 +33,12 @@ export class SpeciesByLocationComponent extends Sortable implements OnInit {
             .subscribe(
                 r => this.locations = r,
                 error => console.log("Error: ", error),
-                () => this._reportMapService.drawLocationsMap(this.locations, 'map_div_1')
+                () => {
+                    this.locations.forEach((location: Result) => {
+                        location.distance = this._geoService.getDistanceFromHomeInMiles(location.latitude, location.longitude);
+                    });
+                    this._reportMapService.drawLocationsMap(this.locations, 'map_div_1');
+                }
             );
         this._reportDataService
             .getSpeciesByCounty()

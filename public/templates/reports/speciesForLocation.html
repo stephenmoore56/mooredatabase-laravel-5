@@ -22,6 +22,10 @@
 					<th>Trips</th>
 					<td>{{ location.trip_count }}</td>
 				</tr>
+				<tr>
+					<th>Distance</th>
+					<td>{{ location.distance | number: '1.2-2' }} miles</td>
+				</tr>
 				</tbody>
 			</table>
 			<form class="form-inline filterForm">

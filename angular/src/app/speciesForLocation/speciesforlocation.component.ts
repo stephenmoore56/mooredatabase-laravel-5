@@ -4,13 +4,15 @@ import {Result} from "../lib/result";
 import {SpeciesList} from "../lib/speciesList";
 import {DataService} from "../services/data.service";
 import {MapService} from "../services/map.service";
+import {GeoService} from "../services/geo.service";
 
 @Component({
     selector: 'report',
     templateUrl: 'templates/reports/speciesForLocation.html',
     providers: [
         DataService,
-        MapService
+        MapService,
+        GeoService
     ]
 })
 export class SpeciesForLocationComponent extends SpeciesList implements OnInit {
@@ -20,7 +22,8 @@ export class SpeciesForLocationComponent extends SpeciesList implements OnInit {
 
     constructor(private _reportDataService: DataService,
                 private _route: ActivatedRoute,
-                private _reportMapService: MapService) {
+                private _reportMapService: MapService,
+                private _geoService: GeoService) {
         super();
         this.location = new Result();
     }
@@ -40,6 +43,7 @@ export class SpeciesForLocationComponent extends SpeciesList implements OnInit {
             .subscribe(
                 r => {
                     this.location = r[0];
+                    this.location.distance = this._geoService.getDistanceFromHomeInMiles(this.location.latitude, this.location.longitude);
                     window.document.title = `MOORE+DATABASE - Species For ${this.location.location_name}`;
                 },
                 error => console.log("Error: ", error),
