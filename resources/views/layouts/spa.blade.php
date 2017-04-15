@@ -10,13 +10,13 @@
 <div class="container-fluid" data-ng-cloak>
 	<div class="row-fluid">
 		<div class="col-sm-6 col-no-pad">
-			<div app-root>
+			<div data-app-root>
 				Loading...
 			</div>
 		</div>
 		<div class="col-sm-1 col-no-pad col-spacer">
 		</div>
-		<div ng-carousel class="col-sm-4 col-no-pad">
+		<div data-ng-carousel class="col-sm-4 col-no-pad">
 		</div>
 	</div>
 </div>

@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
 
 @Component({
-    selector: '[ng-nav-bar]',
+    selector: '[data-ng-nav-bar]',
     template: `
 		<li><a [routerLink]="['/education']" routerLinkActive="active">Education</a></li>
 		<li><a [routerLink]="['/certifications']" routerLinkActive="active">Certifications</a></li>

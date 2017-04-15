@@ -24,7 +24,7 @@
 						EXPERIENCE <span class="caret"></span>
 					</a>
 					{{--angular component replaces this--}}
-					<ul ng-nav-bar class="dropdown-menu">
+					<ul data-ng-nav-bar class="dropdown-menu">
 						<li><a href="#">Loading...</a></li>
 					</ul>
 				</li>
@@ -43,7 +43,7 @@
 						<li><a href="/reports/ducksAndWarblers">Ducks &amp; Warblers</a></li>
 						<li><a href="/reports/all">Search All Species</a></li>
 					</ul>
-					<ul ng-nav-bar-reports style="display: none;">
+					<ul data-ng-nav-bar-reports style="display: none;">
 					</ul>
 				</li>
 				<li class="dropdown">

@@ -9,11 +9,11 @@
 @include('partials.navbarReports')
 <div class="container-fluid" data-ng-cloak>
 	<div class="row-fluid">
-		<div app-root>
+		<div data-app-root>
 			Loading...
 		</div>
 	</div>
-	<div ng-carousel style="display: none">
+	<div data-ng-carousel style="display: none">
 	</div>
 </div>
 @include('partials.googleAnalytics')

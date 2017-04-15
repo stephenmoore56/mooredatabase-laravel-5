@@ -31,7 +31,7 @@
 						<li><a href="/contact">Contact Me</a></li>
 					</ul>
 					{{--angular c+omponent replaces this--}}
-					<ul ng-nav-bar style="display: none;"></ul>
+					<ul data-ng-nav-bar style="display: none;"></ul>
 				</li>
 				<li class="dropdown">
 					<a href="" class="dropdown-toggle" data-toggle="dropdown"
@@ -48,7 +48,7 @@
 						<li><a href="/reports/ducksAndWarblers">Ducks &amp; Warblers</a></li>
 						<li><a href="/reports/all">Search All Species</a></li>
 					</ul>
-					<ul ng-nav-bar-reports style="display: none;">
+					<ul data-ng-nav-bar-reports style="display: none;">
 					</ul>
 				</li>
 				<li class="dropdown">

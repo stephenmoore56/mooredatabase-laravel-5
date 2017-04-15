@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
 
 @Component({
-    selector: '[ng-nav-bar-reports]',
+    selector: '[data-ng-nav-bar-reports]',
     template: `
 		<li><a [routerLink]="['/reports/years']" routerLinkActive="active">Species &amp; Trips By Year</a></li>
 		<li><a [routerLink]="['/reports/ytd']" routerLinkActive="active">Species &amp; Trips YTD</a></li>

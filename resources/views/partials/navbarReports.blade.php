@@ -24,7 +24,7 @@
 						EXPERIENCE <span class="caret"></span>
 					</a>
 					{{--angular component replaces this--}}
-					<ul ng-nav-bar class="dropdown-menu">
+					<ul data-ng-nav-bar class="dropdown-menu">
 						<li><a href="#">Loading...</a></li>
 					</ul>
 				</li>
@@ -33,7 +33,7 @@
 					   role="button" aria-haspopup="true" aria-expanded="false">
 						BIRDING <span class="caret"></span>
 					</a>
-					<ul ng-nav-bar-reports class="dropdown-menu">
+					<ul data-ng-nav-bar-reports class="dropdown-menu">
 						<li><a href="#">Loading...</a></li>
 					</ul>
 				</li>
