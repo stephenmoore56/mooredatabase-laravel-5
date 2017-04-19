@@ -56,17 +56,17 @@ System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/sp
                     var _this = this;
                     this._route.params.subscribe(function (params) {
                         _this.locationId = Number.parseInt(params['id']);
+                        _this._reportDataService
+                            .getSpeciesForLocation(_this.locationId)
+                            .subscribe(function (r) { return _this.setBirds(r); }, function (error) { return console.log("Error: ", error); });
+                        _this._reportDataService
+                            .getLocation(_this.locationId)
+                            .subscribe(function (r) {
+                            _this.location = r[0];
+                            _this.location.distance = _this._geoService.getDistanceFromHomeInMiles(_this.location.latitude, _this.location.longitude);
+                            window.document.title = "MOORE+DATABASE - Species For " + _this.location.location_name;
+                        }, function (error) { return console.log("Error: ", error); }, function () { return _this._reportMapService.drawLocationMap(_this.location.latitude, _this.location.longitude, 'map_div_1'); });
                     });
-                    this._reportDataService
-                        .getSpeciesForLocation(this.locationId)
-                        .subscribe(function (r) { return _this.setBirds(r); }, function (error) { return console.log("Error: ", error); });
-                    this._reportDataService
-                        .getLocation(this.locationId)
-                        .subscribe(function (r) {
-                        _this.location = r[0];
-                        _this.location.distance = _this._geoService.getDistanceFromHomeInMiles(_this.location.latitude, _this.location.longitude);
-                        window.document.title = "MOORE+DATABASE - Species For " + _this.location.location_name;
-                    }, function (error) { return console.log("Error: ", error); }, function () { return _this._reportMapService.drawLocationMap(_this.location.latitude, _this.location.longitude, 'map_div_1'); });
                     this._reportDataService
                         .getOrdersAll()
                         .subscribe(function (r) { return _this.orders = r; }, function (error) { return console.log("Error: ", error); });

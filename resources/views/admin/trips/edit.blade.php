@@ -1,22 +1,22 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="col-sm-6">
+	<div class="col-sm-6">
 
-	{{ Form::model($trip,
-		           array('route' => array('trips.update', $trip->id), 'method' => 'PUT', 'class' => 'form-horizontal', 'id' => 'tripForm')) }}
+		{{ Form::model($trip,
+					   array('route' => array('trips.update', $trip->id), 'method' => 'PUT', 'class' => 'form-horizontal', 'id' => 'tripForm')) }}
 		<fieldset>
 			<legend>Edit Trip</legend>
 			@include('admin.trips.form')
 		</fieldset>
-	{{ Form::close() }}
+		{{ Form::close() }}
 
-	@include('partials.validationErrors')
+		@include('partials.validationErrors')
 
-</div>
+	</div>
 @stop
 
 @section("page_script")
-<script src={{ asset("js/admin/trips/create.js") }}></script>
-<script src={{ asset("js/admin/trips/tripValidator.js") }}></script>
+	<script src={{ asset("js/admin/trips/create.js") }}></script>
+	<script src={{ asset("js/admin/trips/tripValidator.js") }}></script>
 @stop

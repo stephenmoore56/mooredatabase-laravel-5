@@ -31,24 +31,24 @@ export class SpeciesForLocationComponent extends SpeciesList implements OnInit {
     ngOnInit() {
         this._route.params.subscribe(params => {
             this.locationId = Number.parseInt(params['id']);
+            this._reportDataService
+                .getSpeciesForLocation(this.locationId)
+                .subscribe(
+                    r => this.setBirds(r),
+                    error => console.log("Error: ", error)
+                );
+            this._reportDataService
+                .getLocation(this.locationId)
+                .subscribe(
+                    r => {
+                        this.location = r[0];
+                        this.location.distance = this._geoService.getDistanceFromHomeInMiles(this.location.latitude, this.location.longitude);
+                        window.document.title = `MOORE+DATABASE - Species For ${this.location.location_name}`;
+                    },
+                    error => console.log("Error: ", error),
+                    () => this._reportMapService.drawLocationMap(this.location.latitude, this.location.longitude, 'map_div_1')
+                );
         });
-        this._reportDataService
-            .getSpeciesForLocation(this.locationId)
-            .subscribe(
-                r => this.setBirds(r),
-                error => console.log("Error: ", error)
-            );
-        this._reportDataService
-            .getLocation(this.locationId)
-            .subscribe(
-                r => {
-                    this.location = r[0];
-                    this.location.distance = this._geoService.getDistanceFromHomeInMiles(this.location.latitude, this.location.longitude);
-                    window.document.title = `MOORE+DATABASE - Species For ${this.location.location_name}`;
-                },
-                error => console.log("Error: ", error),
-                () => this._reportMapService.drawLocationMap(this.location.latitude, this.location.longitude, 'map_div_1')
-            );
         this._reportDataService
             .getOrdersAll()
             .subscribe(

@@ -23,7 +23,7 @@
 		<button type="submit" class="btn btn-primary">
 			<span class="glyphicon glyphicon-save" aria-hidden="true"></span>
 			Save
-		</button>	
+		</button>
 		@if(isset($trip))
 			<a class="btn btn-warning" href="/admin/trips/{{ $trip->id }}/sightings">
 				<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>

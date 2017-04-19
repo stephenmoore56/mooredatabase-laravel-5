@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-@include('partials.head')
-@include('partials.bootstrapjs')
-@include('partials.jqueryui')
+	@include('partials.head')
+	@include('partials.bootstrapjs')
+	@include('partials.jqueryui')
 </head>
 <body>
 @include('partials.navbarAdmin')

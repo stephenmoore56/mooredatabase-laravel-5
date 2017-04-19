@@ -11,9 +11,9 @@
 				<span class="icon-bar"></span>
 			</button>
 			{{--angular component replaces this--}}
-			<nav-bar-brand>
+			<span data-nav-bar-brand>
 				<a class="navbar-brand" href="#">MOORE+DATABASE</a>
-			</nav-bar-brand>
+			</span>
 		</div>
 
 		<div class="collapse navbar-collapse" id="navbar-main-collapse-1">

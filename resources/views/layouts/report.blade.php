@@ -13,7 +13,7 @@
 			Loading...
 		</div>
 	</div>
-	<div data-ng-carousel style="display: none">
+	<div data-ng-carousel class="displayNone">
 	</div>
 </div>
 @include('partials.googleAnalytics')

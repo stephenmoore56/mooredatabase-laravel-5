@@ -12,8 +12,8 @@
 			</button>
 			<a class="navbar-brand" href="/">MOORE+DATABASE</a>
 			{{--angular component replaces this--}}
-			<nav-bar-brand style="display: none;">
-			</nav-bar-brand>
+			<span data-nav-bar-brand class="displayNone">
+			</span>
 		</div>
 
 		<div class="collapse navbar-collapse" id="navbar-main-collapse-1">
@@ -23,7 +23,6 @@
 					   role="button" aria-haspopup="true" aria-expanded="false">
 						EXPERIENCE <span class="caret"></span>
 					</a>
-					</a>
 					<ul class="dropdown-menu">
 						<li><a href="/education">Education</a></li>
 						<li><a href="/certifications">Certifications</a></li>
@@ -31,7 +30,7 @@
 						<li><a href="/contact">Contact Me</a></li>
 					</ul>
 					{{--angular c+omponent replaces this--}}
-					<ul data-ng-nav-bar style="display: none;"></ul>
+					<ul data-ng-nav-bar class="displayNone"></ul>
 				</li>
 				<li class="dropdown">
 					<a href="" class="dropdown-toggle" data-toggle="dropdown"
@@ -48,7 +47,7 @@
 						<li><a href="/reports/ducksAndWarblers">Ducks &amp; Warblers</a></li>
 						<li><a href="/reports/all">Search All Species</a></li>
 					</ul>
-					<ul data-ng-nav-bar-reports style="display: none;">
+					<ul data-ng-nav-bar-reports class="displayNone">
 					</ul>
 				</li>
 				<li class="dropdown">

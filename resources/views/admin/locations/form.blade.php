@@ -56,7 +56,7 @@
 		<button type="submit" class="btn btn-primary">
 			<span class="glyphicon glyphicon-save" aria-hidden="true"></span>
 			Save
-		</button>	
+		</button>
 		<a class="btn btn-info" href="/admin/locations">
 			<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
 			Locations
