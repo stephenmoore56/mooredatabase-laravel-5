@@ -5,6 +5,11 @@ import {Router} from "@angular/router";
 // declare google to suppress name errors
 declare let google: any;
 
+// constants for home coordinates
+const LATITUDE_HOME: number = 45.009613;
+const LONGITUDE_HOME: number = -93.246839;
+
+
 @Injectable()
 export class MapService {
 
@@ -53,12 +58,31 @@ export class MapService {
                     locations[i].distance]);
         }
 
-        // put markers on map
+        // put gold star on map to indicate home
+        let icon = {
+            url: 'images/star_gold.png',
+            scaledSize: new google.maps.Size(20, 20)
+        };
+        let marker = new google.maps.Marker({
+            position: new google.maps.LatLng(LATITUDE_HOME, LONGITUDE_HOME),
+            map: map,
+            icon: icon
+        });
+        let homeData = [];
+        homeData.push('Home', 'Hennepin County, MN', LATITUDE_HOME, LONGITUDE_HOME, 0);
+        google.maps.event.addListener(marker, 'mouseover', showInfoWindow(homeData, marker));
+
+        // put location markers on map
         let j: any;
+        icon = {
+            url: 'images/circle_blue.png',
+            scaledSize: new google.maps.Size(15, 15)
+        };
         for (j in chartData) {
             let marker = new google.maps.Marker({
                 position: new google.maps.LatLng(chartData[j][2], chartData[j][3]),
-                map: map
+                map: map,
+                icon: icon
             });
             google.maps.event.addListener(marker, 'click', buildClickHandler(j));
             google.maps.event.addListener(marker, 'mouseover', showInfoWindow(chartData[j], marker));

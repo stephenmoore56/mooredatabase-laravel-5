@@ -10,7 +10,7 @@ System.register(["@angular/core", "@angular/router"], function (exports_1, conte
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, router_1, MapService;
+    var core_1, router_1, LATITUDE_HOME, LONGITUDE_HOME, MapService;
     return {
         setters: [
             function (core_1_1) {
@@ -21,6 +21,9 @@ System.register(["@angular/core", "@angular/router"], function (exports_1, conte
             }
         ],
         execute: function () {
+            // constants for home coordinates
+            LATITUDE_HOME = 45.009613;
+            LONGITUDE_HOME = -93.246839;
             MapService = (function () {
                 function MapService(_router) {
                     this._router = _router;
@@ -62,15 +65,33 @@ System.register(["@angular/core", "@angular/router"], function (exports_1, conte
                             locations[i].longitude,
                             locations[i].distance]);
                     }
-                    // put markers on map
+                    // put gold star on map to indicate home
+                    var icon = {
+                        url: 'images/star_gold.png',
+                        scaledSize: new google.maps.Size(20, 20)
+                    };
+                    var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(LATITUDE_HOME, LONGITUDE_HOME),
+                        map: map,
+                        icon: icon
+                    });
+                    var homeData = [];
+                    homeData.push('Home', 'Hennepin County, MN', LATITUDE_HOME, LONGITUDE_HOME, 0);
+                    google.maps.event.addListener(marker, 'mouseover', showInfoWindow(homeData, marker));
+                    // put location markers on map
                     var j;
+                    icon = {
+                        url: 'images/circle_blue.png',
+                        scaledSize: new google.maps.Size(15, 15)
+                    };
                     for (j in chartData) {
-                        var marker = new google.maps.Marker({
+                        var marker_1 = new google.maps.Marker({
                             position: new google.maps.LatLng(chartData[j][2], chartData[j][3]),
-                            map: map
+                            map: map,
+                            icon: icon
                         });
-                        google.maps.event.addListener(marker, 'click', buildClickHandler(j));
-                        google.maps.event.addListener(marker, 'mouseover', showInfoWindow(chartData[j], marker));
+                        google.maps.event.addListener(marker_1, 'click', buildClickHandler(j));
+                        google.maps.event.addListener(marker_1, 'mouseover', showInfoWindow(chartData[j], marker_1));
                     }
                 };
                 MapService.prototype.drawLocationMap = function (latitude, longitude, map_canvas_id) {
