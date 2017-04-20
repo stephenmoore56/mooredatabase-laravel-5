@@ -7,6 +7,19 @@ System.register(["@angular/core"], function (exports_1, context_1) {
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
     var __moduleName = context_1 && context_1.id;
+    // private methods
+    function drawChart(chart_div, data, layout) {
+        var displayModeBar = (screen.width >= 400);
+        Plotly.newPlot(chart_div, data, layout, {
+            displaylogo: false,
+            displayModeBar: displayModeBar
+        });
+    }
+    function resizeWindow(gd) {
+        window.addEventListener('resize', function () {
+            Plotly.Plots.resize(gd);
+        });
+    }
     var core_1, WIDTH_IN_PERCENT_OF_PARENT, HEIGHT_IN_PERCENT_OF_PARENT, CHART_STYLE, MONTHS, ChartService;
     return {
         setters: [
@@ -39,18 +52,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             ChartService = (function () {
                 function ChartService() {
                 }
-                ChartService.prototype.drawChart = function (chart_div, data, layout) {
-                    var displayModeBar = (screen.width >= 400);
-                    Plotly.newPlot(chart_div, data, layout, {
-                        displaylogo: false,
-                        displayModeBar: displayModeBar
-                    });
-                };
-                ChartService.prototype.resizeWindow = function (gd) {
-                    window.addEventListener('resize', function () {
-                        Plotly.Plots.resize(gd);
-                    });
-                };
+                //noinspection JSMethodCanBeStatic
                 ChartService.prototype.drawChartSpeciesByMonth = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
                         return;
@@ -110,9 +112,10 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                             borderwidth: 2
                         }
                     };
-                    this.drawChart(chart_div, data, layout);
-                    this.resizeWindow(gd);
+                    drawChart(chart_div, data, layout);
+                    resizeWindow(gd);
                 };
+                //noinspection JSMethodCanBeStatic
                 ChartService.prototype.drawChartSpeciesByYear = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
                         return;
@@ -174,9 +177,10 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                             borderwidth: 2
                         }
                     };
-                    this.drawChart(chart_div, data, layout);
-                    this.resizeWindow(gd);
+                    drawChart(chart_div, data, layout);
+                    resizeWindow(gd);
                 };
+                //noinspection JSMethodCanBeStatic
                 ChartService.prototype.drawChartMonthsForSpecies = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
                         return;
@@ -221,9 +225,10 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                             type: 'category'
                         }
                     };
-                    this.drawChart(chart_div, data, layout);
-                    this.resizeWindow(gd);
+                    drawChart(chart_div, data, layout);
+                    resizeWindow(gd);
                 };
+                //noinspection JSMethodCanBeStatic
                 ChartService.prototype.drawChartSpeciesByOrder = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
                         return;
@@ -254,9 +259,10 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                             pad: 5
                         }
                     };
-                    this.drawChart(chart_div, data, layout);
-                    this.resizeWindow(gd);
+                    drawChart(chart_div, data, layout);
+                    resizeWindow(gd);
                 };
+                //noinspection JSMethodCanBeStatic
                 ChartService.prototype.drawChartSpeciesByCounty = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
                         return;
@@ -334,9 +340,10 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                             borderwidth: 2
                         }
                     };
-                    this.drawChart(chart_div, data, layout);
-                    this.resizeWindow(gd);
+                    drawChart(chart_div, data, layout);
+                    resizeWindow(gd);
                 };
+                //noinspection JSMethodCanBeStatic
                 ChartService.prototype.drawChartMonthlyTemperatures = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
                         return;
@@ -461,9 +468,10 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         },
                         showlegend: false
                     };
-                    this.drawChart(chart_div, data, layout);
-                    this.resizeWindow(gd);
+                    drawChart(chart_div, data, layout);
+                    resizeWindow(gd);
                 };
+                //noinspection JSMethodCanBeStatic
                 ChartService.prototype.drawChartDucksAndWarblers = function (dataPoints, chart_div) {
                     if (dataPoints.length === 0) {
                         return;
@@ -539,8 +547,8 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                             borderwidth: 2
                         }
                     };
-                    this.drawChart(chart_div, data, layout);
-                    this.resizeWindow(gd);
+                    drawChart(chart_div, data, layout);
+                    resizeWindow(gd);
                 };
                 return ChartService;
             }());

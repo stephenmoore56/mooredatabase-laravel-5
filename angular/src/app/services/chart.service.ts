@@ -26,23 +26,25 @@ const MONTHS: string[] = [
     'Dec',
 ];
 
+// private methods
+function drawChart(chart_div: string, data: any[], layout: any) {
+    let displayModeBar = (screen.width >= 400);
+    Plotly.newPlot(chart_div, data, layout, {
+        displaylogo: false,
+        displayModeBar: displayModeBar
+    });
+}
+
+function resizeWindow(gd: any) {
+    window.addEventListener('resize', function () {
+        Plotly.Plots.resize(gd);
+    });
+}
+
 @Injectable()
 export class ChartService {
 
-    private drawChart(chart_div: string, data: any[], layout: any) {
-        let displayModeBar = (screen.width >= 400);
-        Plotly.newPlot(chart_div, data, layout, {
-            displaylogo: false,
-            displayModeBar: displayModeBar
-        });
-    }
-
-    private resizeWindow(gd: any) {
-        window.addEventListener('resize', function () {
-            Plotly.Plots.resize(gd);
-        });
-    }
-
+    //noinspection JSMethodCanBeStatic
     public drawChartSpeciesByMonth(dataPoints: Result[], chart_div: string): void {
 
         if (dataPoints.length === 0) {
@@ -111,10 +113,11 @@ export class ChartService {
             }
         };
 
-        this.drawChart(chart_div, data, layout);
-        this.resizeWindow(gd);
+        drawChart(chart_div, data, layout);
+        resizeWindow(gd);
     }
 
+    //noinspection JSMethodCanBeStatic
     public drawChartSpeciesByYear(dataPoints: Result[], chart_div: string): void {
 
         if (dataPoints.length === 0) {
@@ -184,10 +187,11 @@ export class ChartService {
             }
         };
 
-        this.drawChart(chart_div, data, layout);
-        this.resizeWindow(gd);
+        drawChart(chart_div, data, layout);
+        resizeWindow(gd);
     }
 
+    //noinspection JSMethodCanBeStatic
     public drawChartMonthsForSpecies(dataPoints: Result[], chart_div: string): void {
 
         if (dataPoints.length === 0) {
@@ -239,11 +243,12 @@ export class ChartService {
             }
         };
 
-        this.drawChart(chart_div, data, layout);
-        this.resizeWindow(gd);
+        drawChart(chart_div, data, layout);
+        resizeWindow(gd);
 
     }
 
+    //noinspection JSMethodCanBeStatic
     public drawChartSpeciesByOrder(dataPoints: Result[], chart_div: string): void {
 
         if (dataPoints.length === 0) {
@@ -281,12 +286,13 @@ export class ChartService {
             }
         };
 
-        this.drawChart(chart_div, data, layout);
-        this.resizeWindow(gd);
+        drawChart(chart_div, data, layout);
+        resizeWindow(gd);
 
     }
 
 
+    //noinspection JSMethodCanBeStatic
     public drawChartSpeciesByCounty(dataPoints: Result[], chart_div: string): void {
 
         if (dataPoints.length === 0) {
@@ -372,11 +378,11 @@ export class ChartService {
             }
         };
 
-        this.drawChart(chart_div, data, layout);
-        this.resizeWindow(gd);
-
+        drawChart(chart_div, data, layout);
+        resizeWindow(gd);
     }
 
+    //noinspection JSMethodCanBeStatic
     public drawChartMonthlyTemperatures(dataPoints: Result[], chart_div: string): void {
 
         if (dataPoints.length === 0) {
@@ -512,10 +518,11 @@ export class ChartService {
             showlegend: false
         };
 
-        this.drawChart(chart_div, data, layout);
-        this.resizeWindow(gd);
+        drawChart(chart_div, data, layout);
+        resizeWindow(gd);
     }
 
+    //noinspection JSMethodCanBeStatic
     public drawChartDucksAndWarblers(dataPoints: Result[], chart_div: string): void {
 
         if (dataPoints.length === 0) {
@@ -596,7 +603,7 @@ export class ChartService {
             }
         };
 
-        this.drawChart(chart_div, data, layout);
-        this.resizeWindow(gd);
+        drawChart(chart_div, data, layout);
+        resizeWindow(gd);
     }
 }
