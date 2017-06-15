@@ -11,7 +11,7 @@
     "jshint-stylish": "^2.2.1"
   },
   "devDependencies": {
-    "del": "^2.2.0",
+    "del": "^3.0.0",
     "frisby": "^0.8.5",
     "gulp-compass": "^2.1.0",
     "gulp-concat": "^2.6.0",
