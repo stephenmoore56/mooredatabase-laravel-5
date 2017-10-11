@@ -61,6 +61,7 @@
 						<li>{{ HTML::link('admin/sendTestMailSwift','Send Test Mail (Swift)') }}</li>
 						<li>{{ HTML::link('admin/sendTestMailLaravel','Send Test Mail (Laravel)') }}</li>
 						<li>{{ HTML::link('admin/clearCache','Clear Cache') }}</li>
+						<li>{{ HTML::link('admin/loadMongodb','Load Mongodb') }}</li>
 						<li>{{ HTML::link('admin/logout','Log Out') }}</li>
 					</ul>
 					</p>

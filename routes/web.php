@@ -74,6 +74,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 	Route::get('logout', 'AdminController@unauthenticate');
 	Route::get('menu', 'AdminController@menu');
 	Route::get('clearCache', 'AdminController@clearCache');
+	Route::get('loadMongodb', 'AdminController@loadMongodb');
 	Route::get('trips/{id}/sightings', 'TripController@sightings');
 	Route::resource('sightings', 'SightingController');
 	Route::resource('trips', 'TripController');

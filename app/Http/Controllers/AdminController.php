@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 /**
  * Admin login/logout/authentication methods
@@ -14,6 +14,7 @@ declare(strict_types = 1);
  * AdminController class
  *
  */
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -99,6 +100,16 @@ class AdminController extends MyBaseController {
 	public function clearCache() {
 		ReportsMapper::clearCache();
 		return redirect('/admin/menu')->with('flashMessage', 'Cache cleared!');
+	}
+
+	/**
+	 * Load Mongodb from MySQL
+	 * @access public
+	 * @return mixed
+	 */
+	public function loadMongodb() {
+		// TODO: use exec() to execute a shell script in the background
+		return redirect('/admin/menu')->with('flashMessage', 'Loading Mongodb.');
 	}
 
 	/**
