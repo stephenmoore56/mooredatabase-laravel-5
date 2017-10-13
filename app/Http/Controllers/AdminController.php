@@ -20,6 +20,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Mappers\ReportsMapper as ReportsMapper;
+use Illuminate\Support\Facades\App;
+use Symfony\Component\Process\Process;
 
 class AdminController extends MyBaseController {
 
@@ -109,7 +111,19 @@ class AdminController extends MyBaseController {
 	 */
 	public function loadMongodb() {
 		// TODO: use exec() to execute a shell script in the background
-		return redirect('/admin/menu')->with('flashMessage', 'Loading Mongodb.');
+		$log = storage_path().'/logs/loadMongo.log';
+		/** @noinspection PhpUndefinedMethodInspection */
+		if (App::environment() == 'production') {
+			$workingDirectory = storage_path().'/scripts/production';
+		} else {
+			$workingDirectory = storage_path().'/scripts/local';
+		}
+		$script = './loadMongo.sh';
+		chdir($workingDirectory);
+		$command = 'bash -c "exec nohup setsid '.$script.' > '.$log.' 2>&1 &"';
+		$process = new Process($command);
+		$process->run();
+		return redirect('/admin/menu')->with('flashMessage', 'Loading Mongodb using command: '.$command.'.');
 	}
 
 	/**

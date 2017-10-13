@@ -15,6 +15,11 @@ bootstrap/cache/
 .env.prod
 config/mail.php
 database/seeds/UsersTableSeeder.php
+storage/scripts/production/loadMongo.sh
+storage/scripts/production/json_data/
+storage/scripts/local/loadMongo.sh
+storage/scripts/local/json_data/
+storage/logs/
 
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
