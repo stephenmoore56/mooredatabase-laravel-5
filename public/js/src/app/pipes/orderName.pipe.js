@@ -15,7 +15,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             }
         ],
         execute: function () {
-            OrderNamePipe = (function () {
+            OrderNamePipe = /** @class */ (function () {
                 function OrderNamePipe() {
                 }
                 OrderNamePipe.prototype.transform = function (birds, orderName) {
@@ -31,14 +31,14 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         return birds;
                     }
                 };
+                OrderNamePipe = __decorate([
+                    core_1.Pipe({
+                        name: 'orderName',
+                        pure: true
+                    })
+                ], OrderNamePipe);
                 return OrderNamePipe;
             }());
-            OrderNamePipe = __decorate([
-                core_1.Pipe({
-                    name: 'orderName',
-                    pure: true
-                })
-            ], OrderNamePipe);
             exports_1("OrderNamePipe", OrderNamePipe);
         }
     };

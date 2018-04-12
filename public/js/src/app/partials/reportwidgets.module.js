@@ -30,29 +30,29 @@ System.register(["@angular/core", "@angular/common", "@angular/forms", "@angular
             }
         ],
         execute: function () {
-            ReportWidgetsModule = (function () {
+            ReportWidgetsModule = /** @class */ (function () {
                 function ReportWidgetsModule() {
                 }
+                ReportWidgetsModule = __decorate([
+                    core_1.NgModule({
+                        imports: [
+                            common_1.CommonModule,
+                            router_1.RouterModule,
+                        ],
+                        declarations: [
+                            backbutton_component_1.BackButtonComponent,
+                            speciescount_component_1.SpeciesCountComponent
+                        ],
+                        exports: [
+                            common_1.CommonModule,
+                            forms_1.FormsModule,
+                            backbutton_component_1.BackButtonComponent,
+                            speciescount_component_1.SpeciesCountComponent
+                        ]
+                    })
+                ], ReportWidgetsModule);
                 return ReportWidgetsModule;
             }());
-            ReportWidgetsModule = __decorate([
-                core_1.NgModule({
-                    imports: [
-                        common_1.CommonModule,
-                        router_1.RouterModule,
-                    ],
-                    declarations: [
-                        backbutton_component_1.BackButtonComponent,
-                        speciescount_component_1.SpeciesCountComponent
-                    ],
-                    exports: [
-                        common_1.CommonModule,
-                        forms_1.FormsModule,
-                        backbutton_component_1.BackButtonComponent,
-                        speciescount_component_1.SpeciesCountComponent
-                    ]
-                })
-            ], ReportWidgetsModule);
             exports_1("ReportWidgetsModule", ReportWidgetsModule);
         }
     };

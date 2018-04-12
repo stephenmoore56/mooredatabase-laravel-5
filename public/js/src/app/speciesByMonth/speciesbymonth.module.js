@@ -30,24 +30,24 @@ System.register(["@angular/core", "@angular/common", "@angular/forms", "@angular
             }
         ],
         execute: function () {
-            SpeciesByMonthModule = (function () {
+            SpeciesByMonthModule = /** @class */ (function () {
                 function SpeciesByMonthModule() {
                 }
+                SpeciesByMonthModule = __decorate([
+                    core_1.NgModule({
+                        imports: [
+                            speciesbymonth_routing_1.routing,
+                            common_1.CommonModule,
+                            http_1.HttpModule,
+                            forms_1.FormsModule
+                        ],
+                        declarations: [
+                            speciesbymonth_component_1.SpeciesByMonthComponent
+                        ]
+                    })
+                ], SpeciesByMonthModule);
                 return SpeciesByMonthModule;
             }());
-            SpeciesByMonthModule = __decorate([
-                core_1.NgModule({
-                    imports: [
-                        speciesbymonth_routing_1.routing,
-                        common_1.CommonModule,
-                        http_1.HttpModule,
-                        forms_1.FormsModule
-                    ],
-                    declarations: [
-                        speciesbymonth_component_1.SpeciesByMonthComponent
-                    ]
-                })
-            ], SpeciesByMonthModule);
             exports_1("SpeciesByMonthModule", SpeciesByMonthModule);
         }
     };

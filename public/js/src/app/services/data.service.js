@@ -30,7 +30,7 @@ System.register(["rxjs/add/operator/map", "@angular/core", "@angular/http"], fun
             }
         ],
         execute: function () {
-            DataService = (function () {
+            DataService = /** @class */ (function () {
                 function DataService(http) {
                     this.http = http;
                     // private baseUrl: string = "http://lumen.local/api/reports";
@@ -108,12 +108,12 @@ System.register(["rxjs/add/operator/map", "@angular/core", "@angular/http"], fun
                     headers.append('Accept', 'application/json');
                     return headers;
                 };
+                DataService = __decorate([
+                    core_1.Injectable(),
+                    __metadata("design:paramtypes", [http_1.Http])
+                ], DataService);
                 return DataService;
             }());
-            DataService = __decorate([
-                core_1.Injectable(),
-                __metadata("design:paramtypes", [http_1.Http])
-            ], DataService);
             exports_1("DataService", DataService);
         }
     };

@@ -30,24 +30,24 @@ System.register(["@angular/core", "@angular/common", "@angular/forms", "@angular
             }
         ],
         execute: function () {
-            DucksAndWarblersModule = (function () {
+            DucksAndWarblersModule = /** @class */ (function () {
                 function DucksAndWarblersModule() {
                 }
+                DucksAndWarblersModule = __decorate([
+                    core_1.NgModule({
+                        imports: [
+                            ducksAndWarblers_routing_1.routing,
+                            common_1.CommonModule,
+                            http_1.HttpModule,
+                            forms_1.FormsModule
+                        ],
+                        declarations: [
+                            ducksAndWarblers_component_1.DucksAndWarblersComponent
+                        ]
+                    })
+                ], DucksAndWarblersModule);
                 return DucksAndWarblersModule;
             }());
-            DucksAndWarblersModule = __decorate([
-                core_1.NgModule({
-                    imports: [
-                        ducksAndWarblers_routing_1.routing,
-                        common_1.CommonModule,
-                        http_1.HttpModule,
-                        forms_1.FormsModule
-                    ],
-                    declarations: [
-                        ducksAndWarblers_component_1.DucksAndWarblersComponent
-                    ]
-                })
-            ], DucksAndWarblersModule);
             exports_1("DucksAndWarblersModule", DucksAndWarblersModule);
         }
     };

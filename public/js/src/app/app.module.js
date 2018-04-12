@@ -60,42 +60,42 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/http", 
             }
         ],
         execute: function () {
-            AppModule = (function () {
+            AppModule = /** @class */ (function () {
                 function AppModule() {
                 }
+                AppModule = __decorate([
+                    core_1.NgModule({
+                        imports: [
+                            app_routes_1.AppRoutingModule,
+                            platform_browser_1.BrowserModule,
+                            reportwidgets_module_1.ReportWidgetsModule,
+                            http_1.HttpModule
+                        ],
+                        declarations: [
+                            app_component_1.AppComponent,
+                            navbar_component_1.NavBarComponent,
+                            navbarbrand_component_1.NavBarBrandComponent,
+                            navbarreports_component_1.NavBarReportsComponent,
+                            home_component_1.HomeComponent,
+                            education_component_1.EducationComponent,
+                            training_component_1.TrainingComponent,
+                            certifications_component_1.CertificationsComponent,
+                            contact_component_1.ContactComponent
+                        ],
+                        bootstrap: [
+                            app_component_1.AppComponent,
+                            navbar_component_1.NavBarComponent,
+                            navbarbrand_component_1.NavBarBrandComponent,
+                            navbarreports_component_1.NavBarReportsComponent
+                        ],
+                        providers: [
+                            data_service_1.DataService,
+                            geo_service_1.GeoService
+                        ]
+                    })
+                ], AppModule);
                 return AppModule;
             }());
-            AppModule = __decorate([
-                core_1.NgModule({
-                    imports: [
-                        app_routes_1.AppRoutingModule,
-                        platform_browser_1.BrowserModule,
-                        reportwidgets_module_1.ReportWidgetsModule,
-                        http_1.HttpModule
-                    ],
-                    declarations: [
-                        app_component_1.AppComponent,
-                        navbar_component_1.NavBarComponent,
-                        navbarbrand_component_1.NavBarBrandComponent,
-                        navbarreports_component_1.NavBarReportsComponent,
-                        home_component_1.HomeComponent,
-                        education_component_1.EducationComponent,
-                        training_component_1.TrainingComponent,
-                        certifications_component_1.CertificationsComponent,
-                        contact_component_1.ContactComponent
-                    ],
-                    bootstrap: [
-                        app_component_1.AppComponent,
-                        navbar_component_1.NavBarComponent,
-                        navbarbrand_component_1.NavBarBrandComponent,
-                        navbarreports_component_1.NavBarReportsComponent
-                    ],
-                    providers: [
-                        data_service_1.DataService,
-                        geo_service_1.GeoService
-                    ]
-                })
-            ], AppModule);
             exports_1("AppModule", AppModule);
         }
     };

@@ -30,24 +30,24 @@ System.register(["@angular/core", "@angular/common", "@angular/forms", "@angular
             }
         ],
         execute: function () {
-            SpeciesDetailModule = (function () {
+            SpeciesDetailModule = /** @class */ (function () {
                 function SpeciesDetailModule() {
                 }
+                SpeciesDetailModule = __decorate([
+                    core_1.NgModule({
+                        imports: [
+                            speciesdetail_routing_1.routing,
+                            common_1.CommonModule,
+                            http_1.HttpModule,
+                            forms_1.FormsModule
+                        ],
+                        declarations: [
+                            speciesdetail_component_1.SpeciesDetailComponent
+                        ]
+                    })
+                ], SpeciesDetailModule);
                 return SpeciesDetailModule;
             }());
-            SpeciesDetailModule = __decorate([
-                core_1.NgModule({
-                    imports: [
-                        speciesdetail_routing_1.routing,
-                        common_1.CommonModule,
-                        http_1.HttpModule,
-                        forms_1.FormsModule
-                    ],
-                    declarations: [
-                        speciesdetail_component_1.SpeciesDetailComponent
-                    ]
-                })
-            ], SpeciesDetailModule);
             exports_1("SpeciesDetailModule", SpeciesDetailModule);
         }
     };

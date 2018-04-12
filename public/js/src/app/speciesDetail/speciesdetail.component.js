@@ -1,10 +1,15 @@
 System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/speciesList", "../services/data.service", "../services/chart.service"], function (exports_1, context_1) {
     "use strict";
-    var __extends = (this && this.__extends) || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = (this && this.__extends) || (function () {
+        var extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() { this.constructor = d; }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    })();
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +43,7 @@ System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/sp
             }
         ],
         execute: function () {
-            SpeciesDetailComponent = (function (_super) {
+            SpeciesDetailComponent = /** @class */ (function (_super) {
                 __extends(SpeciesDetailComponent, _super);
                 function SpeciesDetailComponent(_reportDataService, _reportChartService, _route) {
                     var _this = _super.call(this) || this;
@@ -68,21 +73,21 @@ System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/sp
                 SpeciesDetailComponent.prototype.goBack = function () {
                     window.history.back();
                 };
+                SpeciesDetailComponent = __decorate([
+                    core_1.Component({
+                        selector: 'report',
+                        templateUrl: 'templates/reports/speciesDetail.html',
+                        providers: [
+                            data_service_1.DataService,
+                            chart_service_1.ChartService
+                        ]
+                    }),
+                    __metadata("design:paramtypes", [data_service_1.DataService,
+                        chart_service_1.ChartService,
+                        router_1.ActivatedRoute])
+                ], SpeciesDetailComponent);
                 return SpeciesDetailComponent;
             }(speciesList_1.SpeciesList));
-            SpeciesDetailComponent = __decorate([
-                core_1.Component({
-                    selector: 'report',
-                    templateUrl: 'templates/reports/speciesDetail.html',
-                    providers: [
-                        data_service_1.DataService,
-                        chart_service_1.ChartService
-                    ]
-                }),
-                __metadata("design:paramtypes", [data_service_1.DataService,
-                    chart_service_1.ChartService,
-                    router_1.ActivatedRoute])
-            ], SpeciesDetailComponent);
             exports_1("SpeciesDetailComponent", SpeciesDetailComponent);
         }
     };

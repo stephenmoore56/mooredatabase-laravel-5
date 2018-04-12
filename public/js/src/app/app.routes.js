@@ -66,21 +66,21 @@ System.register(["@angular/core", "@angular/router", "./staticContent/home.compo
                 { path: 'reports/species/:id', loadChildren: 'app/app/speciesDetail/speciesdetail.module#SpeciesDetailModule' },
                 { path: '', component: home_component_1.HomeComponent, pathMatch: 'full' }
             ];
-            AppRoutingModule = (function () {
+            AppRoutingModule = /** @class */ (function () {
                 function AppRoutingModule() {
                 }
+                AppRoutingModule = __decorate([
+                    core_1.NgModule({
+                        imports: [
+                            router_1.RouterModule.forRoot(routes)
+                        ],
+                        exports: [
+                            router_1.RouterModule
+                        ]
+                    })
+                ], AppRoutingModule);
                 return AppRoutingModule;
             }());
-            AppRoutingModule = __decorate([
-                core_1.NgModule({
-                    imports: [
-                        router_1.RouterModule.forRoot(routes)
-                    ],
-                    exports: [
-                        router_1.RouterModule
-                    ]
-                })
-            ], AppRoutingModule);
             exports_1("AppRoutingModule", AppRoutingModule);
         }
     };

@@ -5,7 +5,7 @@ System.register([], function (exports_1, context_1) {
     return {
         setters: [],
         execute: function () {
-            Image = (function () {
+            Image = /** @class */ (function () {
                 function Image() {
                 }
                 return Image;

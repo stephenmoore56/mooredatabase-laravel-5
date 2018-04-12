@@ -1,10 +1,15 @@
 System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/speciesList", "../services/data.service", "../services/map.service", "../services/geo.service"], function (exports_1, context_1) {
     "use strict";
-    var __extends = (this && this.__extends) || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = (this && this.__extends) || (function () {
+        var extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() { this.constructor = d; }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    })();
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,7 +46,7 @@ System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/sp
             }
         ],
         execute: function () {
-            SpeciesForLocationComponent = (function (_super) {
+            SpeciesForLocationComponent = /** @class */ (function (_super) {
                 __extends(SpeciesForLocationComponent, _super);
                 function SpeciesForLocationComponent(_reportDataService, _route, _reportMapService, _geoService) {
                     var _this = _super.call(this) || this;
@@ -74,23 +79,23 @@ System.register(["@angular/core", "@angular/router", "../lib/result", "../lib/sp
                 SpeciesForLocationComponent.prototype.goBack = function () {
                     window.history.back();
                 };
+                SpeciesForLocationComponent = __decorate([
+                    core_1.Component({
+                        selector: 'report',
+                        templateUrl: 'templates/reports/speciesForLocation.html',
+                        providers: [
+                            data_service_1.DataService,
+                            map_service_1.MapService,
+                            geo_service_1.GeoService
+                        ]
+                    }),
+                    __metadata("design:paramtypes", [data_service_1.DataService,
+                        router_1.ActivatedRoute,
+                        map_service_1.MapService,
+                        geo_service_1.GeoService])
+                ], SpeciesForLocationComponent);
                 return SpeciesForLocationComponent;
             }(speciesList_1.SpeciesList));
-            SpeciesForLocationComponent = __decorate([
-                core_1.Component({
-                    selector: 'report',
-                    templateUrl: 'templates/reports/speciesForLocation.html',
-                    providers: [
-                        data_service_1.DataService,
-                        map_service_1.MapService,
-                        geo_service_1.GeoService
-                    ]
-                }),
-                __metadata("design:paramtypes", [data_service_1.DataService,
-                    router_1.ActivatedRoute,
-                    map_service_1.MapService,
-                    geo_service_1.GeoService])
-            ], SpeciesForLocationComponent);
             exports_1("SpeciesForLocationComponent", SpeciesForLocationComponent);
         }
     };

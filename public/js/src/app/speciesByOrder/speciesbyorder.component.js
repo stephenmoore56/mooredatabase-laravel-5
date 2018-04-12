@@ -1,10 +1,15 @@
 System.register(["@angular/core", "../lib/sortable", "../services/data.service", "../services/chart.service"], function (exports_1, context_1) {
     "use strict";
-    var __extends = (this && this.__extends) || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = (this && this.__extends) || (function () {
+        var extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() { this.constructor = d; }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    })();
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -32,7 +37,7 @@ System.register(["@angular/core", "../lib/sortable", "../services/data.service",
             }
         ],
         execute: function () {
-            SpeciesByOrderComponent = (function (_super) {
+            SpeciesByOrderComponent = /** @class */ (function (_super) {
                 __extends(SpeciesByOrderComponent, _super);
                 function SpeciesByOrderComponent(_reportChartService, _reportDataService) {
                     var _this = _super.call(this) || this;
@@ -67,19 +72,19 @@ System.register(["@angular/core", "../lib/sortable", "../services/data.service",
                         return total + num;
                     }, 0);
                 };
+                SpeciesByOrderComponent = __decorate([
+                    core_1.Component({
+                        selector: 'report',
+                        templateUrl: 'templates/reports/speciesByOrder.html',
+                        providers: [
+                            data_service_1.DataService,
+                            chart_service_1.ChartService
+                        ]
+                    }),
+                    __metadata("design:paramtypes", [chart_service_1.ChartService, data_service_1.DataService])
+                ], SpeciesByOrderComponent);
                 return SpeciesByOrderComponent;
             }(sortable_1.Sortable));
-            SpeciesByOrderComponent = __decorate([
-                core_1.Component({
-                    selector: 'report',
-                    templateUrl: 'templates/reports/speciesByOrder.html',
-                    providers: [
-                        data_service_1.DataService,
-                        chart_service_1.ChartService
-                    ]
-                }),
-                __metadata("design:paramtypes", [chart_service_1.ChartService, data_service_1.DataService])
-            ], SpeciesByOrderComponent);
             exports_1("SpeciesByOrderComponent", SpeciesByOrderComponent);
         }
     };

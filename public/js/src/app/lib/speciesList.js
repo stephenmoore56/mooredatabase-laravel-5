@@ -9,7 +9,7 @@ System.register(["./multisort"], function (exports_1, context_1) {
             }
         ],
         execute: function () {
-            SpeciesList = (function () {
+            SpeciesList = /** @class */ (function () {
                 function SpeciesList() {
                     this.birds = [];
                     this.orders = [];

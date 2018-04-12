@@ -40,7 +40,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             // constants for home coordinates
             LATITUDE_HOME = 45.009613;
             LONGITUDE_HOME = -93.246839;
-            GeoService = (function () {
+            GeoService = /** @class */ (function () {
                 function GeoService() {
                 }
                 //noinspection JSMethodCanBeStatic
@@ -48,11 +48,11 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                     var km = getDistanceFromLatLonInKm(latitude, longitude, LATITUDE_HOME, LONGITUDE_HOME);
                     return round(km2mile(km), 2);
                 };
+                GeoService = __decorate([
+                    core_1.Injectable()
+                ], GeoService);
                 return GeoService;
             }());
-            GeoService = __decorate([
-                core_1.Injectable()
-            ], GeoService);
             exports_1("GeoService", GeoService);
         }
     };

@@ -15,7 +15,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             }
         ],
         execute: function () {
-            SearchTermPipe = (function () {
+            SearchTermPipe = /** @class */ (function () {
                 function SearchTermPipe() {
                 }
                 SearchTermPipe.prototype.transform = function (birds, searchTerm) {
@@ -36,14 +36,14 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         return birds;
                     }
                 };
+                SearchTermPipe = __decorate([
+                    core_1.Pipe({
+                        name: 'searchTerm',
+                        pure: true
+                    })
+                ], SearchTermPipe);
                 return SearchTermPipe;
             }());
-            SearchTermPipe = __decorate([
-                core_1.Pipe({
-                    name: 'searchTerm',
-                    pure: true
-                })
-            ], SearchTermPipe);
             exports_1("SearchTermPipe", SearchTermPipe);
         }
     };

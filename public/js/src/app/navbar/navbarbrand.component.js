@@ -15,17 +15,17 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             }
         ],
         execute: function () {
-            NavBarBrandComponent = (function () {
+            NavBarBrandComponent = /** @class */ (function () {
                 function NavBarBrandComponent() {
                 }
+                NavBarBrandComponent = __decorate([
+                    core_1.Component({
+                        selector: '[data-nav-bar-brand]',
+                        template: "\n\t\t<a class=\"navbar-brand\" routerLink=\"/\">MOORE+DATABASE</a>\n    "
+                    })
+                ], NavBarBrandComponent);
                 return NavBarBrandComponent;
             }());
-            NavBarBrandComponent = __decorate([
-                core_1.Component({
-                    selector: '[data-nav-bar-brand]',
-                    template: "\n\t\t<a class=\"navbar-brand\" routerLink=\"/\">MOORE+DATABASE</a>\n    "
-                })
-            ], NavBarBrandComponent);
             exports_1("NavBarBrandComponent", NavBarBrandComponent);
         }
     };

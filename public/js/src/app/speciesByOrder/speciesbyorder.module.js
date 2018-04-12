@@ -30,24 +30,24 @@ System.register(["@angular/core", "@angular/common", "@angular/forms", "@angular
             }
         ],
         execute: function () {
-            SpeciesByOrderModule = (function () {
+            SpeciesByOrderModule = /** @class */ (function () {
                 function SpeciesByOrderModule() {
                 }
+                SpeciesByOrderModule = __decorate([
+                    core_1.NgModule({
+                        imports: [
+                            speciesbyorder_routing_1.routing,
+                            common_1.CommonModule,
+                            http_1.HttpModule,
+                            forms_1.FormsModule
+                        ],
+                        declarations: [
+                            speciesbyorder_component_1.SpeciesByOrderComponent
+                        ]
+                    })
+                ], SpeciesByOrderModule);
                 return SpeciesByOrderModule;
             }());
-            SpeciesByOrderModule = __decorate([
-                core_1.NgModule({
-                    imports: [
-                        speciesbyorder_routing_1.routing,
-                        common_1.CommonModule,
-                        http_1.HttpModule,
-                        forms_1.FormsModule
-                    ],
-                    declarations: [
-                        speciesbyorder_component_1.SpeciesByOrderComponent
-                    ]
-                })
-            ], SpeciesByOrderModule);
             exports_1("SpeciesByOrderModule", SpeciesByOrderModule);
         }
     };

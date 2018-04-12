@@ -24,7 +24,7 @@ System.register(["@angular/core", "@angular/router"], function (exports_1, conte
             // constants for home coordinates
             LATITUDE_HOME = 45.009613;
             LONGITUDE_HOME = -93.246839;
-            MapService = (function () {
+            MapService = /** @class */ (function () {
                 function MapService(_router) {
                     this._router = _router;
                 }
@@ -119,12 +119,12 @@ System.register(["@angular/core", "@angular/router"], function (exports_1, conte
                     var chartData = [latitude, longitude];
                     google.maps.event.addListener(marker, 'mouseover', showInfoWindow(chartData, marker));
                 };
+                MapService = __decorate([
+                    core_1.Injectable(),
+                    __metadata("design:paramtypes", [router_1.Router])
+                ], MapService);
                 return MapService;
             }());
-            MapService = __decorate([
-                core_1.Injectable(),
-                __metadata("design:paramtypes", [router_1.Router])
-            ], MapService);
             exports_1("MapService", MapService);
         }
     };

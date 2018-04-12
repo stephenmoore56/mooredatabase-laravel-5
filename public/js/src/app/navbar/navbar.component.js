@@ -15,17 +15,17 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             }
         ],
         execute: function () {
-            NavBarComponent = (function () {
+            NavBarComponent = /** @class */ (function () {
                 function NavBarComponent() {
                 }
+                NavBarComponent = __decorate([
+                    core_1.Component({
+                        selector: '[data-ng-nav-bar]',
+                        template: "\n\t\t<li><a [routerLink]=\"['/education']\" routerLinkActive=\"active\">Education</a></li>\n\t\t<li><a [routerLink]=\"['/certifications']\" routerLinkActive=\"active\">Certifications</a></li>\n\t\t<li><a [routerLink]=\"['/training']\" routerLinkActive=\"active\">Training</a></li>\n\t\t<li><a [routerLink]=\"['/contact']\" routerLinkActive=\"active\">Contact Me</a></li>\n    "
+                    })
+                ], NavBarComponent);
                 return NavBarComponent;
             }());
-            NavBarComponent = __decorate([
-                core_1.Component({
-                    selector: '[data-ng-nav-bar]',
-                    template: "\n\t\t<li><a [routerLink]=\"['/education']\" routerLinkActive=\"active\">Education</a></li>\n\t\t<li><a [routerLink]=\"['/certifications']\" routerLinkActive=\"active\">Certifications</a></li>\n\t\t<li><a [routerLink]=\"['/training']\" routerLinkActive=\"active\">Training</a></li>\n\t\t<li><a [routerLink]=\"['/contact']\" routerLinkActive=\"active\">Contact Me</a></li>\n    "
-                })
-            ], NavBarComponent);
             exports_1("NavBarComponent", NavBarComponent);
         }
     };

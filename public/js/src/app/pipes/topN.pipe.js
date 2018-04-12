@@ -15,7 +15,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             }
         ],
         execute: function () {
-            TopNPipe = (function () {
+            TopNPipe = /** @class */ (function () {
                 function TopNPipe() {
                 }
                 TopNPipe.prototype.transform = function (birds, topN) {
@@ -26,14 +26,14 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                         return birds;
                     }
                 };
+                TopNPipe = __decorate([
+                    core_1.Pipe({
+                        name: 'topN',
+                        pure: true
+                    })
+                ], TopNPipe);
                 return TopNPipe;
             }());
-            TopNPipe = __decorate([
-                core_1.Pipe({
-                    name: 'topN',
-                    pure: true
-                })
-            ], TopNPipe);
             exports_1("TopNPipe", TopNPipe);
         }
     };

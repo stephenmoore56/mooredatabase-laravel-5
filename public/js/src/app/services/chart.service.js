@@ -49,7 +49,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                 'Nov',
                 'Dec',
             ];
-            ChartService = (function () {
+            ChartService = /** @class */ (function () {
                 function ChartService() {
                 }
                 //noinspection JSMethodCanBeStatic
@@ -550,11 +550,11 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                     drawChart(chart_div, data, layout);
                     resizeWindow(gd);
                 };
+                ChartService = __decorate([
+                    core_1.Injectable()
+                ], ChartService);
                 return ChartService;
             }());
-            ChartService = __decorate([
-                core_1.Injectable()
-            ], ChartService);
             exports_1("ChartService", ChartService);
         }
     };

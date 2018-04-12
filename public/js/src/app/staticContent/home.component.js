@@ -24,7 +24,7 @@ System.register(["@angular/core", "../services/data.service", "../services/chart
             }
         ],
         execute: function () {
-            HomeComponent = (function () {
+            HomeComponent = /** @class */ (function () {
                 function HomeComponent(_reportChartService, _reportDataService) {
                     this._reportChartService = _reportChartService;
                     this._reportDataService = _reportDataService;
@@ -37,20 +37,20 @@ System.register(["@angular/core", "../services/data.service", "../services/chart
                         .getSpeciesByYear()
                         .subscribe(function (r) { return _this.years = r; }, function (error) { return console.log("Error: ", error); }, function () { return _this._reportChartService.drawChartSpeciesByYear(_this.years, 'chart_div_1'); });
                 };
+                HomeComponent = __decorate([
+                    core_1.Component({
+                        selector: 'relative-path',
+                        templateUrl: 'templates/static/home.html',
+                        providers: [
+                            chart_service_1.ChartService,
+                            data_service_1.DataService
+                        ]
+                    }),
+                    __metadata("design:paramtypes", [chart_service_1.ChartService,
+                        data_service_1.DataService])
+                ], HomeComponent);
                 return HomeComponent;
             }());
-            HomeComponent = __decorate([
-                core_1.Component({
-                    selector: 'relative-path',
-                    templateUrl: 'templates/static/home.html',
-                    providers: [
-                        chart_service_1.ChartService,
-                        data_service_1.DataService
-                    ]
-                }),
-                __metadata("design:paramtypes", [chart_service_1.ChartService,
-                    data_service_1.DataService])
-            ], HomeComponent);
             exports_1("HomeComponent", HomeComponent);
         }
     };

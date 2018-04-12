@@ -24,25 +24,25 @@ System.register(["@angular/core", "../pipes/orderName.pipe", "../pipes/topN.pipe
             }
         ],
         execute: function () {
-            PipesModule = (function () {
+            PipesModule = /** @class */ (function () {
                 function PipesModule() {
                 }
+                PipesModule = __decorate([
+                    core_1.NgModule({
+                        declarations: [
+                            orderName_pipe_1.OrderNamePipe,
+                            topN_pipe_1.TopNPipe,
+                            searchTerm_pipe_1.SearchTermPipe
+                        ],
+                        exports: [
+                            orderName_pipe_1.OrderNamePipe,
+                            topN_pipe_1.TopNPipe,
+                            searchTerm_pipe_1.SearchTermPipe
+                        ]
+                    })
+                ], PipesModule);
                 return PipesModule;
             }());
-            PipesModule = __decorate([
-                core_1.NgModule({
-                    declarations: [
-                        orderName_pipe_1.OrderNamePipe,
-                        topN_pipe_1.TopNPipe,
-                        searchTerm_pipe_1.SearchTermPipe
-                    ],
-                    exports: [
-                        orderName_pipe_1.OrderNamePipe,
-                        topN_pipe_1.TopNPipe,
-                        searchTerm_pipe_1.SearchTermPipe
-                    ]
-                })
-            ], PipesModule);
             exports_1("PipesModule", PipesModule);
         }
     };

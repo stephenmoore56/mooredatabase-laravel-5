@@ -30,24 +30,24 @@ System.register(["@angular/core", "@angular/http", "./speciesformonth.component"
             }
         ],
         execute: function () {
-            SpeciesForMonthModule = (function () {
+            SpeciesForMonthModule = /** @class */ (function () {
                 function SpeciesForMonthModule() {
                 }
+                SpeciesForMonthModule = __decorate([
+                    core_1.NgModule({
+                        imports: [
+                            speciesformonth_routing_1.routing,
+                            http_1.HttpModule,
+                            reportwidgets_module_1.ReportWidgetsModule,
+                            pipes_module_1.PipesModule
+                        ],
+                        declarations: [
+                            speciesformonth_component_1.SpeciesForMonthComponent
+                        ]
+                    })
+                ], SpeciesForMonthModule);
                 return SpeciesForMonthModule;
             }());
-            SpeciesForMonthModule = __decorate([
-                core_1.NgModule({
-                    imports: [
-                        speciesformonth_routing_1.routing,
-                        http_1.HttpModule,
-                        reportwidgets_module_1.ReportWidgetsModule,
-                        pipes_module_1.PipesModule
-                    ],
-                    declarations: [
-                        speciesformonth_component_1.SpeciesForMonthComponent
-                    ]
-                })
-            ], SpeciesForMonthModule);
             exports_1("SpeciesForMonthModule", SpeciesForMonthModule);
         }
     };

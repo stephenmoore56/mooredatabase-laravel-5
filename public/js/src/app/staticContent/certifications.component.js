@@ -21,7 +21,7 @@ System.register(["@angular/core", "../services/data.service"], function (exports
             }
         ],
         execute: function () {
-            CertificationsComponent = (function () {
+            CertificationsComponent = /** @class */ (function () {
                 function CertificationsComponent(_reportDataService) {
                     this._reportDataService = _reportDataService;
                     window.document.title = 'MOORE+DATABASE - Certifications';
@@ -32,15 +32,15 @@ System.register(["@angular/core", "../services/data.service"], function (exports
                         .getCarouselImage()
                         .subscribe(function (r) { return _this.image = r[0]; }, function (error) { return console.log("Error: ", error); });
                 };
+                CertificationsComponent = __decorate([
+                    core_1.Component({
+                        selector: 'relative-path',
+                        templateUrl: 'templates/static/certifications.html'
+                    }),
+                    __metadata("design:paramtypes", [data_service_1.DataService])
+                ], CertificationsComponent);
                 return CertificationsComponent;
             }());
-            CertificationsComponent = __decorate([
-                core_1.Component({
-                    selector: 'relative-path',
-                    templateUrl: 'templates/static/certifications.html'
-                }),
-                __metadata("design:paramtypes", [data_service_1.DataService])
-            ], CertificationsComponent);
             exports_1("CertificationsComponent", CertificationsComponent);
         }
     };

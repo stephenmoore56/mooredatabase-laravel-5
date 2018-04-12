@@ -15,21 +15,21 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             }
         ],
         execute: function () {
-            BackButtonComponent = (function () {
+            BackButtonComponent = /** @class */ (function () {
                 function BackButtonComponent() {
                 }
                 BackButtonComponent.prototype.goBack = function () {
                     window.history.back();
                 };
                 ;
+                BackButtonComponent = __decorate([
+                    core_1.Component({
+                        selector: 'back-button',
+                        template: "\n\t\t<div class=\"form-group\" style=\"margin-bottom: 10px;\">\n\t\t\t<button id=\"backButton\" type=\"button\" class=\"btn btn-success btn-sm\" (click)=\"goBack()\">\n\t\t\t\t<span class=\"glyphicon glyphicon-menu-left\" aria-hidden=\"true\"></span>Back\n\t\t\t</button>\n\t\t</div>\n    "
+                    })
+                ], BackButtonComponent);
                 return BackButtonComponent;
             }());
-            BackButtonComponent = __decorate([
-                core_1.Component({
-                    selector: 'back-button',
-                    template: "\n\t\t<div class=\"form-group\" style=\"margin-bottom: 10px;\">\n\t\t\t<button id=\"backButton\" type=\"button\" class=\"btn btn-success btn-sm\" (click)=\"goBack()\">\n\t\t\t\t<span class=\"glyphicon glyphicon-menu-left\" aria-hidden=\"true\"></span>Back\n\t\t\t</button>\n\t\t</div>\n    "
-                })
-            ], BackButtonComponent);
             exports_1("BackButtonComponent", BackButtonComponent);
         }
     };

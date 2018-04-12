@@ -30,24 +30,24 @@ System.register(["@angular/core", "@angular/common", "@angular/forms", "@angular
             }
         ],
         execute: function () {
-            SpeciesYTDModule = (function () {
+            SpeciesYTDModule = /** @class */ (function () {
                 function SpeciesYTDModule() {
                 }
+                SpeciesYTDModule = __decorate([
+                    core_1.NgModule({
+                        imports: [
+                            speciesytd_routing_1.routing,
+                            common_1.CommonModule,
+                            http_1.HttpModule,
+                            forms_1.FormsModule
+                        ],
+                        declarations: [
+                            speciesytd_component_1.SpeciesYTDComponent
+                        ]
+                    })
+                ], SpeciesYTDModule);
                 return SpeciesYTDModule;
             }());
-            SpeciesYTDModule = __decorate([
-                core_1.NgModule({
-                    imports: [
-                        speciesytd_routing_1.routing,
-                        common_1.CommonModule,
-                        http_1.HttpModule,
-                        forms_1.FormsModule
-                    ],
-                    declarations: [
-                        speciesytd_component_1.SpeciesYTDComponent
-                    ]
-                })
-            ], SpeciesYTDModule);
             exports_1("SpeciesYTDModule", SpeciesYTDModule);
         }
     };

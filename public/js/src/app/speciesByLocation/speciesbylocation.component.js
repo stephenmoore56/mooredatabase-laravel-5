@@ -1,10 +1,15 @@
 System.register(["@angular/core", "../lib/sortable", "../services/data.service", "../services/chart.service", "../services/map.service", "../services/geo.service"], function (exports_1, context_1) {
     "use strict";
-    var __extends = (this && this.__extends) || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+    var __extends = (this && this.__extends) || (function () {
+        var extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() { this.constructor = d; }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    })();
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +43,7 @@ System.register(["@angular/core", "../lib/sortable", "../services/data.service",
             }
         ],
         execute: function () {
-            SpeciesByLocationComponent = (function (_super) {
+            SpeciesByLocationComponent = /** @class */ (function (_super) {
                 __extends(SpeciesByLocationComponent, _super);
                 function SpeciesByLocationComponent(_reportChartService, _reportDataService, _reportMapService, _geoService) {
                     var _this = _super.call(this) || this;
@@ -65,23 +70,23 @@ System.register(["@angular/core", "../lib/sortable", "../services/data.service",
                         .subscribe(function (r) { return _this.counties = r; }, function (error) { return console.log("Error: ", error); }, function () { return _this._reportChartService.drawChartSpeciesByCounty(_this.counties, 'chart_div_1'); });
                     window.document.title = "MOORE+DATABASE - Species By Location";
                 };
+                SpeciesByLocationComponent = __decorate([
+                    core_1.Component({
+                        selector: 'report',
+                        templateUrl: 'templates/reports/speciesByLocation.html',
+                        providers: [
+                            data_service_1.DataService,
+                            chart_service_1.ChartService,
+                            map_service_1.MapService
+                        ]
+                    }),
+                    __metadata("design:paramtypes", [chart_service_1.ChartService,
+                        data_service_1.DataService,
+                        map_service_1.MapService,
+                        geo_service_1.GeoService])
+                ], SpeciesByLocationComponent);
                 return SpeciesByLocationComponent;
             }(sortable_1.Sortable));
-            SpeciesByLocationComponent = __decorate([
-                core_1.Component({
-                    selector: 'report',
-                    templateUrl: 'templates/reports/speciesByLocation.html',
-                    providers: [
-                        data_service_1.DataService,
-                        chart_service_1.ChartService,
-                        map_service_1.MapService
-                    ]
-                }),
-                __metadata("design:paramtypes", [chart_service_1.ChartService,
-                    data_service_1.DataService,
-                    map_service_1.MapService,
-                    geo_service_1.GeoService])
-            ], SpeciesByLocationComponent);
             exports_1("SpeciesByLocationComponent", SpeciesByLocationComponent);
         }
     };

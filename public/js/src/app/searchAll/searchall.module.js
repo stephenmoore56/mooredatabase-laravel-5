@@ -27,23 +27,23 @@ System.register(["@angular/core", "@angular/http", "./searchall.component", "../
             }
         ],
         execute: function () {
-            SearchAllModule = (function () {
+            SearchAllModule = /** @class */ (function () {
                 function SearchAllModule() {
                 }
+                SearchAllModule = __decorate([
+                    core_1.NgModule({
+                        imports: [
+                            searchall_routing_1.routing,
+                            http_1.HttpModule,
+                            reportwidgets_module_1.ReportWidgetsModule
+                        ],
+                        declarations: [
+                            searchall_component_1.SearchAllComponent
+                        ]
+                    })
+                ], SearchAllModule);
                 return SearchAllModule;
             }());
-            SearchAllModule = __decorate([
-                core_1.NgModule({
-                    imports: [
-                        searchall_routing_1.routing,
-                        http_1.HttpModule,
-                        reportwidgets_module_1.ReportWidgetsModule
-                    ],
-                    declarations: [
-                        searchall_component_1.SearchAllComponent
-                    ]
-                })
-            ], SearchAllModule);
             exports_1("SearchAllModule", SearchAllModule);
         }
     };

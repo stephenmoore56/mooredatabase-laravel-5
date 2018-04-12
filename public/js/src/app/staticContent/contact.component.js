@@ -21,7 +21,7 @@ System.register(["@angular/core", "../services/data.service"], function (exports
             }
         ],
         execute: function () {
-            ContactComponent = (function () {
+            ContactComponent = /** @class */ (function () {
                 function ContactComponent(_reportDataService) {
                     this._reportDataService = _reportDataService;
                     window.document.title = 'MOORE+DATABASE - Contact Me';
@@ -32,15 +32,15 @@ System.register(["@angular/core", "../services/data.service"], function (exports
                         .getCarouselImage()
                         .subscribe(function (r) { return _this.image = r[0]; }, function (error) { return console.log("Error: ", error); });
                 };
+                ContactComponent = __decorate([
+                    core_1.Component({
+                        selector: 'relative-path',
+                        templateUrl: 'templates/static/contact.html'
+                    }),
+                    __metadata("design:paramtypes", [data_service_1.DataService])
+                ], ContactComponent);
                 return ContactComponent;
             }());
-            ContactComponent = __decorate([
-                core_1.Component({
-                    selector: 'relative-path',
-                    templateUrl: 'templates/static/contact.html'
-                }),
-                __metadata("design:paramtypes", [data_service_1.DataService])
-            ], ContactComponent);
             exports_1("ContactComponent", ContactComponent);
         }
     };

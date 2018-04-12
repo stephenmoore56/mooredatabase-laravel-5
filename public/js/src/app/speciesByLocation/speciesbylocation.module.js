@@ -30,24 +30,24 @@ System.register(["@angular/core", "@angular/common", "@angular/forms", "@angular
             }
         ],
         execute: function () {
-            SpeciesByLocationModule = (function () {
+            SpeciesByLocationModule = /** @class */ (function () {
                 function SpeciesByLocationModule() {
                 }
+                SpeciesByLocationModule = __decorate([
+                    core_1.NgModule({
+                        imports: [
+                            speciesbylocation_routing_1.routing,
+                            common_1.CommonModule,
+                            http_1.HttpModule,
+                            forms_1.FormsModule
+                        ],
+                        declarations: [
+                            speciesbylocation_component_1.SpeciesByLocationComponent
+                        ]
+                    })
+                ], SpeciesByLocationModule);
                 return SpeciesByLocationModule;
             }());
-            SpeciesByLocationModule = __decorate([
-                core_1.NgModule({
-                    imports: [
-                        speciesbylocation_routing_1.routing,
-                        common_1.CommonModule,
-                        http_1.HttpModule,
-                        forms_1.FormsModule
-                    ],
-                    declarations: [
-                        speciesbylocation_component_1.SpeciesByLocationComponent
-                    ]
-                })
-            ], SpeciesByLocationModule);
             exports_1("SpeciesByLocationModule", SpeciesByLocationModule);
         }
     };

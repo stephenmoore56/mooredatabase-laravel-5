@@ -18,22 +18,22 @@ System.register(["@angular/core"], function (exports_1, context_1) {
             }
         ],
         execute: function () {
-            SpeciesCountComponent = (function () {
+            SpeciesCountComponent = /** @class */ (function () {
                 function SpeciesCountComponent() {
                     this.birds = [];
                 }
+                __decorate([
+                    core_1.Input(),
+                    __metadata("design:type", Array)
+                ], SpeciesCountComponent.prototype, "birds", void 0);
+                SpeciesCountComponent = __decorate([
+                    core_1.Component({
+                        selector: 'species-count',
+                        template: "\n\t\t<span id=\"speciesCount\" class=\"form-static-control\">\n        {{ birds.length || 0 }} Species\n    </span>"
+                    })
+                ], SpeciesCountComponent);
                 return SpeciesCountComponent;
             }());
-            __decorate([
-                core_1.Input(),
-                __metadata("design:type", Array)
-            ], SpeciesCountComponent.prototype, "birds", void 0);
-            SpeciesCountComponent = __decorate([
-                core_1.Component({
-                    selector: 'species-count',
-                    template: "\n\t\t<span id=\"speciesCount\" class=\"form-static-control\">\n        {{ birds.length || 0 }} Species\n    </span>"
-                })
-            ], SpeciesCountComponent);
             exports_1("SpeciesCountComponent", SpeciesCountComponent);
         }
     };

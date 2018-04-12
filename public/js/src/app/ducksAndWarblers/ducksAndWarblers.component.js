@@ -24,7 +24,7 @@ System.register(["@angular/core", "../services/data.service", "../services/chart
             }
         ],
         execute: function () {
-            DucksAndWarblersComponent = (function () {
+            DucksAndWarblersComponent = /** @class */ (function () {
                 function DucksAndWarblersComponent(_reportChartService, _reportDataService) {
                     this._reportChartService = _reportChartService;
                     this._reportDataService = _reportDataService;
@@ -41,20 +41,20 @@ System.register(["@angular/core", "../services/data.service", "../services/chart
                         .subscribe(function (r) { return _this.ducksAndWarblers = r; }, function (error) { return console.log("Error: ", error); }, function () { return _this._reportChartService.drawChartDucksAndWarblers(_this.ducksAndWarblers, 'chart_div_1'); });
                     window.document.title = "MOORE+DATABASE - Species By Year";
                 };
+                DucksAndWarblersComponent = __decorate([
+                    core_1.Component({
+                        selector: 'report',
+                        templateUrl: 'templates/reports/ducksAndWarblers.html',
+                        providers: [
+                            data_service_1.DataService,
+                            chart_service_1.ChartService
+                        ]
+                    }),
+                    __metadata("design:paramtypes", [chart_service_1.ChartService,
+                        data_service_1.DataService])
+                ], DucksAndWarblersComponent);
                 return DucksAndWarblersComponent;
             }());
-            DucksAndWarblersComponent = __decorate([
-                core_1.Component({
-                    selector: 'report',
-                    templateUrl: 'templates/reports/ducksAndWarblers.html',
-                    providers: [
-                        data_service_1.DataService,
-                        chart_service_1.ChartService
-                    ]
-                }),
-                __metadata("design:paramtypes", [chart_service_1.ChartService,
-                    data_service_1.DataService])
-            ], DucksAndWarblersComponent);
             exports_1("DucksAndWarblersComponent", DucksAndWarblersComponent);
         }
     };

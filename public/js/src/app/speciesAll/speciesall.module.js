@@ -30,24 +30,24 @@ System.register(["@angular/core", "@angular/http", "./speciesall.component", "..
             }
         ],
         execute: function () {
-            SpeciesAllModule = (function () {
+            SpeciesAllModule = /** @class */ (function () {
                 function SpeciesAllModule() {
                 }
+                SpeciesAllModule = __decorate([
+                    core_1.NgModule({
+                        imports: [
+                            speciesall_routing_1.routing,
+                            http_1.HttpModule,
+                            reportwidgets_module_1.ReportWidgetsModule,
+                            pipes_module_1.PipesModule
+                        ],
+                        declarations: [
+                            speciesall_component_1.SpeciesAllComponent
+                        ]
+                    })
+                ], SpeciesAllModule);
                 return SpeciesAllModule;
             }());
-            SpeciesAllModule = __decorate([
-                core_1.NgModule({
-                    imports: [
-                        speciesall_routing_1.routing,
-                        http_1.HttpModule,
-                        reportwidgets_module_1.ReportWidgetsModule,
-                        pipes_module_1.PipesModule
-                    ],
-                    declarations: [
-                        speciesall_component_1.SpeciesAllComponent
-                    ]
-                })
-            ], SpeciesAllModule);
             exports_1("SpeciesAllModule", SpeciesAllModule);
         }
     };

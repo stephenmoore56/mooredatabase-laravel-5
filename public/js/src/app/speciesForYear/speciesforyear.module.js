@@ -33,25 +33,25 @@ System.register(["@angular/core", "@angular/http", "./speciesforyear.component",
             }
         ],
         execute: function () {
-            SpeciesForYearModule = (function () {
+            SpeciesForYearModule = /** @class */ (function () {
                 function SpeciesForYearModule() {
                 }
+                SpeciesForYearModule = __decorate([
+                    core_1.NgModule({
+                        imports: [
+                            speciesforyear_routing_1.routing,
+                            http_1.HttpModule,
+                            reportwidgets_module_1.ReportWidgetsModule,
+                            router_1.RouterModule,
+                            pipes_module_1.PipesModule
+                        ],
+                        declarations: [
+                            speciesforyear_component_1.SpeciesForYearComponent
+                        ]
+                    })
+                ], SpeciesForYearModule);
                 return SpeciesForYearModule;
             }());
-            SpeciesForYearModule = __decorate([
-                core_1.NgModule({
-                    imports: [
-                        speciesforyear_routing_1.routing,
-                        http_1.HttpModule,
-                        reportwidgets_module_1.ReportWidgetsModule,
-                        router_1.RouterModule,
-                        pipes_module_1.PipesModule
-                    ],
-                    declarations: [
-                        speciesforyear_component_1.SpeciesForYearComponent
-                    ]
-                })
-            ], SpeciesForYearModule);
             exports_1("SpeciesForYearModule", SpeciesForYearModule);
         }
     };
