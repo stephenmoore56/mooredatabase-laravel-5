@@ -107,7 +107,6 @@ class ComposerStaticInit817624d78622a7b37d8301efcb686cbc
             'Cron\\' => 5,
             'Collective\\Html\\' => 16,
             'ClassPreloader\\' => 15,
-            'Carbon\\' => 7,
         ),
         'A' => 
         array (
@@ -279,10 +278,6 @@ class ComposerStaticInit817624d78622a7b37d8301efcb686cbc
         array (
             0 => __DIR__ . '/..' . '/classpreloader/classpreloader/src',
         ),
-        'Carbon\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
-        ),
         'Aws\\' => 
         array (
             0 => __DIR__ . '/..' . '/aws/aws-sdk-php/src',
@@ -291,6 +286,10 @@ class ComposerStaticInit817624d78622a7b37d8301efcb686cbc
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
+    );
+
+    public static $fallbackDirsPsr4 = array (
+        0 => __DIR__ . '/..' . '/nesbot/carbon/src',
     );
 
     public static $prefixesPsr0 = array (
@@ -597,6 +596,8 @@ class ComposerStaticInit817624d78622a7b37d8301efcb686cbc
         'Aws\\ImportExport\\ImportExportClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/ImportExport/ImportExportClient.php',
         'Aws\\Inspector\\Exception\\InspectorException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Inspector/Exception/InspectorException.php',
         'Aws\\Inspector\\InspectorClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Inspector/InspectorClient.php',
+        'Aws\\IoTAnalytics\\Exception\\IoTAnalyticsException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/IoTAnalytics/Exception/IoTAnalyticsException.php',
+        'Aws\\IoTAnalytics\\IoTAnalyticsClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/IoTAnalytics/IoTAnalyticsClient.php',
         'Aws\\IoTJobsDataPlane\\Exception\\IoTJobsDataPlaneException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/IoTJobsDataPlane/Exception/IoTJobsDataPlaneException.php',
         'Aws\\IoTJobsDataPlane\\IoTJobsDataPlaneClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/IoTJobsDataPlane/IoTJobsDataPlaneClient.php',
         'Aws\\IotDataPlane\\Exception\\IotDataPlaneException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/IotDataPlane/Exception/IotDataPlaneException.php',
@@ -2074,6 +2075,7 @@ class ComposerStaticInit817624d78622a7b37d8301efcb686cbc
         'JmesPath\\TreeCompiler' => __DIR__ . '/..' . '/mtdowling/jmespath.php/src/TreeCompiler.php',
         'JmesPath\\TreeInterpreter' => __DIR__ . '/..' . '/mtdowling/jmespath.php/src/TreeInterpreter.php',
         'JmesPath\\Utils' => __DIR__ . '/..' . '/mtdowling/jmespath.php/src/Utils.php',
+        'JsonSerializable' => __DIR__ . '/..' . '/nesbot/carbon/src/JsonSerializable.php',
         'League\\Flysystem\\AdapterInterface' => __DIR__ . '/..' . '/league/flysystem/src/AdapterInterface.php',
         'League\\Flysystem\\Adapter\\AbstractAdapter' => __DIR__ . '/..' . '/league/flysystem/src/Adapter/AbstractAdapter.php',
         'League\\Flysystem\\Adapter\\AbstractFtpAdapter' => __DIR__ . '/..' . '/league/flysystem/src/Adapter/AbstractFtpAdapter.php',
@@ -3834,6 +3836,7 @@ class ComposerStaticInit817624d78622a7b37d8301efcb686cbc
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit817624d78622a7b37d8301efcb686cbc::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit817624d78622a7b37d8301efcb686cbc::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInit817624d78622a7b37d8301efcb686cbc::$fallbackDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit817624d78622a7b37d8301efcb686cbc::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit817624d78622a7b37d8301efcb686cbc::$classMap;
 

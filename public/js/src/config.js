@@ -6,7 +6,6 @@ System.config({
     map: {
 
         'app': 'js/src',
-
         '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
         '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
         '@angular/compiler': 'npm:@angular/compiler/bundles/compiler.umd.js',
@@ -16,7 +15,9 @@ System.config({
         '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
         '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
         'tslib': 'npm:tslib',
-        'rxjs': 'npm:rxjs',
+        'rxjs': 'https://unpkg.com/rxjs@5.5.2',
+        'rxjs-compat': 'npm:rxjs-compat',
+        'rxjs/operators': 'npm:rxjs/operators',
         'typescript': 'npm:typescript@2.1.6/lib/typescript.js'
     },
     //packages defines our app package
@@ -25,7 +26,12 @@ System.config({
             main: './main.js',
             defaultExtension: 'js'
         },
-        rxjs: {
+        'rxjs': {
+            main: 'index.js',
+            defaultExtension: 'js'
+        },
+        'rxjs/operators': {
+            main: 'index.js',
             defaultExtension: 'js'
         }
     }
