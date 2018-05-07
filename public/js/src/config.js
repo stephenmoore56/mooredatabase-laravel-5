@@ -15,7 +15,7 @@ System.config({
         '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
         '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
         'tslib': 'npm:tslib',
-        'rxjs': 'https://unpkg.com/rxjs@5.5.2',
+        'rxjs': 'https://unpkg.com/rxjs',
         'rxjs-compat': 'npm:rxjs-compat',
         'rxjs/operators': 'npm:rxjs/operators',
         'typescript': 'npm:typescript@2.1.6/lib/typescript.js'
