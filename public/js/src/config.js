@@ -30,6 +30,10 @@ System.config({
             main: 'index.js',
             defaultExtension: 'js'
         },
+        'rxjs-compat': {
+            main: 'index.js',
+            defaultExtension: 'js'
+        },
         'rxjs/operators': {
             main: 'index.js',
             defaultExtension: 'js'
